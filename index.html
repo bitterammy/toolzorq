@@ -240,6 +240,56 @@
       .pw-out { font-size: 1.15rem; word-break: break-all; }
       .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
 
+      /* ---------- new tool components ---------- */
+      .field input[type="datetime-local"], .field input[type="color"] {
+        width: 100%; background: var(--bg-raise); border: 1px solid var(--line-strong); border-radius: 12px;
+        padding: 11px 12px; outline: none;
+      }
+      .field input[type="color"] { height: 50px; padding: 5px 8px; cursor: pointer; }
+      .field input[type="datetime-local"]:focus, .field input[type="color"]:focus { border-color: var(--gold); }
+      .seg { display: flex; gap: 5px; background: var(--surface-2); border: 1px solid var(--line); padding: 4px; border-radius: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+      .seg button {
+        flex: 1; min-width: 110px; border: 0; background: transparent; padding: 9px 10px; border-radius: 9px;
+        font-weight: 700; font-size: .92rem; color: var(--ink-2);
+      }
+      .seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+      .big-clock {
+        font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700; text-align: center;
+        font-size: clamp(2.4rem, 9vw, 3.9rem); letter-spacing: .02em; line-height: 1.1; padding: 10px 0 4px;
+        font-variant-numeric: tabular-nums;
+      }
+      .clock-label { text-align: center; color: var(--ink-2); font-weight: 700; font-size: .9rem; margin-bottom: 6px; }
+      .center-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 14px; }
+      .laps { margin-top: 16px; max-height: 190px; overflow: auto; }
+      .laps:empty { display: none; }
+      .lap-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 4px; border-bottom: 1px solid var(--line); font-size: .92rem; }
+      .lap-row b { font-family: "JetBrains Mono", ui-monospace, monospace; }
+      .lap-row span { color: var(--ink-2); }
+      .mini-table { width: 100%; border-collapse: collapse; font-size: .93rem; margin-top: 6px; }
+      .mini-table td { padding: 7px 6px; border-bottom: 1px solid var(--line); }
+      .mini-table td:last-child { text-align: right; font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700; }
+      .mini-table tr:last-child td { border-bottom: 0; }
+      .color-preview { height: 92px; border-radius: 14px; border: 1px solid var(--line); margin-bottom: 16px; }
+      .swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+      .swatch { width: 42px; height: 42px; border-radius: 10px; border: 1px solid var(--line-strong); padding: 0; }
+      .swatch:hover { outline: 2px solid var(--gold); }
+      .val-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+      .val-row:last-child { border-bottom: 0; }
+      .val-row .k { font-weight: 800; font-size: .82rem; color: var(--ink-2); width: 44px; flex: none; }
+      .val-row .v { font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700; flex: 1; min-width: 0; word-break: break-all; }
+      .big-pick { text-align: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(1.5rem, 5vw, 2.2rem); padding: 12px 6px; }
+      .dice-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 8px 0; }
+      .die {
+        width: 56px; height: 56px; border-radius: 13px; background: var(--ink); color: var(--gold-bright);
+        display: grid; place-items: center; font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 1.5rem;
+      }
+      .pct-presets { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 8px; }
+      .pct-presets button {
+        border: 1px solid var(--line-strong); background: var(--bg-raise); color: var(--ink-2);
+        padding: 7px 13px; border-radius: 999px; font-weight: 700; font-size: .86rem;
+      }
+      .pct-presets button[aria-pressed="true"] { background: var(--ink); color: var(--gold-bright); border-color: var(--ink); }
+
       /* ---------- channels ---------- */
       .chan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 30px; }
       @media (max-width: 820px) { .chan-grid { grid-template-columns: 1fr; } }
@@ -334,6 +384,7 @@
           <button class="chip" type="button" data-cat="text" aria-pressed="false">Text</button>
           <button class="chip" type="button" data-cat="money" aria-pressed="false">Money</button>
           <button class="chip" type="button" data-cat="everyday" aria-pressed="false">Everyday</button>
+          <button class="chip" type="button" data-cat="dev" aria-pressed="false">Dev</button>
         </div>
 
         <div class="tool-grid" id="tool-grid">
@@ -401,6 +452,90 @@
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></span>
             <h3>Percentage Calculator</h3>
             <p>Percent of a number, percentage change, discounts and exam marks — three quick modes.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="bmi" data-cat="everyday" data-name="bmi calculator body mass index weight height health fitness">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.2-4.6-9.3-9A5.4 5.4 0 0 1 12 6.4a5.4 5.4 0 0 1 9.3 5.1c-2.1 4.4-9.3 9-9.3 9z"/><path d="M4.5 12h3l1.8-2.8 2.9 5 2-2.2h5.3"/></svg></span>
+            <h3>BMI Calculator</h3>
+            <p>Body mass index from your height and weight, with the WHO category and your healthy weight range.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="units" data-cat="everyday" data-name="unit converter length weight temperature volume speed area data cm inches kg pounds">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 16.5 16.5 3.5l4 4L7.5 20.5l-4-4z"/><path d="m8.2 15.8 1.6 1.6M11.2 12.8l1.6 1.6M14.2 9.8l1.6 1.6"/></svg></span>
+            <h3>Unit Converter</h3>
+            <p>Length, weight, temperature, volume, speed, area and data — converted into every unit at once.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="currency" data-cat="money" data-name="currency converter exchange rate dollar euro rupee usd pkr inr forex">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5V17M4 13.5 7 17l3-3.5M17 20.5V7M14 10.5 17 7l3 3.5"/></svg></span>
+            <h3>Currency Converter</h3>
+            <p>Convert between 29 currencies with reference rates that refresh live, plus a multi-currency table.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="stopwatch" data-cat="everyday" data-name="stopwatch timer lap time clock countdown minutes seconds">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.8v3.7l2.6 2M9.5 3h5M12 3v3"/></svg></span>
+            <h3>Stopwatch &amp; Timer</h3>
+            <p>A precise stopwatch with lap times, plus a kitchen-style countdown timer with a sound alert.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="pomodoro" data-cat="everyday" data-name="pomodoro timer focus study work break productivity 25 minutes">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.5" r="8.5"/><path d="M12 7.5v5l3.5 2.2M12 4c.2-1.6 1.2-2.6 3-3"/></svg></span>
+            <h3>Pomodoro Timer</h3>
+            <p>25-minute focus blocks with short and long breaks — the classic study and work rhythm.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="color" data-cat="image" data-name="color picker colour hex rgb hsl shades palette design">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2s6.2 6.8 6.2 11.1a6.2 6.2 0 0 1-12.4 0C5.8 10 12 3.2 12 3.2z"/><path d="M9.2 14.5a2.9 2.9 0 0 0 2 3.4"/></svg></span>
+            <h3>Color Picker</h3>
+            <p>Pick any color and get its HEX, RGB and HSL values, plus a full shade and tint palette to copy.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="json" data-cat="text dev" data-name="json formatter validator minify beautify format developer code">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 4C6.6 4 5.5 5 5.5 6.8V10c0 1.4-.5 2-1.8 2 1.3 0 1.8.6 1.8 2v3.2C5.5 19 6.6 20 8.5 20M15.5 4c1.9 0 3 1 3 2.8V10c0 1.4.5 2 1.8 2-1.3 0-1.8.6-1.8 2v3.2c0 1.8-1.1 2.8-3 2.8"/></svg></span>
+            <h3>JSON Formatter</h3>
+            <p>Format, minify and validate JSON entirely in your browser — pasted tokens never leave your device.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="base64" data-cat="text dev" data-name="base64 encoder decoder encode decode text developer">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-5.5 6L8 18M16 6l5.5 6L16 18"/></svg></span>
+            <h3>Base64 Encoder / Decoder</h3>
+            <p>Encode text to Base64 or decode it back — Unicode-safe and fully on-device.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="tip" data-cat="money" data-name="tip calculator bill split restaurant gratuity per person">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v17.2l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 20.2z"/><path d="M9.2 8h5.6M9.2 12h5.6"/></svg></span>
+            <h3>Tip Calculator</h3>
+            <p>Bill, tip percentage and split between people — tip, total and each person’s share.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="datecalc" data-cat="everyday" data-name="date calculator days between dates add subtract days calendar">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7.5 14.5h.01M12 14.5h.01M16.5 14.5h.01M7.5 17.8h.01M12 17.8h.01"/></svg></span>
+            <h3>Date Calculator</h3>
+            <p>Days between two dates, or add / subtract days from any date — with the weekday of the result.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="random" data-cat="everyday" data-name="random picker name dice coin flip draw winner choose">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.4" cy="8.4" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.6" cy="8.4" r="1.4" fill="currentColor" stroke="none"/><circle cx="8.4" cy="15.6" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.6" cy="15.6" r="1.4" fill="currentColor" stroke="none"/></svg></span>
+            <h3>Random Picker</h3>
+            <p>Pick a random name from your list, flip a coin or roll the dice — fair, instant, no sign-up.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="countdown" data-cat="everyday" data-name="countdown timer date event days until deadline new year">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.8v3.7l2.6 2M4.8 3.4 3 6.2M19.2 3.4 21 6.2"/></svg></span>
+            <h3>Countdown Timer</h3>
+            <p>Live countdown to any date and time — days, hours, minutes and seconds until the moment.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="aiimage" data-cat="image" data-name="ai image generator artificial intelligence picture prompt art photo create">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5-5 3 3 3.5-3.5L20 17"/><path d="M18.5 2.5l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z" fill="currentColor" stroke="none"/></svg></span>
+            <h3>AI Image Generator</h3>
+            <p>Describe anything and a real AI model paints it — powered by the free Pollinations service, no sign-up.</p>
+            <span class="open">Open tool →</span>
+          </button>
+          <button class="tool-card" type="button" data-open="videomaker" data-cat="image" data-name="video maker slideshow photos images text mp4 slideshow creator">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/><path d="M7 5v14M17 5v14"/></svg></span>
+            <h3>Video Maker</h3>
+            <p>Turn your photos into a real downloadable video with text overlays and fade transitions — built in your browser.</p>
             <span class="open">Open tool →</span>
           </button>
         </div>
@@ -687,6 +822,447 @@
             </div>
           </div>
 
+          <div class="panel" id="panel-bmi">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>BMI Calculator</h3>
+            <p class="sub">Body Mass Index using the standard WHO formula and categories — a general guide, not medical advice.</p>
+            <div class="field">
+              <label for="bmi-sys">Units</label>
+              <select id="bmi-sys">
+                <option value="metric" selected>Metric — cm &amp; kg</option>
+                <option value="imperial">Imperial — ft / in &amp; lb</option>
+              </select>
+            </div>
+            <div class="grid-2" id="bmi-metric">
+              <div class="field">
+                <label for="bmi-cm">Height (cm)</label>
+                <input type="number" id="bmi-cm" value="170" min="0" step="0.1" />
+              </div>
+              <div class="field">
+                <label for="bmi-kg">Weight (kg)</label>
+                <input type="number" id="bmi-kg" value="70" min="0" step="0.1" />
+              </div>
+            </div>
+            <div class="grid-3" id="bmi-imperial" style="display:none">
+              <div class="field">
+                <label for="bmi-ft">Height (feet)</label>
+                <input type="number" id="bmi-ft" value="5" min="0" step="1" />
+              </div>
+              <div class="field">
+                <label for="bmi-in">Height (inches)</label>
+                <input type="number" id="bmi-in" value="7" min="0" step="0.1" />
+              </div>
+              <div class="field">
+                <label for="bmi-lb">Weight (lb)</label>
+                <input type="number" id="bmi-lb" value="154" min="0" step="0.1" />
+              </div>
+            </div>
+            <button class="btn" type="button" id="bmi-go">Calculate BMI</button>
+            <div class="result-box" id="bmi-out"></div>
+          </div>
+
+          <div class="panel" id="panel-units">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Unit Converter</h3>
+            <p class="sub">Seven categories in one place — type a value and see it converted into every unit in the category at once.</p>
+            <div class="grid-3">
+              <div class="field">
+                <label for="uc-cat">Category</label>
+                <select id="uc-cat">
+                  <option value="length" selected>Length</option>
+                  <option value="weight">Weight</option>
+                  <option value="temperature">Temperature</option>
+                  <option value="volume">Volume</option>
+                  <option value="speed">Speed</option>
+                  <option value="area">Area</option>
+                  <option value="data">Data storage</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="uc-value">Value</label>
+                <input type="number" id="uc-value" value="1" step="any" />
+              </div>
+              <div class="field">
+                <label for="uc-from">From unit</label>
+                <select id="uc-from"></select>
+              </div>
+            </div>
+            <div class="btn-row" style="margin-top:0">
+              <button class="btn ghost small" type="button" id="uc-swap">⇅ Use result unit as input</button>
+            </div>
+            <div class="result-box" id="uc-out"></div>
+          </div>
+
+          <div class="panel" id="panel-currency">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Currency Converter</h3>
+            <p class="sub">Mid-market reference rates — the same kind banks use between themselves. Your bank or money changer will offer a slightly different rate, so treat this as an accurate guide, not a quote.</p>
+            <div class="grid-3">
+              <div class="field">
+                <label for="cur-amount">Amount</label>
+                <input type="number" id="cur-amount" value="100" min="0" step="any" />
+              </div>
+              <div class="field">
+                <label for="cur-from">From</label>
+                <select id="cur-from"></select>
+              </div>
+              <div class="field">
+                <label for="cur-to">To</label>
+                <select id="cur-to"></select>
+              </div>
+            </div>
+            <div class="btn-row" style="margin-top:0">
+              <button class="btn" type="button" id="cur-go">Convert</button>
+              <button class="btn ghost" type="button" id="cur-swap">⇅ Swap</button>
+            </div>
+            <div class="result-box" id="cur-out"></div>
+            <p class="note" id="cur-note"></p>
+          </div>
+
+          <div class="panel" id="panel-stopwatch">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Stopwatch &amp; Timer</h3>
+            <p class="sub">A hundredth-of-a-second stopwatch with laps, and a countdown timer that beeps when it finishes. Both keep running while the tab stays open.</p>
+            <div class="seg" role="group" aria-label="Stopwatch or timer">
+              <button type="button" id="sw-tab-sw" aria-pressed="true">Stopwatch</button>
+              <button type="button" id="sw-tab-tm" aria-pressed="false">Countdown timer</button>
+            </div>
+            <div id="sw-mode">
+              <div class="big-clock" id="sw-display">00:00.00</div>
+              <div class="center-row">
+                <button class="btn" type="button" id="sw-toggle">Start</button>
+                <button class="btn ghost" type="button" id="sw-lap">Lap</button>
+                <button class="btn ghost" type="button" id="sw-reset">Reset</button>
+              </div>
+              <div class="laps" id="sw-laps"></div>
+            </div>
+            <div id="tm-mode" style="display:none">
+              <div class="grid-3">
+                <div class="field">
+                  <label for="tm-h">Hours</label>
+                  <input type="number" id="tm-h" value="0" min="0" max="99" />
+                </div>
+                <div class="field">
+                  <label for="tm-m">Minutes</label>
+                  <input type="number" id="tm-m" value="5" min="0" max="59" />
+                </div>
+                <div class="field">
+                  <label for="tm-s">Seconds</label>
+                  <input type="number" id="tm-s" value="0" min="0" max="59" />
+                </div>
+              </div>
+              <div class="big-clock" id="tm-display">05:00</div>
+              <div class="center-row">
+                <button class="btn" type="button" id="tm-toggle">Start timer</button>
+                <button class="btn ghost" type="button" id="tm-reset">Reset</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="panel-pomodoro">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Pomodoro Timer</h3>
+            <p class="sub">Work in focused 25-minute blocks, rest for 5, and take a longer 15-minute break after four blocks. A gentle beep marks the end of each block.</p>
+            <div class="seg" role="group" aria-label="Pomodoro mode">
+              <button type="button" data-pm="1500" aria-pressed="true">Focus · 25 min</button>
+              <button type="button" data-pm="300" aria-pressed="false">Short break · 5 min</button>
+              <button type="button" data-pm="900" aria-pressed="false">Long break · 15 min</button>
+            </div>
+            <div class="big-clock" id="pm-display">25:00</div>
+            <div class="clock-label" id="pm-label">Focus session 1</div>
+            <div class="center-row">
+              <button class="btn" type="button" id="pm-toggle">Start focus</button>
+              <button class="btn ghost" type="button" id="pm-reset">Reset</button>
+            </div>
+            <div class="result-box">
+              <div class="stat-row">
+                <div class="stat"><b id="pm-sessions">0</b><span>Focus blocks done</span></div>
+                <div class="stat"><b id="pm-minutes">0 min</b><span>Focused time</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="panel-color">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Color Picker</h3>
+            <p class="sub">Pick a color or type a HEX value — get every format plus a shade &amp; tint palette. Click any swatch to copy its HEX.</p>
+            <div class="grid-2">
+              <div class="field">
+                <label for="cp-pick">Pick a color</label>
+                <input type="color" id="cp-pick" value="#c99612" />
+              </div>
+              <div class="field">
+                <label for="cp-hex">Or type HEX</label>
+                <input type="text" id="cp-hex" value="#c99612" spellcheck="false" />
+              </div>
+            </div>
+            <div class="color-preview" id="cp-preview" style="background:#c99612"></div>
+            <div class="result-box" style="margin-top:0">
+              <div class="val-row"><span class="k">HEX</span><span class="v" id="cp-v-hex">—</span><button class="btn ghost small" type="button" data-copyval="cp-v-hex">Copy</button></div>
+              <div class="val-row"><span class="k">RGB</span><span class="v" id="cp-v-rgb">—</span><button class="btn ghost small" type="button" data-copyval="cp-v-rgb">Copy</button></div>
+              <div class="val-row"><span class="k">HSL</span><span class="v" id="cp-v-hsl">—</span><button class="btn ghost small" type="button" data-copyval="cp-v-hsl">Copy</button></div>
+            </div>
+            <p class="note" style="margin-bottom:4px"><b>Shades &amp; tints</b> — darkest to lightest:</p>
+            <div class="swatches" id="cp-swatches"></div>
+          </div>
+
+          <div class="panel" id="panel-json">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>JSON Formatter</h3>
+            <p class="sub">Format, minify and validate JSON. Everything runs locally in your browser — safe for tokens and private data.</p>
+            <div class="field">
+              <label for="jf-in">Your JSON</label>
+              <textarea id="jf-in" class="mono" placeholder='{"name":"toolzorq","tools":25}' spellcheck="false" style="min-height:150px"></textarea>
+            </div>
+            <div class="btn-row" style="margin-top:0">
+              <button class="btn" type="button" id="jf-format">Format</button>
+              <button class="btn ghost" type="button" id="jf-minify">Minify</button>
+              <button class="btn ghost" type="button" id="jf-validate">Validate only</button>
+              <label style="display:flex;align-items:center;gap:7px;font-weight:700;font-size:.9rem">Indent
+                <select id="jf-indent" style="padding:8px 10px;border-radius:10px;border:1px solid var(--line-strong);background:var(--bg-raise)">
+                  <option value="2" selected>2 spaces</option>
+                  <option value="4">4 spaces</option>
+                </select>
+              </label>
+            </div>
+            <div class="tool-msg" id="jf-msg" role="status"></div>
+            <div class="field" style="margin-top:14px">
+              <label for="jf-out">Result</label>
+              <textarea id="jf-out" class="mono" readonly placeholder="Formatted JSON will appear here…" spellcheck="false" style="min-height:150px"></textarea>
+            </div>
+            <div class="btn-row">
+              <button class="btn ghost" type="button" id="jf-copy">Copy result</button>
+              <button class="btn ghost" type="button" id="jf-clear">Clear</button>
+            </div>
+          </div>
+
+          <div class="panel" id="panel-base64">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Base64 Encoder / Decoder</h3>
+            <p class="sub">Convert text to Base64 and back. Unicode-safe (emoji and Urdu text included) and fully on-device.</p>
+            <div class="field">
+              <label for="b64-in">Input</label>
+              <textarea id="b64-in" placeholder="Type plain text to encode, or paste Base64 to decode…" spellcheck="false"></textarea>
+            </div>
+            <div class="btn-row" style="margin-top:0">
+              <button class="btn" type="button" id="b64-enc">Encode →</button>
+              <button class="btn" type="button" id="b64-dec">← Decode</button>
+            </div>
+            <div class="tool-msg" id="b64-msg" role="status"></div>
+            <div class="field" style="margin-top:14px">
+              <label for="b64-out">Result</label>
+              <textarea id="b64-out" readonly placeholder="Result will appear here…" spellcheck="false"></textarea>
+            </div>
+            <div class="btn-row">
+              <button class="btn ghost" type="button" id="b64-copy">Copy result</button>
+              <button class="btn ghost" type="button" id="b64-swap">Use result as input</button>
+              <button class="btn ghost" type="button" id="b64-clear">Clear</button>
+            </div>
+          </div>
+
+          <div class="panel" id="panel-tip">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Tip Calculator</h3>
+            <p class="sub">For restaurants, riders and anyone splitting a bill. Results update as you type.</p>
+            <div class="grid-3">
+              <div class="field">
+                <label for="tip-bill">Bill amount</label>
+                <input type="number" id="tip-bill" value="2000" min="0" step="any" />
+              </div>
+              <div class="field">
+                <label for="tip-pct">Tip %</label>
+                <input type="number" id="tip-pct" value="15" min="0" step="any" />
+                <div class="pct-presets" id="tip-presets">
+                  <button type="button" data-tip="5">5%</button>
+                  <button type="button" data-tip="10">10%</button>
+                  <button type="button" data-tip="15" aria-pressed="true">15%</button>
+                  <button type="button" data-tip="20">20%</button>
+                  <button type="button" data-tip="25">25%</button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="tip-people">Split between (people)</label>
+                <input type="number" id="tip-people" value="2" min="1" step="1" />
+              </div>
+            </div>
+            <div class="result-box" id="tip-out"></div>
+          </div>
+
+          <div class="panel" id="panel-datecalc">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Date Calculator</h3>
+            <p class="sub">Two everyday jobs: count the days between two dates, or jump forward / backward from a date by any number of days.</p>
+            <h4 style="margin:0 0 10px">Days between dates</h4>
+            <div class="grid-2">
+              <div class="field">
+                <label for="dc-from">From</label>
+                <input type="date" id="dc-from" />
+              </div>
+              <div class="field">
+                <label for="dc-to">To</label>
+                <input type="date" id="dc-to" />
+              </div>
+            </div>
+            <button class="btn" type="button" id="dc-diff-go">Count days</button>
+            <div class="result-box" id="dc-diff-out"></div>
+            <h4 style="margin:22px 0 10px">Add or subtract days</h4>
+            <div class="grid-3">
+              <div class="field">
+                <label for="dc-start">Start date</label>
+                <input type="date" id="dc-start" />
+              </div>
+              <div class="field">
+                <label for="dc-days">Days</label>
+                <input type="number" id="dc-days" value="30" step="1" />
+              </div>
+              <div class="field">
+                <label for="dc-dir">Direction</label>
+                <select id="dc-dir">
+                  <option value="1" selected>Add days</option>
+                  <option value="-1">Subtract days</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn" type="button" id="dc-add-go">Calculate date</button>
+            <div class="result-box" id="dc-add-out"></div>
+          </div>
+
+          <div class="panel" id="panel-random">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Random Picker</h3>
+            <p class="sub">Fair random picks using your browser’s crypto randomness — for giveaways, classrooms, teams and decisions.</p>
+            <h4 style="margin:0 0 10px">Pick a name or item</h4>
+            <div class="field">
+              <label for="rp-list">One name or item per line</label>
+              <textarea id="rp-list" placeholder="Ali&#10;Sara&#10;Ahmed&#10;Fatima" style="min-height:110px"></textarea>
+            </div>
+            <button class="btn" type="button" id="rp-pick">Pick one at random</button>
+            <div class="result-box" id="rp-out"></div>
+            <h4 style="margin:22px 0 10px">Coin flip &amp; dice</h4>
+            <div class="btn-row" style="margin-top:0">
+              <button class="btn ghost" type="button" id="rp-coin">Flip a coin</button>
+              <label style="display:flex;align-items:center;gap:7px;font-weight:700;font-size:.9rem">Dice
+                <select id="rp-dice-n" style="padding:8px 10px;border-radius:10px;border:1px solid var(--line-strong);background:var(--bg-raise)">
+                  <option value="1">1</option>
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </label>
+              <button class="btn ghost" type="button" id="rp-dice">Roll dice</button>
+            </div>
+            <div class="result-box" id="rp-fun-out"></div>
+          </div>
+
+          <div class="panel" id="panel-countdown">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Countdown Timer</h3>
+            <p class="sub">Count down to any moment — a launch, a birthday, a deadline. Quick-set buttons fill in the target for you.</p>
+            <div class="field">
+              <label for="cd-target">Target date &amp; time</label>
+              <input type="datetime-local" id="cd-target" />
+            </div>
+            <div class="btn-row" style="margin-top:0">
+              <button class="btn ghost small" type="button" data-cd="3600">In 1 hour</button>
+              <button class="btn ghost small" type="button" data-cd="21600">In 6 hours</button>
+              <button class="btn ghost small" type="button" data-cd="86400">In 1 day</button>
+              <button class="btn ghost small" type="button" data-cd="604800">In 1 week</button>
+              <button class="btn" type="button" id="cd-go">Start countdown</button>
+            </div>
+            <div class="result-box" id="cd-out"></div>
+          </div>
+
+          <div class="panel" id="panel-aiimage">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>AI Image Generator</h3>
+            <p class="sub">Type a description and a real AI image model generates the picture for you. Powered by the free public Pollinations service — no sign-up, no key. Generation usually takes a few seconds.</p>
+            <div class="field">
+              <label for="ai-prompt">Describe the image</label>
+              <input type="text" id="ai-prompt" placeholder="A golden castle floating above the clouds at sunset, digital painting" />
+            </div>
+            <div class="grid-2">
+              <div class="field">
+                <label for="ai-size">Size</label>
+                <select id="ai-size">
+                  <option value="1024x1024" selected>Square — 1024 × 1024</option>
+                  <option value="1280x720">Wide — 1280 × 720</option>
+                  <option value="720x1280">Tall — 720 × 1280</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="ai-model">Model</label>
+                <select id="ai-model">
+                  <option value="flux" selected>Flux (best quality)</option>
+                  <option value="turbo">Turbo (faster)</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn" type="button" id="ai-go">Generate image</button>
+            <div class="tool-msg" id="ai-msg" role="status"></div>
+            <div id="ai-result" style="display:none">
+              <img id="ai-img" alt="AI-generated image from your prompt" style="width:100%;border-radius:14px;border:1px solid var(--line);display:block;background:var(--surface-2)" />
+              <div class="btn-row">
+                <button class="btn" type="button" id="ai-download">Download image</button>
+                <button class="btn ghost" type="button" id="ai-newseed">Regenerate (new variation)</button>
+              </div>
+            </div>
+            <p class="note">Images are created on Pollinations’ servers (pollinations.ai), a free public AI service — your prompt is sent there to generate the image. Every generation is unique; results vary and may not always match the prompt perfectly.</p>
+          </div>
+
+          <div class="panel" id="panel-videomaker">
+            <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
+            <h3>Video Maker</h3>
+            <p class="sub">Build a real slideshow video from your own photos: each image becomes a scene with your caption, smooth fades between scenes, and a downloadable video file at the end. This is a slideshow maker that runs 100% in your browser — it is <b>not</b> AI video generation (that needs a paid AI service).</p>
+            <div class="drop" id="vm-drop">
+              <p style="margin:0 0 6px"><b>Drop images here</b> or</p>
+              <button class="btn small" type="button" id="vm-pick">Choose images</button>
+              <input type="file" id="vm-files" accept="image/*" multiple />
+              <p class="note" style="margin-top:10px">Add 2 or more JPG / PNG / WebP images — they stay on your device</p>
+            </div>
+            <div id="vm-editor" style="display:none">
+              <div id="vm-scenes" style="margin-top:18px"></div>
+              <div class="grid-3" style="margin-top:6px">
+                <div class="field">
+                  <label for="vm-dur">Seconds per image</label>
+                  <select id="vm-dur">
+                    <option value="2">2 seconds</option>
+                    <option value="3" selected>3 seconds</option>
+                    <option value="4">4 seconds</option>
+                    <option value="5">5 seconds</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="vm-size">Video size</label>
+                  <select id="vm-size">
+                    <option value="1280x720" selected>HD landscape — 1280 × 720</option>
+                    <option value="720x1280">Vertical — 720 × 1280 (Shorts / Reels)</option>
+                    <option value="1080x1080">Square — 1080 × 1080</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="vm-trans">Transition</label>
+                  <select id="vm-trans">
+                    <option value="fade" selected>Fade</option>
+                    <option value="cut">Cut (instant)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="btn-row">
+                <button class="btn" type="button" id="vm-build">Create video</button>
+                <button class="btn ghost" type="button" id="vm-reset">Start over</button>
+              </div>
+              <div class="tool-msg" id="vm-msg" role="status"></div>
+              <div id="vm-result" style="display:none;margin-top:14px">
+                <video id="vm-video" controls playsinline style="width:100%;border-radius:14px;border:1px solid var(--line);background:#000;display:block"></video>
+                <div class="btn-row">
+                  <button class="btn" type="button" id="vm-download">Download video</button>
+                </div>
+                <p class="note" id="vm-note" style="margin-bottom:0"></p>
+              </div>
+              <p class="note">The video is recorded in real time (a 15-second video takes about 15 seconds to create) — keep this tab visible while it records. File format depends on your browser: MP4 in Safari and newer Chrome/Edge, WebM in Firefox.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -694,7 +1270,7 @@
     <!-- ================= STRIP ================= -->
     <div class="strip" style="border-top:1px solid var(--line);margin-top:48px">
       <div class="wrap strip-in">
-        <div class="cell"><b>11</b><span>free tools, all working</span></div>
+        <div class="cell"><b>25</b><span>free tools, all working</span></div>
         <div class="cell"><b>0</b><span>sign-ups or accounts needed</span></div>
         <div class="cell"><b>100%</b><span>in-browser — files stay on your device</span></div>
         <div class="cell"><b>2</b><span>YouTube channels to explore</span></div>
@@ -1294,6 +1870,867 @@
       }
       ["pc-a", "pc-b", "pc-c", "pc-d", "pc-e", "pc-f"].forEach(function (id) { $(id).addEventListener("input", pcUpdate); });
       pcUpdate();
+
+      /* ============ shared helpers for new tools ============ */
+      function fmtVal(n) {
+        if (typeof n !== "number" || !isFinite(n)) return "—";
+        if (n === 0) return "0";
+        var a = Math.abs(n);
+        if (a >= 1e15 || a < 0.000001) return n.toExponential(4);
+        return parseFloat(n.toPrecision(8)).toLocaleString("en-US", { maximumFractionDigits: 8 });
+      }
+      var audioCtx = null;
+      function beep(times) {
+        try {
+          var AC = window.AudioContext || window.webkitAudioContext;
+          if (!AC) return;
+          audioCtx = audioCtx || new AC();
+          if (audioCtx.state === "suspended") audioCtx.resume();
+          var n = times || 2;
+          for (var i = 0; i < n; i++) {
+            var o = audioCtx.createOscillator(), g = audioCtx.createGain();
+            o.type = "sine"; o.frequency.value = 880;
+            var t0 = audioCtx.currentTime + i * 0.35;
+            g.gain.setValueAtTime(0.0001, t0);
+            g.gain.exponentialRampToValueAtTime(0.22, t0 + 0.02);
+            g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.3);
+            o.connect(g); g.connect(audioCtx.destination);
+            o.start(t0); o.stop(t0 + 0.32);
+          }
+        } catch (e) { /* sound is a bonus, never an error */ }
+      }
+      function pad2(n) { return (n < 10 ? "0" : "") + n; }
+
+      /* ============ 12. BMI calculator ============ */
+      $("bmi-sys").addEventListener("change", function () {
+        var imp = this.value === "imperial";
+        $("bmi-metric").style.display = imp ? "none" : "";
+        $("bmi-imperial").style.display = imp ? "" : "none";
+      });
+      function bmiCalc() {
+        var out = $("bmi-out");
+        var imperial = $("bmi-sys").value === "imperial";
+        var hM, kg, ok = true;
+        if (imperial) {
+          var ft = parseFloat($("bmi-ft").value) || 0, inch = parseFloat($("bmi-in").value) || 0, lb = parseFloat($("bmi-lb").value) || 0;
+          hM = (ft * 12 + inch) * 0.0254; kg = lb * 0.45359237;
+          if (hM <= 0 || lb <= 0) ok = false;
+        } else {
+          var cm = parseFloat($("bmi-cm").value) || 0; kg = parseFloat($("bmi-kg").value) || 0;
+          hM = cm / 100;
+          if (cm <= 0 || kg <= 0) ok = false;
+        }
+        if (!ok) { out.innerHTML = '<p style="margin:0;font-weight:700">Enter a height and weight above zero.</p>'; return; }
+        var bmi = kg / (hM * hM);
+        var cat, cls;
+        if (bmi < 18.5) { cat = "Underweight"; cls = "ok"; }
+        else if (bmi < 25) { cat = "Healthy weight"; cls = "good"; }
+        else if (bmi < 30) { cat = "Overweight"; cls = "ok"; }
+        else { cat = "Obese"; cls = "bad"; }
+        var lo = 18.5 * hM * hM, hi = 24.9 * hM * hM;
+        var range = imperial ? (lo / 0.45359237).toFixed(1) + " – " + (hi / 0.45359237).toFixed(1) + " lb" : lo.toFixed(1) + " – " + hi.toFixed(1) + " kg";
+        var pct = Math.max(0, Math.min(100, (bmi - 14) / (40 - 14) * 100));
+        out.innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + bmi.toFixed(1) + '</b><span>Your BMI</span></div>' +
+          '<div class="stat"><b>' + cat + '</b><span>WHO category</span></div>' +
+          '<div class="stat"><b>' + range + '</b><span>Healthy weight for your height</span></div>' +
+          "</div>" +
+          '<div class="meter"><i class="' + cls + '" style="width:' + pct + '%"></i></div>' +
+          '<div class="limit-row"><span>14</span><span>18.5 healthy starts</span><span>25</span><span>30</span><span>40</span></div>' +
+          '<p class="note" style="margin-bottom:0">WHO categories: under 18.5 underweight · 18.5–24.9 healthy · 25–29.9 overweight · 30+ obese. BMI is a general guide — it does not account for muscle, age or body composition, and it is not a diagnosis.</p>';
+      }
+      $("bmi-go").addEventListener("click", bmiCalc);
+      ["bmi-cm", "bmi-kg", "bmi-ft", "bmi-in", "bmi-lb"].forEach(function (id) { $(id).addEventListener("input", bmiCalc); });
+      bmiCalc();
+
+      /* ============ 13. Unit converter ============ */
+      var UC = {
+        length: { units: { mm: ["Millimetres", 0.001], cm: ["Centimetres", 0.01], m: ["Metres", 1], km: ["Kilometres", 1000], "in": ["Inches", 0.0254], ft: ["Feet", 0.3048], yd: ["Yards", 0.9144], mi: ["Miles", 1609.344] } },
+        weight: { units: { g: ["Grams", 0.001], kg: ["Kilograms", 1], t: ["Tonnes", 1000], oz: ["Ounces", 0.028349523125], lb: ["Pounds", 0.45359237], st: ["Stone", 6.35029318] } },
+        volume: { units: { ml: ["Millilitres", 0.001], l: ["Litres", 1], m3: ["Cubic metres", 1000], tsp: ["Teaspoons (US)", 0.00492892159], tbsp: ["Tablespoons (US)", 0.0147867648], cup: ["Cups (US)", 0.236588237], pt: ["Pints (US)", 0.473176473], qt: ["Quarts (US)", 0.946352946], gal: ["Gallons (US)", 3.785411784] } },
+        speed: { units: { ms: ["Metres / second", 1], kmh: ["Kilometres / hour", 0.277777778], mph: ["Miles / hour", 0.44704], kn: ["Knots", 0.514444444], fts: ["Feet / second", 0.3048] } },
+        area: { units: { cm2: ["Square centimetres", 0.0001], m2: ["Square metres", 1], ha: ["Hectares", 10000], km2: ["Square kilometres", 1000000], in2: ["Square inches", 0.00064516], ft2: ["Square feet", 0.09290304], yd2: ["Square yards", 0.83612736], ac: ["Acres", 4046.8564224], mi2: ["Square miles", 2589988.11] } },
+        data: { units: { bit: ["Bits", 0.125], B: ["Bytes", 1], KB: ["Kilobytes (KB)", 1000], MB: ["Megabytes (MB)", 1000000], GB: ["Gigabytes (GB)", 1000000000], TB: ["Terabytes (TB)", 1000000000000], KiB: ["Kibibytes (KiB)", 1024], MiB: ["Mebibytes (MiB)", 1048576], GiB: ["Gibibytes (GiB)", 1073741824] } },
+        temperature: { units: { C: ["Celsius (°C)"], F: ["Fahrenheit (°F)"], K: ["Kelvin (K)"] } }
+      };
+      function ucTempToC(v, from) { return from === "C" ? v : from === "F" ? (v - 32) * 5 / 9 : v - 273.15; }
+      function ucTempFromC(c, to) { return to === "C" ? c : to === "F" ? c * 9 / 5 + 32 : c + 273.15; }
+      function ucBuildUnits(keep) {
+        var cat = $("uc-cat").value, sel = $("uc-from"), prev = sel.value;
+        sel.innerHTML = "";
+        Object.keys(UC[cat].units).forEach(function (k) {
+          var o = document.createElement("option");
+          o.value = k; o.textContent = UC[cat].units[k][0];
+          sel.appendChild(o);
+        });
+        if (keep && UC[cat].units[prev]) sel.value = prev;
+      }
+      var ucLastUnit = null;
+      function ucUpdate() {
+        var cat = $("uc-cat").value, from = $("uc-from").value, v = parseFloat($("uc-value").value);
+        var out = $("uc-out");
+        if (isNaN(v)) { out.innerHTML = '<p style="margin:0;font-weight:700">Type a number to convert.</p>'; return; }
+        var rows = "", firstKey = null;
+        Object.keys(UC[cat].units).forEach(function (k) {
+          var res;
+          if (cat === "temperature") res = ucTempFromC(ucTempToC(v, from), k);
+          else res = v * UC[cat].units[from][1] / UC[cat].units[k][1];
+          if (k === from) { firstKey = k; }
+          rows += "<tr" + (k === from ? ' style="background:var(--gold-soft)"' : "") + "><td>" + UC[cat].units[k][0] + "</td><td>" + fmtVal(res) + "</td></tr>";
+        });
+        ucLastUnit = Object.keys(UC[cat].units)[0];
+        out.innerHTML = '<p style="margin:0 0 4px"><b>' + fmtVal(v) + " " + UC[cat].units[from][0] + '</b> equals:</p><table class="mini-table">' + rows + "</table>";
+      }
+      $("uc-cat").addEventListener("change", function () { ucBuildUnits(false); ucUpdate(); });
+      $("uc-from").addEventListener("change", ucUpdate);
+      $("uc-value").addEventListener("input", ucUpdate);
+      $("uc-swap").addEventListener("click", function () {
+        var cur = $("uc-from").value;
+        var keys = Object.keys(UC[$("uc-cat").value].units);
+        var other = keys.filter(function (k) { return k !== cur; })[0];
+        if (other && ucLastUnit) { /* convert current value into the first other unit, then make it the input */
+          var v = parseFloat($("uc-value").value);
+          if (!isNaN(v)) {
+            var cat = $("uc-cat").value, res;
+            if (cat === "temperature") res = ucTempFromC(ucTempToC(v, cur), other);
+            else res = v * UC[cat].units[cur][1] / UC[cat].units[other][1];
+            $("uc-value").value = parseFloat(res.toPrecision(8));
+          }
+          $("uc-from").value = other;
+          ucUpdate();
+        }
+      });
+      ucBuildUnits(false);
+      ucUpdate();
+
+      /* ============ 14. Currency converter ============ */
+      var CUR = {
+        USD: ["US Dollar", 1], EUR: ["Euro", 0.891529], GBP: ["British Pound", 0.746661], PKR: ["Pakistani Rupee", 276.98617],
+        INR: ["Indian Rupee", 94.901331], AED: ["UAE Dirham", 3.6725], SAR: ["Saudi Riyal", 3.75], QAR: ["Qatari Riyal", 3.64],
+        KWD: ["Kuwaiti Dinar", 0.31006], CAD: ["Canadian Dollar", 1.401351], AUD: ["Australian Dollar", 1.425307], JPY: ["Japanese Yen", 156.920637],
+        CNY: ["Chinese Yuan", 6.688225], CHF: ["Swiss Franc", 0.821251], TRY: ["Turkish Lira", 49.680228], BDT: ["Bangladeshi Taka", 123.709857],
+        LKR: ["Sri Lankan Rupee", 332.005986], NPR: ["Nepalese Rupee", 151.833398], MYR: ["Malaysian Ringgit", 4.08304], SGD: ["Singapore Dollar", 1.277306],
+        HKD: ["Hong Kong Dollar", 7.837197], ZAR: ["South African Rand", 16.495348], NGN: ["Nigerian Naira", 1324.6032], PHP: ["Philippine Peso", 63.526643],
+        IDR: ["Indonesian Rupiah", 18082.47746], KRW: ["South Korean Won", 1324.953768], THB: ["Thai Baht", 33.729084], EGP: ["Egyptian Pound", 55.215592],
+        NZD: ["New Zealand Dollar", 1.759591]
+      };
+      var curDateLabel = "23 Oct 2026", curLive = false;
+      function curNote() {
+        $("cur-note").textContent = curLive
+          ? "Rates: ExchangeRate-API (open.er-api.com), refreshed live just now — last update " + curDateLabel + ". Mid-market reference rates; your bank’s rate will differ slightly."
+          : "Rates: ExchangeRate-API (open.er-api.com) snapshot dated " + curDateLabel + " (live refresh was not reachable just now — the converter still works with these rates). Mid-market reference rates; your bank’s rate will differ slightly.";
+      }
+      function curFill() {
+        ["cur-from", "cur-to"].forEach(function (id) {
+          var sel = $(id);
+          sel.innerHTML = "";
+          Object.keys(CUR).forEach(function (code) {
+            var o = document.createElement("option");
+            o.value = code; o.textContent = code + " — " + CUR[code][0];
+            sel.appendChild(o);
+          });
+        });
+        $("cur-from").value = "USD";
+        $("cur-to").value = "PKR";
+      }
+      function curConvert(amt, from, to) { return amt / CUR[from][1] * CUR[to][1]; }
+      function curUpdate() {
+        var amt = parseFloat($("cur-amount").value);
+        var from = $("cur-from").value, to = $("cur-to").value, out = $("cur-out");
+        if (isNaN(amt) || amt < 0) { out.innerHTML = '<p style="margin:0;font-weight:700">Enter an amount to convert.</p>'; return; }
+        var res = curConvert(amt, from, to);
+        var rate = curConvert(1, from, to);
+        var popular = ["USD", "EUR", "GBP", "PKR", "INR", "AED"];
+        var rows = "";
+        popular.forEach(function (code) {
+          if (code === to) return;
+          rows += "<tr><td>" + code + " — " + CUR[code][0] + "</td><td>" + fmtVal(curConvert(amt, from, code)) + "</td></tr>";
+        });
+        out.innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + fmtVal(res) + " " + to + '</b><span>' + fmtVal(amt) + " " + from + " converted</span></div>" +
+          '<div class="stat"><b>1 ' + from + " = " + fmtVal(rate) + " " + to + '</b><span>Reference rate</span></div>' +
+          "</div>" +
+          (rows ? '<table class="mini-table">' + rows + "</table>" : "");
+      }
+      $("cur-go").addEventListener("click", curUpdate);
+      ["cur-amount", "cur-from", "cur-to"].forEach(function (id) { $(id).addEventListener("input", curUpdate); $(id).addEventListener("change", curUpdate); });
+      $("cur-swap").addEventListener("click", function () {
+        var f = $("cur-from").value;
+        $("cur-from").value = $("cur-to").value;
+        $("cur-to").value = f;
+        curUpdate();
+      });
+      curFill(); curNote(); curUpdate();
+      fetch("https://open.er-api.com/v6/latest/USD").then(function (r) { return r.json(); }).then(function (d) {
+        if (d && d.result === "success" && d.rates) {
+          Object.keys(CUR).forEach(function (code) { if (d.rates[code]) CUR[code][1] = d.rates[code]; });
+          if (d.time_last_update_unix) {
+            var dt = new Date(d.time_last_update_unix * 1000);
+            curDateLabel = dt.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+          }
+          curLive = true; curNote(); curUpdate();
+        }
+      }).catch(function () { /* snapshot stays — note already explains */ });
+
+      /* ============ 15. Stopwatch & timer ============ */
+      var swElapsed = 0, swStartAt = 0, swTimerId = null, swLapCount = 0, swLastLap = 0;
+      function fmtClock(ms, cs) {
+        var totalSec = Math.floor(ms / 1000);
+        var m = Math.floor(totalSec / 60), s = totalSec % 60;
+        var base = pad2(m) + ":" + pad2(s);
+        if (!cs) return base;
+        return base + "." + pad2(Math.floor((ms % 1000) / 10));
+      }
+      function swShow() { $("sw-display").textContent = fmtClock(swElapsed + (swTimerId ? performance.now() - swStartAt : 0), true); }
+      $("sw-toggle").addEventListener("click", function () {
+        if (swTimerId) {
+          swElapsed += performance.now() - swStartAt;
+          clearInterval(swTimerId); swTimerId = null;
+          this.textContent = "Start";
+        } else {
+          swStartAt = performance.now();
+          swTimerId = setInterval(swShow, 31);
+          this.textContent = "Pause";
+        }
+        swShow();
+      });
+      $("sw-lap").addEventListener("click", function () {
+        var now = swElapsed + (swTimerId ? performance.now() - swStartAt : 0);
+        if (now <= 0) { toast("Start the stopwatch first"); return; }
+        swLapCount++;
+        var row = document.createElement("div");
+        row.className = "lap-row";
+        row.innerHTML = "<span>Lap " + swLapCount + "</span><b>" + fmtClock(now - swLastLap, true) + '</b><span>total ' + fmtClock(now, true) + "</span>";
+        var box = $("sw-laps");
+        box.insertBefore(row, box.firstChild);
+        swLastLap = now;
+      });
+      $("sw-reset").addEventListener("click", function () {
+        if (swTimerId) { clearInterval(swTimerId); swTimerId = null; }
+        swElapsed = 0; swLapCount = 0; swLastLap = 0;
+        $("sw-toggle").textContent = "Start";
+        $("sw-laps").innerHTML = "";
+        swShow();
+      });
+      swShow();
+      // timer mode
+      var tmRemain = null, tmEndAt = 0, tmTimerId = null;
+      function tmReadInputs() {
+        var h = Math.max(0, parseInt($("tm-h").value, 10) || 0), m = Math.max(0, parseInt($("tm-m").value, 10) || 0), s = Math.max(0, parseInt($("tm-s").value, 10) || 0);
+        return (h * 3600 + m * 60 + s) * 1000;
+      }
+      function tmShow() {
+        var ms = tmRemain !== null ? tmRemain : tmReadInputs();
+        if (tmTimerId) ms = Math.max(0, tmEndAt - Date.now());
+        var totalSec = Math.ceil(ms / 1000);
+        var h = Math.floor(totalSec / 3600), m = Math.floor((totalSec % 3600) / 60), s = totalSec % 60;
+        $("tm-display").textContent = (h > 0 ? pad2(h) + ":" : "") + pad2(m) + ":" + pad2(s);
+      }
+      function tmStop(msg) {
+        if (tmTimerId) { clearInterval(tmTimerId); tmTimerId = null; }
+        $("tm-toggle").textContent = "Start timer";
+        if (msg) { tmRemain = 0; tmShow(); beep(3); toast("⏰ Time’s up!"); }
+      }
+      $("tm-toggle").addEventListener("click", function () {
+        if (tmTimerId) {
+          tmRemain = Math.max(0, tmEndAt - Date.now());
+          clearInterval(tmTimerId); tmTimerId = null;
+          this.textContent = "Resume";
+          tmShow();
+          return;
+        }
+        if (tmRemain === null || tmRemain <= 0) tmRemain = tmReadInputs();
+        if (tmRemain <= 0) { toast("Set a time above zero first"); return; }
+        tmEndAt = Date.now() + tmRemain;
+        tmTimerId = setInterval(function () {
+          if (Date.now() >= tmEndAt) tmStop(true); else tmShow();
+        }, 200);
+        this.textContent = "Pause";
+        tmShow();
+      });
+      $("tm-reset").addEventListener("click", function () { tmStop(false); tmRemain = null; tmShow(); });
+      ["tm-h", "tm-m", "tm-s"].forEach(function (id) { $(id).addEventListener("input", function () { if (!tmTimerId) { tmRemain = null; tmShow(); } }); });
+      tmShow();
+      $("sw-tab-sw").addEventListener("click", function () {
+        this.setAttribute("aria-pressed", "true"); $("sw-tab-tm").setAttribute("aria-pressed", "false");
+        $("sw-mode").style.display = ""; $("tm-mode").style.display = "none";
+      });
+      $("sw-tab-tm").addEventListener("click", function () {
+        this.setAttribute("aria-pressed", "true"); $("sw-tab-sw").setAttribute("aria-pressed", "false");
+        $("tm-mode").style.display = ""; $("sw-mode").style.display = "none";
+      });
+
+      /* ============ 16. Pomodoro timer ============ */
+      var pmTotal = 1500, pmRemain = 1500, pmEndAt = 0, pmTimerId = null, pmSessions = 0;
+      function pmShow() {
+        var sec = pmTimerId ? Math.max(0, Math.round((pmEndAt - Date.now()) / 1000)) : pmRemain;
+        $("pm-display").textContent = pad2(Math.floor(sec / 60)) + ":" + pad2(sec % 60);
+      }
+      function pmSetMode(sec, btn) {
+        document.querySelectorAll("[data-pm]").forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        if (btn) btn.setAttribute("aria-pressed", "true");
+        if (pmTimerId) { clearInterval(pmTimerId); pmTimerId = null; }
+        pmTotal = sec; pmRemain = sec;
+        $("pm-toggle").textContent = sec === 1500 ? "Start focus" : "Start break";
+        $("pm-label").textContent = sec === 1500 ? "Focus session " + (pmSessions + 1) : "Break time — step away from the screen";
+        pmShow();
+      }
+      document.querySelectorAll("[data-pm]").forEach(function (btn) {
+        btn.addEventListener("click", function () { pmSetMode(parseInt(btn.getAttribute("data-pm"), 10), btn); });
+      });
+      $("pm-toggle").addEventListener("click", function () {
+        if (pmTimerId) {
+          pmRemain = Math.max(0, Math.round((pmEndAt - Date.now()) / 1000));
+          clearInterval(pmTimerId); pmTimerId = null;
+          this.textContent = "Resume";
+          pmShow();
+          return;
+        }
+        if (pmRemain <= 0) pmRemain = pmTotal;
+        pmEndAt = Date.now() + pmRemain * 1000;
+        var wasFocus = pmTotal === 1500;
+        pmTimerId = setInterval(function () {
+          if (Date.now() >= pmEndAt) {
+            clearInterval(pmTimerId); pmTimerId = null;
+            pmRemain = 0; pmShow();
+            beep(3);
+            if (wasFocus) {
+              pmSessions++;
+              $("pm-sessions").textContent = pmSessions;
+              $("pm-minutes").textContent = (pmSessions * 25) + " min";
+              toast("Focus block complete — take a break");
+              pmSetMode(pmSessions % 4 === 0 ? 900 : 300, document.querySelector('[data-pm="' + (pmSessions % 4 === 0 ? "900" : "300") + '"]'));
+            } else {
+              toast("Break over — back to focus when you’re ready");
+              pmSetMode(1500, document.querySelector('[data-pm="1500"]'));
+            }
+          } else pmShow();
+        }, 250);
+        this.textContent = "Pause";
+        pmShow();
+      });
+      $("pm-reset").addEventListener("click", function () {
+        if (pmTimerId) { clearInterval(pmTimerId); pmTimerId = null; }
+        pmRemain = pmTotal;
+        $("pm-toggle").textContent = pmTotal === 1500 ? "Start focus" : "Start break";
+        pmShow();
+      });
+      pmShow();
+
+      /* ============ 17. Color picker ============ */
+      function hexToRgb(hex) {
+        hex = hex.replace(/^#/, "");
+        if (/^[0-9a-fA-F]{3}$/.test(hex)) hex = hex.split("").map(function (c) { return c + c; }).join("");
+        if (!/^[0-9a-fA-F]{6}$/.test(hex)) return null;
+        return { r: parseInt(hex.slice(0, 2), 16), g: parseInt(hex.slice(2, 4), 16), b: parseInt(hex.slice(4, 6), 16) };
+      }
+      function rgbToHex(r, g, b) {
+        function h(x) { return ("0" + Math.round(Math.max(0, Math.min(255, x))).toString(16)).slice(-2); }
+        return "#" + h(r) + h(g) + h(b);
+      }
+      function rgbToHsl(r, g, b) {
+        r /= 255; g /= 255; b /= 255;
+        var max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2, h = 0, s = 0;
+        if (max !== min) {
+          var d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          if (max === r) h = ((g - b) / d + (g < b ? 6 : 0));
+          else if (max === g) h = (b - r) / d + 2;
+          else h = (r - g) / d + 4;
+          h *= 60;
+        }
+        return { h: Math.round(h), s: Math.round(s * 100), l: Math.round(l * 100) };
+      }
+      function cpApply(rgb) {
+        var hex = rgbToHex(rgb.r, rgb.g, rgb.b).toUpperCase();
+        var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+        $("cp-pick").value = hex;
+        $("cp-hex").value = hex;
+        $("cp-preview").style.background = hex;
+        $("cp-v-hex").textContent = hex;
+        $("cp-v-rgb").textContent = "rgb(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ")";
+        $("cp-v-hsl").textContent = "hsl(" + hsl.h + ", " + hsl.s + "%, " + hsl.l + "%)";
+        var box = $("cp-swatches");
+        box.innerHTML = "";
+        var steps = [-0.75, -0.55, -0.35, -0.18, 0, 0.2, 0.4, 0.6, 0.78, 0.9];
+        steps.forEach(function (f) {
+          var c = f < 0
+            ? { r: rgb.r * (1 + f), g: rgb.g * (1 + f), b: rgb.b * (1 + f) }
+            : { r: rgb.r + (255 - rgb.r) * f, g: rgb.g + (255 - rgb.g) * f, b: rgb.b + (255 - rgb.b) * f };
+          var hx = rgbToHex(c.r, c.g, c.b).toUpperCase();
+          var b = document.createElement("button");
+          b.type = "button"; b.className = "swatch"; b.style.background = hx; b.title = hx;
+          b.setAttribute("aria-label", "Copy " + hx);
+          b.addEventListener("click", function () { copyText(hx, "Copied " + hx); });
+          box.appendChild(b);
+        });
+      }
+      $("cp-pick").addEventListener("input", function () { var rgb = hexToRgb(this.value); if (rgb) cpApply(rgb); });
+      $("cp-hex").addEventListener("input", function () { var rgb = hexToRgb(this.value.trim()); if (rgb) cpApply(rgb); });
+      document.querySelectorAll("[data-copyval]").forEach(function (btn) {
+        btn.addEventListener("click", function () { copyText($(btn.getAttribute("data-copyval")).textContent, "Copied"); });
+      });
+      cpApply(hexToRgb("#c99612"));
+
+      /* ============ 18. JSON formatter ============ */
+      function jfRun(mode) {
+        var raw = $("jf-in").value, msg = $("jf-msg");
+        if (!raw.trim()) { msg.textContent = "Paste some JSON first."; msg.className = "tool-msg err"; return; }
+        try {
+          var obj = JSON.parse(raw);
+          if (mode === "validate") {
+            $("jf-out").value = "";
+            msg.textContent = "✓ Valid JSON — " + fmtNum(raw.length) + " characters.";
+            msg.className = "tool-msg";
+            return;
+          }
+          var out = mode === "minify" ? JSON.stringify(obj) : JSON.stringify(obj, null, parseInt($("jf-indent").value, 10) === 4 ? 4 : 2);
+          $("jf-out").value = out;
+          msg.textContent = "✓ Valid JSON — " + (mode === "minify" ? "minified" : "formatted") + ": " + fmtNum(raw.length) + " → " + fmtNum(out.length) + " characters.";
+          msg.className = "tool-msg";
+        } catch (e) {
+          msg.textContent = "✗ Invalid JSON: " + e.message;
+          msg.className = "tool-msg err";
+        }
+      }
+      $("jf-format").addEventListener("click", function () { jfRun("format"); });
+      $("jf-minify").addEventListener("click", function () { jfRun("minify"); });
+      $("jf-validate").addEventListener("click", function () { jfRun("validate"); });
+      $("jf-copy").addEventListener("click", function () { copyText($("jf-out").value, "JSON copied"); });
+      $("jf-clear").addEventListener("click", function () { $("jf-in").value = ""; $("jf-out").value = ""; $("jf-msg").textContent = ""; });
+
+      /* ============ 19. Base64 ============ */
+      function b64EncodeText(str) {
+        var bytes = new TextEncoder().encode(str), bin = "", i;
+        for (i = 0; i < bytes.length; i += 8192) {
+          bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192));
+        }
+        return btoa(bin);
+      }
+      function b64DecodeText(b64) {
+        var bin = atob(b64.replace(/\s+/g, ""));
+        var bytes = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+      }
+      $("b64-enc").addEventListener("click", function () {
+        var v = $("b64-in").value, msg = $("b64-msg");
+        if (!v) { msg.textContent = "Type something to encode first."; msg.className = "tool-msg err"; return; }
+        $("b64-out").value = b64EncodeText(v);
+        msg.textContent = "Encoded — " + fmtNum(v.length) + " characters → " + fmtNum($("b64-out").value.length) + " Base64 characters.";
+        msg.className = "tool-msg";
+      });
+      $("b64-dec").addEventListener("click", function () {
+        var v = $("b64-in").value.trim(), msg = $("b64-msg");
+        if (!v) { msg.textContent = "Paste some Base64 to decode first."; msg.className = "tool-msg err"; return; }
+        try {
+          $("b64-out").value = b64DecodeText(v);
+          msg.textContent = "Decoded successfully.";
+          msg.className = "tool-msg";
+        } catch (e) {
+          msg.textContent = "That isn’t valid Base64 text — check for missing characters or extra spaces inside the code.";
+          msg.className = "tool-msg err";
+        }
+      });
+      $("b64-copy").addEventListener("click", function () { copyText($("b64-out").value, "Result copied"); });
+      $("b64-swap").addEventListener("click", function () {
+        if ($("b64-out").value) { $("b64-in").value = $("b64-out").value; $("b64-out").value = ""; $("b64-msg").textContent = ""; }
+      });
+      $("b64-clear").addEventListener("click", function () { $("b64-in").value = ""; $("b64-out").value = ""; $("b64-msg").textContent = ""; });
+
+      /* ============ 20. Tip calculator ============ */
+      function tipUpdate() {
+        var bill = parseFloat($("tip-bill").value) || 0;
+        var pct = parseFloat($("tip-pct").value) || 0;
+        var people = Math.max(1, Math.round(parseFloat($("tip-people").value) || 1));
+        var tip = bill * pct / 100, total = bill + tip;
+        document.querySelectorAll("#tip-presets button").forEach(function (b) {
+          b.setAttribute("aria-pressed", parseFloat(b.getAttribute("data-tip")) === pct ? "true" : "false");
+        });
+        $("tip-out").innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + fmtNum(tip) + '</b><span>Tip amount</span></div>' +
+          '<div class="stat"><b>' + fmtNum(total) + '</b><span>Total to pay</span></div>' +
+          '<div class="stat"><b>' + fmtNum(total / people) + '</b><span>Per person (total)</span></div>' +
+          '<div class="stat"><b>' + fmtNum(tip / people) + '</b><span>Per person (tip)</span></div>' +
+          "</div>" +
+          '<p class="note" style="margin-bottom:0">Amounts are in whatever currency your bill is in. Rounding to a friendly total is always appreciated by staff.</p>';
+      }
+      ["tip-bill", "tip-pct", "tip-people"].forEach(function (id) { $(id).addEventListener("input", tipUpdate); });
+      document.querySelectorAll("#tip-presets button").forEach(function (b) {
+        b.addEventListener("click", function () { $("tip-pct").value = b.getAttribute("data-tip"); tipUpdate(); });
+      });
+      tipUpdate();
+
+      /* ============ 21. Date calculator ============ */
+      function dcToday(id) { var d = new Date(); $(id).value = d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()); }
+      dcToday("dc-from"); dcToday("dc-to"); dcToday("dc-start");
+      function dcParse(id) { var v = $(id).value; return v ? new Date(v + "T00:00:00") : null; }
+      function fmtDate(d) { return d.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" }); }
+      $("dc-diff-go").addEventListener("click", function () {
+        var out = $("dc-diff-out"), a = dcParse("dc-from"), b = dcParse("dc-to");
+        if (!a || !b) { out.innerHTML = '<p style="margin:0;font-weight:700">Pick both dates first.</p>'; return; }
+        var days = Math.round((b - a) / 86400000);
+        var abs = Math.abs(days);
+        var weeks = Math.floor(abs / 7), rem = abs % 7;
+        out.innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + fmtNum(abs) + '</b><span>Total days</span></div>' +
+          '<div class="stat"><b>' + weeks + "w " + rem + 'd</b><span>Weeks + days</span></div>' +
+          '<div class="stat"><b>' + fmtNum(abs * 24) + '</b><span>Total hours</span></div>' +
+          "</div>" +
+          '<p class="note" style="margin-bottom:0">' + (days === 0 ? "Both dates are the same day." : days > 0 ? "The second date is after the first." : "The second date is before the first — counted backwards.") + "</p>";
+      });
+      $("dc-add-go").addEventListener("click", function () {
+        var out = $("dc-add-out"), start = dcParse("dc-start");
+        var n = parseFloat($("dc-days").value);
+        if (!start || isNaN(n)) { out.innerHTML = '<p style="margin:0;font-weight:700">Pick a start date and enter a number of days.</p>'; return; }
+        var res = new Date(start.getTime());
+        res.setDate(res.getDate() + Math.round(n) * parseInt($("dc-dir").value, 10));
+        out.innerHTML =
+          '<div class="stat-row"><div class="stat"><b>' + fmtDate(res) + '</b><span>Resulting date</span></div></div>' +
+          '<p class="note" style="margin-bottom:0">' + Math.abs(Math.round(n)) + " day" + (Math.abs(Math.round(n)) === 1 ? "" : "s") + " " + (parseInt($("dc-dir").value, 10) > 0 ? "after" : "before") + " " + fmtDate(start) + ".</p>";
+      });
+
+      /* ============ 22. Random picker ============ */
+      function cryptoIndex(max) {
+        var arr = new Uint32Array(1);
+        crypto.getRandomValues(arr);
+        return arr[0] % max;
+      }
+      $("rp-pick").addEventListener("click", function () {
+        var out = $("rp-out");
+        var lines = $("rp-list").value.split(/\n/).map(function (s) { return s.trim(); }).filter(Boolean);
+        if (!lines.length) { out.innerHTML = '<p style="margin:0;font-weight:700">Add at least one name or item — one per line.</p>'; return; }
+        var winner = lines[cryptoIndex(lines.length)];
+        out.innerHTML = '<div class="big-pick">' + winner.replace(/[<>&"]/g, "") + '</div><p class="note" style="margin:0;text-align:center">Picked at random from ' + lines.length + " item" + (lines.length === 1 ? "" : "s") + ".</p>";
+      });
+      var coinH = 0, coinT = 0;
+      $("rp-coin").addEventListener("click", function () {
+        var heads = cryptoIndex(2) === 0;
+        if (heads) coinH++; else coinT++;
+        $("rp-fun-out").innerHTML = '<div class="big-pick">' + (heads ? "🪙 Heads" : "🪙 Tails") + '</div><p class="note" style="margin:0;text-align:center">This session: ' + coinH + " heads · " + coinT + " tails.</p>";
+      });
+      $("rp-dice").addEventListener("click", function () {
+        var n = parseInt($("rp-dice-n").value, 10) || 1;
+        var faces = "", total = 0;
+        for (var i = 0; i < n; i++) { var v = cryptoIndex(6) + 1; total += v; faces += '<span class="die">' + v + "</span>"; }
+        $("rp-fun-out").innerHTML = '<div class="dice-row">' + faces + '</div><p class="note" style="margin:0;text-align:center">Total: <b>' + total + "</b> from " + n + (n === 1 ? " die." : " dice.") + "</p>";
+      });
+
+      /* ============ 23. Countdown timer ============ */
+      var cdTimerId = null;
+      function cdTick() {
+        var out = $("cd-out");
+        var v = $("cd-target").value;
+        if (!v) return;
+        var target = new Date(v);
+        var diff = target - new Date();
+        if (diff <= 0) {
+          if (cdTimerId) { clearInterval(cdTimerId); cdTimerId = null; }
+          out.innerHTML = '<div class="big-pick">🎉 The moment has arrived</div><p class="note" style="margin:0;text-align:center">' + fmtDate(target) + " — the countdown has finished.</p>";
+          beep(3);
+          return;
+        }
+        var sec = Math.floor(diff / 1000);
+        var d = Math.floor(sec / 86400), h = Math.floor((sec % 86400) / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+        out.innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + d + '</b><span>Days</span></div>' +
+          '<div class="stat"><b>' + pad2(h) + '</b><span>Hours</span></div>' +
+          '<div class="stat"><b>' + pad2(m) + '</b><span>Minutes</span></div>' +
+          '<div class="stat"><b>' + pad2(s) + '</b><span>Seconds</span></div>' +
+          "</div>" +
+          '<p class="note" style="margin-bottom:0">Counting down to ' + fmtDate(target) + " at " + target.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }) + ".</p>";
+      }
+      function cdSetInput(date) {
+        $("cd-target").value = date.getFullYear() + "-" + pad2(date.getMonth() + 1) + "-" + pad2(date.getDate()) + "T" + pad2(date.getHours()) + ":" + pad2(date.getMinutes());
+      }
+      document.querySelectorAll("[data-cd]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          cdSetInput(new Date(Date.now() + parseInt(btn.getAttribute("data-cd"), 10) * 1000));
+          $("cd-go").click();
+        });
+      });
+      $("cd-go").addEventListener("click", function () {
+        var v = $("cd-target").value;
+        if (!v) { $("cd-out").innerHTML = '<p style="margin:0;font-weight:700">Pick a target date and time first — or use a quick-set button.</p>'; return; }
+        if (new Date(v) <= new Date()) { $("cd-out").innerHTML = '<p style="margin:0;font-weight:700">That moment is already in the past — pick a future time.</p>'; return; }
+        if (cdTimerId) clearInterval(cdTimerId);
+        cdTick();
+        cdTimerId = setInterval(cdTick, 500);
+        toast("Countdown running");
+      });
+
+      /* ============ 24. AI Image Generator (Pollinations) ============ */
+      var aiSeed = null, aiBusy = false;
+      function aiUrl() {
+        var prompt = $("ai-prompt").value.trim();
+        var parts = $("ai-size").value.split("x");
+        var seed = aiSeed === null ? Math.floor(Math.random() * 999999) : aiSeed;
+        aiSeed = seed;
+        return "https://image.pollinations.ai/prompt/" + encodeURIComponent(prompt) +
+          "?width=" + parts[0] + "&height=" + parts[1] + "&seed=" + seed +
+          "&model=" + $("ai-model").value + "&nologo=true";
+      }
+      $("ai-go").addEventListener("click", function () {
+        var prompt = $("ai-prompt").value.trim();
+        var msg = $("ai-msg");
+        if (!prompt) { msg.textContent = "Describe the image first — a sentence works best."; msg.className = "tool-msg err"; return; }
+        if (aiBusy) return;
+        aiBusy = true;
+        aiSeed = null;
+        $("ai-go").textContent = "Generating…";
+        $("ai-result").style.display = "none";
+        msg.textContent = "Sending your prompt to the AI model — this usually takes 5–20 seconds…";
+        msg.className = "tool-msg";
+        var img = $("ai-img");
+        var done = false;
+        var timeout = setTimeout(function () {
+          if (done) return;
+          done = true; aiBusy = false;
+          $("ai-go").textContent = "Generate image";
+          msg.textContent = "The free AI service is taking too long — it may be busy. Wait a moment and try again.";
+          msg.className = "tool-msg err";
+        }, 90000);
+        img.onload = function () {
+          if (done) return;
+          done = true; aiBusy = false;
+          clearTimeout(timeout);
+          $("ai-go").textContent = "Generate image";
+          $("ai-result").style.display = "block";
+          msg.textContent = "Done — generated by Pollinations (" + $("ai-model").value + " model). Not happy with it? “Regenerate” makes a new variation of the same prompt.";
+          msg.className = "tool-msg";
+          $("ai-result").scrollIntoView({ behavior: "smooth", block: "nearest" });
+        };
+        img.onerror = function () {
+          if (done) return;
+          done = true; aiBusy = false;
+          clearTimeout(timeout);
+          $("ai-go").textContent = "Generate image";
+          $("ai-result").style.display = "none";
+          msg.textContent = "The AI image service couldn’t be reached (image.pollinations.ai). Check your connection and try again — nothing was generated.";
+          msg.className = "tool-msg err";
+        };
+        img.src = aiUrl();
+      });
+      $("ai-newseed").addEventListener("click", function () {
+        aiSeed = Math.floor(Math.random() * 999999);
+        var img = $("ai-img"), msg = $("ai-msg");
+        msg.textContent = "Generating a new variation…";
+        msg.className = "tool-msg";
+        img.onload = function () { msg.textContent = "New variation ready."; };
+        img.onerror = function () { msg.textContent = "The service didn’t respond this time — try again in a few seconds."; msg.className = "tool-msg err"; };
+        img.src = aiUrl();
+      });
+      $("ai-prompt").addEventListener("keydown", function (e) { if (e.key === "Enter") $("ai-go").click(); });
+      $("ai-download").addEventListener("click", function () {
+        var img = $("ai-img");
+        if (!img.src) { toast("Generate an image first"); return; }
+        fetch(img.src).then(function (r) {
+          if (!r.ok) throw new Error("bad");
+          return r.blob();
+        }).then(function (blob) {
+          downloadBlob(blob, "ai-image-" + (aiSeed || "1") + ".jpg");
+          toast("Image downloading");
+        }).catch(function () {
+          window.open(img.src, "_blank");
+          toast("Opened the image in a new tab — save it from there");
+        });
+      });
+
+      /* ============ 25. Video Maker (canvas + MediaRecorder) ============ */
+      var vmScenes = []; // { img: HTMLImageElement, url: objectURL, caption: string }
+      var vmBlob = null, vmBuilding = false;
+      function vmRenderScenes() {
+        var box = $("vm-scenes");
+        box.innerHTML = "";
+        vmScenes.forEach(function (sc, i) {
+          var row = document.createElement("div");
+          row.className = "img-compare";
+          row.style.gridTemplateColumns = "110px 1fr";
+          row.style.alignItems = "center";
+          row.style.marginTop = i === 0 ? "0" : "12px";
+          var fig = document.createElement("figure");
+          var im = document.createElement("img");
+          im.src = sc.url; im.alt = "Scene " + (i + 1) + " image";
+          im.style.maxHeight = "80px";
+          fig.appendChild(im);
+          var right = document.createElement("div");
+          var lab = document.createElement("label");
+          lab.textContent = "Scene " + (i + 1) + " — caption (optional)";
+          lab.style.cssText = "display:block;font-weight:700;font-size:.9rem;margin-bottom:7px";
+          var inp = document.createElement("input");
+          inp.type = "text"; inp.value = sc.caption; inp.placeholder = "Text shown on this scene…";
+          inp.style.cssText = "width:100%;background:var(--bg-raise);border:1px solid var(--line-strong);border-radius:12px;padding:11px 13px;outline:none";
+          inp.addEventListener("input", function () { sc.caption = inp.value; });
+          var ctrls = document.createElement("div");
+          ctrls.className = "btn-row";
+          var up = document.createElement("button");
+          up.type = "button"; up.className = "btn ghost small"; up.textContent = "↑ Move up"; up.disabled = i === 0;
+          up.addEventListener("click", function () { var t = vmScenes[i - 1]; vmScenes[i - 1] = vmScenes[i]; vmScenes[i] = t; vmRenderScenes(); });
+          var dn = document.createElement("button");
+          dn.type = "button"; dn.className = "btn ghost small"; dn.textContent = "↓ Move down"; dn.disabled = i === vmScenes.length - 1;
+          dn.addEventListener("click", function () { var t = vmScenes[i + 1]; vmScenes[i + 1] = vmScenes[i]; vmScenes[i] = t; vmRenderScenes(); });
+          var rm = document.createElement("button");
+          rm.type = "button"; rm.className = "btn ghost small"; rm.textContent = "Remove";
+          rm.addEventListener("click", function () { URL.revokeObjectURL(vmScenes[i].url); vmScenes.splice(i, 1); if (!vmScenes.length) { $("vm-editor").style.display = "none"; } vmRenderScenes(); });
+          ctrls.appendChild(up); ctrls.appendChild(dn); ctrls.appendChild(rm);
+          right.appendChild(lab); right.appendChild(inp); right.appendChild(ctrls);
+          row.appendChild(fig); row.appendChild(right);
+          box.appendChild(row);
+        });
+      }
+      function vmLoadFiles(files) {
+        var imgs = Array.prototype.filter.call(files, function (f) { return /^image\//.test(f.type); });
+        if (!imgs.length) { toast("Choose image files (JPG, PNG, WebP)"); return; }
+        var loaded = 0;
+        imgs.forEach(function (f) {
+          var url = URL.createObjectURL(f);
+          var im = new Image();
+          im.onload = function () {
+            vmScenes.push({ img: im, url: url, caption: "" });
+            loaded++;
+            if (loaded === imgs.length) {
+              $("vm-editor").style.display = "block";
+              vmRenderScenes();
+              toast(vmScenes.length + " image" + (vmScenes.length === 1 ? "" : "s") + " ready — add captions, then Create video");
+            }
+          };
+          im.onerror = function () { URL.revokeObjectURL(url); loaded++; toast("One image couldn’t be read and was skipped"); };
+          im.src = url;
+        });
+      }
+      $("vm-pick").addEventListener("click", function () { $("vm-files").click(); });
+      $("vm-files").addEventListener("change", function () { if (this.files.length) vmLoadFiles(this.files); this.value = ""; });
+      var vmDrop = $("vm-drop");
+      ["dragenter", "dragover"].forEach(function (ev) { vmDrop.addEventListener(ev, function (e) { e.preventDefault(); vmDrop.classList.add("drag"); }); });
+      ["dragleave", "drop"].forEach(function (ev) { vmDrop.addEventListener(ev, function (e) { e.preventDefault(); vmDrop.classList.remove("drag"); }); });
+      vmDrop.addEventListener("drop", function (e) { if (e.dataTransfer.files.length) vmLoadFiles(e.dataTransfer.files); });
+      $("vm-reset").addEventListener("click", function () {
+        vmScenes.forEach(function (sc) { URL.revokeObjectURL(sc.url); });
+        vmScenes = []; vmBlob = null;
+        $("vm-editor").style.display = "none";
+        $("vm-result").style.display = "none";
+        $("vm-msg").textContent = "";
+      });
+      function vmDrawScene(ctx, W, H, sc, alpha) {
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, W, H);
+        var iw = sc.img.naturalWidth, ih = sc.img.naturalHeight;
+        var scale = Math.max(W / iw, H / ih);
+        var dw = iw * scale, dh = ih * scale;
+        ctx.globalAlpha = alpha;
+        ctx.drawImage(sc.img, (W - dw) / 2, (H - dh) / 2, dw, dh);
+        ctx.globalAlpha = 1;
+        var cap = (sc.caption || "").trim();
+        if (cap) {
+          var fs = Math.round(W * 0.045);
+          ctx.font = "800 " + fs + "px Manrope, sans-serif";
+          ctx.textAlign = "center"; ctx.textBaseline = "middle";
+          var maxW = W * 0.88;
+          var words = cap.split(/\s+/), lines = [], line = "";
+          words.forEach(function (w) {
+            var test = line ? line + " " + w : w;
+            if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = w; } else line = test;
+          });
+          if (line) lines.push(line);
+          var lh = fs * 1.3, blockH = lines.length * lh + fs * 0.7;
+          var y0 = H - blockH - Math.round(H * 0.045);
+          ctx.fillStyle = "rgba(0,0,0,0.55)";
+          var widest = 0;
+          lines.forEach(function (l) { widest = Math.max(widest, ctx.measureText(l).width); });
+          var bw = Math.min(W * 0.94, widest + fs * 1.1);
+          ctx.beginPath();
+          if (ctx.roundRect) ctx.roundRect((W - bw) / 2, y0, bw, blockH, 14); else ctx.rect((W - bw) / 2, y0, bw, blockH);
+          ctx.fill();
+          ctx.fillStyle = "#fff";
+          lines.forEach(function (l, i) { ctx.fillText(l, W / 2, y0 + fs * 0.35 + lh * (i + 0.5)); });
+        }
+      }
+      $("vm-build").addEventListener("click", function () {
+        var msg = $("vm-msg");
+        if (vmBuilding) return;
+        if (vmScenes.length < 2) { msg.textContent = "Add at least 2 images to make a video."; msg.className = "tool-msg err"; return; }
+        if (typeof MediaRecorder === "undefined" || !HTMLCanvasElement.prototype.captureStream) {
+          msg.textContent = "This browser can’t record canvas video (MediaRecorder is missing). Try Chrome, Edge, Safari or Firefox on a recent device.";
+          msg.className = "tool-msg err";
+          return;
+        }
+        var sizeParts = $("vm-size").value.split("x");
+        var W = parseInt(sizeParts[0], 10), H = parseInt(sizeParts[1], 10);
+        var per = parseFloat($("vm-dur").value);
+        var fade = $("vm-trans").value === "fade" ? 600 : 0;
+        var canvas = document.createElement("canvas");
+        canvas.width = W; canvas.height = H;
+        var ctx = canvas.getContext("2d");
+        var mime = "";
+        ["video/mp4;codecs=avc1", "video/mp4", "video/webm;codecs=vp9", "video/webm"].forEach(function (m) {
+          if (!mime && window.MediaRecorder && MediaRecorder.isTypeSupported(m)) mime = m;
+        });
+        var rec;
+        try {
+          rec = new MediaRecorder(canvas.captureStream(30), mime ? { mimeType: mime, videoBitsPerSecond: 5000000 } : { videoBitsPerSecond: 5000000 });
+        } catch (e) {
+          msg.textContent = "Video recording isn’t supported in this browser. Try a recent Chrome, Edge, Safari or Firefox.";
+          msg.className = "tool-msg err";
+          return;
+        }
+        var chunks = [];
+        rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+        var totalMs = vmScenes.length * per * 1000;
+        vmBuilding = true;
+        $("vm-build").textContent = "Recording…";
+        $("vm-result").style.display = "none";
+        vmBlob = null;
+        msg.className = "tool-msg";
+        rec.onstop = function () {
+          vmBuilding = false;
+          $("vm-build").textContent = "Create video";
+          var type = rec.mimeType || mime || "video/webm";
+          vmBlob = new Blob(chunks, { type: type.split(";")[0] });
+          var ext = type.indexOf("mp4") !== -1 ? "mp4" : "webm";
+          vmBlob._ext = ext;
+          var v = $("vm-video");
+          v.src = URL.createObjectURL(vmBlob);
+          $("vm-result").style.display = "block";
+          $("vm-note").textContent = "Your video: " + vmScenes.length + " scenes · about " + Math.round(totalMs / 1000) + " seconds · " + fmtBytes(vmBlob.size) + " · " + ext.toUpperCase() + " format. It was made entirely on your device.";
+          msg.textContent = "Video ready — preview it below, then download.";
+          $("vm-result").scrollIntoView({ behavior: "smooth", block: "nearest" });
+        };
+        rec.start(250);
+        var t0 = performance.now();
+        function frame(now) {
+          var el = now - t0;
+          if (el >= totalMs) {
+            vmDrawScene(ctx, W, H, vmScenes[vmScenes.length - 1], 1);
+            setTimeout(function () { try { rec.stop(); } catch (e) {} }, 120);
+            return;
+          }
+          var idx = Math.floor(el / (per * 1000));
+          var within = el - idx * per * 1000;
+          var sceneMs = per * 1000;
+          var alpha = 1;
+          vmDrawScene(ctx, W, H, vmScenes[idx], 1);
+          if (fade && idx < vmScenes.length - 1 && within > sceneMs - fade) {
+            alpha = (within - (sceneMs - fade)) / fade;
+            vmDrawScene(ctx, W, H, vmScenes[idx + 1], alpha);
+          }
+          var remain = Math.ceil((totalMs - el) / 1000);
+          msg.textContent = "Recording your video… " + remain + "s left. Keep this tab visible.";
+          requestAnimationFrame(frame);
+        }
+        vmDrawScene(ctx, W, H, vmScenes[0], 1);
+        requestAnimationFrame(frame);
+      });
+      $("vm-download").addEventListener("click", function () {
+        if (!vmBlob) { toast("Create the video first"); return; }
+        downloadBlob(vmBlob, "toolzorq-video." + (vmBlob._ext || "webm"));
+        toast("Video downloading");
+      });
     </script>
   </body>
 </html>
