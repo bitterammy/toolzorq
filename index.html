@@ -348,6 +348,63 @@
         pointer-events: none; transition: all .25s ease; z-index: 99; box-shadow: var(--shadow-lg); max-width: 92vw; text-align: center;
       }
       .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+      /* ---------- simple-first / advanced options ---------- */
+      .btn.big { padding: 15px 30px; font-size: 1.06rem; border-radius: 14px; }
+      .step-label { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.05rem; margin: 22px 0 10px; }
+      .step-label:first-of-type { margin-top: 4px; }
+      .hint { font-size: .85rem; color: var(--ink-2); margin-top: 6px; }
+      .adv { border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); margin-top: 20px; }
+      .adv > summary { cursor: pointer; font-weight: 800; font-family: "Bricolage Grotesque", sans-serif; font-size: 1rem; padding: 14px 16px; }
+      .adv > summary:hover { color: var(--gold-ink); }
+      .adv .adv-body { padding: 2px 16px 16px; }
+      .adv .adv-body .field:last-child { margin-bottom: 4px; }
+      .mini-adv { margin-top: 10px; }
+      .mini-adv > summary { cursor: pointer; font-weight: 700; font-size: .88rem; color: var(--ink-2); }
+      .mini-adv .adv-body { padding-top: 10px; }
+      .inspo { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+      .inspo button {
+        border: 1px solid var(--line-strong); background: var(--bg-raise); color: var(--ink-2);
+        padding: 7px 13px; border-radius: 999px; font-weight: 700; font-size: .85rem; cursor: pointer;
+      }
+      .inspo button:hover { border-color: var(--gold); color: var(--gold-ink); }
+
+      /* ---------- AI image results / history / lightbox ---------- */
+      .ai-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; margin-top: 16px; }
+      .ai-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface-2); }
+      .ai-card img { width: 100%; display: block; cursor: zoom-in; background: var(--surface); aspect-ratio: 1/1; object-fit: cover; }
+      .ai-card .ai-card-body { padding: 11px 12px 13px; }
+      .ai-meta { font-size: .8rem; color: var(--ink-2); font-weight: 600; word-break: break-word; }
+      .ai-card .btn-row { margin-top: 10px; }
+      .ai-loading { padding: 42px 14px; text-align: center; color: var(--ink-2); font-weight: 700; font-size: .92rem; }
+      .hist-strip { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+      .hist-item { width: 92px; }
+      .hist-item img { width: 92px; height: 92px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); cursor: zoom-in; display: block; background: var(--surface-2); }
+      .hist-item .hist-seed { width: 100%; margin-top: 6px; padding: 5px 4px; font-size: .74rem; }
+      .lightbox {
+        position: fixed; inset: 0; background: rgba(6,5,3,.94); z-index: 300; display: none;
+        align-items: center; justify-content: center; flex-direction: column; padding: 18px; gap: 12px;
+      }
+      .lightbox.open { display: flex; }
+      .lightbox img { max-width: 96vw; max-height: 74vh; border-radius: 12px; display: block; }
+      .lightbox .lb-cap { color: #e8e2d4; font-size: .9rem; font-weight: 600; max-width: 720px; text-align: center; word-break: break-word; }
+      .lightbox .btn-row { margin-top: 0; justify-content: center; }
+
+      /* ---------- video maker scenes / preview ---------- */
+      .scene-row { display: grid; grid-template-columns: 104px 1fr; gap: 14px; padding: 12px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); margin-top: 12px; }
+      @media (max-width: 560px) { .scene-row { grid-template-columns: 76px 1fr; } .scene-row > img { height: 60px; } }
+      .scene-row > img { width: 100%; height: 78px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); display: block; background: #000; }
+      .scene-row .scene-cap {
+        width: 100%; background: var(--bg-raise); border: 1px solid var(--line-strong); border-radius: 12px; padding: 11px 13px; outline: none;
+      }
+      .scene-row .scene-cap:focus { border-color: var(--gold); }
+      .scene-row select {
+        background: var(--bg-raise); border: 1px solid var(--line-strong); border-radius: 10px; padding: 8px 10px; outline: none; max-width: 100%;
+      }
+      .vm-stage { width: 100%; border-radius: 14px; border: 1px solid var(--line); background: #000; display: block; margin-top: 14px; }
+      .lightbox .lb-ghost { color: #f2ead6; border-color: rgba(255,255,255,.45); background: transparent; }
+      .field input[type="file"] { width: 100%; background: var(--bg-raise); border: 1px solid var(--line-strong); border-radius: 12px; padding: 10px 12px; }
+      .file-name { font-size: .88rem; font-weight: 700; color: var(--ink-2); margin-top: 8px; word-break: break-all; }
     </style>
   </head>
   <body>
@@ -529,13 +586,13 @@
           <button class="tool-card" type="button" data-open="aiimage" data-cat="image" data-name="ai image generator artificial intelligence picture prompt art photo create">
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5-5 3 3 3.5-3.5L20 17"/><path d="M18.5 2.5l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z" fill="currentColor" stroke="none"/></svg></span>
             <h3>AI Image Generator</h3>
-            <p>Describe anything and a real AI model paints it — powered by the free Pollinations service, no sign-up.</p>
+            <p>Describe anything and a real AI model paints it — styles, sizes and up to 4 variations. Powered by the free Pollinations service, no sign-up.</p>
             <span class="open">Open tool →</span>
           </button>
           <button class="tool-card" type="button" data-open="videomaker" data-cat="image" data-name="video maker slideshow photos images text mp4 slideshow creator">
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/><path d="M7 5v14M17 5v14"/></svg></span>
             <h3>Video Maker</h3>
-            <p>Turn your photos into a real downloadable video with text overlays and fade transitions — built in your browser.</p>
+            <p>Turn your photos into a real downloadable video with captions, transitions and your own music — built in your browser.</p>
             <span class="open">Open tool →</span>
           </button>
         </div>
@@ -560,31 +617,38 @@
             <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
             <h3>YouTube Money Calculator</h3>
             <p class="sub">An estimate only. Real earnings depend on your niche, audience country, video length and advertiser demand — so this tool shows a range, never a single “guaranteed” number.</p>
-            <div class="grid-3">
-              <div class="field">
-                <label for="ym-views">Monthly views</label>
-                <input type="number" id="ym-views" value="100000" min="0" step="1000" />
-              </div>
-              <div class="field">
-                <label for="ym-rpm-low">RPM low (USD per 1,000 views)</label>
-                <input type="number" id="ym-rpm-low" value="1" min="0" step="0.1" />
-              </div>
-              <div class="field">
-                <label for="ym-rpm-high">RPM high (USD per 1,000 views)</label>
-                <input type="number" id="ym-rpm-high" value="4" min="0" step="0.1" />
-              </div>
-            </div>
             <div class="field">
-              <label for="ym-niche">Or pick a typical niche range</label>
-              <select id="ym-niche">
-                <option value="">Custom (use the RPM boxes above)</option>
-                <option value="0.5,2">Entertainment / vlogs — roughly $0.50–$2 RPM</option>
-                <option value="1,4">Education / history — roughly $1–$4 RPM</option>
-                <option value="2,6">Tech reviews — roughly $2–$6 RPM</option>
-                <option value="4,12">Finance / business — roughly $4–$12 RPM</option>
-              </select>
+              <label for="ym-views">Monthly views</label>
+              <input type="number" id="ym-views" value="100000" min="0" step="1000" />
+              <p class="hint">Just this one number is enough — the pay rate below is already set to a typical range.</p>
             </div>
-            <button class="btn" type="button" id="ym-go">Estimate earnings</button>
+            <button class="btn big" type="button" id="ym-go">Estimate earnings</button>
+            <details class="adv">
+              <summary>Advanced options — fine-tune the pay rate</summary>
+              <div class="adv-body">
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="ym-rpm-low">RPM low (USD per 1,000 views)</label>
+                    <input type="number" id="ym-rpm-low" value="1" min="0" step="0.1" />
+                  </div>
+                  <div class="field">
+                    <label for="ym-rpm-high">RPM high (USD per 1,000 views)</label>
+                    <input type="number" id="ym-rpm-high" value="4" min="0" step="0.1" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="ym-niche">Or pick a typical niche range</label>
+                  <select id="ym-niche">
+                    <option value="">Custom (use the RPM boxes above)</option>
+                    <option value="0.5,2">Entertainment / vlogs — roughly $0.50–$2 RPM</option>
+                    <option value="1,4">Education / history — roughly $1–$4 RPM</option>
+                    <option value="2,6">Tech reviews — roughly $2–$6 RPM</option>
+                    <option value="4,12">Finance / business — roughly $4–$12 RPM</option>
+                  </select>
+                  <p class="hint">RPM is what a creator actually keeps per 1,000 views. The starting range ($1–$4) fits education and history channels.</p>
+                </div>
+              </div>
+            </details>
             <div class="result-box" id="ym-out"></div>
             <p class="note">RPM = what the creator actually keeps per 1,000 views after YouTube’s share. Ranges above are broad industry-typical figures, not quotes — your real RPM is in YouTube Studio → Analytics → Revenue.</p>
           </div>
@@ -624,7 +688,10 @@
               <p class="note" style="margin-top:10px">JPG, PNG, WebP, GIF (first frame) and more</p>
             </div>
             <div id="ic-controls" style="display:none">
-              <div class="grid-3" style="margin-top:18px">
+              <details class="adv">
+                <summary>Advanced options — quality, size and format</summary>
+                <div class="adv-body">
+              <div class="grid-3">
                 <div class="field">
                   <label for="ic-quality">Quality — <span id="ic-quality-val">80</span>%</label>
                   <input type="range" id="ic-quality" min="10" max="100" value="80" />
@@ -648,6 +715,9 @@
                   </select>
                 </div>
               </div>
+              </div>
+            </details>
+              <span class="step-label">Step 2 — Compare and download</span>
               <div class="img-compare">
                 <figure>
                   <img id="ic-before-img" alt="Your original image" />
@@ -659,7 +729,7 @@
                 </figure>
               </div>
               <div class="btn-row">
-                <button class="btn" type="button" id="ic-download">Download compressed image</button>
+                <button class="btn big" type="button" id="ic-download">Download compressed image</button>
                 <button class="btn ghost" type="button" id="ic-reset">Start over</button>
               </div>
             </div>
@@ -675,19 +745,25 @@
                   <label for="qr-text">Text or link</label>
                   <input type="text" id="qr-text" placeholder="https://www.youtube.com/@EmpireOfMoneyHQ" />
                 </div>
-                <div class="field">
-                  <label for="qr-size">Size</label>
-                  <select id="qr-size">
-                    <option value="200">200 × 200</option>
-                    <option value="300" selected>300 × 300</option>
-                    <option value="500">500 × 500 (large)</option>
-                  </select>
-                </div>
                 <div class="btn-row">
-                  <button class="btn" type="button" id="qr-go">Generate QR code</button>
+                  <button class="btn big" type="button" id="qr-go">Generate QR code</button>
                   <button class="btn ghost" type="button" id="qr-download" disabled>Download PNG</button>
                 </div>
                 <p class="note" id="qr-msg"></p>
+                <details class="adv">
+                  <summary>Advanced options — picture size</summary>
+                  <div class="adv-body">
+                    <div class="field">
+                      <label for="qr-size">Size</label>
+                      <select id="qr-size">
+                        <option value="200">200 × 200</option>
+                        <option value="300" selected>300 × 300</option>
+                        <option value="500">500 × 500 (large)</option>
+                      </select>
+                      <p class="hint">Bigger is better for printing. 300 × 300 is plenty for screens.</p>
+                    </div>
+                  </div>
+                </details>
               </div>
               <div class="qr-out" id="qr-out" style="display:none"></div>
             </div>
@@ -697,20 +773,26 @@
             <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
             <h3>Password Generator</h3>
             <p class="sub">Built with the Web Crypto API — the same randomness your banking apps rely on. Passwords are created on your device and never stored or sent.</p>
-            <div class="field">
-              <label for="pw-length">Length — <span id="pw-length-val">16</span> characters</label>
-              <input type="range" id="pw-length" min="6" max="64" value="16" />
-            </div>
-            <div class="checks">
-              <label><input type="checkbox" id="pw-upper" checked /> ABC uppercase</label>
-              <label><input type="checkbox" id="pw-lower" checked /> abc lowercase</label>
-              <label><input type="checkbox" id="pw-digits" checked /> 123 numbers</label>
-              <label><input type="checkbox" id="pw-symbols" checked /> #$&amp; symbols</label>
-            </div>
             <div class="btn-row">
-              <button class="btn" type="button" id="pw-go">Generate password</button>
+              <button class="btn big" type="button" id="pw-go">Generate password</button>
               <button class="btn ghost" type="button" id="pw-copy">Copy</button>
             </div>
+            <details class="adv">
+              <summary>Advanced options — length and characters</summary>
+              <div class="adv-body">
+                <div class="field">
+                  <label for="pw-length">Length — <span id="pw-length-val">16</span> characters</label>
+                  <input type="range" id="pw-length" min="6" max="64" value="16" />
+                  <p class="hint">16 characters with everything switched on is already very strong.</p>
+                </div>
+                <div class="checks">
+                  <label><input type="checkbox" id="pw-upper" checked /> ABC uppercase</label>
+                  <label><input type="checkbox" id="pw-lower" checked /> abc lowercase</label>
+                  <label><input type="checkbox" id="pw-digits" checked /> 123 numbers</label>
+                  <label><input type="checkbox" id="pw-symbols" checked /> #$&amp; symbols</label>
+                </div>
+              </div>
+            </details>
             <div class="result-box">
               <div class="mono pw-out" id="pw-out">Your password will appear here</div>
               <div class="meter"><i id="pw-bar"></i></div>
@@ -763,17 +845,21 @@
             <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
             <h3>Age Calculator</h3>
             <p class="sub">Pick a date of birth and get the exact age — down to the day.</p>
-            <div class="grid-2">
-              <div class="field">
-                <label for="age-dob">Date of birth</label>
-                <input type="date" id="age-dob" />
-              </div>
-              <div class="field">
-                <label for="age-at">Age on date (default: today)</label>
-                <input type="date" id="age-at" />
-              </div>
+            <div class="field">
+              <label for="age-dob">Date of birth</label>
+              <input type="date" id="age-dob" />
             </div>
-            <button class="btn" type="button" id="age-go">Calculate age</button>
+            <button class="btn big" type="button" id="age-go">Calculate age</button>
+            <details class="adv">
+              <summary>Advanced options — age on a different date</summary>
+              <div class="adv-body">
+                <div class="field">
+                  <label for="age-at">Age on date (default: today)</label>
+                  <input type="date" id="age-at" />
+                  <p class="hint">Leave empty to calculate the age today, or pick any past or future date — for example “how old will I be in 2030?”</p>
+                </div>
+              </div>
+            </details>
             <div class="result-box" id="age-out"></div>
           </div>
 
@@ -795,7 +881,7 @@
                 <input type="number" id="emi-years" value="5" min="0" step="1" />
               </div>
             </div>
-            <button class="btn" type="button" id="emi-go">Calculate EMI</button>
+            <button class="btn big" type="button" id="emi-go">Calculate EMI</button>
             <div class="result-box" id="emi-out"></div>
           </div>
 
@@ -857,7 +943,7 @@
                 <input type="number" id="bmi-lb" value="154" min="0" step="0.1" />
               </div>
             </div>
-            <button class="btn" type="button" id="bmi-go">Calculate BMI</button>
+            <button class="btn big" type="button" id="bmi-go">Calculate BMI</button>
             <div class="result-box" id="bmi-out"></div>
           </div>
 
@@ -912,7 +998,7 @@
               </div>
             </div>
             <div class="btn-row" style="margin-top:0">
-              <button class="btn" type="button" id="cur-go">Convert</button>
+              <button class="btn big" type="button" id="cur-go">Convert</button>
               <button class="btn ghost" type="button" id="cur-swap">⇅ Swap</button>
             </div>
             <div class="result-box" id="cur-out"></div>
@@ -1015,16 +1101,23 @@
               <textarea id="jf-in" class="mono" placeholder='{"name":"toolzorq","tools":25}' spellcheck="false" style="min-height:150px"></textarea>
             </div>
             <div class="btn-row" style="margin-top:0">
-              <button class="btn" type="button" id="jf-format">Format</button>
+              <button class="btn big" type="button" id="jf-format">Format</button>
               <button class="btn ghost" type="button" id="jf-minify">Minify</button>
               <button class="btn ghost" type="button" id="jf-validate">Validate only</button>
-              <label style="display:flex;align-items:center;gap:7px;font-weight:700;font-size:.9rem">Indent
-                <select id="jf-indent" style="padding:8px 10px;border-radius:10px;border:1px solid var(--line-strong);background:var(--bg-raise)">
-                  <option value="2" selected>2 spaces</option>
-                  <option value="4">4 spaces</option>
-                </select>
-              </label>
             </div>
+            <details class="adv">
+              <summary>Advanced options — spacing</summary>
+              <div class="adv-body">
+                <div class="field">
+                  <label for="jf-indent">Indent</label>
+                  <select id="jf-indent">
+                    <option value="2" selected>2 spaces</option>
+                    <option value="4">4 spaces</option>
+                  </select>
+                  <p class="hint">How far each level is indented when you format. Purely cosmetic — the data stays the same.</p>
+                </div>
+              </div>
+            </details>
             <div class="tool-msg" id="jf-msg" role="status"></div>
             <div class="field" style="margin-top:14px">
               <label for="jf-out">Result</label>
@@ -1175,82 +1268,268 @@
           <div class="panel" id="panel-aiimage">
             <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
             <h3>AI Image Generator</h3>
-            <p class="sub">Type a description and a real AI image model generates the picture for you. Powered by the free public Pollinations service — no sign-up, no key. Generation usually takes a few seconds.</p>
+            <p class="sub">Describe a picture in plain words and a real AI model paints it for you. Powered by the free public Pollinations service — no sign-up, no key. It usually takes a few seconds.</p>
+            <span class="step-label">Step 1 — Describe your picture</span>
             <div class="field">
-              <label for="ai-prompt">Describe the image</label>
-              <input type="text" id="ai-prompt" placeholder="A golden castle floating above the clouds at sunset, digital painting" />
+              <label for="ai-prompt">What should the picture show?</label>
+              <textarea id="ai-prompt" rows="2" placeholder="A golden castle floating above the clouds at sunset, digital painting"></textarea>
+              <p class="hint">One or two sentences work best — or tap an idea:</p>
             </div>
-            <div class="grid-2">
-              <div class="field">
-                <label for="ai-size">Size</label>
-                <select id="ai-size">
-                  <option value="1024x1024" selected>Square — 1024 × 1024</option>
-                  <option value="1280x720">Wide — 1280 × 720</option>
-                  <option value="720x1280">Tall — 720 × 1280</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="ai-model">Model</label>
-                <select id="ai-model">
-                  <option value="flux" selected>Flux (best quality)</option>
-                  <option value="turbo">Turbo (faster)</option>
-                </select>
-              </div>
+            <div class="inspo">
+              <button type="button" data-ai-idea="A golden castle floating above the clouds at sunset, digital painting">Castle in the clouds</button>
+              <button type="button" data-ai-idea="A cute robot drinking tea in a garden full of flowers, storybook illustration">Robot in a garden</button>
+              <button type="button" data-ai-idea="A busy night market with neon signs and crowds of people, photograph">Night market</button>
+              <button type="button" data-ai-idea="A majestic lion with a glowing mane under a starry sky">Lion under the stars</button>
+              <button type="button" data-ai-idea="A cozy wooden cabin in snowy mountains, smoke rising from the chimney, warm light in the windows">Snowy cabin</button>
+              <button type="button" data-ai-idea="A futuristic city with flying cars and tall glass towers at dusk">Future city</button>
+              <button type="button" id="ai-surprise">Surprise me</button>
             </div>
-            <button class="btn" type="button" id="ai-go">Generate image</button>
+            <span class="step-label">Step 2 — Make it</span>
+            <button class="btn big" type="button" id="ai-go">Generate image</button>
+            <p class="hint">Tip: press Ctrl + Enter in the description box to generate.</p>
+            <details class="adv" id="ai-adv">
+              <summary>Advanced options — style, size, seed and more</summary>
+              <div class="adv-body">
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="ai-style">Art style</label>
+                    <select id="ai-style">
+                      <option value="" selected>None — exactly as I described it</option>
+                      <option value="photorealistic">Photorealistic — like a real photo</option>
+                      <option value="anime">Anime</option>
+                      <option value="3d">3D render</option>
+                      <option value="oil">Oil painting</option>
+                      <option value="cyberpunk">Cyberpunk</option>
+                      <option value="watercolor">Watercolor</option>
+                      <option value="pixel">Pixel art</option>
+                    </select>
+                    <p class="hint">A style adds the right words to your description automatically.</p>
+                  </div>
+                  <div class="field">
+                    <label for="ai-model">Model</label>
+                    <select id="ai-model">
+                      <option value="flux" selected>Flux — best quality</option>
+                      <option value="turbo">Turbo — faster</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="ai-size">Size</label>
+                    <select id="ai-size">
+                      <option value="1024x1024" selected>Square — 1024 × 1024</option>
+                      <option value="1280x720">Wide — 1280 × 720</option>
+                      <option value="720x1280">Tall — 720 × 1280</option>
+                      <option value="custom">Custom size…</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="ai-count">How many pictures?</label>
+                    <select id="ai-count">
+                      <option value="1" selected>1 picture</option>
+                      <option value="2">2 pictures</option>
+                      <option value="3">3 pictures</option>
+                      <option value="4">4 pictures</option>
+                    </select>
+                    <p class="hint">More pictures = more variations of the same idea to choose from.</p>
+                  </div>
+                </div>
+                <div class="grid-2" id="ai-custom-size" style="display:none">
+                  <div class="field">
+                    <label for="ai-w">Width (px)</label>
+                    <input type="number" id="ai-w" value="1024" min="256" max="2048" step="8" />
+                  </div>
+                  <div class="field">
+                    <label for="ai-h">Height (px)</label>
+                    <input type="number" id="ai-h" value="1024" min="256" max="2048" step="8" />
+                  </div>
+                </div>
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="ai-seed">Seed (optional)</label>
+                    <input type="number" id="ai-seed" placeholder="Empty = a fresh random picture" />
+                    <p class="hint">Same words + same seed = the same picture again. Handy for remaking a favourite.</p>
+                  </div>
+                  <div class="field">
+                    <label aria-hidden="true">&nbsp;</label>
+                    <button class="btn ghost" type="button" id="ai-seed-random">Pick a random seed</button>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="ai-format">Download format</label>
+                  <select id="ai-format">
+                    <option value="image/jpeg" selected>JPG — small file, works everywhere</option>
+                    <option value="image/png">PNG — best quality, bigger file</option>
+                    <option value="image/webp">WebP — small and modern</option>
+                  </select>
+                  <p class="hint">The picture is converted to this format right here in your browser when you download it.</p>
+                </div>
+                <div class="checks">
+                  <label><input type="checkbox" id="ai-enhance" /> Improve my description automatically</label>
+                  <label><input type="checkbox" id="ai-private" /> Private — keep it out of Pollinations’ public gallery</label>
+                  <label><input type="checkbox" id="ai-nologo" checked /> Remove the Pollinations logo</label>
+                </div>
+              </div>
+            </details>
             <div class="tool-msg" id="ai-msg" role="status"></div>
-            <div id="ai-result" style="display:none">
-              <img id="ai-img" alt="AI-generated image from your prompt" style="width:100%;border-radius:14px;border:1px solid var(--line);display:block;background:var(--surface-2)" />
+            <div class="ai-grid" id="ai-results"></div>
+            <div id="ai-history-wrap" style="display:none">
+              <span class="step-label">Pictures you made earlier</span>
+              <p class="hint" style="margin-top:0">Saved in this browser only, so they are still here when you come back. Tap a picture to see it big, or use its seed to remake it.</p>
+              <div class="hist-strip" id="ai-history"></div>
               <div class="btn-row">
-                <button class="btn" type="button" id="ai-download">Download image</button>
-                <button class="btn ghost" type="button" id="ai-newseed">Regenerate (new variation)</button>
+                <button class="btn ghost small" type="button" id="ai-clear-history">Clear history</button>
               </div>
             </div>
             <p class="note">Images are created on Pollinations’ servers (pollinations.ai), a free public AI service — your prompt is sent there to generate the image. Every generation is unique; results vary and may not always match the prompt perfectly.</p>
+            <div class="lightbox" id="ai-lightbox" role="dialog" aria-modal="true" aria-label="Full-size image preview">
+              <img id="ai-lb-img" alt="AI-generated image at full size" />
+              <div class="lb-cap" id="ai-lb-cap"></div>
+              <div class="btn-row">
+                <button class="btn" type="button" id="ai-lb-download">Download</button>
+                <button class="btn ghost lb-ghost" type="button" id="ai-lb-copyimg">Copy image</button>
+                <button class="btn ghost lb-ghost" type="button" id="ai-lb-copyprompt">Copy prompt</button>
+                <button class="btn ghost lb-ghost" type="button" id="ai-lb-close">Close ✕</button>
+              </div>
+            </div>
           </div>
 
           <div class="panel" id="panel-videomaker">
             <button class="btn ghost small close-x" type="button" data-close>Close ✕</button>
             <h3>Video Maker</h3>
-            <p class="sub">Build a real slideshow video from your own photos: each image becomes a scene with your caption, smooth fades between scenes, and a downloadable video file at the end. This is a slideshow maker that runs 100% in your browser — it is <b>not</b> AI video generation (that needs a paid AI service).</p>
+            <p class="sub">Two ways to make a real video, right here in your browser: turn your photos into a slideshow, or turn plain text into an animated text video. Both run 100% on this device — neither is AI video generation (that needs a paid AI service).</p>
+            <div class="seg" role="group" aria-label="Choose how to make your video">
+              <button type="button" id="vm-mode-img-btn" aria-pressed="true">Images se — photo slideshow</button>
+              <button type="button" id="vm-mode-text-btn" aria-pressed="false">Text se Video (Animated)</button>
+            </div>
+            <div id="vm-mode-images">
+            <span class="step-label">Step 1 — Add your photos</span>
             <div class="drop" id="vm-drop">
               <p style="margin:0 0 6px"><b>Drop images here</b> or</p>
               <button class="btn small" type="button" id="vm-pick">Choose images</button>
               <input type="file" id="vm-files" accept="image/*" multiple />
-              <p class="note" style="margin-top:10px">Add 2 or more JPG / PNG / WebP images — they stay on your device</p>
+              <p class="note" style="margin-top:10px">Add 2 or more JPG / PNG / WebP images — they never leave your device</p>
             </div>
             <div id="vm-editor" style="display:none">
-              <div id="vm-scenes" style="margin-top:18px"></div>
-              <div class="grid-3" style="margin-top:6px">
-                <div class="field">
-                  <label for="vm-dur">Seconds per image</label>
-                  <select id="vm-dur">
-                    <option value="2">2 seconds</option>
-                    <option value="3" selected>3 seconds</option>
-                    <option value="4">4 seconds</option>
-                    <option value="5">5 seconds</option>
-                  </select>
+              <span class="step-label">Step 2 — Arrange your scenes</span>
+              <p class="hint" style="margin-top:0">Write the words for each photo, drag the order with the arrows. Open “Scene settings” on a photo to change how long it stays on screen or add a photo filter.</p>
+              <div id="vm-scenes"></div>
+              <p class="file-name" id="vm-total">Total length: 0 seconds</p>
+              <details class="adv" id="vm-adv">
+                <summary>Advanced options — transitions, text, music, logo, project</summary>
+                <div class="adv-body">
+                  <div class="grid-3">
+                    <div class="field">
+                      <label for="vm-trans">How scenes change</label>
+                      <select id="vm-trans">
+                        <option value="fade" selected>Fade — soft blend</option>
+                        <option value="slide">Slide — push sideways</option>
+                        <option value="zoom">Zoom — slow zoom-in effect</option>
+                        <option value="cut">Cut — instant change</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="vm-size">Video shape &amp; quality</label>
+                      <select id="vm-size">
+                        <option value="1280x720" selected>Wide HD — 1280 × 720 (16:9)</option>
+                        <option value="1920x1080">Wide Full HD — 1920 × 1080 (16:9)</option>
+                        <option value="720x1280">Tall HD — 720 × 1280 (9:16, Shorts / Reels)</option>
+                        <option value="1080x1920">Tall Full HD — 1080 × 1920 (9:16)</option>
+                        <option value="1080x1080">Square — 1080 × 1080 (1:1)</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="vm-quality">Export quality</label>
+                      <select id="vm-quality">
+                        <option value="standard" selected>Standard — smaller file</option>
+                        <option value="high">High — sharper picture, bigger file</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="grid-3">
+                    <div class="field">
+                      <label for="vm-text-pos">Text position</label>
+                      <select id="vm-text-pos">
+                        <option value="bottom" selected>Bottom</option>
+                        <option value="center">Middle</option>
+                        <option value="top">Top</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="vm-text-size">Text size — <span id="vm-text-size-val">100</span>%</label>
+                      <input type="range" id="vm-text-size" min="60" max="180" value="100" />
+                    </div>
+                    <div class="field">
+                      <label for="vm-text-color">Text colour</label>
+                      <input type="color" id="vm-text-color" value="#ffffff" />
+                    </div>
+                  </div>
+                  <div class="grid-2">
+                    <div class="field">
+                      <label for="vm-text-anim">Text animation</label>
+                      <select id="vm-text-anim">
+                        <option value="fade" selected>Fade in</option>
+                        <option value="slide">Slide in</option>
+                        <option value="none">None — just appears</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="vm-music">Background music (optional)</label>
+                      <input type="file" id="vm-music" accept="audio/*" />
+                      <p class="file-name" id="vm-music-name">No music added — the video will be silent</p>
+                    </div>
+                  </div>
+                  <div class="grid-2">
+                    <div class="field">
+                      <label for="vm-music-vol">Music volume — <span id="vm-music-vol-val">80</span>%</label>
+                      <input type="range" id="vm-music-vol" min="0" max="100" value="80" />
+                    </div>
+                    <div class="field">
+                      <label>Music fades</label>
+                      <div class="checks">
+                        <label><input type="checkbox" id="vm-fade-in" checked /> Fade in at the start</label>
+                        <label><input type="checkbox" id="vm-fade-out" checked /> Fade out at the end</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid-2">
+                    <div class="field">
+                      <label for="vm-logo">Your logo on the video (optional)</label>
+                      <input type="file" id="vm-logo" accept="image/*" />
+                      <p class="file-name" id="vm-logo-name">No logo added</p>
+                    </div>
+                    <div class="field">
+                      <label for="vm-logo-pos">Logo corner</label>
+                      <select id="vm-logo-pos">
+                        <option value="tr" selected>Top right</option>
+                        <option value="tl">Top left</option>
+                        <option value="br">Bottom right</option>
+                        <option value="bl">Bottom left</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label>Save or reopen this project</label>
+                    <div class="btn-row" style="margin-top:0">
+                      <button class="btn ghost small" type="button" id="vm-save">Save project file</button>
+                      <button class="btn ghost small" type="button" id="vm-load-btn">Open a saved project</button>
+                      <input type="file" id="vm-load" accept=".json,application/json" style="display:none" />
+                    </div>
+                    <p class="hint">The project file holds your photos, words and settings so you can carry on later. Music is not saved in the file — just add it again after opening.</p>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="vm-size">Video size</label>
-                  <select id="vm-size">
-                    <option value="1280x720" selected>HD landscape — 1280 × 720</option>
-                    <option value="720x1280">Vertical — 720 × 1280 (Shorts / Reels)</option>
-                    <option value="1080x1080">Square — 1080 × 1080</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="vm-trans">Transition</label>
-                  <select id="vm-trans">
-                    <option value="fade" selected>Fade</option>
-                    <option value="cut">Cut (instant)</option>
-                  </select>
-                </div>
-              </div>
+              </details>
+              <span class="step-label">Step 3 — Preview and make your video</span>
+              <canvas class="vm-stage" id="vm-stage" width="1280" height="720"></canvas>
+              <audio id="vm-music-audio" style="display:none"></audio>
               <div class="btn-row">
-                <button class="btn" type="button" id="vm-build">Create video</button>
+                <button class="btn ghost" type="button" id="vm-preview">Play preview</button>
                 <button class="btn ghost" type="button" id="vm-reset">Start over</button>
               </div>
+              <div class="btn-row">
+                <button class="btn big" type="button" id="vm-build">Make my video</button>
+              </div>
+              <div class="meter" id="vm-meter" style="display:none;margin-top:14px"><i id="vm-bar"></i></div>
               <div class="tool-msg" id="vm-msg" role="status"></div>
               <div id="vm-result" style="display:none;margin-top:14px">
                 <video id="vm-video" controls playsinline style="width:100%;border-radius:14px;border:1px solid var(--line);background:#000;display:block"></video>
@@ -1259,7 +1538,120 @@
                 </div>
                 <p class="note" id="vm-note" style="margin-bottom:0"></p>
               </div>
-              <p class="note">The video is recorded in real time (a 15-second video takes about 15 seconds to create) — keep this tab visible while it records. File format depends on your browser: MP4 in Safari and newer Chrome/Edge, WebM in Firefox.</p>
+              <p class="note">The video is recorded in real time (a 15-second video takes about 15 seconds to make) — keep this tab visible while it records. File format depends on your browser: MP4 in Safari and newer Chrome/Edge, WebM in Firefox — the finished video above always tells you honestly which one you got.</p>
+            </div>
+            </div>
+            <div id="vm-mode-text" style="display:none">
+              <span class="step-label">Step 1 — Write your lines</span>
+              <div class="field">
+                <label for="tv-title">Title (optional — shown first, in big letters)</label>
+                <input type="text" id="tv-title" placeholder="My Big Announcement" />
+              </div>
+              <div class="field">
+                <label for="tv-lines">Your lines — one line per scene</label>
+                <textarea id="tv-lines" rows="5" placeholder="Welcome to my channel&#10;Today we talk about money&#10;Subscribe for more"></textarea>
+                <p class="hint">Each line becomes one scene of the video. Short lines look best. No photos needed at all.</p>
+              </div>
+              <details class="adv" id="tv-adv">
+                <summary>Advanced options — background, animation, music and more</summary>
+                <div class="adv-body">
+                  <div class="grid-3">
+                    <div class="field">
+                      <label for="tv-bg">Animated background</label>
+                      <select id="tv-bg">
+                        <option value="gradient" selected>Moving gradient</option>
+                        <option value="particles">Floating particles</option>
+                        <option value="shapes">Drifting shapes</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="tv-theme">Colour theme</label>
+                      <select id="tv-theme">
+                        <option value="sunset" selected>Sunset</option>
+                        <option value="ocean">Ocean</option>
+                        <option value="forest">Forest</option>
+                        <option value="gold">Royal gold</option>
+                        <option value="midnight">Midnight</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="tv-size">Video shape &amp; quality</label>
+                      <select id="tv-size">
+                        <option value="1280x720" selected>Wide HD — 1280 × 720 (16:9)</option>
+                        <option value="1920x1080">Wide Full HD — 1920 × 1080 (16:9)</option>
+                        <option value="720x1280">Tall HD — 720 × 1280 (9:16, Shorts / Reels)</option>
+                        <option value="1080x1920">Tall Full HD — 1080 × 1920 (9:16)</option>
+                        <option value="1080x1080">Square — 1080 × 1080 (1:1)</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="grid-3">
+                    <div class="field">
+                      <label for="tv-anim">Text animation</label>
+                      <select id="tv-anim">
+                        <option value="fade" selected>Fade in</option>
+                        <option value="slide">Slide up</option>
+                        <option value="zoom">Zoom in</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="tv-trans">How scenes change</label>
+                      <select id="tv-trans">
+                        <option value="fade" selected>Fade — soft blend</option>
+                        <option value="slide">Slide sideways</option>
+                        <option value="cut">Cut — instant change</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="tv-quality">Export quality</label>
+                      <select id="tv-quality">
+                        <option value="standard" selected>Standard — smaller file</option>
+                        <option value="high">High — sharper picture, bigger file</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="grid-2">
+                    <div class="field">
+                      <label for="tv-dur">Seconds per line — <span id="tv-dur-val">3</span>s</label>
+                      <input type="range" id="tv-dur" min="1" max="8" step="0.5" value="3" />
+                    </div>
+                    <div class="field">
+                      <label for="tv-text-size">Text size — <span id="tv-text-size-val">100</span>%</label>
+                      <input type="range" id="tv-text-size" min="60" max="170" value="100" />
+                    </div>
+                  </div>
+                  <div class="grid-2">
+                    <div class="field">
+                      <label for="tv-music">Background music (optional)</label>
+                      <input type="file" id="tv-music" accept="audio/*" />
+                      <p class="file-name" id="tv-music-name">No music added — the video will be silent</p>
+                    </div>
+                    <div class="field">
+                      <label for="tv-music-vol">Music volume — <span id="tv-music-vol-val">80</span>%</label>
+                      <input type="range" id="tv-music-vol" min="0" max="100" value="80" />
+                    </div>
+                  </div>
+                </div>
+              </details>
+              <span class="step-label">Step 2 — Preview and make your video</span>
+              <canvas class="vm-stage" id="tv-stage" width="1280" height="720"></canvas>
+              <audio id="tv-music-audio" style="display:none"></audio>
+              <div class="btn-row">
+                <button class="btn ghost" type="button" id="tv-preview">Play preview</button>
+              </div>
+              <div class="btn-row">
+                <button class="btn big" type="button" id="tv-build">Make my video</button>
+              </div>
+              <div class="meter" id="tv-meter" style="display:none;margin-top:14px"><i id="tv-bar"></i></div>
+              <div class="tool-msg" id="tv-msg" role="status"></div>
+              <div id="tv-result" style="display:none;margin-top:14px">
+                <video id="tv-video" controls playsinline style="width:100%;border-radius:14px;border:1px solid var(--line);background:#000;display:block"></video>
+                <div class="btn-row">
+                  <button class="btn" type="button" id="tv-download">Download video</button>
+                </div>
+                <p class="note" id="tv-note" style="margin-bottom:0"></p>
+              </div>
+              <p class="note">This makes an <b>animated text video</b> — your own words moving over an animated background, drawn live in your browser. It is <b>not</b> AI scene generation: no pictures are invented, only your text, animated. The video is recorded in real time, so keep this tab visible while it records. Format: MP4 in Safari and newer Chrome/Edge, WebM in Firefox — the finished video above always says which one you got.</p>
             </div>
           </div>
 
@@ -2464,124 +2856,611 @@
         toast("Countdown running");
       });
 
-      /* ============ 24. AI Image Generator (Pollinations) ============ */
-      var aiSeed = null, aiBusy = false;
-      function aiUrl() {
-        var prompt = $("ai-prompt").value.trim();
-        var parts = $("ai-size").value.split("x");
-        var seed = aiSeed === null ? Math.floor(Math.random() * 999999) : aiSeed;
-        aiSeed = seed;
-        return "https://image.pollinations.ai/prompt/" + encodeURIComponent(prompt) +
-          "?width=" + parts[0] + "&height=" + parts[1] + "&seed=" + seed +
-          "&model=" + $("ai-model").value + "&nologo=true";
+      /* ============ 24. AI Image Generator (Pollinations, advanced) ============ */
+      var AI_STYLES = {
+        photorealistic: ", photorealistic, ultra detailed, professional photography, sharp focus, natural light",
+        anime: ", anime style, vibrant colours, detailed anime illustration",
+        "3d": ", 3D render, octane render, soft studio lighting, highly detailed",
+        oil: ", oil painting, classical art, visible brushstrokes, rich canvas texture",
+        cyberpunk: ", cyberpunk style, neon lights, futuristic city mood, night, rain reflections",
+        watercolor: ", watercolor painting, soft washes, delicate, paper texture",
+        pixel: ", pixel art, 16-bit retro game style, crisp pixels"
+      };
+      var AI_IDEAS = [
+        "A golden castle floating above the clouds at sunset, digital painting",
+        "A cute robot drinking tea in a garden full of flowers, storybook illustration",
+        "A busy night market with neon signs and crowds of people, photograph",
+        "A majestic lion with a glowing mane under a starry sky",
+        "A cozy wooden cabin in snowy mountains, smoke rising from the chimney, warm light in the windows",
+        "A futuristic city with flying cars and tall glass towers at dusk",
+        "An ancient library with towering shelves and a shaft of golden sunlight",
+        "A red sports car driving along a coastal road at golden hour, photograph",
+        "A dragon made of flowers flying over a spring valley",
+        "A tiny treehouse village inside a glowing mushroom forest at night",
+        "A hot air balloon festival over green hills at sunrise, photograph",
+        "A waterfall of liquid gold pouring into a crystal lake, fantasy art"
+      ];
+      var aiBusy = false;
+      var aiHistory = [];
+      try {
+        aiHistory = JSON.parse(localStorage.getItem("tzq-ai-history") || "[]");
+        if (!Array.isArray(aiHistory)) aiHistory = [];
+      } catch (e) { aiHistory = []; }
+      var aiLb = null;
+
+      function aiStyled(base, styleKey) { return base + (AI_STYLES[styleKey] || ""); }
+      function aiSizeWH() {
+        if ($("ai-size").value === "custom") {
+          var w = Math.min(2048, Math.max(256, parseInt($("ai-w").value, 10) || 1024));
+          var h = Math.min(2048, Math.max(256, parseInt($("ai-h").value, 10) || 1024));
+          return [w, h];
+        }
+        var p = $("ai-size").value.split("x");
+        return [parseInt(p[0], 10), parseInt(p[1], 10)];
       }
-      $("ai-go").addEventListener("click", function () {
-        var prompt = $("ai-prompt").value.trim();
-        var msg = $("ai-msg");
-        if (!prompt) { msg.textContent = "Describe the image first — a sentence works best."; msg.className = "tool-msg err"; return; }
-        if (aiBusy) return;
-        aiBusy = true;
-        aiSeed = null;
-        $("ai-go").textContent = "Generating…";
-        $("ai-result").style.display = "none";
-        msg.textContent = "Sending your prompt to the AI model — this usually takes 5–20 seconds…";
-        msg.className = "tool-msg";
-        var img = $("ai-img");
-        var done = false;
-        var timeout = setTimeout(function () {
-          if (done) return;
-          done = true; aiBusy = false;
-          $("ai-go").textContent = "Generate image";
-          msg.textContent = "The free AI service is taking too long — it may be busy. Wait a moment and try again.";
-          msg.className = "tool-msg err";
-        }, 90000);
-        img.onload = function () {
-          if (done) return;
-          done = true; aiBusy = false;
-          clearTimeout(timeout);
-          $("ai-go").textContent = "Generate image";
-          $("ai-result").style.display = "block";
-          msg.textContent = "Done — generated by Pollinations (" + $("ai-model").value + " model). Not happy with it? “Regenerate” makes a new variation of the same prompt.";
-          msg.className = "tool-msg";
-          $("ai-result").scrollIntoView({ behavior: "smooth", block: "nearest" });
-        };
-        img.onerror = function () {
-          if (done) return;
-          done = true; aiBusy = false;
-          clearTimeout(timeout);
-          $("ai-go").textContent = "Generate image";
-          $("ai-result").style.display = "none";
-          msg.textContent = "The AI image service couldn’t be reached (image.pollinations.ai). Check your connection and try again — nothing was generated.";
-          msg.className = "tool-msg err";
-        };
-        img.src = aiUrl();
-      });
-      $("ai-newseed").addEventListener("click", function () {
-        aiSeed = Math.floor(Math.random() * 999999);
-        var img = $("ai-img"), msg = $("ai-msg");
-        msg.textContent = "Generating a new variation…";
-        msg.className = "tool-msg";
-        img.onload = function () { msg.textContent = "New variation ready."; };
-        img.onerror = function () { msg.textContent = "The service didn’t respond this time — try again in a few seconds."; msg.className = "tool-msg err"; };
-        img.src = aiUrl();
-      });
-      $("ai-prompt").addEventListener("keydown", function (e) { if (e.key === "Enter") $("ai-go").click(); });
-      $("ai-download").addEventListener("click", function () {
-        var img = $("ai-img");
-        if (!img.src) { toast("Generate an image first"); return; }
-        fetch(img.src).then(function (r) {
+      function aiUrlFor(item) {
+        var u = "https://image.pollinations.ai/prompt/" + encodeURIComponent(aiStyled(item.prompt, item.style)) +
+          "?width=" + item.w + "&height=" + item.h + "&seed=" + item.seed + "&model=" + item.model;
+        if ($("ai-enhance").checked) u += "&enhance=true";
+        if ($("ai-private").checked) u += "&private=true";
+        if ($("ai-nologo").checked) u += "&nologo=true";
+        return u;
+      }
+      function aiSaveHistory() {
+        try { localStorage.setItem("tzq-ai-history", JSON.stringify(aiHistory.slice(0, 24))); } catch (e) {}
+      }
+      function aiOpenLightbox(item) {
+        aiLb = item;
+        $("ai-lb-img").src = item.url;
+        $("ai-lb-cap").textContent = "“" + item.prompt + "” · seed " + item.seed + " · " + item.model + " · " + item.w + "×" + item.h;
+        $("ai-lightbox").classList.add("open");
+      }
+      function aiCloseLightbox() { $("ai-lightbox").classList.remove("open"); }
+      function aiRenderHistory() {
+        var wrap = $("ai-history-wrap"), box = $("ai-history");
+        box.innerHTML = "";
+        wrap.style.display = aiHistory.length ? "block" : "none";
+        aiHistory.forEach(function (item) {
+          var d = document.createElement("div");
+          d.className = "hist-item";
+          var im = document.createElement("img");
+          im.src = item.url; im.alt = "Earlier picture: " + item.prompt; im.loading = "lazy";
+          im.addEventListener("click", function () { aiOpenLightbox(item); });
+          var b = document.createElement("button");
+          b.type = "button"; b.className = "btn ghost small hist-seed";
+          b.textContent = "Use seed " + item.seed;
+          b.addEventListener("click", function () {
+            $("ai-prompt").value = item.prompt;
+            $("ai-style").value = item.style || "";
+            $("ai-model").value = item.model || "flux";
+            $("ai-seed").value = item.seed;
+            var preset = item.w + "x" + item.h;
+            var hasPreset = false;
+            Array.prototype.forEach.call($("ai-size").options, function (o) { if (o.value === preset) hasPreset = true; });
+            if (hasPreset) { $("ai-size").value = preset; $("ai-custom-size").style.display = "none"; }
+            else { $("ai-size").value = "custom"; $("ai-w").value = item.w; $("ai-h").value = item.h; $("ai-custom-size").style.display = "grid"; }
+            $("ai-adv").open = true;
+            var m = $("ai-msg");
+            m.textContent = "Loaded that picture’s words, style and seed — press “Generate image” to remake it.";
+            m.className = "tool-msg";
+            $("panel-aiimage").scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+          d.appendChild(im); d.appendChild(b);
+          box.appendChild(d);
+        });
+      }
+      function aiConvertAndDownload(item) {
+        var fmt = $("ai-format").value;
+        var ext = fmt === "image/png" ? "png" : fmt === "image/webp" ? "webp" : "jpg";
+        fetch(item.url).then(function (r) {
           if (!r.ok) throw new Error("bad");
           return r.blob();
         }).then(function (blob) {
-          downloadBlob(blob, "ai-image-" + (aiSeed || "1") + ".jpg");
-          toast("Image downloading");
+          var objUrl = URL.createObjectURL(blob);
+          var im = new Image();
+          im.onload = function () {
+            var c = document.createElement("canvas");
+            c.width = im.naturalWidth; c.height = im.naturalHeight;
+            var cx = c.getContext("2d");
+            if (fmt === "image/jpeg") { cx.fillStyle = "#ffffff"; cx.fillRect(0, 0, c.width, c.height); }
+            cx.drawImage(im, 0, 0);
+            URL.revokeObjectURL(objUrl);
+            if (c.toBlob) {
+              c.toBlob(function (b) {
+                if (b) { downloadBlob(b, "ai-image-" + item.seed + "." + ext); toast("Image downloading (" + ext.toUpperCase() + ")"); }
+                else downloadBlob(blob, "ai-image-" + item.seed + ".jpg");
+              }, fmt, 0.92);
+            } else downloadBlob(blob, "ai-image-" + item.seed + ".jpg");
+          };
+          im.onerror = function () { URL.revokeObjectURL(objUrl); window.open(item.url, "_blank"); };
+          im.src = objUrl;
         }).catch(function () {
-          window.open(img.src, "_blank");
+          window.open(item.url, "_blank");
           toast("Opened the image in a new tab — save it from there");
         });
+      }
+      function aiCopyImage(item) {
+        if (!(navigator.clipboard && window.ClipboardItem)) { toast("Copying images isn’t supported in this browser — use Download instead"); return; }
+        fetch(item.url).then(function (r) {
+          if (!r.ok) throw new Error("bad");
+          return r.blob();
+        }).then(function (blob) {
+          var objUrl = URL.createObjectURL(blob);
+          var im = new Image();
+          im.onload = function () {
+            var c = document.createElement("canvas");
+            c.width = im.naturalWidth; c.height = im.naturalHeight;
+            c.getContext("2d").drawImage(im, 0, 0);
+            URL.revokeObjectURL(objUrl);
+            c.toBlob(function (png) {
+              if (!png) { toast("Copy failed — use Download instead"); return; }
+              var data = {}; data["image/png"] = png;
+              navigator.clipboard.write([new ClipboardItem(data)]).then(
+                function () { toast("Image copied — paste it anywhere"); },
+                function () { toast("Copy was blocked by the browser — use Download instead"); }
+              );
+            }, "image/png");
+          };
+          im.onerror = function () { URL.revokeObjectURL(objUrl); toast("Copy failed — use Download instead"); };
+          im.src = objUrl;
+        }).catch(function () { toast("Copy failed — use Download instead"); });
+      }
+      function aiGenerate() {
+        var base = $("ai-prompt").value.trim();
+        var msg = $("ai-msg");
+        if (!base) {
+          msg.textContent = "Describe the picture first — a sentence works best. Or tap one of the ideas above.";
+          msg.className = "tool-msg err";
+          $("ai-prompt").focus();
+          return;
+        }
+        if (aiBusy) return;
+        aiBusy = true;
+        $("ai-go").textContent = "Generating…";
+        var wh = aiSizeWH(), w = wh[0], h = wh[1];
+        var count = parseInt($("ai-count").value, 10) || 1;
+        var seedVal = $("ai-seed").value.trim();
+        var baseSeed = seedVal === "" ? Math.floor(Math.random() * 999999) : Math.max(0, parseInt(seedVal, 10) || 0);
+        var model = $("ai-model").value;
+        var styleKey = $("ai-style").value;
+        var grid = $("ai-results");
+        grid.innerHTML = "";
+        msg.textContent = count > 1 ? "Making " + count + " pictures for you — this can take up to a minute…" : "Making your picture — this usually takes 5–20 seconds…";
+        msg.className = "tool-msg";
+        var doneCount = 0, okCount = 0;
+        function finishOne() {
+          doneCount++;
+          if (doneCount !== count) return;
+          aiBusy = false;
+          $("ai-go").textContent = "Generate image";
+          if (okCount) {
+            msg.textContent = okCount === 1 ? "Done — your picture is ready below. Tap it to see it big." : "Done — " + okCount + " of " + count + " pictures ready below. Tap any picture to see it big.";
+            msg.className = "tool-msg";
+          } else {
+            msg.textContent = "The AI image service couldn’t be reached (image.pollinations.ai). Check your connection and try again — nothing was generated.";
+            msg.className = "tool-msg err";
+          }
+        }
+        for (var i = 0; i < count; i++) {
+          (function (seed) {
+            var item = { prompt: base, style: styleKey, seed: seed, model: model, w: w, h: h };
+            item.url = aiUrlFor(item);
+            var card = document.createElement("div");
+            card.className = "ai-card";
+            var load = document.createElement("div");
+            load.className = "ai-loading";
+            load.textContent = "Generating…";
+            card.appendChild(load);
+            grid.appendChild(card);
+            var probe = new Image();
+            var settled = false;
+            var to = setTimeout(function () {
+              if (settled) return;
+              settled = true;
+              load.textContent = "This one timed out — the free service may be busy. Try again in a moment.";
+              finishOne();
+            }, 90000);
+            probe.onload = function () {
+              if (settled) return;
+              settled = true;
+              clearTimeout(to);
+              card.innerHTML = "";
+              var pic = document.createElement("img");
+              pic.src = item.url;
+              pic.alt = "AI-generated image: " + base;
+              pic.addEventListener("click", function () { aiOpenLightbox(item); });
+              var body = document.createElement("div");
+              body.className = "ai-card-body";
+              var meta = document.createElement("div");
+              meta.className = "ai-meta";
+              meta.textContent = "Seed " + seed + " · " + model + " · " + w + "×" + h;
+              var row = document.createElement("div");
+              row.className = "btn-row";
+              var dl = document.createElement("button");
+              dl.type = "button"; dl.className = "btn small"; dl.textContent = "Download";
+              dl.addEventListener("click", function () { aiConvertAndDownload(item); });
+              var ci = document.createElement("button");
+              ci.type = "button"; ci.className = "btn ghost small"; ci.textContent = "Copy image";
+              ci.addEventListener("click", function () { aiCopyImage(item); });
+              var cp = document.createElement("button");
+              cp.type = "button"; cp.className = "btn ghost small"; cp.textContent = "Copy prompt";
+              cp.addEventListener("click", function () { copyText(aiStyled(item.prompt, item.style), "Prompt copied"); });
+              row.appendChild(dl); row.appendChild(ci); row.appendChild(cp);
+              body.appendChild(meta); body.appendChild(row);
+              card.appendChild(pic); card.appendChild(body);
+              okCount++;
+              aiHistory.unshift(item);
+              aiSaveHistory();
+              aiRenderHistory();
+              finishOne();
+            };
+            probe.onerror = function () {
+              if (settled) return;
+              settled = true;
+              clearTimeout(to);
+              load.textContent = "The service didn’t answer for this one — nothing was generated. Try again in a few seconds.";
+              finishOne();
+            };
+            probe.src = item.url;
+          })(baseSeed + i);
+        }
+      }
+      $("ai-go").addEventListener("click", aiGenerate);
+      $("ai-prompt").addEventListener("keydown", function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); aiGenerate(); }
       });
+      Array.prototype.forEach.call(document.querySelectorAll("[data-ai-idea]"), function (b) {
+        b.addEventListener("click", function () {
+          $("ai-prompt").value = b.getAttribute("data-ai-idea");
+          $("ai-prompt").focus();
+        });
+      });
+      $("ai-surprise").addEventListener("click", function () {
+        $("ai-prompt").value = AI_IDEAS[Math.floor(Math.random() * AI_IDEAS.length)];
+        aiGenerate();
+      });
+      $("ai-size").addEventListener("change", function () {
+        $("ai-custom-size").style.display = this.value === "custom" ? "grid" : "none";
+      });
+      $("ai-seed-random").addEventListener("click", function () {
+        $("ai-seed").value = Math.floor(Math.random() * 999999);
+        toast("Random seed set");
+      });
+      $("ai-clear-history").addEventListener("click", function () {
+        aiHistory = [];
+        aiSaveHistory();
+        aiRenderHistory();
+        toast("History cleared");
+      });
+      $("ai-lb-close").addEventListener("click", aiCloseLightbox);
+      $("ai-lightbox").addEventListener("click", function (e) { if (e.target === this) aiCloseLightbox(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") aiCloseLightbox(); });
+      $("ai-lb-download").addEventListener("click", function () { if (aiLb) aiConvertAndDownload(aiLb); });
+      $("ai-lb-copyimg").addEventListener("click", function () { if (aiLb) aiCopyImage(aiLb); });
+      $("ai-lb-copyprompt").addEventListener("click", function () { if (aiLb) copyText(aiStyled(aiLb.prompt, aiLb.style), "Prompt copied"); });
+      aiRenderHistory();
 
       /* ============ 25. Video Maker (canvas + MediaRecorder) ============ */
-      var vmScenes = []; // { img: HTMLImageElement, url: objectURL, caption: string }
+      function pickVideoMime() {
+        var mime = "";
+        ["video/mp4;codecs=avc1", "video/mp4", "video/webm;codecs=vp9", "video/webm"].forEach(function (m) {
+          if (!mime && window.MediaRecorder && MediaRecorder.isTypeSupported(m)) mime = m;
+        });
+        return mime;
+      }
+      /* Records a canvas in real time for totalSec seconds, calling draw(tSec) every frame.
+         Optionally mixes an uploaded music file into the recording. Fully on-device.
+         If a format claims support but produces an empty file (some browsers do this
+         with MP4), it automatically retries with the next format — WebM after MP4. */
+      function recordCanvasVideo(canvas, totalSec, draw, opts) {
+        if (typeof MediaRecorder === "undefined" || !HTMLCanvasElement.prototype.captureStream) {
+          opts.onError("This browser can’t record canvas video (MediaRecorder is missing). Try Chrome, Edge, Safari or Firefox on a recent device.");
+          return;
+        }
+        var mimes = [];
+        ["video/mp4;codecs=avc1", "video/mp4", "video/webm;codecs=vp9", "video/webm"].forEach(function (m) {
+          if (window.MediaRecorder && MediaRecorder.isTypeSupported(m)) mimes.push(m);
+        });
+        if (!mimes.length) mimes.push("");
+        attempt(0);
+        function attempt(mi) {
+          var mime = mimes[mi];
+          var stream = canvas.captureStream(30);
+          var audioCtx = null, audioDest = null, musicNote = "";
+          function startRec() {
+            var rec;
+            try {
+              var recOpts = { videoBitsPerSecond: opts.highQuality ? 12000000 : 5000000 };
+              if (mime) recOpts.mimeType = mime;
+              if (audioDest) recOpts.audioBitsPerSecond = 128000;
+              rec = new MediaRecorder(stream, recOpts);
+            } catch (e) {
+              if (mi < mimes.length - 1) { attempt(mi + 1); return; }
+              opts.onError("Video recording isn’t supported in this browser. Try a recent Chrome, Edge, Safari or Firefox.");
+              return;
+            }
+            var chunks = [];
+            rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+            rec.onstop = function () {
+              if (audioCtx) { try { audioCtx.close(); } catch (e) {} }
+              var type = rec.mimeType || mime || "video/webm";
+              var blob = new Blob(chunks, { type: type.split(";")[0] });
+              blob._ext = type.indexOf("mp4") !== -1 ? "mp4" : "webm";
+              if (!blob.size) {
+                if (mi < mimes.length - 1) { attempt(mi + 1); return; }
+                opts.onError("The recording came out empty in this browser — nothing was saved. Try Chrome, Edge, Safari or Firefox on a recent device.");
+                return;
+              }
+              opts.onDone(blob, blob._ext, musicNote);
+            };
+            rec.start(250);
+            var t0 = performance.now();
+            var totalMs = totalSec * 1000;
+            (function frame(now) {
+              var el = now - t0;
+              if (el >= totalMs) {
+                draw(totalSec);
+                setTimeout(function () { try { rec.stop(); } catch (e) {} }, 120);
+                return;
+              }
+              draw(el / 1000);
+              if (opts.onProgress) opts.onProgress(Math.min(100, Math.round(el / totalMs * 100)), Math.ceil((totalMs - el) / 1000));
+              requestAnimationFrame(frame);
+            })(t0);
+          }
+          if (opts.musicFile) {
+            try {
+              var AC = window.AudioContext || window.webkitAudioContext;
+              audioCtx = new AC();
+              if (audioCtx.state === "suspended" && audioCtx.resume) audioCtx.resume();
+              audioDest = audioCtx.createMediaStreamDestination();
+              opts.musicFile.arrayBuffer().then(function (buf) {
+                return audioCtx.decodeAudioData(buf);
+              }).then(function (decoded) {
+                var src = audioCtx.createBufferSource();
+                src.buffer = decoded;
+                src.loop = true;
+                var gain = audioCtx.createGain();
+                var t = audioCtx.currentTime;
+                var v = opts.musicVol;
+                var fadeLen = Math.min(2, totalSec / 4);
+                if (opts.fadeIn) {
+                  gain.gain.setValueAtTime(0.0001, t);
+                  gain.gain.exponentialRampToValueAtTime(Math.max(v, 0.0001), t + fadeLen);
+                } else {
+                  gain.gain.setValueAtTime(v, t);
+                }
+                if (opts.fadeOut) {
+                  var outStart = Math.max(t + fadeLen, t + totalSec - Math.min(2.5, totalSec / 4));
+                  gain.gain.setValueAtTime(Math.max(v, 0.0001), outStart);
+                  gain.gain.exponentialRampToValueAtTime(0.0001, t + totalSec);
+                }
+                src.connect(gain);
+                gain.connect(audioDest);
+                stream.addTrack(audioDest.stream.getAudioTracks()[0]);
+                src.start(0);
+                try { src.stop(t + totalSec + 0.3); } catch (e) {}
+                musicNote = "with your music mixed in";
+                startRec();
+              }).catch(function () {
+                musicNote = "the music file couldn’t be read, so the video is silent";
+                try { audioCtx.close(); } catch (e) {}
+                audioCtx = null; audioDest = null;
+                startRec();
+              });
+            } catch (e) {
+              musicNote = "music mixing isn’t supported in this browser, so the video is silent";
+              audioCtx = null; audioDest = null;
+              startRec();
+            }
+          } else {
+            startRec();
+          }
+        }
+      }
+
+      /* ---------- 25a. Slideshow mode (Images se) ---------- */
+      var VM_FILTERS = { none: "", gray: "grayscale(1)", sepia: "sepia(0.85)", bright: "brightness(1.3) saturate(1.15)" };
+      var vmScenes = []; // { img, url, dataUrl, caption, dur, filter, filterCss }
       var vmBlob = null, vmBuilding = false;
+      var vmMusicFile = null, vmMusicUrl = null;
+      var vmLogoImg = null, vmLogoDataUrl = null;
+      var vmPreviewing = false, vmPreviewT = 0, vmPreviewLast = 0, vmPreviewRaf = 0;
+
+      function vmSettings() {
+        return {
+          trans: $("vm-trans").value,
+          textPos: $("vm-text-pos").value,
+          textSize: parseInt($("vm-text-size").value, 10) / 100,
+          textColor: $("vm-text-color").value,
+          textAnim: $("vm-text-anim").value
+        };
+      }
+      function vmTotalSec() { return vmScenes.reduce(function (a, s) { return a + s.dur; }, 0); }
+      function vmUpdateTotal() {
+        var t = vmTotalSec();
+        $("vm-total").textContent = "Total length: about " + (t % 1 ? t.toFixed(1) : t) + " seconds · " + vmScenes.length + " scene" + (vmScenes.length === 1 ? "" : "s");
+      }
+      function vmDrawImage(ctx, W, H, sc, o) {
+        ctx.save();
+        ctx.globalAlpha = o.alpha;
+        if (sc.filterCss) { try { ctx.filter = sc.filterCss; } catch (e) {} }
+        var iw = sc.img.naturalWidth, ih = sc.img.naturalHeight;
+        var scale = Math.max(W / iw, H / ih) * (o.scale || 1);
+        var dw = iw * scale, dh = ih * scale;
+        ctx.drawImage(sc.img, (W - dw) / 2 + (o.dx || 0), (H - dh) / 2, dw, dh);
+        ctx.restore();
+      }
+      function vmDrawCaption(ctx, W, H, sc, st, sceneT, alpha) {
+        var cap = (sc.caption || "").trim();
+        if (!cap) return;
+        var a = alpha, yOff = 0;
+        if (st.textAnim === "fade") a *= Math.min(1, sceneT / 0.5);
+        else if (st.textAnim === "slide") { var p = Math.min(1, sceneT / 0.5); yOff = (1 - p) * H * 0.05; }
+        if (a <= 0.01) return;
+        ctx.save();
+        ctx.globalAlpha = a;
+        var fs = Math.round(W * 0.045 * st.textSize);
+        ctx.font = "800 " + fs + "px Manrope, sans-serif";
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        var maxW = W * 0.88;
+        var words = cap.split(/\s+/), lines = [], line = "";
+        words.forEach(function (w) {
+          var test = line ? line + " " + w : w;
+          if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = w; } else line = test;
+        });
+        if (line) lines.push(line);
+        var lh = fs * 1.3, blockH = lines.length * lh + fs * 0.7;
+        var y0;
+        if (st.textPos === "top") y0 = Math.round(H * 0.045) + yOff;
+        else if (st.textPos === "center") y0 = (H - blockH) / 2 + yOff;
+        else y0 = H - blockH - Math.round(H * 0.045) + yOff;
+        var widest = 0;
+        lines.forEach(function (l) { widest = Math.max(widest, ctx.measureText(l).width); });
+        var bw = Math.min(W * 0.94, widest + fs * 1.1);
+        ctx.fillStyle = "rgba(0,0,0,0.55)";
+        ctx.beginPath();
+        if (ctx.roundRect) ctx.roundRect((W - bw) / 2, y0, bw, blockH, 14); else ctx.rect((W - bw) / 2, y0, bw, blockH);
+        ctx.fill();
+        ctx.fillStyle = st.textColor;
+        lines.forEach(function (l, i) { ctx.fillText(l, W / 2, y0 + fs * 0.35 + lh * (i + 0.5)); });
+        ctx.restore();
+      }
+      function vmDrawFrame(ctx, W, H, t) {
+        var st = vmSettings();
+        ctx.save();
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, W, H);
+        ctx.restore();
+        if (!vmScenes.length) return;
+        var trans = st.trans;
+        var transDur = trans === "cut" ? 0 : 0.6;
+        var acc = 0, idx = vmScenes.length - 1, sceneT = vmScenes[idx].dur;
+        for (var i = 0; i < vmScenes.length; i++) {
+          if (t < acc + vmScenes[i].dur || i === vmScenes.length - 1) { idx = i; sceneT = t - acc; break; }
+          acc += vmScenes[i].dur;
+        }
+        var sc = vmScenes[idx];
+        var inTrans = transDur > 0 && idx < vmScenes.length - 1 && sceneT > sc.dur - transDur;
+        var p = inTrans ? (sceneT - (sc.dur - transDur)) / transDur : 0;
+        if (trans === "slide" && inTrans) {
+          vmDrawImage(ctx, W, H, sc, { alpha: 1, dx: -p * W });
+          vmDrawImage(ctx, W, H, vmScenes[idx + 1], { alpha: 1, dx: (1 - p) * W });
+        } else if (trans === "zoom") {
+          vmDrawImage(ctx, W, H, sc, { alpha: 1, scale: 1 + 0.12 * Math.min(1, Math.max(0, sceneT / sc.dur)) });
+          if (inTrans) vmDrawImage(ctx, W, H, vmScenes[idx + 1], { alpha: p, scale: 1 });
+        } else {
+          vmDrawImage(ctx, W, H, sc, { alpha: 1 });
+          if (inTrans) vmDrawImage(ctx, W, H, vmScenes[idx + 1], { alpha: p });
+        }
+        if (inTrans) {
+          vmDrawCaption(ctx, W, H, sc, st, sceneT, 1 - p);
+          vmDrawCaption(ctx, W, H, vmScenes[idx + 1], st, 0, p);
+        } else {
+          vmDrawCaption(ctx, W, H, sc, st, sceneT, 1);
+        }
+        if (vmLogoImg) {
+          var lw = W * 0.14, lh2 = lw * vmLogoImg.naturalHeight / Math.max(1, vmLogoImg.naturalWidth);
+          var m = Math.round(W * 0.03), pos = $("vm-logo-pos").value;
+          var lx = (pos === "tl" || pos === "bl") ? m : W - lw - m;
+          var ly = (pos === "tl" || pos === "tr") ? m : H - lh2 - m;
+          ctx.save();
+          ctx.globalAlpha = 0.92;
+          ctx.drawImage(vmLogoImg, lx, ly, lw, lh2);
+          ctx.restore();
+        }
+      }
+      function vmSyncStageSize() {
+        var parts = $("vm-size").value.split("x");
+        var c = $("vm-stage");
+        c.width = parseInt(parts[0], 10);
+        c.height = parseInt(parts[1], 10);
+      }
+      function vmDrawPreviewStill() {
+        if (!vmScenes.length) return;
+        vmSyncStageSize();
+        var c = $("vm-stage");
+        vmDrawFrame(c.getContext("2d"), c.width, c.height, Math.min(vmPreviewT, Math.max(0, vmTotalSec() - 0.01)));
+      }
+      function vmStopPreview() {
+        vmPreviewing = false;
+        cancelAnimationFrame(vmPreviewRaf);
+        $("vm-preview").textContent = "Play preview";
+        var a = $("vm-music-audio");
+        if (a) a.pause();
+      }
       function vmRenderScenes() {
         var box = $("vm-scenes");
         box.innerHTML = "";
         vmScenes.forEach(function (sc, i) {
           var row = document.createElement("div");
-          row.className = "img-compare";
-          row.style.gridTemplateColumns = "110px 1fr";
-          row.style.alignItems = "center";
-          row.style.marginTop = i === 0 ? "0" : "12px";
-          var fig = document.createElement("figure");
+          row.className = "scene-row";
           var im = document.createElement("img");
-          im.src = sc.url; im.alt = "Scene " + (i + 1) + " image";
-          im.style.maxHeight = "80px";
-          fig.appendChild(im);
+          im.src = sc.url; im.alt = "Scene " + (i + 1) + " photo";
           var right = document.createElement("div");
           var lab = document.createElement("label");
-          lab.textContent = "Scene " + (i + 1) + " — caption (optional)";
+          lab.textContent = "Scene " + (i + 1) + " — words on this photo (optional)";
           lab.style.cssText = "display:block;font-weight:700;font-size:.9rem;margin-bottom:7px";
           var inp = document.createElement("input");
-          inp.type = "text"; inp.value = sc.caption; inp.placeholder = "Text shown on this scene…";
-          inp.style.cssText = "width:100%;background:var(--bg-raise);border:1px solid var(--line-strong);border-radius:12px;padding:11px 13px;outline:none";
-          inp.addEventListener("input", function () { sc.caption = inp.value; });
+          inp.type = "text"; inp.className = "scene-cap"; inp.value = sc.caption;
+          inp.placeholder = "Text shown on this scene…";
+          inp.addEventListener("input", function () { sc.caption = inp.value; vmDrawPreviewStill(); });
           var ctrls = document.createElement("div");
           ctrls.className = "btn-row";
           var up = document.createElement("button");
           up.type = "button"; up.className = "btn ghost small"; up.textContent = "↑ Move up"; up.disabled = i === 0;
-          up.addEventListener("click", function () { var t = vmScenes[i - 1]; vmScenes[i - 1] = vmScenes[i]; vmScenes[i] = t; vmRenderScenes(); });
+          up.addEventListener("click", function () { var t = vmScenes[i - 1]; vmScenes[i - 1] = vmScenes[i]; vmScenes[i] = t; vmRenderScenes(); vmDrawPreviewStill(); });
           var dn = document.createElement("button");
           dn.type = "button"; dn.className = "btn ghost small"; dn.textContent = "↓ Move down"; dn.disabled = i === vmScenes.length - 1;
-          dn.addEventListener("click", function () { var t = vmScenes[i + 1]; vmScenes[i + 1] = vmScenes[i]; vmScenes[i] = t; vmRenderScenes(); });
+          dn.addEventListener("click", function () { var t = vmScenes[i + 1]; vmScenes[i + 1] = vmScenes[i]; vmScenes[i] = t; vmRenderScenes(); vmDrawPreviewStill(); });
           var rm = document.createElement("button");
           rm.type = "button"; rm.className = "btn ghost small"; rm.textContent = "Remove";
-          rm.addEventListener("click", function () { URL.revokeObjectURL(vmScenes[i].url); vmScenes.splice(i, 1); if (!vmScenes.length) { $("vm-editor").style.display = "none"; } vmRenderScenes(); });
+          rm.addEventListener("click", function () {
+            if (vmScenes[i].url && vmScenes[i].url.indexOf("blob:") === 0) URL.revokeObjectURL(vmScenes[i].url);
+            vmScenes.splice(i, 1);
+            if (!vmScenes.length) { $("vm-editor").style.display = "none"; vmStopPreview(); }
+            vmRenderScenes(); vmDrawPreviewStill();
+          });
           ctrls.appendChild(up); ctrls.appendChild(dn); ctrls.appendChild(rm);
-          right.appendChild(lab); right.appendChild(inp); right.appendChild(ctrls);
-          row.appendChild(fig); row.appendChild(right);
+          var det = document.createElement("details");
+          det.className = "mini-adv";
+          var sum = document.createElement("summary");
+          sum.textContent = "Scene settings — time on screen & filter";
+          var body = document.createElement("div");
+          body.className = "adv-body";
+          var dLab = document.createElement("label");
+          dLab.style.cssText = "display:block;font-weight:700;font-size:.88rem;margin:10px 0 6px";
+          dLab.textContent = "Stays on screen — " + sc.dur + "s";
+          var dRange = document.createElement("input");
+          dRange.type = "range"; dRange.min = "1"; dRange.max = "10"; dRange.step = "0.5"; dRange.value = sc.dur;
+          dRange.addEventListener("input", function () {
+            sc.dur = parseFloat(dRange.value);
+            dLab.textContent = "Stays on screen — " + sc.dur + "s";
+            vmUpdateTotal();
+          });
+          var fLab = document.createElement("label");
+          fLab.style.cssText = "display:block;font-weight:700;font-size:.88rem;margin:12px 0 6px";
+          fLab.textContent = "Photo filter";
+          var fSel = document.createElement("select");
+          [["none", "No filter"], ["gray", "Black & white"], ["sepia", "Sepia — warm old-photo look"], ["bright", "Brighter & richer"]].forEach(function (o) {
+            var op = document.createElement("option");
+            op.value = o[0]; op.textContent = o[1];
+            fSel.appendChild(op);
+          });
+          fSel.value = sc.filter;
+          fSel.addEventListener("change", function () {
+            sc.filter = fSel.value;
+            sc.filterCss = VM_FILTERS[sc.filter] || "";
+            vmDrawPreviewStill();
+          });
+          body.appendChild(dLab); body.appendChild(dRange); body.appendChild(fLab); body.appendChild(fSel);
+          det.appendChild(sum); det.appendChild(body);
+          right.appendChild(lab); right.appendChild(inp); right.appendChild(ctrls); right.appendChild(det);
+          row.appendChild(im); row.appendChild(right);
           box.appendChild(row);
         });
+        vmUpdateTotal();
       }
       function vmLoadFiles(files) {
         var imgs = Array.prototype.filter.call(files, function (f) { return /^image\//.test(f.type); });
@@ -2591,12 +3470,18 @@
           var url = URL.createObjectURL(f);
           var im = new Image();
           im.onload = function () {
-            vmScenes.push({ img: im, url: url, caption: "" });
+            var sc = { img: im, url: url, dataUrl: null, caption: "", dur: 3, filter: "none", filterCss: "" };
+            vmScenes.push(sc);
+            var reader = new FileReader();
+            reader.onload = function () { sc.dataUrl = reader.result; };
+            reader.readAsDataURL(f);
             loaded++;
             if (loaded === imgs.length) {
               $("vm-editor").style.display = "block";
               vmRenderScenes();
-              toast(vmScenes.length + " image" + (vmScenes.length === 1 ? "" : "s") + " ready — add captions, then Create video");
+              vmSyncStageSize();
+              vmDrawPreviewStill();
+              toast(vmScenes.length + " image" + (vmScenes.length === 1 ? "" : "s") + " ready — add captions, then Make my video");
             }
           };
           im.onerror = function () { URL.revokeObjectURL(url); loaded++; toast("One image couldn’t be read and was skipped"); };
@@ -2609,128 +3494,487 @@
       ["dragenter", "dragover"].forEach(function (ev) { vmDrop.addEventListener(ev, function (e) { e.preventDefault(); vmDrop.classList.add("drag"); }); });
       ["dragleave", "drop"].forEach(function (ev) { vmDrop.addEventListener(ev, function (e) { e.preventDefault(); vmDrop.classList.remove("drag"); }); });
       vmDrop.addEventListener("drop", function (e) { if (e.dataTransfer.files.length) vmLoadFiles(e.dataTransfer.files); });
-      $("vm-reset").addEventListener("click", function () {
-        vmScenes.forEach(function (sc) { URL.revokeObjectURL(sc.url); });
-        vmScenes = []; vmBlob = null;
-        $("vm-editor").style.display = "none";
-        $("vm-result").style.display = "none";
-        $("vm-msg").textContent = "";
+      $("vm-text-size").addEventListener("input", function () { $("vm-text-size-val").textContent = this.value; vmDrawPreviewStill(); });
+      $("vm-music-vol").addEventListener("input", function () {
+        $("vm-music-vol-val").textContent = this.value;
+        var a = $("vm-music-audio");
+        if (a) a.volume = parseInt(this.value, 10) / 100;
       });
-      function vmDrawScene(ctx, W, H, sc, alpha) {
-        ctx.globalAlpha = 1;
-        ctx.fillStyle = "#000";
-        ctx.fillRect(0, 0, W, H);
-        var iw = sc.img.naturalWidth, ih = sc.img.naturalHeight;
-        var scale = Math.max(W / iw, H / ih);
-        var dw = iw * scale, dh = ih * scale;
-        ctx.globalAlpha = alpha;
-        ctx.drawImage(sc.img, (W - dw) / 2, (H - dh) / 2, dw, dh);
-        ctx.globalAlpha = 1;
-        var cap = (sc.caption || "").trim();
-        if (cap) {
-          var fs = Math.round(W * 0.045);
-          ctx.font = "800 " + fs + "px Manrope, sans-serif";
-          ctx.textAlign = "center"; ctx.textBaseline = "middle";
-          var maxW = W * 0.88;
-          var words = cap.split(/\s+/), lines = [], line = "";
-          words.forEach(function (w) {
-            var test = line ? line + " " + w : w;
-            if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = w; } else line = test;
-          });
-          if (line) lines.push(line);
-          var lh = fs * 1.3, blockH = lines.length * lh + fs * 0.7;
-          var y0 = H - blockH - Math.round(H * 0.045);
-          ctx.fillStyle = "rgba(0,0,0,0.55)";
-          var widest = 0;
-          lines.forEach(function (l) { widest = Math.max(widest, ctx.measureText(l).width); });
-          var bw = Math.min(W * 0.94, widest + fs * 1.1);
-          ctx.beginPath();
-          if (ctx.roundRect) ctx.roundRect((W - bw) / 2, y0, bw, blockH, 14); else ctx.rect((W - bw) / 2, y0, bw, blockH);
-          ctx.fill();
-          ctx.fillStyle = "#fff";
-          lines.forEach(function (l, i) { ctx.fillText(l, W / 2, y0 + fs * 0.35 + lh * (i + 0.5)); });
+      ["vm-trans", "vm-text-pos", "vm-text-color", "vm-text-anim", "vm-size"].forEach(function (id) {
+        $(id).addEventListener("change", function () { vmDrawPreviewStill(); });
+      });
+      $("vm-music").addEventListener("change", function () {
+        var f = this.files && this.files[0];
+        if (vmMusicUrl) URL.revokeObjectURL(vmMusicUrl);
+        vmMusicFile = f || null;
+        vmMusicUrl = f ? URL.createObjectURL(f) : null;
+        $("vm-music-name").textContent = f ? "Music added: " + f.name : "No music added — the video will be silent";
+        this.value = "";
+      });
+      $("vm-logo").addEventListener("change", function () {
+        var f = this.files && this.files[0];
+        this.value = "";
+        if (!f) return;
+        var url = URL.createObjectURL(f);
+        var im = new Image();
+        im.onload = function () {
+          vmLogoImg = im;
+          var reader = new FileReader();
+          reader.onload = function () { vmLogoDataUrl = reader.result; };
+          reader.readAsDataURL(f);
+          $("vm-logo-name").textContent = "Logo added: " + f.name;
+          vmDrawPreviewStill();
+        };
+        im.onerror = function () { URL.revokeObjectURL(url); toast("That logo file couldn’t be read"); };
+        im.src = url;
+      });
+      $("vm-logo-pos").addEventListener("change", function () { vmDrawPreviewStill(); });
+      $("vm-preview").addEventListener("click", function () {
+        if (vmBuilding) return;
+        if (vmPreviewing) { vmStopPreview(); return; }
+        if (!vmScenes.length) { toast("Add photos first"); return; }
+        vmSyncStageSize();
+        vmPreviewing = true;
+        $("vm-preview").textContent = "Pause preview";
+        vmPreviewT = 0;
+        vmPreviewLast = performance.now();
+        var a = $("vm-music-audio");
+        if (vmMusicUrl) {
+          a.src = vmMusicUrl;
+          a.volume = parseInt($("vm-music-vol").value, 10) / 100;
+          a.currentTime = 0;
+          a.play().catch(function () {});
         }
-      }
+        var c = $("vm-stage"), ctx = c.getContext("2d");
+        (function step(now) {
+          if (!vmPreviewing) return;
+          var dt = (now - vmPreviewLast) / 1000;
+          vmPreviewLast = now;
+          vmPreviewT += dt;
+          if (vmPreviewT >= vmTotalSec()) {
+            vmPreviewT = 0;
+            if (vmMusicUrl) { try { a.currentTime = 0; } catch (e) {} }
+          }
+          vmDrawFrame(ctx, c.width, c.height, vmPreviewT);
+          vmPreviewRaf = requestAnimationFrame(step);
+        })(performance.now());
+      });
       $("vm-build").addEventListener("click", function () {
         var msg = $("vm-msg");
         if (vmBuilding) return;
-        if (vmScenes.length < 2) { msg.textContent = "Add at least 2 images to make a video."; msg.className = "tool-msg err"; return; }
-        if (typeof MediaRecorder === "undefined" || !HTMLCanvasElement.prototype.captureStream) {
-          msg.textContent = "This browser can’t record canvas video (MediaRecorder is missing). Try Chrome, Edge, Safari or Firefox on a recent device.";
-          msg.className = "tool-msg err";
-          return;
-        }
-        var sizeParts = $("vm-size").value.split("x");
-        var W = parseInt(sizeParts[0], 10), H = parseInt(sizeParts[1], 10);
-        var per = parseFloat($("vm-dur").value);
-        var fade = $("vm-trans").value === "fade" ? 600 : 0;
-        var canvas = document.createElement("canvas");
-        canvas.width = W; canvas.height = H;
-        var ctx = canvas.getContext("2d");
-        var mime = "";
-        ["video/mp4;codecs=avc1", "video/mp4", "video/webm;codecs=vp9", "video/webm"].forEach(function (m) {
-          if (!mime && window.MediaRecorder && MediaRecorder.isTypeSupported(m)) mime = m;
-        });
-        var rec;
-        try {
-          rec = new MediaRecorder(canvas.captureStream(30), mime ? { mimeType: mime, videoBitsPerSecond: 5000000 } : { videoBitsPerSecond: 5000000 });
-        } catch (e) {
-          msg.textContent = "Video recording isn’t supported in this browser. Try a recent Chrome, Edge, Safari or Firefox.";
-          msg.className = "tool-msg err";
-          return;
-        }
-        var chunks = [];
-        rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
-        var totalMs = vmScenes.length * per * 1000;
+        if (vmScenes.length < 2) { msg.textContent = "Add at least 2 photos to make a video."; msg.className = "tool-msg err"; return; }
+        vmStopPreview();
+        vmSyncStageSize();
+        var stage = $("vm-stage"), ctx = stage.getContext("2d");
+        var W = stage.width, H = stage.height, total = vmTotalSec();
         vmBuilding = true;
-        $("vm-build").textContent = "Recording…";
+        $("vm-build").textContent = "Making your video…";
         $("vm-result").style.display = "none";
-        vmBlob = null;
+        $("vm-meter").style.display = "block";
+        $("vm-bar").style.width = "0%";
         msg.className = "tool-msg";
-        rec.onstop = function () {
-          vmBuilding = false;
-          $("vm-build").textContent = "Create video";
-          var type = rec.mimeType || mime || "video/webm";
-          vmBlob = new Blob(chunks, { type: type.split(";")[0] });
-          var ext = type.indexOf("mp4") !== -1 ? "mp4" : "webm";
-          vmBlob._ext = ext;
-          var v = $("vm-video");
-          v.src = URL.createObjectURL(vmBlob);
-          $("vm-result").style.display = "block";
-          $("vm-note").textContent = "Your video: " + vmScenes.length + " scenes · about " + Math.round(totalMs / 1000) + " seconds · " + fmtBytes(vmBlob.size) + " · " + ext.toUpperCase() + " format. It was made entirely on your device.";
-          msg.textContent = "Video ready — preview it below, then download.";
-          $("vm-result").scrollIntoView({ behavior: "smooth", block: "nearest" });
-        };
-        rec.start(250);
-        var t0 = performance.now();
-        function frame(now) {
-          var el = now - t0;
-          if (el >= totalMs) {
-            vmDrawScene(ctx, W, H, vmScenes[vmScenes.length - 1], 1);
-            setTimeout(function () { try { rec.stop(); } catch (e) {} }, 120);
-            return;
+        recordCanvasVideo(stage, total, function (t) { vmDrawFrame(ctx, W, H, t); }, {
+          musicFile: vmMusicFile,
+          musicVol: parseInt($("vm-music-vol").value, 10) / 100,
+          fadeIn: $("vm-fade-in").checked,
+          fadeOut: $("vm-fade-out").checked,
+          highQuality: $("vm-quality").value === "high",
+          onProgress: function (pct, remain) {
+            $("vm-bar").style.width = pct + "%";
+            msg.textContent = "Making your video… " + pct + "% — about " + remain + "s left. Keep this tab visible.";
+          },
+          onDone: function (blob, ext, musicNote) {
+            vmBuilding = false;
+            $("vm-build").textContent = "Make my video";
+            $("vm-meter").style.display = "none";
+            vmBlob = blob;
+            $("vm-video").src = URL.createObjectURL(blob);
+            $("vm-result").style.display = "block";
+            $("vm-note").textContent = "Your video: " + vmScenes.length + " scenes · about " + Math.round(total) + " seconds · " + W + "×" + H + " · " + fmtBytes(blob.size) + " · " + ext.toUpperCase() + " format" + (musicNote ? " · " + musicNote : "") + ". Made entirely on your device.";
+            msg.textContent = "Video ready — preview it below, then download.";
+            msg.className = "tool-msg";
+            $("vm-result").scrollIntoView({ behavior: "smooth", block: "nearest" });
+          },
+          onError: function (m) {
+            vmBuilding = false;
+            $("vm-build").textContent = "Make my video";
+            $("vm-meter").style.display = "none";
+            msg.textContent = m;
+            msg.className = "tool-msg err";
           }
-          var idx = Math.floor(el / (per * 1000));
-          var within = el - idx * per * 1000;
-          var sceneMs = per * 1000;
-          var alpha = 1;
-          vmDrawScene(ctx, W, H, vmScenes[idx], 1);
-          if (fade && idx < vmScenes.length - 1 && within > sceneMs - fade) {
-            alpha = (within - (sceneMs - fade)) / fade;
-            vmDrawScene(ctx, W, H, vmScenes[idx + 1], alpha);
-          }
-          var remain = Math.ceil((totalMs - el) / 1000);
-          msg.textContent = "Recording your video… " + remain + "s left. Keep this tab visible.";
-          requestAnimationFrame(frame);
-        }
-        vmDrawScene(ctx, W, H, vmScenes[0], 1);
-        requestAnimationFrame(frame);
+        });
       });
       $("vm-download").addEventListener("click", function () {
-        if (!vmBlob) { toast("Create the video first"); return; }
+        if (!vmBlob) { toast("Make the video first"); return; }
         downloadBlob(vmBlob, "toolzorq-video." + (vmBlob._ext || "webm"));
         toast("Video downloading");
       });
+      $("vm-reset").addEventListener("click", function () {
+        vmStopPreview();
+        vmScenes.forEach(function (sc) { if (sc.url && sc.url.indexOf("blob:") === 0) URL.revokeObjectURL(sc.url); });
+        vmScenes = [];
+        vmBlob = null;
+        vmMusicFile = null;
+        if (vmMusicUrl) URL.revokeObjectURL(vmMusicUrl);
+        vmMusicUrl = null;
+        vmLogoImg = null; vmLogoDataUrl = null;
+        $("vm-music-name").textContent = "No music added — the video will be silent";
+        $("vm-logo-name").textContent = "No logo added";
+        $("vm-editor").style.display = "none";
+        $("vm-result").style.display = "none";
+        $("vm-msg").textContent = "";
+        var c = $("vm-stage"), ctx = c.getContext("2d");
+        ctx.fillStyle = "#000"; ctx.fillRect(0, 0, c.width, c.height);
+      });
+      $("vm-save").addEventListener("click", function () {
+        if (!vmScenes.length) { toast("Add photos first"); return; }
+        var missing = vmScenes.some(function (s) { return !s.dataUrl; });
+        if (missing) { toast("Photos are still loading — wait a second, then save again"); return; }
+        var proj = {
+          app: "toolzorq-video-project",
+          version: 1,
+          settings: {
+            trans: $("vm-trans").value, size: $("vm-size").value, quality: $("vm-quality").value,
+            textPos: $("vm-text-pos").value, textSize: $("vm-text-size").value, textColor: $("vm-text-color").value,
+            textAnim: $("vm-text-anim").value, musicVol: $("vm-music-vol").value,
+            fadeIn: $("vm-fade-in").checked, fadeOut: $("vm-fade-out").checked, logoPos: $("vm-logo-pos").value
+          },
+          logo: vmLogoDataUrl,
+          scenes: vmScenes.map(function (s) { return { caption: s.caption, dur: s.dur, filter: s.filter, dataUrl: s.dataUrl }; })
+        };
+        downloadBlob(new Blob([JSON.stringify(proj)], { type: "application/json" }), "toolzorq-video-project.json");
+        toast("Project file downloading — keep it to carry on later");
+      });
+      $("vm-load-btn").addEventListener("click", function () { $("vm-load").click(); });
+      $("vm-load").addEventListener("change", function () {
+        var f = this.files && this.files[0];
+        this.value = "";
+        if (!f) return;
+        var reader = new FileReader();
+        reader.onload = function () {
+          var proj;
+          try { proj = JSON.parse(reader.result); } catch (e) { toast("That file isn’t a Toolzorq project"); return; }
+          if (!proj || proj.app !== "toolzorq-video-project" || !Array.isArray(proj.scenes) || !proj.scenes.length) {
+            toast("That project file looks empty or damaged");
+            return;
+          }
+          vmStopPreview();
+          vmScenes.forEach(function (s) { if (s.url && s.url.indexOf("blob:") === 0) URL.revokeObjectURL(s.url); });
+          vmScenes = [];
+          var st = proj.settings || {};
+          function setVal(id, v) { if (v !== undefined && $(id)) $(id).value = v; }
+          setVal("vm-trans", st.trans); setVal("vm-size", st.size); setVal("vm-quality", st.quality);
+          setVal("vm-text-pos", st.textPos); setVal("vm-text-size", st.textSize); setVal("vm-text-color", st.textColor);
+          setVal("vm-text-anim", st.textAnim); setVal("vm-music-vol", st.musicVol); setVal("vm-logo-pos", st.logoPos);
+          if (st.fadeIn !== undefined) $("vm-fade-in").checked = !!st.fadeIn;
+          if (st.fadeOut !== undefined) $("vm-fade-out").checked = !!st.fadeOut;
+          $("vm-text-size-val").textContent = $("vm-text-size").value;
+          $("vm-music-vol-val").textContent = $("vm-music-vol").value;
+          vmLogoImg = null; vmLogoDataUrl = null;
+          $("vm-logo-name").textContent = "No logo added";
+          if (proj.logo) {
+            var li = new Image();
+            li.onload = function () {
+              vmLogoImg = li; vmLogoDataUrl = proj.logo;
+              $("vm-logo-name").textContent = "Logo loaded from the project";
+              vmDrawPreviewStill();
+            };
+            li.src = proj.logo;
+          }
+          var loadedScenes = new Array(proj.scenes.length);
+          var pending = proj.scenes.length;
+          proj.scenes.forEach(function (ps, idx) {
+            var im = new Image();
+            im.onload = function () {
+              loadedScenes[idx] = {
+                img: im, url: ps.dataUrl, dataUrl: ps.dataUrl,
+                caption: ps.caption || "",
+                dur: Math.min(10, Math.max(1, parseFloat(ps.dur) || 3)),
+                filter: ps.filter || "none",
+                filterCss: VM_FILTERS[ps.filter || "none"] || ""
+              };
+              if (--pending === 0) finishLoad();
+            };
+            im.onerror = function () { if (--pending === 0) finishLoad(); };
+            im.src = ps.dataUrl;
+          });
+          function finishLoad() {
+            vmScenes = loadedScenes.filter(function (s) { return !!s; });
+            if (!vmScenes.length) { toast("None of the project’s photos could be loaded"); return; }
+            $("vm-editor").style.display = "block";
+            vmRenderScenes();
+            vmSyncStageSize();
+            vmPreviewT = 0;
+            vmDrawPreviewStill();
+            toast("Project loaded — " + vmScenes.length + " scenes");
+          }
+        };
+        reader.readAsText(f);
+      });
+
+      /* ---------- 25b. Text-to-Video mode (Text se Video — Animated) ---------- */
+      var TV_THEMES = {
+        sunset: ["#ff9966", "#ff5e62", "#2b1055"],
+        ocean: ["#2193b0", "#6dd5ed", "#0b486b"],
+        forest: ["#71b280", "#134e5e", "#0f2027"],
+        gold: ["#f5d76e", "#b98a1c", "#191204"],
+        midnight: ["#414345", "#232526", "#000000"]
+      };
+      var tvBlob = null, tvBuilding = false;
+      var tvMusicFile = null, tvMusicUrl = null;
+      var tvPreviewing = false, tvPreviewT = 0, tvPreviewLast = 0, tvPreviewRaf = 0;
+      var tvParticles = [], tvShapes = [];
+      (function () {
+        var seed = 1234567;
+        function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
+        for (var i = 0; i < 70; i++) tvParticles.push({ x: rnd(), y: rnd(), r: 0.0015 + rnd() * 0.0035, speed: 0.008 + rnd() * 0.03, a: 0.25 + rnd() * 0.55, phase: rnd() * 6.28 });
+        for (var j = 0; j < 8; j++) tvShapes.push({ x: rnd(), y: rnd(), r: 0.06 + rnd() * 0.16, speed: 0.006 + rnd() * 0.018, phase: rnd() * 6.28 });
+      })();
+      function tvScenes() {
+        var out = [];
+        var title = $("tv-title").value.trim();
+        if (title) out.push({ text: title, title: true });
+        $("tv-lines").value.split("\n").forEach(function (l) {
+          var s = l.trim();
+          if (s) out.push({ text: s, title: false });
+        });
+        return out;
+      }
+      function tvDur() { return parseFloat($("tv-dur").value) || 3; }
+      function tvTotalSec() { return tvScenes().length * tvDur(); }
+      function tvDrawBg(ctx, W, H, t) {
+        var theme = TV_THEMES[$("tv-theme").value] || TV_THEMES.sunset;
+        var kind = $("tv-bg").value;
+        var gx = W * (0.5 + 0.5 * Math.sin(t * 0.15));
+        var g = ctx.createLinearGradient(0, 0, gx, H);
+        g.addColorStop(0, theme[0]);
+        g.addColorStop(0.55, theme[1]);
+        g.addColorStop(1, theme[2]);
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, W, H);
+        if (kind === "particles") {
+          ctx.save();
+          ctx.fillStyle = "#ffffff";
+          tvParticles.forEach(function (pt) {
+            var y = (((pt.y - t * pt.speed) % 1) + 1) % 1;
+            var x = pt.x + 0.02 * Math.sin(t * 0.7 + pt.phase);
+            ctx.globalAlpha = pt.a;
+            ctx.beginPath();
+            ctx.arc(x * W, y * H, Math.max(1, pt.r * W), 0, 6.2832);
+            ctx.fill();
+          });
+          ctx.restore();
+        } else if (kind === "shapes") {
+          ctx.save();
+          tvShapes.forEach(function (sh, i) {
+            var x = (((sh.x + t * sh.speed) % 1.2) - 0.1) * W;
+            var y = sh.y * H + Math.sin(t * 0.5 + sh.phase) * H * 0.03;
+            ctx.globalAlpha = 0.16;
+            ctx.fillStyle = i % 2 ? theme[0] : "#ffffff";
+            ctx.beginPath();
+            ctx.arc(x, y, sh.r * W, 0, 6.2832);
+            ctx.fill();
+          });
+          ctx.restore();
+        }
+      }
+      function tvDrawScene(ctx, W, H, sc, sceneT, alpha, xOff) {
+        var anim = $("tv-anim").value;
+        var a = alpha, scale = 1, yOff = 0;
+        var p = Math.min(1, Math.max(0, sceneT) / 0.6);
+        if (anim === "fade") a *= p;
+        else if (anim === "slide") { a *= Math.min(1, p * 1.4); yOff = (1 - p) * H * 0.06; }
+        else if (anim === "zoom") { scale = 0.82 + 0.18 * p; a *= Math.min(1, p * 1.6); }
+        if (a <= 0.01) return;
+        ctx.save();
+        ctx.globalAlpha = a;
+        var fs = Math.round(W * (sc.title ? 0.088 : 0.062) * (parseInt($("tv-text-size").value, 10) / 100) * scale);
+        ctx.font = "800 " + fs + "px 'Bricolage Grotesque', Manrope, sans-serif";
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        var maxW = W * 0.86;
+        var words = sc.text.split(/\s+/), lines = [], line = "";
+        words.forEach(function (w) {
+          var test = line ? line + " " + w : w;
+          if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = w; } else line = test;
+        });
+        if (line) lines.push(line);
+        var lh = fs * 1.25;
+        var y0 = H / 2 - (lines.length - 1) * lh / 2 + yOff;
+        var cx = W / 2 + (xOff || 0);
+        ctx.shadowColor = "rgba(0,0,0,0.45)";
+        ctx.shadowBlur = Math.round(W * 0.012);
+        ctx.shadowOffsetY = 2;
+        ctx.fillStyle = "#ffffff";
+        lines.forEach(function (l, i) { ctx.fillText(l, cx, y0 + i * lh); });
+        ctx.restore();
+      }
+      function tvDrawFrame(ctx, W, H, t) {
+        var scenes = tvScenes();
+        tvDrawBg(ctx, W, H, t);
+        if (!scenes.length) {
+          ctx.save();
+          ctx.fillStyle = "rgba(255,255,255,0.88)";
+          ctx.font = "700 " + Math.round(W * 0.03) + "px Manrope, sans-serif";
+          ctx.textAlign = "center"; ctx.textBaseline = "middle";
+          ctx.fillText("Write some lines above — your video preview appears here", W / 2, H / 2);
+          ctx.restore();
+          return;
+        }
+        var dur = tvDur();
+        var trans = $("tv-trans").value;
+        var transDur = trans === "cut" ? 0 : 0.5;
+        var idx = Math.min(scenes.length - 1, Math.floor(t / dur));
+        var sceneT = t - idx * dur;
+        if (transDur && idx < scenes.length - 1 && sceneT > dur - transDur) {
+          var p = (sceneT - (dur - transDur)) / transDur;
+          if (trans === "slide") {
+            tvDrawScene(ctx, W, H, scenes[idx], sceneT, 1, -p * W);
+            tvDrawScene(ctx, W, H, scenes[idx + 1], sceneT - (dur - transDur), 1, (1 - p) * W);
+          } else {
+            tvDrawScene(ctx, W, H, scenes[idx], sceneT, 1, 0);
+            tvDrawScene(ctx, W, H, scenes[idx + 1], sceneT - (dur - transDur), p, 0);
+          }
+        } else {
+          tvDrawScene(ctx, W, H, scenes[idx], sceneT, 1, 0);
+        }
+      }
+      function tvSyncStageSize() {
+        var parts = $("tv-size").value.split("x");
+        var c = $("tv-stage");
+        c.width = parseInt(parts[0], 10);
+        c.height = parseInt(parts[1], 10);
+      }
+      function tvDrawStill() {
+        if (tvPreviewing || tvBuilding) return;
+        tvSyncStageSize();
+        var c = $("tv-stage");
+        tvDrawFrame(c.getContext("2d"), c.width, c.height, 0.8);
+      }
+      function tvStopPreview() {
+        tvPreviewing = false;
+        cancelAnimationFrame(tvPreviewRaf);
+        $("tv-preview").textContent = "Play preview";
+        var a = $("tv-music-audio");
+        if (a) a.pause();
+      }
+      ["tv-title", "tv-lines"].forEach(function (id) { $(id).addEventListener("input", tvDrawStill); });
+      ["tv-bg", "tv-theme", "tv-size", "tv-anim", "tv-trans"].forEach(function (id) { $(id).addEventListener("change", tvDrawStill); });
+      $("tv-dur").addEventListener("input", function () { $("tv-dur-val").textContent = this.value; });
+      $("tv-text-size").addEventListener("input", function () { $("tv-text-size-val").textContent = this.value; tvDrawStill(); });
+      $("tv-music-vol").addEventListener("input", function () {
+        $("tv-music-vol-val").textContent = this.value;
+        var a = $("tv-music-audio");
+        if (a) a.volume = parseInt(this.value, 10) / 100;
+      });
+      $("tv-music").addEventListener("change", function () {
+        var f = this.files && this.files[0];
+        if (tvMusicUrl) URL.revokeObjectURL(tvMusicUrl);
+        tvMusicFile = f || null;
+        tvMusicUrl = f ? URL.createObjectURL(f) : null;
+        $("tv-music-name").textContent = f ? "Music added: " + f.name : "No music added — the video will be silent";
+        this.value = "";
+      });
+      $("tv-preview").addEventListener("click", function () {
+        if (tvBuilding) return;
+        if (tvPreviewing) { tvStopPreview(); return; }
+        if (!tvScenes().length) { toast("Write at least one line first"); return; }
+        tvSyncStageSize();
+        tvPreviewing = true;
+        $("tv-preview").textContent = "Pause preview";
+        tvPreviewT = 0;
+        tvPreviewLast = performance.now();
+        var a = $("tv-music-audio");
+        if (tvMusicUrl) {
+          a.src = tvMusicUrl;
+          a.volume = parseInt($("tv-music-vol").value, 10) / 100;
+          a.currentTime = 0;
+          a.play().catch(function () {});
+        }
+        var c = $("tv-stage"), ctx = c.getContext("2d");
+        (function step(now) {
+          if (!tvPreviewing) return;
+          var dt = (now - tvPreviewLast) / 1000;
+          tvPreviewLast = now;
+          tvPreviewT += dt;
+          if (tvPreviewT >= tvTotalSec()) {
+            tvPreviewT = 0;
+            if (tvMusicUrl) { try { a.currentTime = 0; } catch (e) {} }
+          }
+          tvDrawFrame(ctx, c.width, c.height, tvPreviewT);
+          tvPreviewRaf = requestAnimationFrame(step);
+        })(performance.now());
+      });
+      $("tv-build").addEventListener("click", function () {
+        var msg = $("tv-msg");
+        if (tvBuilding) return;
+        var scenes = tvScenes();
+        if (!scenes.length) {
+          msg.textContent = "Write at least one line first — each line becomes a scene.";
+          msg.className = "tool-msg err";
+          $("tv-lines").focus();
+          return;
+        }
+        tvStopPreview();
+        tvSyncStageSize();
+        var stage = $("tv-stage"), ctx = stage.getContext("2d");
+        var W = stage.width, H = stage.height, total = tvTotalSec();
+        tvBuilding = true;
+        $("tv-build").textContent = "Making your video…";
+        $("tv-result").style.display = "none";
+        $("tv-meter").style.display = "block";
+        $("tv-bar").style.width = "0%";
+        msg.className = "tool-msg";
+        recordCanvasVideo(stage, total, function (t) { tvDrawFrame(ctx, W, H, t); }, {
+          musicFile: tvMusicFile,
+          musicVol: parseInt($("tv-music-vol").value, 10) / 100,
+          fadeIn: false,
+          fadeOut: true,
+          highQuality: $("tv-quality").value === "high",
+          onProgress: function (pct, remain) {
+            $("tv-bar").style.width = pct + "%";
+            msg.textContent = "Making your video… " + pct + "% — about " + remain + "s left. Keep this tab visible.";
+          },
+          onDone: function (blob, ext, musicNote) {
+            tvBuilding = false;
+            $("tv-build").textContent = "Make my video";
+            $("tv-meter").style.display = "none";
+            tvBlob = blob;
+            $("tv-video").src = URL.createObjectURL(blob);
+            $("tv-result").style.display = "block";
+            $("tv-note").textContent = "Your video: " + scenes.length + " text scene" + (scenes.length === 1 ? "" : "s") + " · about " + Math.round(total) + " seconds · " + W + "×" + H + " · " + fmtBytes(blob.size) + " · " + ext.toUpperCase() + " format" + (musicNote ? " · " + musicNote : "") + ". Made entirely on your device.";
+            msg.textContent = "Video ready — preview it below, then download.";
+            msg.className = "tool-msg";
+            $("tv-result").scrollIntoView({ behavior: "smooth", block: "nearest" });
+          },
+          onError: function (m) {
+            tvBuilding = false;
+            $("tv-build").textContent = "Make my video";
+            $("tv-meter").style.display = "none";
+            msg.textContent = m;
+            msg.className = "tool-msg err";
+          }
+        });
+      });
+      $("tv-download").addEventListener("click", function () {
+        if (!tvBlob) { toast("Make the video first"); return; }
+        downloadBlob(tvBlob, "toolzorq-text-video." + (tvBlob._ext || "webm"));
+        toast("Video downloading");
+      });
+
+      /* ---------- mode switch ---------- */
+      function vmSetMode(textMode) {
+        $("vm-mode-images").style.display = textMode ? "none" : "block";
+        $("vm-mode-text").style.display = textMode ? "block" : "none";
+        $("vm-mode-img-btn").setAttribute("aria-pressed", textMode ? "false" : "true");
+        $("vm-mode-text-btn").setAttribute("aria-pressed", textMode ? "true" : "false");
+        vmStopPreview();
+        tvStopPreview();
+        if (textMode) tvDrawStill();
+        else vmDrawPreviewStill();
+      }
+      $("vm-mode-img-btn").addEventListener("click", function () { vmSetMode(false); });
+      $("vm-mode-text-btn").addEventListener("click", function () { vmSetMode(true); });
+
     </script>
   </body>
 </html>
