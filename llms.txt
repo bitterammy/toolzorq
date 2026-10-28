@@ -1,0 +1,14 @@
+# TOOLZORQ
+
+> Free online tools that run in your browser — no sign-up, files stay on your device. TOOLZORQ is also the home of the Empire of Money and Qabristan Ki Awaz YouTube channels.
+
+## Key pages
+
+- [TOOLZORQ — Free Online Tools](https://basr.me/)
+- [Guides](https://basr.me/guides/)
+- [How to Check Your YouTube Title and Description Before You Publish](https://basr.me/guides/youtube-title-description-checker-guide.html)
+- [How to Compress Images for Faster Uploads Without Losing Quality](https://basr.me/guides/compress-images-for-faster-uploads.html)
+
+## Tools
+
+25 free in-browser tools, including: YouTube Thumbnail Downloader, YouTube Money Calculator, Title & Description Checker, Image Compressor, QR Code Generator, Password Generator, Word Counter, Case Converter, Age Calculator, Loan EMI Calculator, Percentage Calculator, BMI Calculator, Unit Converter, Currency Converter, Stopwatch & Timer, Pomodoro Timer, Color Picker, JSON Formatter, Base64 Encoder / Decoder, Tip Calculator, Date Calculator, Random Picker, Countdown Timer, AI Image Generator (real AI image via the free public Pollinations service, not AI moving video), and Video Maker (photo slideshow and animated text video made in your browser — not AI video generation).
