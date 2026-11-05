@@ -59,6 +59,30 @@ AI Image Generator
 Describe anything and a real AI model paints it — styles, sizes and up to 4 variations, free, no sign-up. Open tool → 
 Video Maker 
 Turn your photos into a real downloadable video with captions, transitions and your own music, free. Open tool → 
+Sleep Calculator 
+Best bedtimes for your wake-up time, or wake times for your bedtime — whole 90-minute sleep cycles, free. Open tool → 
+Text Cleaner 
+Paste ragged text copied from a PDF and join the broken lines into readable paragraphs, free. Open tool → 
+Unit Price Calculator 
+Compare two packs by price per kg, litre or item and see which one is actually cheaper, free. Open tool → 
+Time Calculator 
+Add or subtract hours and minutes the right way — minutes carry at 60, not 100 — with a decimal-hour total. Open tool → 
+Hourly Wage to Salary Calculator 
+Compare an hourly offer with a salary: rate × hours × weeks gives annual, monthly, weekly and daily pay. Open tool → 
+Compound Interest Calculator 
+See what monthly saving becomes in 10 or 20 years — future value, interest earned, year by year. Open tool → 
+Calorie / BMR Calculator 
+Your daily calories to maintain, lose or gain weight — BMR plus activity, in one free calculation. Open tool → 
+Cups to Grams Converter 
+Pick an ingredient and turn cups into grams — flour 120 g a cup, sugar 200 g, butter 227 g. Open tool → 
+Pakistan Land Area Converter 
+Marla, kanal, acre, sq ft, sq yd and sq m — with both marla standards, 225 and 272.25 sq ft. Open tool → 
+Gold Value Calculator 
+What is your gold worth? Weight in tola, masha, ratti or grams, karat and today's rate — value in PKR. Open tool → 
+PDF Compressor 
+Drop a PDF and download a smaller one — images re-encoded in your browser, file never uploaded. Open tool → 
+Merge PDF 
+Drop two or more PDFs, put them in order, and download one combined PDF — all in your browser. Open tool → 
 No tool matches that search. Try “image”, “qr”, “emi” or “word”. 
 
 Close ✕ 
@@ -677,8 +701,237 @@ Make my video
 Download video 
 
 This makes an animated text video — your own words moving over an animated background, drawn live in your browser. It is not AI scene generation: no pictures are invented, only your text, animated. Export it two ways: Fast export renders every frame as fast as your device can; Standard recording records in real time, so keep this tab visible while it records. The finished video above always says honestly which format you got: MP4 or WebM. 
+Close ✕ 
+Sleep Calculator 
+Sleep calculator — what time should I wake up? Enter a wake-up time to see the best bedtimes, or a bedtime to see the best wake times, at whole 90-minute sleep-cycle boundaries. 
 
-25 free tools, all working 
+Common questions about the Sleep Calculator 
+What time should I go to bed if I wake up at 7am? 
+For a 7am wake-up, the best bedtimes are 9:45pm (6 cycles, 9 hours), 11:15pm (5 cycles, 7 hours 30 minutes) or 12:45am (4 cycles, 6 hours) — each includes 15 minutes to fall asleep. Enter your own wake-up time in the Sleep Calculator to see your times. 
+How long is one sleep cycle? 
+One sleep cycle is about 90 minutes. This calculator counts in whole 90-minute cycles, so every suggested time lands at the end of a cycle rather than in the middle of deep sleep. 
+Is 6 hours of sleep enough? 
+Six hours is 4 full sleep cycles, so it is the minimum this calculator shows — but most adults do better on 5 cycles (7 hours 30 minutes) or 6 cycles (9 hours). The calculator shows all three so you can choose. 
+The times include a 15-minute allowance for falling asleep, and count back (or forward) in whole 90-minute cycles: 4 cycles is 6 hours, 5 cycles is 7 hours 30 minutes, and 6 cycles is 9 hours. 
+Dedicated page: Sleep Calculator — What Time Should I Wake Up? — TOOLZORQ 
+
+I want to see Bedtimes — I wake up at… Wake times — I go to bed at… 
+Time Calculate sleep times 
+
+Close ✕ 
+Text Cleaner 
+Remove line breaks online — paste text copied from a PDF or email and join the broken lines, keeping the paragraph breaks. 
+
+Common questions about the Text Cleaner 
+How do I remove line breaks from text copied from a PDF? 
+Paste the text into the Text Cleaner and press Clean text. It joins single line breaks into spaces and keeps blank lines as paragraph breaks, so the text reads as normal paragraphs. 
+Will it remove my paragraph breaks too? 
+No — only single line breaks are joined. A blank line between paragraphs is kept, so paragraphs stay separate. Extra spaces inside lines are also collapsed to one. 
+Is my text uploaded anywhere? 
+No. The Text Cleaner runs entirely in your browser — your pasted text never leaves your device. 
+Only single line breaks are joined. A blank line — two line breaks in a row — is kept as a paragraph break, so your paragraphs stay separate. 
+Dedicated page: Remove Line Breaks Online — Clean Up PDF Text — TOOLZORQ 
+Paste ragged text Clean text Copy cleaned text Clear 
+Cleaned text 
+Words: 0 → 0 
+Close ✕ 
+Unit Price Calculator 
+Unit price calculator — compare price per kg, litre or item for two packs, and see which is cheaper and by how much. 
+
+Common questions about the Unit Price Calculator 
+How do I compare the price per kg of two packs? 
+Enter both packs' prices and sizes in the Unit Price Calculator. It divides each price by its size in the same base unit, so a 500 g pack at $2.50 ($5.00 per kg) and a 1 kg pack at $4.50 ($4.50 per kg) compare directly — the 1 kg pack is cheaper by 10%. 
+Is the bigger pack always cheaper? 
+No — a bigger pack is often cheaper per unit, but not always. That is exactly what this calculator checks: it compares the price per kg, litre or item, not the shelf price. 
+Which currency does it use? 
+Any currency. Enter the prices in your own currency and the comparison works the same way, because both packs are compared in that currency. 
+Sizes are compared in the same base unit (grams for weight, millilitres for volume), so a 500 g pack and a 1 kg pack are compared fairly. Any currency works — enter prices in your own currency. 
+Dedicated page: Unit Price Calculator — Compare Price per Kg — TOOLZORQ 
+
+Pack A — price 
+Pack A — size 
+Pack A — unit kg g litre ml per item 
+
+Pack B — price 
+Pack B — size 
+Pack B — unit kg g litre ml per item Compare packs 
+
+Close ✕ 
+Time Calculator 
+Time calculator — add hours and minutes, or subtract them, with proper base-60 carrying, plus the decimal-hour total for payroll. 
+
+Common questions about the Time Calculator 
+What is 2 hours 45 minutes plus 1 hour 30 minutes? 
+4 hours 15 minutes — 45 + 30 minutes is 75 minutes, which carries as 1 hour 15 minutes. As decimal hours that is 4.25 hours, which the Time Calculator shows alongside the hours-and-minutes total. 
+Why does a normal calculator get hours and minutes wrong? 
+Because minutes carry at 60, not 100: 2.30 + 1.45 on a desk calculator gives 3.75, but 2 hours 30 minutes plus 1 hour 45 minutes is really 4 hours 15 minutes. This calculator carries minutes at 60. 
+How do I convert hours and minutes to decimal hours? 
+Divide the minutes by 60 and add the hours: 4 hours 15 minutes is 4 + 15/60 = 4.25 hours. The Time Calculator shows that decimal total with every result. 
+The decimal-hour total is the payroll number: 4 hours 15 minutes is 4.25 hours, not 4.15. Subtracting a longer duration from a shorter one gives a negative total, shown with a minus sign. 
+Dedicated page: Time Calculator — Add Hours and Minutes — TOOLZORQ 
+
+First duration — hours 
+First duration — minutes 
+
+Second duration — hours 
+Second duration — minutes 
+Operation Add (+) Subtract (−) Calculate 
+
+Close ✕ 
+Hourly Wage to Salary Calculator 
+Hourly wage to yearly salary calculator — enter an hourly rate, hours per week and weeks per year to see annual, monthly, weekly and daily pay. 
+
+Common questions about the Hourly Wage to Salary Calculator 
+How do I convert an hourly wage to a yearly salary? 
+Multiply the hourly rate by hours per week and by weeks per year: $25 an hour × 40 hours × 52 weeks is $52,000 a year. Enter your own numbers in the Hourly Wage to Salary Calculator to see the annual, monthly, weekly and daily pay. 
+What is $25 an hour as a yearly salary? 
+At 40 hours a week for 52 weeks, $25 an hour is $52,000 a year — $4,333.33 a month, $1,000 a week and $200 a day. Fewer hours or unpaid weeks lower it; the calculator adjusts for both. 
+How many hours is a full-time year? 
+The usual shortcut is 2,080 hours: 40 hours a week × 52 weeks. This calculator uses your actual hours and weeks instead of assuming 2,080, and lets you subtract unpaid weeks off. 
+The maths is rate × hours per week × weeks per year. At $25 an hour, 40 hours a week, 52 weeks a year, that is $52,000 a year, $4,333.33 a month, $1,000 a week and $200 a day on a five-day week. Any currency works. 
+Dedicated page: Hourly Wage to Yearly Salary Calculator — TOOLZORQ 
+
+Hourly rate 
+Hours per week 
+Weeks per year Calculate Salary 
+
+Close ✕ 
+Compound Interest Calculator 
+Compound interest calculator — monthly contributions, starting amount and rate to future value, with a year-by-year table. 
+
+Common questions about the Compound Interest Calculator 
+How much will $200 a month at 7% be worth in a year? 
+About $2,478.52 — $2,400 contributed and about $78.52 of interest, compounded monthly. Enter your own amount, rate and years in the Compound Interest Calculator to see the year-by-year growth. 
+Is compound interest a guarantee? 
+No. The result is a projection at the fixed rate you enter — real rates change, and no account guarantees a return. The calculator labels every result as a projection, not a guarantee. 
+Does the calculator add contributions at the start or end of the month? 
+At the end of the month: each monthly contribution earns interest from the following month onward. Interest is compounded monthly at the annual rate divided by 12. 
+Interest is compounded monthly at the annual rate divided by 12, and each monthly contribution is added at the end of the month. For example, $200 a month at 7% for 1 year grows to about $2,478.52 — $2,400 contributed and about $78.52 of interest. 
+Dedicated page: Compound Interest Calculator — Monthly Contributions — TOOLZORQ 
+
+Starting amount 
+Monthly contribution 
+Annual interest rate (%) 
+Years Calculate Growth 
+
+Close ✕ 
+Calorie / BMR Calculator 
+Calorie calculator — how many calories should I eat per day? BMR plus activity gives your daily calories to maintain, lose or gain weight. 
+
+Common questions about the Calorie / BMR Calculator 
+How many calories should a 30 year old man eat per day? 
+For a man aged 30, 180 cm and 80 kg, the BMR is 1,780 calories a day. With moderate activity (×1.55) that is about 2,759 calories a day to maintain weight. Enter your own age, height, weight, sex and activity in the Calorie Calculator to see your numbers. 
+How do I work out calories from my BMR? 
+Multiply your BMR by your activity level: 1.2 for sedentary, 1.375 for light activity, 1.55 for moderate, 1.725 for very active, and 1.9 for extra active. The calculator does this and shows the daily total. 
+How many calories should I eat to lose weight? 
+The same calculation, then subtract about 500 calories a day for a steady weight loss of roughly half a kilo a week, or add about 500 a day to gain. This is a general guide, not medical advice — talk to a clinician before starting a diet. 
+A general guide, not medical advice: the numbers come from the published Mifflin-St Jeor equation and standard activity multipliers, and no calculator can replace a clinician. For example, a man aged 30, 180 cm and 80 kg has a BMR of 1,780 calories a day — about 2,759 a day to maintain weight with moderate activity. Use it as a how many calories should I eat per day calculator: enter your details and see your daily total. 
+Dedicated page: Calorie Calculator — How Many Calories a Day? — TOOLZORQ 
+
+Age (years) 
+Sex Male Female 
+Activity level Sedentary — little or no exercise Lightly active — 1–3 days a week Moderately active — 3–5 days a week Very active — 6–7 days a week Extra active — physical job or twice-daily training 
+Height (cm) 
+Weight (kg) Calculate Calories 
+
+Close ✕ 
+Cups to Grams Converter 
+Cups to grams converter — pick an ingredient and turn cups, tablespoons or teaspoons into grams for baking. 
+
+Common questions about the Cups to Grams Converter 
+How many grams is 2 cups of flour? 
+240 grams. All-purpose flour is about 120 grams per cup (King Arthur / USDA figure), so 2 cups is 240 grams. Pick the ingredient in the Cups to Grams Converter and the weight follows. 
+Why is a cup of flour lighter than a cup of sugar? 
+They weigh different amounts because a cup measures volume, not weight: a cup of flour is about 120 grams, a cup of granulated sugar is about 200 grams, and a cup of butter is about 227 grams. The converter uses each ingredient's own density. 
+Can I convert tablespoons to grams too? 
+Yes — the converter also takes tablespoons and teaspoons: 1 cup is 16 tablespoons and 48 teaspoons, converted with the same ingredient density. 
+Weights are standard approximations from King Arthur and USDA density data — all-purpose flour about 120 g per cup, granulated sugar about 200 g, butter about 227 g, cocoa powder about 100 g, oats about 90 g, uncooked rice about 185 g, honey about 340 g and milk about 245 g. A cup is 16 tablespoons and 48 teaspoons. 
+Dedicated page: Cups to Grams Converter — Baking Weights — TOOLZORQ 
+
+Ingredient All-purpose flour — 120 g per cup Bread flour — 127 g per cup Granulated sugar — 200 g per cup Brown sugar — 220 g per cup Butter — 227 g per cup Cocoa powder — 100 g per cup Oats — 90 g per cup Uncooked rice — 185 g per cup Honey — 340 g per cup Milk — 245 g per cup 
+Amount 
+Unit Cups Tablespoons Teaspoons Convert to Grams 
+
+Close ✕ 
+Pakistan Land Area Converter 
+Marla to square feet converter, Pakistan — marla, kanal, acre, sq ft, sq yd and sq m, with both marla standards (225 and 272.25 sq ft). 
+
+Common questions about the Pakistan Land Area Converter 
+How many square feet is one marla in Pakistan? 
+It depends on the standard: with the 225 sq ft marla used by housing societies (DHA / LDA) it is 225 sq ft, and with the 272.25 sq ft marla used in land records it is 272.25 sq ft. Pick the standard in the converter — the difference is about 17%, and it costs buyers real money. 
+How many marla are in one kanal? 
+20 marla make 1 kanal. With the 272.25 standard that is 5,445 sq ft (one eighth of an acre); with the 225 standard it is 4,500 sq ft. 
+How many square feet is one acre? 
+One acre is 43,560 sq ft, which is 8 kanal (at 272.25 sq ft per marla) or 193.6 marla (at the 225 standard). The converter shows all units at once so the standard is never hidden. 
+Two marla standards exist in Pakistan: 225 sq ft (housing societies, DHA / LDA) and 272.25 sq ft (land records). One kanal is 20 marla — 4,500 sq ft at the 225 standard, 5,445 sq ft at the 272.25 standard (one eighth of an acre). One acre is 43,560 sq ft. For example, 1 marla at 225 is 225 sq ft, 25 sq yd and 20.90 sq m; at 272.25 it is 272.25 sq ft, 30.25 sq yd and 25.29 sq m. 
+Dedicated page: Marla to Square Feet Converter — Pakistan — TOOLZORQ 
+
+Area 
+Unit Marla Kanal Acre Square feet Square yards Square metres 
+Marla standard 225 sq ft — housing societies (DHA / LDA) 272.25 sq ft — land records Convert 
+
+Close ✕ 
+Gold Value Calculator 
+Gold value calculator — tola, masha, ratti or grams, karat and today's rate per tola gives the value in PKR and the per-gram price. 
+
+Common questions about the Gold Value Calculator 
+How much is one gram of gold in Pakistan? 
+Divide the per-tola rate by 11.6638: at 300,000 PKR per tola, one gram of 24-karat gold is about 25,721 PKR. The Gold Value Calculator shows the per-gram price with every result. 
+How many grams is one tola of gold? 
+1 tola is 11.6638 grams, which is 12 masha and 96 ratti. Enter the weight in any of those units in the Gold Value Calculator — it converts to tola first, then values it. 
+Does this show today's live gold rate? 
+No — enter today's sarafa rate per tola yourself. Gold prices move every day, and no page can quote a live rate honestly, so the calculator labels every result an estimate at the rate you entered. 
+The rate is entered by you — today's sarafa rate per tola — and every result is an estimate at that rate, not a live quote. One tola is 11.6638 grams, 12 masha and 96 ratti. For example, 1 tola of 24-karat gold at 300,000 PKR per tola is 300,000 PKR, and one gram is about 25,721 PKR; 2 tola 3 masha of 22-karat gold at the same rate is about 618,750 PKR. It also works as a tola to gram converter for gold in Pakistan: one tola is 11.6638 grams. 
+Dedicated page: Gold Value Calculator — Tola to Grams & PKR — TOOLZORQ 
+
+Tola 
+Masha 
+Ratti 
+
+Grams (overrides tola / masha / ratti if filled) 
+Karat 24 karat 22 karat 21 karat 18 karat 
+Rate per tola (PKR) Calculate value 
+
+Close ✕ 
+PDF Compressor 
+Compress PDF online free without uploading — drop a PDF, shrink it in your browser and download the smaller file. 
+
+Common questions about the PDF Compressor 
+Does the PDF compressor upload my file? 
+Yes — the PDF Compressor runs entirely in your browser: the file is read, shrunk and downloaded on your device, and never uploaded anywhere. That is the point of it. 
+How does the compressor make a PDF smaller? 
+By rendering each page to a smaller image and rebuilding the PDF from those images. The smaller file is usually much smaller than a scanned PDF — but the pages become images, so the text is no longer selectable or searchable. Keep the original if you need the text. 
+Will every PDF get smaller? 
+Scanned PDFs and image-heavy PDFs shrink the most. A small text-only PDF may barely shrink at all — the compressor tells you the original size, the new size and the percentage saved, so you can judge for yourself. 
+The compressor renders each page to a smaller image and rebuilds the PDF from those images, so the result is smaller but the pages are images — text is no longer selectable or searchable. A text-only PDF may barely shrink; a scanned or image-heavy PDF usually shrinks a lot. Your file is never uploaded anywhere. 
+Dedicated page: Compress PDF Online Free — Without Uploading — TOOLZORQ 
+
+Drop a PDF here or Choose PDF 
+PDF files only — your file never leaves your device 
+Quality High — larger file, sharper pages Medium — a good balance Low — smallest file, softer pages 
+Compress PDF Download compressed PDF 
+
+Close ✕ 
+Merge PDF 
+Merge PDF online free, no sign up — combine two or more PDFs into one file, in your browser, with nothing uploaded. 
+
+Common questions about the Merge PDF 
+How do I merge two PDFs into one? 
+Add two or more PDFs in the Merge PDF tool, drag them into the order you want with the up and down buttons, and press Merge PDFs — one combined PDF downloads, with all the pages in your order. 
+Does merging PDFs upload my files? 
+No — the merge happens entirely in your browser. The files are read and combined on your device, and never uploaded anywhere. 
+How many PDFs can I merge at once? 
+No practical limit is set by the tool, but very large files take longer to merge in the browser. The tool shows the page count of each file so you can check the total before merging. 
+Files are combined in your browser with pdf-lib, and never uploaded anywhere. Each file's page count is shown as you add it, and the up and down buttons set the final order before you merge. 
+Dedicated page: Merge PDF Online Free — No Sign Up, No Upload — TOOLZORQ 
+
+Drop PDFs here or Choose PDF files 
+PDF files only — your files never leave your device 
+
+No PDFs added yet. 
+Merge PDFs Download merged PDF 
+
+37 free tools, all working 
 0 sign-ups or accounts needed 
 100% in-browser — files stay on your device 
 2 YouTube channels to explore 
@@ -726,6 +979,14 @@ What is a healthy BMI?
 The WHO healthy range is 18.5 to 24.9. The BMI Calculator shows your category and your healthy weight range from your height in cm and weight in kg. 
 How do I count down to my birthday? 
 Pick your birthday as the target date in the Countdown Timer — it shows the days, hours, minutes and seconds left. 
+What time should I go to bed if I wake up at 7am? 
+For a 7am wake-up, the best bedtimes are 9:45pm (6 cycles, 9 hours), 11:15pm (5 cycles, 7 hours 30 minutes) or 12:45am (4 cycles, 6 hours) — each includes 15 minutes to fall asleep. Enter your own wake-up time in the Sleep Calculator to see your times. 
+Why does a normal calculator get hours and minutes wrong? 
+Because minutes carry at 60, not 100: 2.30 + 1.45 on a desk calculator gives 3.75, but 2 hours 30 minutes plus 1 hour 45 minutes is really 4 hours 15 minutes. The Time Calculator carries minutes at 60. 
+How many square feet is one marla in Pakistan? 
+It depends on the standard: with the 225 sq ft marla used by housing societies (DHA / LDA) it is 225 sq ft, and with the 272.25 sq ft marla used in land records it is 272.25 sq ft. Pick the standard in the Land Area Converter — the difference is about 17%. 
+How much is one gram of gold in Pakistan? 
+Divide the per-tola rate by 11.6638: at 300,000 PKR per tola, one gram of 24-karat gold is about 25,721 PKR. The Gold Value Calculator shows the per-gram price with every result. 
 
 Guides 
 Practical guides to using TOOLZORQ's free tools well. 
@@ -770,3 +1031,15 @@ TOOLZORQ — free in-browser tools, plus the official home of Empire of Money an
 - Countdown Timer Online to a Date — Free — https://basr.me/tools/countdown-timer.html — Live countdown to any date and time — days, hours, minutes and seconds until the moment, free.
 - AI Image Generator Free — No Sign Up, Text to Image — https://basr.me/tools/ai-image-generator.html — Describe anything and a real AI model paints it — styles, sizes and up to 4 variations, free, no sign-up.
 - Make Video from Photos Online Free — Slideshow Maker — https://basr.me/tools/video-maker-slideshow.html — Turn your photos into a real downloadable video with captions, transitions and your own music, free.
+- Sleep Calculator — What Time Should I Wake Up? — https://basr.me/tools/sleep-calculator.html — Best bedtimes for your wake-up time, or wake times for your bedtime — whole 90-minute sleep cycles, free.
+- Remove Line Breaks Online — Clean Up PDF Text — https://basr.me/tools/remove-line-breaks.html — Paste ragged text copied from a PDF and join the broken lines into readable paragraphs, free.
+- Unit Price Calculator — Compare Price per Kg — https://basr.me/tools/unit-price-calculator.html — Compare two packs by price per kg, litre or item and see which one is actually cheaper, free.
+- Time Calculator — Add Hours and Minutes — https://basr.me/tools/time-calculator.html — Add or subtract hours and minutes the right way — minutes carry at 60, not 100 — with a decimal-hour total.
+- Hourly Wage to Yearly Salary Calculator — https://basr.me/tools/hourly-wage-to-salary-calculator.html — Compare an hourly offer with a salary: rate × hours × weeks gives annual, monthly, weekly and daily pay.
+- Compound Interest Calculator — Monthly Contributions — https://basr.me/tools/compound-interest-calculator.html — See what monthly saving becomes in 10 or 20 years — future value, interest earned, year by year.
+- Calorie Calculator — How Many Calories a Day? — https://basr.me/tools/calorie-calculator.html — Your daily calories to maintain, lose or gain weight — BMR plus activity, in one free calculation.
+- Cups to Grams Converter — Baking Weights — https://basr.me/tools/cups-to-grams-converter.html — Pick an ingredient and turn cups into grams — flour 120 g a cup, sugar 200 g, butter 227 g.
+- Marla to Square Feet Converter — Pakistan — https://basr.me/tools/marla-to-square-feet-converter.html — Marla, kanal, acre, sq ft, sq yd and sq m — with both marla standards, 225 and 272.25 sq ft.
+- Gold Value Calculator — Tola to Grams & PKR — https://basr.me/tools/gold-value-calculator.html — What is your gold worth? Weight in tola, masha, ratti or grams, karat and today's rate — value in PKR.
+- Compress PDF Online Free — Without Uploading — https://basr.me/tools/compress-pdf-online.html — Drop a PDF and download a smaller one — images re-encoded in your browser, file never uploaded.
+- Merge PDF Online Free — No Sign Up, No Upload — https://basr.me/tools/merge-pdf-online.html — Drop two or more PDFs, put them in order, and download one combined PDF — all in your browser.

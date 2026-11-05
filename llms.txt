@@ -42,3 +42,15 @@ Each tool on its own page, with its own how-to and answers. Every page contains 
 - [Countdown Timer Online to a Date — Free](https://basr.me/tools/countdown-timer.html) — Live countdown to any date and time — days, hours, minutes and seconds until the moment, free.
 - [AI Image Generator Free — No Sign Up, Text to Image](https://basr.me/tools/ai-image-generator.html) — Describe anything and a real AI model paints it — styles, sizes and up to 4 variations, free, no sign-up.
 - [Make Video from Photos Online Free — Slideshow Maker](https://basr.me/tools/video-maker-slideshow.html) — Turn your photos into a real downloadable video with captions, transitions and your own music, free.
+- [Sleep Calculator — What Time Should I Wake Up?](https://basr.me/tools/sleep-calculator.html) — Best bedtimes for your wake-up time, or wake times for your bedtime — whole 90-minute sleep cycles, free.
+- [Remove Line Breaks Online — Clean Up PDF Text](https://basr.me/tools/remove-line-breaks.html) — Paste ragged text copied from a PDF and join the broken lines into readable paragraphs, free.
+- [Unit Price Calculator — Compare Price per Kg](https://basr.me/tools/unit-price-calculator.html) — Compare two packs by price per kg, litre or item and see which one is actually cheaper, free.
+- [Time Calculator — Add Hours and Minutes](https://basr.me/tools/time-calculator.html) — Add or subtract hours and minutes the right way — minutes carry at 60, not 100 — with a decimal-hour total.
+- [Hourly Wage to Yearly Salary Calculator](https://basr.me/tools/hourly-wage-to-salary-calculator.html) — Compare an hourly offer with a salary: rate × hours × weeks gives annual, monthly, weekly and daily pay.
+- [Compound Interest Calculator — Monthly Contributions](https://basr.me/tools/compound-interest-calculator.html) — See what monthly saving becomes in 10 or 20 years — future value, interest earned, year by year.
+- [Calorie Calculator — How Many Calories a Day?](https://basr.me/tools/calorie-calculator.html) — Your daily calories to maintain, lose or gain weight — BMR plus activity, in one free calculation.
+- [Cups to Grams Converter — Baking Weights](https://basr.me/tools/cups-to-grams-converter.html) — Pick an ingredient and turn cups into grams — flour 120 g a cup, sugar 200 g, butter 227 g.
+- [Marla to Square Feet Converter — Pakistan](https://basr.me/tools/marla-to-square-feet-converter.html) — Marla, kanal, acre, sq ft, sq yd and sq m — with both marla standards, 225 and 272.25 sq ft.
+- [Gold Value Calculator — Tola to Grams & PKR](https://basr.me/tools/gold-value-calculator.html) — What is your gold worth? Weight in tola, masha, ratti or grams, karat and today's rate — value in PKR.
+- [Compress PDF Online Free — Without Uploading](https://basr.me/tools/compress-pdf-online.html) — Drop a PDF and download a smaller one — images re-encoded in your browser, file never uploaded.
+- [Merge PDF Online Free — No Sign Up, No Upload](https://basr.me/tools/merge-pdf-online.html) — Drop two or more PDFs, put them in order, and download one combined PDF — all in your browser.
