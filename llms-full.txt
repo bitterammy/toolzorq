@@ -1,549 +1,772 @@
 # TOOLZORQ — https://basr.me/
 
-TOOLZORQ
-All tools
-Search or pick a category. Click a tool to open it — it loads right here on this page, ready to use. All
-YouTube
-Image
-Text
-Money
-Everyday
-Dev
-Thumbnail Downloader
-Full-HD thumbnails from any YouTube video or Short — every size, one click to download. Open tool →
-YouTube Money Calculator
-Rough earnings estimate from monthly views and RPM — shown as an honest range, not a promise. Open tool →
-Title & Description Checker
-Live character counts for your title, description and tags against YouTube’s real limits. Open tool →
-Image Compressor
-Shrink JPG, PNG or WebP photos on your device and see the before / after size. Nothing is uploaded. Open tool →
-QR Code Generator
-Turn any link or text into a QR code and download it as a PNG, ready to share anywhere. Open tool →
-Password Generator
-Strong random passwords made with your browser’s crypto engine — never sent anywhere. Open tool →
-Word Counter
-Words, characters, sentences, paragraphs and reading time — counted live as you type. Open tool →
-Case Converter
-UPPERCASE, lowercase, Title Case, camelCase, snake_case and more — one click each. Open tool →
-Age Calculator
-Exact age in years, months and days — plus total days lived and days to your next birthday. Open tool →
-Loan EMI Calculator
-Monthly payment, total interest and total cost for any loan — home, car or personal. Open tool →
-Percentage Calculator
-Percent of a number, percentage change, discounts and exam marks — three quick modes. Open tool →
-BMI Calculator
-Body mass index from your height and weight, with the WHO category and your healthy weight range. Open tool →
-Unit Converter
-Length, weight, temperature, volume, speed, area and data — converted into every unit at once. Open tool →
-Currency Converter
-Convert between 29 currencies with reference rates that refresh live, plus a multi-currency table. Open tool →
-Stopwatch & Timer
-A precise stopwatch with lap times, plus a kitchen-style countdown timer with a sound alert. Open tool →
-Pomodoro Timer
-25-minute focus blocks with short and long breaks — the classic study and work rhythm. Open tool →
-Color Picker
-Pick any color and get its HEX, RGB and HSL values, plus a full shade and tint palette to copy. Open tool →
-JSON Formatter
-Format, minify and validate JSON entirely in your browser — pasted tokens never leave your device. Open tool →
-Base64 Encoder / Decoder
-Encode text to Base64 or decode it back — Unicode-safe and fully on-device. Open tool →
-Tip Calculator
-Bill, tip percentage and split between people — tip, total and each person’s share. Open tool →
-Date Calculator
-Days between two dates, or add / subtract days from any date — with the weekday of the result. Open tool →
-Random Picker
-Pick a random name from your list, flip a coin or roll the dice — fair, instant, no sign-up. Open tool →
-Countdown Timer
-Live countdown to any date and time — days, hours, minutes and seconds until the moment. Open tool →
-AI Image Generator
-Describe anything and a real AI model paints it — styles, sizes and up to 4 variations. Powered by the free Pollinations service, no sign-up. Open tool →
-Video Maker
-Turn your photos into a real downloadable video with captions, transitions and your own music — built in your browser. Open tool →
-Close ✕
-YouTube Thumbnail Downloader
-Paste any YouTube video link and get its thumbnail in every size YouTube offers — up to full HD 1280×720. Get thumbnail
-Close ✕
-YouTube Money Calculator
-An estimate only. Real earnings depend on your niche, audience country, video length and advertiser demand — so this tool shows a range, never a single “guaranteed” number. Monthly views
-Just this one number is enough — the pay rate below is already set to a typical range. Estimate earnings
-Advanced options — fine-tune the pay rate
-RPM low (USD per 1,000 views)
-RPM high (USD per 1,000 views)
-Or pick a typical niche range
-Custom (use the RPM boxes above)
-Entertainment / vlogs — roughly $0.50–$2 RPM
-Education / history — roughly $1–$4 RPM
-Tech reviews — roughly $2–$6 RPM
-Finance / business — roughly $4–$12 RPM
-RPM is what a creator actually keeps per 1,000 views. The starting range ($1–$4) fits education and history channels. RPM = what the creator actually keeps per 1,000 views after YouTube’s share. Ranges above are broad industry-typical figures, not quotes — your real RPM is in YouTube Studio → Analytics → Revenue. Close ✕
-Title & Description Checker
-Type or paste below — counts update live against YouTube’s actual limits: title 100 characters, description 5,000, tags 500 total. Video title
-Description
-Tags (comma separated)
-Close ✕
-Image Compressor
-Runs 100% in your browser using the canvas engine — your photo is never uploaded anywhere. Drop an image here or Choose image
-JPG, PNG, WebP, GIF (first frame) and more Advanced options — quality, size and format
-Quality — 80 %
-Max width / height (px)
-Keep original size
-1920
-1280
-800
-480
-Output format
-JPG (smallest, no transparency)
-WebP (small, modern)
-PNG (lossless, keeps transparency)
-Original
-Compressed
-Download compressed image
-Start over
-Close ✕
-QR Code Generator
-For links, Wi-Fi details, phone numbers or any text. Generated locally in your browser. Text or link
-Generate QR code
-Download PNG
-Advanced options — picture size
-Size
-200 × 200
-300 × 300
-500 × 500 (large)
-Bigger is better for printing. 300 × 300 is plenty for screens. Close ✕
-Password Generator
-Built with the Web Crypto API — the same randomness your banking apps rely on. Passwords are created on your device and never stored or sent. Generate password
-Copy
-Advanced options — length and characters
-Length — 16 characters
-16 characters with everything switched on is already very strong. ABC uppercase
-abc lowercase
-123 numbers
-#$& symbols
-Close ✕
-Word Counter
-Paste an essay, script or article — everything is counted live. Reading time assumes about 200 words per minute. 0 Words 0 Characters 0 Chars (no spaces) 0 Sentences 0 Paragraphs 0 min Reading time Clear text
-Close ✕
-Case Converter
-Type your text, then tap a style. The text changes instantly — handy for titles, code and captions. UPPERCASE
-lowercase
-Title Case
-Sentence case
-camelCase
-snake_case
-kebab-case
-Copy result
-Close ✕
-Age Calculator
-Pick a date of birth and get the exact age — down to the day. Date of birth
-Calculate age
-Advanced options — age on a different date
-Age on date (default: today)
-Leave empty to calculate the age today, or pick any past or future date — for example “how old will I be in 2030?” Close ✕
-Loan EMI Calculator
-Standard reducing-balance EMI formula — the same method banks use. Figures are in whatever currency you enter the loan in. Loan amount
-Interest rate (% per year)
-Term (years)
-Calculate EMI
-Close ✕
-Percentage Calculator
-Three everyday jobs in one place. Results update as you type. What is % of
-Change from to
-Marks: scored out of
-Close ✕
-BMI Calculator
-Body Mass Index using the standard WHO formula and categories — a general guide, not medical advice. Units
-Metric — cm & kg
-Imperial — ft / in & lb
-Height (cm)
-Weight (kg)
-Height (feet)
-Height (inches)
-Weight (lb)
-Calculate BMI
-Close ✕
-Unit Converter
-Seven categories in one place — type a value and see it converted into every unit in the category at once. Category
-Length
-Weight
-Temperature
-Volume
-Speed
-Area
-Data storage
-Value
-From unit
-⇅ Use result unit as input
-Close ✕
-Currency Converter
-Mid-market reference rates — the same kind banks use between themselves. Your bank or money changer will offer a slightly different rate, so treat this as an accurate guide, not a quote. Amount
-From
-To
-Convert
-⇅ Swap
-Close ✕
-Stopwatch & Timer
-A hundredth-of-a-second stopwatch with laps, and a countdown timer that beeps when it finishes. Both keep running while the tab stays open. Stopwatch
-Countdown timer
-Start
-Lap
-Reset
-Hours
-Minutes
-Seconds
-Start timer
-Reset
-Close ✕
-Pomodoro Timer
-Work in focused 25-minute blocks, rest for 5, and take a longer 15-minute break after four blocks. A gentle beep marks the end of each block. Focus · 25 min
-Short break · 5 min
-Long break · 15 min
-Start focus
-Reset
-Close ✕
-Color Picker
-Pick a color or type a HEX value — get every format plus a shade & tint palette. Click any swatch to copy its HEX. Pick a color
-Or type HEX
-Copy
-Copy
-Copy
-Shades & tints — darkest to lightest: Close ✕
-JSON Formatter
-Format, minify and validate JSON. Everything runs locally in your browser — safe for tokens and private data. Your JSON
-Format
-Minify
-Validate only
-Advanced options — spacing
-Indent
-2 spaces
-4 spaces
-How far each level is indented when you format. Purely cosmetic — the data stays the same. Result
-Copy result
-Clear
-Close ✕
-Base64 Encoder / Decoder
-Convert text to Base64 and back. Unicode-safe (emoji and Urdu text included) and fully on-device. Input
-Encode →
-← Decode
-Result
-Copy result
-Use result as input
-Clear
-Close ✕
-Tip Calculator
-For restaurants, riders and anyone splitting a bill. Results update as you type. Bill amount
-Tip %
-5%
-10%
-15%
-20%
-25%
-Split between (people)
-Close ✕
-Date Calculator
-Two everyday jobs: count the days between two dates, or jump forward / backward from a date by any number of days. Days between dates
-From
-To
-Count days
-Add or subtract days
-Start date
-Days
-Direction
-Add days
-Subtract days
-Calculate date
-Close ✕
-Random Picker
-Fair random picks using your browser’s crypto randomness — for giveaways, classrooms, teams and decisions. Pick a name or item
-One name or item per line
-Pick one at random
-Coin flip & dice
-Flip a coin
-Dice 1
-2
-3
-4
-Roll dice
-Close ✕
-Countdown Timer
-Count down to any moment — a launch, a birthday, a deadline. Quick-set buttons fill in the target for you. Target date & time
-In 1 hour
-In 6 hours
-In 1 day
-In 1 week
-Start countdown
-Close ✕
-AI Image Generator
-Describe a picture in plain words and a real AI model paints it for you. Powered by the free public Pollinations service — no sign-up, no key. It usually takes a few seconds. Step 1 — Describe your picture What should the picture show?
-One or two sentences work best — or tap an idea: Castle in the clouds
-Robot in a garden
-Night market
-Lion under the stars
-Snowy cabin
-Future city
-Surprise me
-Generate image
-Tip: press Ctrl + Enter in the description box to generate. Advanced options — style, size, seed and more
-Art style
-None — exactly as I described it
-Photorealistic — like a real photo
-Anime
-3D render
-Oil painting
-Cyberpunk
-Watercolor
-Pixel art
-A style adds the right words to your description automatically. Model
-Flux — best quality
-Turbo — faster
-Size
-Square — 1024 × 1024
-Wide — 1280 × 720
-Tall — 720 × 1280
-Custom size…
-How many pictures?
-1 picture
-2 pictures
-3 pictures
-4 pictures
-More pictures = more variations of the same idea to choose from. Width (px)
-Height (px)
-Seed (optional)
-Same words + same seed = the same picture again. Handy for remaking a favourite.
-Pick a random seed
-Download format
-JPG — small file, works everywhere
-PNG — best quality, bigger file
-WebP — small and modern
-The picture is converted to this format right here in your browser when you download it. Improve my description automatically
-Private — keep it out of Pollinations’ public gallery
-Remove the Pollinations logo
-Saved in this browser only, so they are still here when you come back. Tap a picture to see it big, or use its seed to remake it. Clear history
-Images are created on Pollinations’ servers (pollinations.ai), a free public AI service — your prompt is sent there to generate the image. Every generation is unique; results vary and may not always match the prompt perfectly. Download
-Copy image
-Copy prompt
-Close ✕
-Close ✕
-Video Maker
-Two ways to make a real video, right here in your browser: turn your photos into a slideshow, or turn plain text into an animated text video. Both run 100% on this device — neither is AI video generation (that needs a paid AI service). Images se — photo slideshow
-Text se Video (Animated)
-Drop images here or Choose images
-Add 2 or more JPG / PNG / WebP images — they never leave your device Step 2 — Arrange your scenes Write the words for each photo, drag the order with the arrows. Open “Scene settings” on a photo to change how long it stays on screen or add a photo filter. Total length: 0 seconds Advanced options — transitions, text, music, logo, project
-How scenes change
-Fade — soft blend
-Slide — push sideways
-Zoom — slow zoom-in effect
-Cut — instant change
-Video shape & quality
-Wide HD — 1280 × 720 (16:9)
-Wide Full HD — 1920 × 1080 (16:9)
-Tall HD — 720 × 1280 (9:16, Shorts / Reels)
-Tall Full HD — 1080 × 1920 (9:16)
-Square — 1080 × 1080 (1:1)
-Export quality
-Standard — smaller file
-High — sharper picture, bigger file
-Text position
-Bottom
-Middle
-Top
-Text size — 100 %
-Text colour
-Text animation
-Fade in
-Slide in
-None — just appears
-Background music (optional)
-Drop music file here or tap to choose MP3, WAV or any audio file No music added — the video will be silent Music volume — 80 %
-Music fades
-Fade in at the start
-Fade out at the end
-Your logo on the video (optional)
-Drop logo image here or tap to choose PNG or JPG — a transparent PNG looks best No logo added Logo corner
-Top right
-Top left
-Bottom right
-Bottom left
-Save or reopen this project
-Save project file
-Open a saved project
-The project file holds your photos, words and settings so you can carry on later. Music is not saved in the file — just add it again after opening. Step 3 — Preview and make your video Play preview
-Start over
-Export speed
-Fast export — renders as fast as your device can
-Standard recording — real time (a 15s video takes ~15s)
-Fast export uses your browser’s built-in video encoder (WebCodecs): MP4 where supported, otherwise WebM. If fast export can’t run on this device — or can’t include your music — the standard real-time recording is used instead and the finished video note says so. The final format is always named honestly under the finished video. Make my video
-Download video
-Two ways to export: Fast export draws and encodes every frame as fast as your device can — no waiting for the video to play through. Standard recording records in real time (a 15-second video takes about 15 seconds) — keep this tab visible while it records. The finished video above always tells you honestly which format you got: MP4 or WebM. Step 1 — Write your lines Title (optional — shown first, in big letters)
-Your lines — one line per scene
-Each line becomes one scene of the video. Short lines look best. No photos needed at all. Advanced options — background, animation, music and more
-Animated background
-Moving gradient
-Floating particles
-Drifting shapes
-Colour theme
-Sunset
-Ocean
-Forest
-Royal gold
-Midnight
-Video shape & quality
-Wide HD — 1280 × 720 (16:9)
-Wide Full HD — 1920 × 1080 (16:9)
-Tall HD — 720 × 1280 (9:16, Shorts / Reels)
-Tall Full HD — 1080 × 1920 (9:16)
-Square — 1080 × 1080 (1:1)
-Text animation
-Fade in
-Slide up
-Zoom in
-How scenes change
-Fade — soft blend
-Slide sideways
-Cut — instant change
-Export quality
-Standard — smaller file
-High — sharper picture, bigger file
-Seconds per line — 3 s
-Text size — 100 %
-Background music (optional)
-Drop music file here or tap to choose MP3, WAV or any audio file No music added — the video will be silent Music volume — 80 %
-Play preview
-Export speed
-Fast export — renders as fast as your device can
-Standard recording — real time (a 15s video takes ~15s)
-Fast export uses your browser’s built-in video encoder (WebCodecs): MP4 where supported, otherwise WebM. If fast export can’t run on this device — or can’t include your music — the standard real-time recording is used instead and the finished video note says so. The final format is always named honestly under the finished video. Make my video
-Download video
-This makes an animated text video — your own words moving over an animated background, drawn live in your browser. It is not AI scene generation: no pictures are invented, only your text, animated. Export it two ways: Fast export renders every frame as fast as your device can; Standard recording records in real time, so keep this tab visible while it records. The finished video above always says honestly which format you got: MP4 or WebM. 25 free tools, all working 0 sign-ups or accounts needed 100% in-browser — files stay on your device 2 YouTube channels to explore Our YouTube channels
-TOOLZORQ is run by the same creator behind these two channels. Subscribe on YouTube and say hello in the comments. Empire of Money
-The history of money, told as stories: the brothers who tried to buy all the world’s silver, the country that printed a sextillion banknote, and how coins, cards and currencies came to be. Long videos Shorts Financial history Visit Empire of Money Qabristan Ki Awaz
-Animated horror stories in Hindi-Urdu: delivery boys at 2 AM, empty highways and houses that should stay empty. Flat 2D cartoon style, narrated like a storyteller by the fire. Not made for kids. Long-form stories Animated horror Hindi-Urdu narration Visit Qabristan Ki Awaz Latest videos
-The Hunt Brothers: The Billionaires Who Tried to Buy All the Silver
-Delivery Boy 2 AM — Animated Horror Story
-Hungary Printed a 1-Sextillion Banknote?!
-The Penny Costs MORE Than a Penny!
-12 Countries DELETED Their Money Overnight!
-Honest answers
-The questions every tools site should answer straight. Are the tools really free?
-Yes — every tool on this page is free to use, with no account, no trial and no locked features. If that ever changes, it will be written here in plain words, not hidden. Do my files get uploaded to a server?
-No. The image compressor, password generator, QR maker and every other tool run with JavaScript inside your own browser. Close the tab and nothing remains — there is no server collecting your files. Where do the thumbnails come from?
-Directly from YouTube’s public image servers, the same files YouTube itself shows. If a creator never uploaded a custom thumbnail, some sizes simply don’t exist — the tool tells you instead of faking a result. Is the YouTube money calculator accurate?
-It is an estimate, and it says so. Real earnings vary with niche, viewer country, season and advertiser demand. Use the range for planning, and trust YouTube Studio’s revenue tab for your real numbers. Who runs this site?
-The creator of Empire of Money and Qabristan Ki Awaz — two YouTube channels about the history of money and animated horror stories. The tools came first from our own everyday workflow as creators. Why do some tools look different from big sites?
-Because this page was written from scratch for this site. Every tool here is original code built for TOOLZORQ — tested one by one before being listed. Guides
-Practical guides to using TOOLZORQ's free tools well. All guides — practical how-tos for TOOLZORQ's free tools.
-How to Check Your YouTube Title and Description Before You Publish — check your title, description, and tags against YouTube's character limits.
-How to Compress Images for Faster Uploads Without Losing Quality — shrink image files with the Image Compressor, which never uploads your photos anywhere.
+TOOLZORQ — Free Online Tools, No Sign-Up Needed 
 
-## Site links
+TOOL ZORQ Tools Channels FAQ 
 
-Tools
-Channels
-FAQ
-Long video 3:58 The Hunt Brothers: The Billionaires Who Tried to Buy All the Silver Empire of Money
-Horror story 8:47 Delivery Boy 2 AM — Animated Horror Story Qabristan Ki Awaz
-Short 0:44 Hungary Printed a 1-Sextillion Banknote?! Empire of Money
-Short 0:41 The Penny Costs MORE Than a Penny! Empire of Money
-Short 1:06 12 Countries DELETED Their Money Overnight! Empire of Money
-Back to top
+All tools 
+Search or pick a category. Click a tool to open it — it loads right here on this page, ready to use. 
 
----
+All YouTube Image Text Money Everyday Dev 
 
-# Guides — https://basr.me/guides/
+Thumbnail Downloader 
+Full-HD thumbnails from any YouTube video or Short — download the thumbnail image in HD, free. Open tool → 
+YouTube Money Calculator 
+Rough earnings estimate from monthly views and RPM — how much YouTubers earn, shown as an honest range. Open tool → 
+Title & Description Checker 
+Live character counts for your title, description and tags against YouTube's real limits — title 100 characters. Open tool → 
+Image Compressor 
+Shrink JPG, PNG or WebP photos on your device — compress images free, without uploading anything. Open tool → 
+QR Code Generator 
+Turn any link or text into a QR code and download it as a PNG — free, no sign-up. Open tool → 
+Password Generator 
+Strong random passwords made with your browser's crypto engine — never sent anywhere, free. Open tool → 
+Word Counter 
+Words, characters, sentences, paragraphs and reading time — counted live as you type, free. Open tool → 
+Case Converter 
+UPPERCASE, lowercase, Title Case, camelCase, snake_case and more — convert text in one click, free. Open tool → 
+Age Calculator 
+Exact age in years, months and days — plus total days lived and days to your next birthday, free. Open tool → 
+Loan EMI Calculator 
+Monthly payment, total interest and total cost for any loan — home, car or personal, free. Open tool → 
+Percentage Calculator 
+Percent of a number, percentage change, discounts and exam marks — three quick modes, free. Open tool → 
+BMI Calculator 
+Body mass index from your height and weight, with the WHO category and your healthy weight range. Open tool → 
+Unit Converter 
+Length, weight, temperature, volume, speed, area and data — converted into every unit at once, free. Open tool → 
+Currency Converter 
+Convert between 29 currencies with reference rates that refresh live, plus a multi-currency view. Open tool → 
+Stopwatch & Timer 
+A precise stopwatch with lap times, plus a kitchen-style countdown timer with a sound alert, free. Open tool → 
+Pomodoro Timer 
+25-minute focus blocks with short and long breaks — the classic study and work rhythm, free. Open tool → 
+Color Picker 
+Pick any color and get its HEX, RGB and HSL values, plus a full shade and tint palette, free. Open tool → 
+JSON Formatter 
+Format, minify and validate JSON entirely in your browser — pasted tokens never leave your device. Open tool → 
+Base64 Encoder / Decoder 
+Encode text to Base64 or decode it back — Unicode-safe and fully on-device, free. Open tool → 
+Tip Calculator 
+Bill, tip percentage and split between people — tip, total and each person's share, free. Open tool → 
+Date Calculator 
+Days between two dates, or add / subtract days from any date — with the weekday of the result, free. Open tool → 
+Random Picker 
+Pick a random name from your list, flip a coin or roll the dice — fair, instant, no sign-up. Open tool → 
+Countdown Timer 
+Live countdown to any date and time — days, hours, minutes and seconds until the moment, free. Open tool → 
+AI Image Generator 
+Describe anything and a real AI model paints it — styles, sizes and up to 4 variations, free, no sign-up. Open tool → 
+Video Maker 
+Turn your photos into a real downloadable video with captions, transitions and your own music, free. Open tool → 
+No tool matches that search. Try “image”, “qr”, “emi” or “word”. 
 
-Practical guides to using TOOLZORQ's free tools well. Every tool runs in your browser, with no sign-up and no locked features.
+Close ✕ 
+YouTube Thumbnail Downloader 
+Download a YouTube thumbnail in HD online, free — paste any video link and get the thumbnail image in every size YouTube offers, up to full HD 1280×720. 
 
-- How to Compress Images for Faster Uploads Without Losing Quality — shrink image files with the Image Compressor, which never uploads your photos anywhere.
-- How to Check Your YouTube Title and Description Before You Publish — check your title, description, and tags against YouTube's character limits.
+Common questions about the YouTube Thumbnail Downloader 
+How do I download a YouTube thumbnail in HD? 
+Paste the video link into the Thumbnail Downloader and pick the 1280×720 size. If YouTube offers that size for the video, it downloads as a JPG in one click. 
+Can I get a YouTube thumbnail image from a link? 
+Yes — paste any watch, youtu.be or Shorts link and the tool shows the thumbnail image in every size YouTube has for that video. 
+Is downloading a YouTube thumbnail free? 
+Yes. The tool is free, needs no sign-up, and downloads the same image file YouTube itself shows. 
+To get a YouTube thumbnail image from a link, paste the link above — and to download a YouTube video thumbnail in 1280x720, pick the HD size where YouTube offers it. 
+Guide: How to Download a YouTube Thumbnail in Full HD 
+Dedicated page: Download YouTube Thumbnail HD Online Free — TOOLZORQ 
+Get thumbnail 
 
----
+Close ✕ 
+YouTube Money Calculator 
+How much do YouTubers earn? Enter monthly views and see an earnings estimate by views and RPM — shown as a range, never a single “guaranteed” number. 
 
-# How to Check Your YouTube Title and Description Before You Publish — https://basr.me/guides/youtube-title-description-checker-guide.html
+Common questions about the YouTube Money Calculator 
+How much do YouTubers earn per 1,000 views? 
+It varies by niche and audience country. The calculator starts with a typical $1–$4 RPM range — what a creator keeps per 1,000 views after YouTube's share. 
+How much money per 1,000 views on YouTube? 
+There is no fixed rate. Enter your monthly views and adjust the RPM range to see an earnings estimate for your niche. 
+Is the YouTube money calculator accurate? 
+It is an estimate, and it says so. Use the range for planning and trust YouTube Studio's revenue tab for your real numbers. 
+Enter your views and use this YouTube earnings estimator by views to see the range for your channel — the calculator answers what a channel might earn, by niche and RPM. 
+Dedicated page: YouTube Money Calculator: How Much Do YouTubers Earn? — TOOLZORQ 
+Monthly views 
+Just this one number is enough — the pay rate below is already set to a typical range. Estimate earnings 
 
-YouTube cuts off titles and descriptions that run too long, and it counts every character — including spaces. Checking your text against YouTube's actual limits before you hit publish takes a minute and saves you from a title that ends mid-sentence. This guide shows how to do it with TOOLZORQ's free Title & Description Checker.
+Advanced options — fine-tune the pay rate 
 
-## Know the limits first
+RPM low (USD per 1,000 views) 
+RPM high (USD per 1,000 views) 
+Or pick a typical niche range Custom (use the RPM boxes above) Entertainment / vlogs — roughly $0.50–$2 RPM Education / history — roughly $1–$4 RPM Tech reviews — roughly $2–$6 RPM Finance / business — roughly $4–$12 RPM 
+RPM is what a creator actually keeps per 1,000 views. The starting range ($1–$4) fits education and history channels. 
 
-YouTube's limits are:
+RPM = what the creator actually keeps per 1,000 views after YouTube’s share. Ranges above are broad industry-typical figures, not quotes — your real RPM is in YouTube Studio → Analytics → Revenue. 
+Close ✕ 
+Title & Description Checker 
+YouTube title character counter — counts update live against YouTube's actual limits: title 100 characters, description 5,000, tags 500 total. 
 
-- Title: 100 characters
-- Description: 5,000 characters
-- Tags: 500 characters in total
+Common questions about the Title & Description Checker 
+How many characters can a YouTube title be? 
+100 characters. The checker counts your title live and shows how many characters you have left. 
+What is the YouTube description character limit? 
+5,000 characters. The checker counts your description against that limit as you type. 
+How do I check YouTube tags character count? 
+Paste your comma-separated tags into the checker — it counts the total against YouTube's 500-character tag limit. 
+This is also a YouTube description character limit checker and a YouTube tags character counter online — paste all three and check them together. 
+Guide: How to Check Your YouTube Title and Description Before You Publish 
+Dedicated page: YouTube Title Character Counter (100 Characters) — TOOLZORQ 
+Video title 
 
-Staying inside these limits is only part of the job — the first words of your title and description are also what viewers actually see in search results and on their home feed, so put the most important words first.
+0 characters Limit 100 
+Description 
 
-## Use TOOLZORQ's Title & Description Checker
+0 characters Limit 5,000 
+Tags (comma separated) 
 
-The Title & Description Checker is one of the free tools on TOOLZORQ's homepage. It runs entirely in your browser, with no sign-up and nothing to install. To use it:
+0 characters · 0 tags Limit 500 total 
+Close ✕ 
+Image Compressor 
+Compress an image online, free, without uploading it — runs 100% in your browser using the canvas engine, so your photo is never uploaded anywhere. 
 
-1. Open TOOLZORQ and find the Title & Description Checker among the tools.
-2. Type or paste your video title into the title box — the character count updates live against the 100-character limit.
-3. Do the same for your description (limit 5,000 characters) and your tags, separated by commas (500 characters in total).
-4. Trim anything that runs over the limit before you copy the text into YouTube Studio.
+Common questions about the Image Compressor 
+How can I compress an image without uploading it? 
+Use the Image Compressor — it runs 100% in your browser with the canvas engine, so your photo never leaves your device. 
+Can I reduce image size online for free? 
+Yes. Drop a JPG, PNG, WebP or GIF, set the quality, and download the smaller file — no sign-up and nothing uploaded. 
+Does compressing an image lower its quality? 
+It can, slightly. Lower the quality slider step by step and compare the before and after sizes until the file is small enough. 
+To reduce image size online without uploading, drop the file here — it will compress JPG and PNG in your browser, free. 
+Guide: How to Compress Images for Faster Uploads Without Losing Quality 
+Dedicated page: Compress Image Online Free Without Uploading — TOOLZORQ 
 
-Because the counts update as you type, you can try a shorter wording on the spot and see immediately whether it fits.
+Drop an image here or Choose image 
+JPG, PNG, WebP, GIF (first frame) and more 
 
-## Write for the cut-off, not just the limit
+Advanced options — quality, size and format 
 
-A title can be within the 100-character limit and still get cut off in search results, where viewers only see the beginning. The same goes for descriptions, where only the first couple of lines show before a viewer has to tap "more". Practical habits that help:
+Quality — 80 % 
+Max width / height (px) Keep original size 1920 1280 800 480 
+Output format JPG (smallest, no transparency) WebP (small, modern) PNG (lossless, keeps transparency) Step 2 — Compare and download 
+Original Compressed 
+Download compressed image Start over 
+Close ✕ 
+QR Code Generator 
+QR code generator, free with no sign-up — for links, Wi-Fi details, phone numbers or any text. Generated locally in your browser. 
 
-- Front-load the title: put the topic and the hook in the first few words, not at the end.
-- Lead the description with the summary: the first one or two sentences should say what the video is about, so a viewer who never expands the description still gets the point.
-- Keep tags focused: a short list of relevant tags beats a long list of loosely related ones, and it is easier to stay inside the 500-character total.
+Common questions about the QR Code Generator 
+How do I create a QR code for a link for free? 
+Enter the link in the QR Code Generator and download the PNG — free, with no sign-up. 
+Can I make a Wi-Fi QR code? 
+Yes — enter your Wi-Fi details as text and the generator turns them into a scannable code. 
+Do I need an account to make a QR code? 
+No. The generator runs locally in your browser and needs no sign-up. 
+To create a QR code for a link free online, enter the link above; the same generator makes a free WiFi QR code from your network details. 
+Guide: How to Make a QR Code That Actually Scans 
+Dedicated page: QR Code Generator Free — No Sign Up — TOOLZORQ 
 
-Rule of thumb: if your title only makes sense when read in full, rewrite it so the first half already tells the story. Then check the full version against the limit.
+Text or link 
+Generate QR code Download PNG 
 
-## Quick checklist
+Advanced options — picture size 
 
-- Is the title within 100 characters?
-- Does the beginning of the title make sense on its own?
-- Is the description within 5,000 characters, with the summary up front?
-- Are the tags comma-separated and within 500 characters in total?
-- Did you paste the checked text into YouTube Studio, rather than retyping it from memory?
+Size 200 × 200 300 × 300 500 × 500 (large) 
+Bigger is better for printing. 300 × 300 is plenty for screens. 
 
----
+Close ✕ 
+Password Generator 
+Strong random password generator, online and free — built with the Web Crypto API. Passwords are created on your device and never stored or sent. 
 
-# How to Compress Images for Faster Uploads Without Losing Quality — https://basr.me/guides/compress-images-for-faster-uploads.html
+Common questions about the Password Generator 
+What makes a password strong? 
+Length plus a mix of uppercase, lowercase, numbers and symbols. 16 characters with everything switched on is already very strong. 
+Is this password generator safe? 
+Passwords are made with the Web Crypto API on your device and are never stored or sent to a server. 
+Do I need to sign up to generate a password? 
+No — the generator is free and needs no account. 
+This secure password generator needs no sign-up, and it works as a random password maker with symbols, numbers and mixed case. 
+Guide: How to Make Strong Passwords You Can Actually Remember 
+Dedicated page: Strong Random Password Generator Online Free — TOOLZORQ 
+Generate password Copy 
 
-Large photos are the most common reason an upload stalls or a page loads slowly. A phone photo can easily be several megabytes, while the version a website, form, or chat app actually needs is often a fraction of that size. Compressing the image first — shrinking the file without visibly changing the picture — makes uploads faster and avoids rejected attachments. This guide shows how to do it with TOOLZORQ's free Image Compressor.
+Advanced options — length and characters 
 
-## What compression actually does
+Length — 16 characters 
+16 characters with everything switched on is already very strong. 
+ABC uppercase abc lowercase 123 numbers #$& symbols 
 
-An image file stores colour and detail information for every pixel. Compression reduces that file in two ways: by resizing the picture to smaller dimensions, and by saving it in a format that stores the same visible picture more efficiently. A photo shown at 1200 pixels wide does not need to be stored at 4000 pixels wide — the extra pixels are invisible to the viewer but still take up space and upload time.
+Your password will appear here 
 
-The goal is not the smallest file possible. Push compression too far and text goes fuzzy, faces lose detail, and flat colours develop visible banding. The sweet spot is the smallest file that still looks the same as the original at the size it will actually be viewed.
+Strength: — 
+Close ✕ 
+Word Counter 
+Word counter, online and free — paste an essay, script or article and count words and characters live, with reading time. 
 
-## Use TOOLZORQ's Image Compressor
+Common questions about the Word Counter 
+How do I count words and characters online? 
+Paste your text into the Word Counter — words, characters, sentences and paragraphs update live as you type. 
+How is reading time calculated? 
+Reading time assumes about 200 words per minute, based on your pasted text's word count. 
+Is the word counter free? 
+Yes — free, with no sign-up, and your text never leaves your browser. 
+It also works as a character counter online, free — and as a word count and reading time calculator for scripts and essays. 
+Guide: How to Check Your Script's Word Count and Reading Time Before You Record 
+Dedicated page: Word Counter Online Free — Words & Characters — TOOLZORQ 
 
-The Image Compressor is one of the free tools on TOOLZORQ's homepage. It runs 100% in your browser using the canvas engine — your photo is never uploaded anywhere, so it is safe for personal photos and screenshots. It accepts JPG, PNG, WebP, GIF (first frame) and more. To use it:
+0 Words 
+0 Characters 
+0 Chars (no spaces) 
+0 Sentences 
+0 Paragraphs 
+0 min Reading time 
+Clear text 
+Close ✕ 
+Case Converter 
+Convert text to uppercase and lowercase online — instant case converter for titles, code and captions. 
 
-1. Open TOOLZORQ and find the Image Compressor among the tools.
-2. Drop your image into the tool, or choose it from your device.
-3. Pick your output settings — a smaller size or a more efficient format — and compress the image.
-4. Check the result before you use it: open the compressed copy and look at it at full size, especially any text or faces.
-5. Download the compressed version and upload that, keeping your original file untouched.
+Common questions about the Case Converter 
+How do I convert text to uppercase online? 
+Paste your text into the Case Converter and tap UPPERCASE — the text changes instantly. 
+Can I convert uppercase to lowercase? 
+Yes — paste the text and tap lowercase to convert it in one click. 
+What is Title Case? 
+Title Case capitalises the first letter of each main word — useful for titles and headings. 
+Use it as an uppercase to lowercase converter online, or as a free title case converter for headings and titles. 
+Dedicated page: Convert Text to Uppercase & Lowercase Online — TOOLZORQ 
 
-Because everything happens on your own device, there is no upload queue and no waiting for a server — the compressed file is ready as soon as your browser finishes processing it.
+UPPERCASE lowercase Title Case Sentence case camelCase snake_case kebab-case Copy result 
+Close ✕ 
+Age Calculator 
+Age calculator — exact age in years, months and days, online. Pick a date of birth and get the exact age, down to the day. 
 
-## Choose the right format
+Common questions about the Age Calculator 
+How old am I today? 
+Enter your date of birth in the Age Calculator — it gives your exact age in years, months and days, down to the day. 
+How do I calculate my age on a specific date? 
+Enter your date of birth, then pick the date in “Age on date” — for example, how old you will be in 2030. 
+Does the age calculator show days lived? 
+Yes — it also shows total days lived and days to your next birthday. 
+Asking “how old am I?” — enter your date of birth; this is also an age calculator on a specific date, past or future. 
+Dedicated page: Age Calculator — Exact Age in Years, Months & Days — TOOLZORQ 
+Date of birth Calculate age 
 
-Format choice matters as much as file size:
+Advanced options — age on a different date 
 
-- Photos: JPG or WebP usually give the smallest files for photographs, since they are designed for smooth colour gradients like skies and skin.
-- Screenshots, logos, and graphics with text: PNG keeps sharp edges and text crisp, but the file is larger — use it when clarity matters more than size.
-- Simple graphics: if the picture has few colours and large flat areas, a PNG or WebP copy can be both small and sharp.
+Age on date (default: today) 
+Leave empty to calculate the age today, or pick any past or future date — for example “how old will I be in 2030?” 
 
-If you are unsure, try the photo format first and compare the result with the original side by side. If text or edges look worse, switch back to the sharper format.
+Close ✕ 
+Loan EMI Calculator 
+Loan EMI calculator, online and free — monthly payment, total interest and total cost for any loan, using the reducing-balance formula banks use. 
 
-## Resize before you compress
+Common questions about the Loan EMI Calculator 
+How do I calculate my loan EMI? 
+Enter the loan amount, interest rate and term in the Loan EMI Calculator — it shows the monthly EMI, total interest and total payment. 
+What is an EMI? 
+EMI is the Equated Monthly Instalment — the fixed monthly payment that covers both interest and a slice of the amount borrowed. 
+Can I calculate EMI for a home loan? 
+Yes — enter the home loan amount, rate and term to see the monthly payment for that loan. 
+Use it as an EMI calculator for home loan monthly payments, or calculate loan EMI with any interest rate and term. 
+Guide: How to Work Out Your Loan EMI Before You Borrow 
+Dedicated page: Loan EMI Calculator Online Free — Monthly Payment — TOOLZORQ 
 
-Resizing is usually the biggest single saving, and it is the step people skip. Ask what size the image will actually be shown at: a profile picture, a listing photo, or a picture inside an article rarely needs to be wider than 1200–1600 pixels. Shrinking a 4000-pixel-wide phone photo down to that width can cut the file dramatically before any quality setting is even touched — and the picture looks identical on screen.
+Loan amount 
+Interest rate (% per year) 
+Term (years) Calculate EMI 
 
-Rule of thumb: always keep the original file. Compress a copy, check the copy, and upload the copy. If a site later asks for a higher-quality version, you still have the original to work from.
+Close ✕ 
+Percentage Calculator 
+Percentage calculator — what is percent of a number, percent change and exam marks. Three everyday jobs in one place. 
 
-## Quick checklist
+Common questions about the Percentage Calculator 
+What is 20 percent of 150? 
+30. Enter the numbers in the Percentage Calculator — “what is % of” mode gives the answer instantly. 
+How do I calculate percentage increase? 
+Use the “Change from → to” mode — enter the old and new numbers to see the percent increase or decrease. 
+How do I work out my marks percentage? 
+Use the “Marks: scored out of” mode — enter your marks and the total to get your percentage. 
+It also works as a percent increase calculator online and as a marks percentage calculator scored out of any total. 
+Dedicated page: Percentage Calculator — What Is Percent of a Number? — TOOLZORQ 
 
-- Is the image resized to roughly the size it will be displayed at?
-- Is the format right for the picture — JPG or WebP for photos, PNG for sharp text and graphics?
-- Have you opened the compressed copy at full size and checked text and faces?
-- Is the original file safely kept, separate from the compressed copy?
-- Does the compressed file now upload without hitting the site's size limit?
+What is % of 
+
+Change from to 
+
+Marks: scored out of 
+
+Close ✕ 
+BMI Calculator 
+BMI calculator, kg and cm, online and free — Body Mass Index using the standard WHO formula and categories. 
+
+Common questions about the BMI Calculator 
+How do I calculate my BMI? 
+Enter your height in cm and weight in kg in the BMI Calculator — it uses the standard WHO formula. 
+What is a healthy BMI? 
+The WHO healthy range is 18.5 to 24.9. The calculator shows your category and your healthy weight range. 
+Is BMI medical advice? 
+No — BMI is a general guide, not medical advice. Talk to a clinician about your own health. 
+To calculate BMI with height and weight, enter your height and weight above — a BMI calculator in metric units (kg and cm). 
+Dedicated page: BMI Calculator KG CM Online Free — TOOLZORQ 
+Units Metric — cm & kg Imperial — ft / in & lb 
+
+Height (cm) 
+Weight (kg) 
+
+Height (feet) 
+Height (inches) 
+Weight (lb) Calculate BMI 
+
+Close ✕ 
+Unit Converter 
+Unit converter, online — length, weight and temperature plus four more categories. Type a value and see every unit at once. 
+
+Common questions about the Unit Converter 
+How do I convert kg to pounds? 
+Pick the weight category in the Unit Converter, enter the kg value, and read the pounds result alongside every other weight unit. 
+Can I convert length units online? 
+Yes — pick the length category and enter a value to see it in metres, feet, inches and more at once. 
+Does the unit converter do temperature? 
+Yes — temperature is one of the seven categories, along with length, weight, volume, speed, area and data. 
+Use it to convert length units online, free — or as a kg to pounds converter online, with every other unit shown too. 
+Guide: How to Convert Units Quickly with the Unit Converter 
+Dedicated page: Unit Converter Online — Length, Weight, Temperature — TOOLZORQ 
+
+Category Length Weight Temperature Volume Speed Area Data storage 
+Value 
+From unit 
+⇅ Use result unit as input 
+
+Close ✕ 
+Currency Converter 
+Currency converter, USD to PKR and 27 more currencies, online and free — mid-market reference rates, a guide not a quote. 
+
+Common questions about the Currency Converter 
+How many PKR is 1 USD? 
+It changes daily. Enter the amount in the Currency Converter to see the current mid-market reference rate — a guide, not a quote. 
+What rate does the currency converter use? 
+Mid-market reference rates — the same kind banks use between themselves. Your bank will offer a slightly different rate. 
+Can I convert dollars to rupees? 
+Yes — pick USD to PKR (or any of the 29 currencies) and enter the amount. 
+Check the USD to PKR exchange rate today here, or convert dollars to rupees online with the same tool. 
+Dedicated page: Currency Converter USD to PKR Online Free — TOOLZORQ 
+
+Amount 
+From 
+To 
+Convert ⇅ Swap 
+
+Close ✕ 
+Stopwatch & Timer 
+Online stopwatch with laps, free — a hundredth-of-a-second stopwatch with lap times, plus a countdown timer that beeps. 
+
+Common questions about the Stopwatch & Timer 
+How do I time laps with an online stopwatch? 
+Start the stopwatch and tap Lap — each lap time is recorded to a hundredth of a second. 
+Does the countdown timer have an alarm? 
+Yes — the timer beeps when it finishes. 
+Is the stopwatch free? 
+Yes — free, with no sign-up, and it keeps running while the tab stays open. 
+Use it as a stopwatch online with lap times, or as a countdown timer online with alarm for cooking and workouts. 
+Dedicated page: Online Stopwatch with Laps — Free Timer — TOOLZORQ 
+Stopwatch Countdown timer 
+
+00:00.00 
+Start Lap Reset 
+
+Hours 
+Minutes 
+Seconds 
+05:00 
+Start timer Reset 
+Close ✕ 
+Pomodoro Timer 
+Pomodoro timer, online and free — 25-minute focus blocks, 5-minute rests and a 15-minute break after four blocks. 
+
+Common questions about the Pomodoro Timer 
+How does the Pomodoro timer work? 
+Focus for 25 minutes, rest for 5, and take a 15-minute break after four focus blocks. A beep marks the end of each block. 
+How long is a Pomodoro focus session? 
+25 minutes, with a 5-minute rest after it. 
+Is the Pomodoro timer free? 
+Yes — free, with no sign-up, and it tracks your focus blocks and focused minutes. 
+This is a Pomodoro timer 25/5 online — and a focus timer online, free, for studying and deep work. 
+Dedicated page: Pomodoro Timer Online Free — 25 Minute Focus — TOOLZORQ 
+Focus · 25 min Short break · 5 min Long break · 15 min 
+25:00 
+Focus session 1 
+Start focus Reset 
+
+0 Focus blocks done 
+0 min Focused time 
+Close ✕ 
+Color Picker 
+Color picker — HEX, RGB and HSL converter, online. Pick a color or type a HEX value and get every format plus shades and tints. 
+
+Common questions about the Color Picker 
+How do I convert HEX to RGB? 
+Type the HEX value into the Color Picker — it shows the RGB and HSL values instantly. 
+What are shades and tints? 
+Shades are the color darkened step by step; tints are the color lightened. The picker shows both as a palette. 
+Can I copy a color's HEX code? 
+Yes — click any swatch to copy its HEX. 
+Use it as a hex to rgb converter online, or as a color shades and tints generator for your palette. 
+Dedicated page: Color Picker — HEX, RGB & HSL Converter Online — TOOLZORQ 
+
+Pick a color 
+Or type HEX 
+
+HEX — Copy 
+RGB — Copy 
+HSL — Copy 
+Shades & tints — darkest to lightest: 
+
+Close ✕ 
+JSON Formatter 
+JSON formatter, online and free — format, minify and validate JSON in your browser. Safe for tokens and private data. 
+
+Common questions about the JSON Formatter 
+How do I validate JSON online? 
+Paste it into the JSON Formatter and click Validate — it tells you whether the JSON is valid. 
+How do I beautify JSON? 
+Paste it and click Format — the formatter indents each level so the data is easy to read. 
+Is it safe to paste private JSON here? 
+Yes — everything runs locally in your browser, so pasted tokens and private data never leave your device. 
+It also works as a JSON validator online, free — and as a JSON minifier online when you need compact JSON. 
+Dedicated page: JSON Formatter Online Free — Validate & Beautify — TOOLZORQ 
+Your JSON 
+Format Minify Validate only 
+
+Advanced options — spacing 
+
+Indent 2 spaces 4 spaces 
+How far each level is indented when you format. Purely cosmetic — the data stays the same. 
+
+Result 
+Copy result Clear 
+Close ✕ 
+Base64 Encoder / Decoder 
+Base64 encode and decode, online and free — text to Base64 and back, Unicode-safe (emoji and Urdu included). 
+
+Common questions about the Base64 Encoder / Decoder 
+How do I encode text to Base64? 
+Paste the text into the encoder and click Encode — the Base64 output appears instantly. 
+How do I decode Base64 to text? 
+Paste the Base64 string and click Decode to get the original text back. 
+Does it handle Urdu text and emoji? 
+Yes — the tool is Unicode-safe, so emoji and Urdu text encode and decode correctly. 
+Use it as a text to Base64 encoder online, or as a Base64 to text decoder online — both directions, on-device. 
+Dedicated page: Base64 Encode & Decode Online Free — TOOLZORQ 
+Input 
+Encode → ← Decode 
+
+Result 
+Copy result Use result as input Clear 
+Close ✕ 
+Tip Calculator 
+Tip calculator — split the bill between people. Enter the bill, tip % and people to see the tip, total and each share. 
+
+Common questions about the Tip Calculator 
+How do I split a bill between people? 
+Enter the bill, tip percent and number of people in the Tip Calculator — it shows each person's share. 
+How much should I tip? 
+It depends on where you are — 10–20% is common in many places. Set the tip % and the calculator does the maths. 
+Does the tip calculator split the tip too? 
+Yes — the tip and the total are divided between everyone splitting the bill. 
+It works as a split bill calculator with tip, and answers “how much to tip” with the tip, total and each share. 
+Guide: How to Split a Bill Fairly with the Tip Calculator 
+Dedicated page: Tip Calculator — Split Bill Between People — TOOLZORQ 
+
+Bill amount 
+Tip % 
+5% 10% 15% 20% 25% 
+Split between (people) 
+
+Close ✕ 
+Date Calculator 
+Date calculator — days between two dates, online. Count the days between two dates, or add or subtract days from any date. 
+
+Common questions about the Date Calculator 
+How many days are between two dates? 
+Pick both dates in the Date Calculator — it counts the days between them. 
+How do I add days to a date? 
+Pick a start date, enter the number of days and choose forward — the calculator shows the resulting date and weekday. 
+Can I subtract days from a date? 
+Yes — pick the start date, enter the days and choose backward. 
+Asking how many days between two dates? Enter both dates — or use the add days to a date calculator to jump forward or back. 
+Dedicated page: Date Calculator — Days Between Two Dates Online — TOOLZORQ 
+Days between dates 
+
+From 
+To Count days 
+
+Add or subtract days 
+
+Start date 
+Days 
+Direction Add days Subtract days Calculate date 
+
+Close ✕ 
+Random Picker 
+Random name picker, online and free, for classrooms — pick a random name from a list, flip a coin or roll dice. 
+
+Common questions about the Random Picker 
+How do I pick a random name from a list? 
+Paste one name per line and click Pick — the picker chooses one at random. 
+Is the random picker fair? 
+Yes — it uses your browser's crypto randomness, not a predictable pattern. 
+Can I use it for a classroom? 
+Yes — it is made for classrooms, giveaways and teams, with no sign-up. 
+It also works as a random picker wheel online, free — or pick a random name from a list for a draw or a team. 
+Dedicated page: Random Name Picker Online Free for Classroom — TOOLZORQ 
+Pick a name or item 
+One name or item per line Pick one at random 
+
+Coin flip & dice 
+Flip a coin Dice 1 2 3 4 Roll dice 
+
+Close ✕ 
+Countdown Timer 
+Countdown timer, online to a date, free — count down to any moment: a launch, a birthday, a deadline. 
+
+Common questions about the Countdown Timer 
+How do I count down to my birthday? 
+Pick your birthday as the target date in the Countdown Timer — it shows the days, hours, minutes and seconds left. 
+Can I count down to a specific date? 
+Yes — pick any date and time as the target. 
+Is the countdown timer free? 
+Yes — free, with no sign-up, and it updates live. 
+Use it as a countdown to birthday online, or as a countdown timer to a specific date — a launch or a deadline. 
+Dedicated page: Countdown Timer Online to a Date — Free — TOOLZORQ 
+Target date & time 
+In 1 hour In 6 hours In 1 day In 1 week Start countdown 
+
+Close ✕ 
+AI Image Generator 
+AI image generator, free with no sign-up — text to image. Describe a picture and a real AI model paints it, via Pollinations. 
+
+Common questions about the AI Image Generator 
+Can I generate AI images for free without signing up? 
+Yes — describe a picture and the AI Image Generator paints it with no sign-up and no key, via the free public Pollinations service. 
+How do I turn text into an image? 
+Type what the picture should show, pick a style and size, and generate — the image appears in seconds. 
+Are the images really made by AI? 
+Yes — a real AI model generates them on Pollinations' servers. Every generation is unique and results vary. 
+A free AI image generator from text with no login — and a text to image AI, free, online, with no key. 
+Dedicated page: AI Image Generator Free — No Sign Up, Text to Image — TOOLZORQ Step 1 — Describe your picture 
+What should the picture show? 
+One or two sentences work best — or tap an idea: 
+Castle in the clouds Robot in a garden Night market Lion under the stars Snowy cabin Future city Surprise me Step 2 — Make it Generate image 
+Tip: press Ctrl + Enter in the description box to generate. 
+
+Advanced options — style, size, seed and more 
+
+Art style None — exactly as I described it Photorealistic — like a real photo Anime 3D render Oil painting Cyberpunk Watercolor Pixel art 
+A style adds the right words to your description automatically. 
+Model Flux — best quality Turbo — faster 
+
+Size Square — 1024 × 1024 Wide — 1280 × 720 Tall — 720 × 1280 Custom size… 
+How many pictures? 1 picture 2 pictures 3 pictures 4 pictures 
+More pictures = more variations of the same idea to choose from. 
+
+Width (px) 
+Height (px) 
+
+Seed (optional) 
+Same words + same seed = the same picture again. Handy for remaking a favourite. 
+Pick a random seed 
+Download format JPG — small file, works everywhere PNG — best quality, bigger file WebP — small and modern 
+The picture is converted to this format right here in your browser when you download it. 
+Improve my description automatically Private — keep it out of Pollinations’ public gallery Remove the Pollinations logo 
+
+Pictures you made earlier 
+Saved in this browser only, so they are still here when you come back. Tap a picture to see it big, or use its seed to remake it. 
+
+Clear history 
+Images are created on Pollinations’ servers (pollinations.ai), a free public AI service — your prompt is sent there to generate the image. Every generation is unique; results vary and may not always match the prompt perfectly. 
+
+Download Copy image Copy prompt Close ✕ 
+Close ✕ 
+Video Maker 
+Make a video from photos, online and free — slideshow maker. Turn photos into a slideshow video, or text into an animated video. 
+
+Common questions about the Video Maker 
+How do I make a video from photos? 
+Add two or more photos to the Video Maker, arrange the scenes, add captions and transitions, then build and download the video. 
+Can I make a slideshow video for free? 
+Yes — the slideshow maker is free and runs 100% on your device; your photos never leave it. 
+Is this AI video generation? 
+No — it makes slideshow and animated text videos in your browser. AI video generation needs a paid AI service. 
+Use it as a photo slideshow maker online, free — or as a text to video maker online, free, for animated text videos. 
+Dedicated page: Make Video from Photos Online Free — Slideshow Maker — TOOLZORQ 
+Images se — photo slideshow Text se Video (Animated) 
+Step 1 — Add your photos 
+
+Drop images here or Choose images 
+Add 2 or more JPG / PNG / WebP images — they never leave your device 
+Step 2 — Arrange your scenes 
+Write the words for each photo, drag the order with the arrows. Open “Scene settings” on a photo to change how long it stays on screen or add a photo filter. 
+
+Total length: 0 seconds 
+
+Advanced options — transitions, text, music, logo, project 
+
+How scenes change Fade — soft blend Slide — push sideways Zoom — slow zoom-in effect Cut — instant change 
+Video shape & quality Wide HD — 1280 × 720 (16:9) Wide Full HD — 1920 × 1080 (16:9) Tall HD — 720 × 1280 (9:16, Shorts / Reels) Tall Full HD — 1080 × 1920 (9:16) Square — 1080 × 1080 (1:1) 
+Export quality Standard — smaller file High — sharper picture, bigger file 
+
+Text position Bottom Middle Top 
+Text size — 100 % 
+Text colour 
+
+Text animation Fade in Slide in None — just appears 
+Background music (optional) 
+
+Drop music file here or tap to choose 
+MP3, WAV or any audio file 
+No music added — the video will be silent 
+
+Music volume — 80 % 
+Music fades 
+Fade in at the start Fade out at the end 
+
+Your logo on the video (optional) 
+
+Drop logo image here or tap to choose 
+PNG or JPG — a transparent PNG looks best 
+No logo added 
+Logo corner Top right Top left Bottom right Bottom left 
+Save or reopen this project 
+Save project file Open a saved project 
+The project file holds your photos, words and settings so you can carry on later. Music is not saved in the file — just add it again after opening. Step 3 — Preview and make your video 
+Play preview Start over 
+Export speed Fast export — renders as fast as your device can Standard recording — real time (a 15s video takes ~15s) 
+Fast export uses your browser’s built-in video encoder (WebCodecs): MP4 where supported, otherwise WebM. If fast export can’t run on this device — or can’t include your music — the standard real-time recording is used instead and the finished video note says so. The final format is always named honestly under the finished video. 
+Make my video 
+
+Download video 
+
+Two ways to export: Fast export draws and encodes every frame as fast as your device can — no waiting for the video to play through. Standard recording records in real time (a 15-second video takes about 15 seconds) — keep this tab visible while it records. The finished video above always tells you honestly which format you got: MP4 or WebM. 
+Step 1 — Write your lines 
+Title (optional — shown first, in big letters) 
+Your lines — one line per scene 
+Each line becomes one scene of the video. Short lines look best. No photos needed at all. 
+
+Advanced options — background, animation, music and more 
+
+Animated background Moving gradient Floating particles Drifting shapes 
+Colour theme Sunset Ocean Forest Royal gold Midnight 
+Video shape & quality Wide HD — 1280 × 720 (16:9) Wide Full HD — 1920 × 1080 (16:9) Tall HD — 720 × 1280 (9:16, Shorts / Reels) Tall Full HD — 1080 × 1920 (9:16) Square — 1080 × 1080 (1:1) 
+
+Text animation Fade in Slide up Zoom in 
+How scenes change Fade — soft blend Slide sideways Cut — instant change 
+Export quality Standard — smaller file High — sharper picture, bigger file 
+
+Seconds per line — 3 s 
+Text size — 100 % 
+
+Background music (optional) 
+
+Drop music file here or tap to choose 
+MP3, WAV or any audio file 
+No music added — the video will be silent 
+Music volume — 80 % Step 2 — Preview and make your video 
+Play preview 
+Export speed Fast export — renders as fast as your device can Standard recording — real time (a 15s video takes ~15s) 
+Fast export uses your browser’s built-in video encoder (WebCodecs): MP4 where supported, otherwise WebM. If fast export can’t run on this device — or can’t include your music — the standard real-time recording is used instead and the finished video note says so. The final format is always named honestly under the finished video. 
+Make my video 
+
+Download video 
+
+This makes an animated text video — your own words moving over an animated background, drawn live in your browser. It is not AI scene generation: no pictures are invented, only your text, animated. Export it two ways: Fast export renders every frame as fast as your device can; Standard recording records in real time, so keep this tab visible while it records. The finished video above always says honestly which format you got: MP4 or WebM. 
+
+25 free tools, all working 
+0 sign-ups or accounts needed 
+100% in-browser — files stay on your device 
+2 YouTube channels to explore 
+
+Our YouTube channels 
+TOOLZORQ is run by the same creator behind these two channels. Subscribe on YouTube and say hello in the comments. 
+
+Empire of Money @EmpireOfMoneyHQ 
+
+The history of money, told as stories: the brothers who tried to buy all the world’s silver, the country that printed a sextillion banknote, and how coins, cards and currencies came to be. 
+Long videos Shorts Financial history Visit Empire of Money 
+
+Qabristan Ki Awaz @SachiKhaufnaakKahaniyan 
+
+Animated horror stories in Hindi-Urdu: delivery boys at 2 AM, empty highways and houses that should stay empty. Flat 2D cartoon style, narrated like a storyteller by the fire. Not made for kids. 
+Long-form stories Animated horror Hindi-Urdu narration Visit Qabristan Ki Awaz 
+Latest videos 
+Long video 3:58 
+The Hunt Brothers: The Billionaires Who Tried to Buy All the Silver Empire of Money Horror story 8:47 
+Delivery Boy 2 AM — Animated Horror Story Qabristan Ki Awaz Short 0:44 
+Hungary Printed a 1-Sextillion Banknote?! Empire of Money Short 0:41 
+The Penny Costs MORE Than a Penny! Empire of Money Short 1:06 
+12 Countries DELETED Their Money Overnight! Empire of Money 
+
+Honest answers 
+The questions every tools site should answer straight. 
+
+Are the tools really free? 
+Yes — every tool on this page is free to use, with no account, no trial and no locked features. If that ever changes, it will be written here in plain words, not hidden. 
+Do my files get uploaded to a server? 
+No. The image compressor, password generator, QR maker and every other tool run with JavaScript inside your own browser. Close the tab and nothing remains — there is no server collecting your files. 
+Where do the thumbnails come from? 
+Directly from YouTube’s public image servers, the same files YouTube itself shows. If a creator never uploaded a custom thumbnail, some sizes simply don’t exist — the tool tells you instead of faking a result. 
+Is the YouTube money calculator accurate? 
+It is an estimate, and it says so. Real earnings vary with niche, viewer country, season and advertiser demand. Use the range for planning, and trust YouTube Studio’s revenue tab for your real numbers. 
+Who runs this site? 
+The creator of Empire of Money and Qabristan Ki Awaz — two YouTube channels about the history of money and animated horror stories. The tools came first from our own everyday workflow as creators. 
+Why do some tools look different from big sites? 
+Because this page was written from scratch for this site. Every tool here is original code built for TOOLZORQ — tested one by one before being listed. 
+Can I compress an image without uploading it? 
+Yes — the Image Compressor runs 100% in your browser with the canvas engine, so your photo is never uploaded anywhere. Drop a JPG, PNG, WebP or GIF, set the quality, and download the smaller file. 
+How do I work out my loan EMI? 
+Enter the loan amount, interest rate and term in the Loan EMI Calculator — it shows the monthly EMI, total interest and total payment, using the reducing-balance formula banks use. 
+What is a healthy BMI? 
+The WHO healthy range is 18.5 to 24.9. The BMI Calculator shows your category and your healthy weight range from your height in cm and weight in kg. 
+How do I count down to my birthday? 
+Pick your birthday as the target date in the Countdown Timer — it shows the days, hours, minutes and seconds left. 
+
+Guides 
+Practical guides to using TOOLZORQ's free tools well. 
+
+All guides — practical how-tos for TOOLZORQ's free tools. 
+How to Check Your YouTube Title and Description Before You Publish — check your title, description, and tags against YouTube's character limits. 
+How to Compress Images for Faster Uploads Without Losing Quality — shrink image files with the Image Compressor, which never uploads your photos anywhere. 
+How to Make Strong Passwords You Can Actually Remember — make strong passwords you can remember with the Password Generator, made on your device. 
+How to Make a QR Code That Actually Scans — size, contrast, and testing tips, plus generating a code with the QR Code Generator, made locally in your browser. 
+How to Check Your Script's Word Count and Reading Time Before You Record — word count, character count, and estimated reading time with the Word Counter, counted live in your browser. 
+How to Download a YouTube Thumbnail in Full HD — full HD 1280 × 720 where YouTube actually offers it, why some sizes do not exist, and using the Thumbnail Downloader in your browser. 
+How to Split a Bill Fairly with the Tip Calculator — tip first, then divide: working out the tip, the per-person share, and when an even split is not fair, with the Tip Calculator in your browser. 
+How to Convert Units Quickly with the Unit Converter — pick a category, enter a value, and see it converted into every unit in that category at once, with the habits that prevent conversion mistakes. 
+How to Work Out Your Loan EMI Before You Borrow — enter the loan amount, interest rate and term, and see the monthly EMI, total interest and total payment, with the checks to run before you commit. 
+
+TOOLZORQ — free in-browser tools, plus the official home of Empire of Money and Qabristan Ki Awaz. Tools run locally in your browser; video links go to YouTube. Tools Channels Guides Tool pages Back to top
+
+## Tool pages
+
+- Download YouTube Thumbnail HD Online Free — https://basr.me/tools/thumbnail-downloader.html — Full-HD thumbnails from any YouTube video or Short — download the thumbnail image in HD, free.
+- YouTube Money Calculator: How Much Do YouTubers Earn? — https://basr.me/tools/youtube-money-calculator.html — Rough earnings estimate from monthly views and RPM — how much YouTubers earn, shown as an honest range.
+- YouTube Title Character Counter (100 Characters) — https://basr.me/tools/youtube-title-checker.html — Live character counts for your title, description and tags against YouTube's real limits — title 100 characters.
+- Compress Image Online Free Without Uploading — https://basr.me/tools/image-compressor.html — Shrink JPG, PNG or WebP photos on your device — compress images free, without uploading anything.
+- QR Code Generator Free — No Sign Up — https://basr.me/tools/qr-code-generator.html — Turn any link or text into a QR code and download it as a PNG — free, no sign-up.
+- Strong Random Password Generator Online Free — https://basr.me/tools/password-generator.html — Strong random passwords made with your browser's crypto engine — never sent anywhere, free.
+- Word Counter Online Free — Words & Characters — https://basr.me/tools/word-counter.html — Words, characters, sentences, paragraphs and reading time — counted live as you type, free.
+- Convert Text to Uppercase & Lowercase Online — https://basr.me/tools/case-converter.html — UPPERCASE, lowercase, Title Case, camelCase, snake_case and more — convert text in one click, free.
+- Age Calculator — Exact Age in Years, Months & Days — https://basr.me/tools/age-calculator.html — Exact age in years, months and days — plus total days lived and days to your next birthday, free.
+- Loan EMI Calculator Online Free — Monthly Payment — https://basr.me/tools/loan-emi-calculator.html — Monthly payment, total interest and total cost for any loan — home, car or personal, free.
+- Percentage Calculator — What Is Percent of a Number? — https://basr.me/tools/percentage-calculator.html — Percent of a number, percentage change, discounts and exam marks — three quick modes, free.
+- BMI Calculator KG CM Online Free — https://basr.me/tools/bmi-calculator.html — Body mass index from your height and weight, with the WHO category and your healthy weight range.
+- Unit Converter Online — Length, Weight, Temperature — https://basr.me/tools/unit-converter.html — Length, weight, temperature, volume, speed, area and data — converted into every unit at once, free.
+- Currency Converter USD to PKR Online Free — https://basr.me/tools/currency-converter.html — Convert between 29 currencies with reference rates that refresh live, plus a multi-currency view.
+- Online Stopwatch with Laps — Free Timer — https://basr.me/tools/stopwatch-timer.html — A precise stopwatch with lap times, plus a kitchen-style countdown timer with a sound alert, free.
+- Pomodoro Timer Online Free — 25 Minute Focus — https://basr.me/tools/pomodoro-timer.html — 25-minute focus blocks with short and long breaks — the classic study and work rhythm, free.
+- Color Picker — HEX, RGB & HSL Converter Online — https://basr.me/tools/color-picker.html — Pick any color and get its HEX, RGB and HSL values, plus a full shade and tint palette, free.
+- JSON Formatter Online Free — Validate & Beautify — https://basr.me/tools/json-formatter.html — Format, minify and validate JSON entirely in your browser — pasted tokens never leave your device.
+- Base64 Encode & Decode Online Free — https://basr.me/tools/base64-encoder-decoder.html — Encode text to Base64 or decode it back — Unicode-safe and fully on-device, free.
+- Tip Calculator — Split Bill Between People — https://basr.me/tools/tip-calculator.html — Bill, tip percentage and split between people — tip, total and each person's share, free.
+- Date Calculator — Days Between Two Dates Online — https://basr.me/tools/date-calculator.html — Days between two dates, or add / subtract days from any date — with the weekday of the result, free.
+- Random Name Picker Online Free for Classroom — https://basr.me/tools/random-name-picker.html — Pick a random name from your list, flip a coin or roll the dice — fair, instant, no sign-up.
+- Countdown Timer Online to a Date — Free — https://basr.me/tools/countdown-timer.html — Live countdown to any date and time — days, hours, minutes and seconds until the moment, free.
+- AI Image Generator Free — No Sign Up, Text to Image — https://basr.me/tools/ai-image-generator.html — Describe anything and a real AI model paints it — styles, sizes and up to 4 variations, free, no sign-up.
+- Make Video from Photos Online Free — Slideshow Maker — https://basr.me/tools/video-maker-slideshow.html — Turn your photos into a real downloadable video with captions, transitions and your own music, free.

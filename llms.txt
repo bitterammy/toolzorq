@@ -12,3 +12,33 @@
 ## Tools
 
 25 free in-browser tools, including: YouTube Thumbnail Downloader, YouTube Money Calculator, Title & Description Checker, Image Compressor, QR Code Generator, Password Generator, Word Counter, Case Converter, Age Calculator, Loan EMI Calculator, Percentage Calculator, BMI Calculator, Unit Converter, Currency Converter, Stopwatch & Timer, Pomodoro Timer, Color Picker, JSON Formatter, Base64 Encoder / Decoder, Tip Calculator, Date Calculator, Random Picker, Countdown Timer, AI Image Generator (real AI image via the free public Pollinations service, not AI moving video), and Video Maker (photo slideshow and animated text video made in your browser — not AI video generation).
+
+## Tool pages
+
+Each tool on its own page, with its own how-to and answers. Every page contains the real working tool.
+
+- [Download YouTube Thumbnail HD Online Free](https://basr.me/tools/thumbnail-downloader.html) — Full-HD thumbnails from any YouTube video or Short — download the thumbnail image in HD, free.
+- [YouTube Money Calculator: How Much Do YouTubers Earn?](https://basr.me/tools/youtube-money-calculator.html) — Rough earnings estimate from monthly views and RPM — how much YouTubers earn, shown as an honest range.
+- [YouTube Title Character Counter (100 Characters)](https://basr.me/tools/youtube-title-checker.html) — Live character counts for your title, description and tags against YouTube's real limits — title 100 characters.
+- [Compress Image Online Free Without Uploading](https://basr.me/tools/image-compressor.html) — Shrink JPG, PNG or WebP photos on your device — compress images free, without uploading anything.
+- [QR Code Generator Free — No Sign Up](https://basr.me/tools/qr-code-generator.html) — Turn any link or text into a QR code and download it as a PNG — free, no sign-up.
+- [Strong Random Password Generator Online Free](https://basr.me/tools/password-generator.html) — Strong random passwords made with your browser's crypto engine — never sent anywhere, free.
+- [Word Counter Online Free — Words & Characters](https://basr.me/tools/word-counter.html) — Words, characters, sentences, paragraphs and reading time — counted live as you type, free.
+- [Convert Text to Uppercase & Lowercase Online](https://basr.me/tools/case-converter.html) — UPPERCASE, lowercase, Title Case, camelCase, snake_case and more — convert text in one click, free.
+- [Age Calculator — Exact Age in Years, Months & Days](https://basr.me/tools/age-calculator.html) — Exact age in years, months and days — plus total days lived and days to your next birthday, free.
+- [Loan EMI Calculator Online Free — Monthly Payment](https://basr.me/tools/loan-emi-calculator.html) — Monthly payment, total interest and total cost for any loan — home, car or personal, free.
+- [Percentage Calculator — What Is Percent of a Number?](https://basr.me/tools/percentage-calculator.html) — Percent of a number, percentage change, discounts and exam marks — three quick modes, free.
+- [BMI Calculator KG CM Online Free](https://basr.me/tools/bmi-calculator.html) — Body mass index from your height and weight, with the WHO category and your healthy weight range.
+- [Unit Converter Online — Length, Weight, Temperature](https://basr.me/tools/unit-converter.html) — Length, weight, temperature, volume, speed, area and data — converted into every unit at once, free.
+- [Currency Converter USD to PKR Online Free](https://basr.me/tools/currency-converter.html) — Convert between 29 currencies with reference rates that refresh live, plus a multi-currency view.
+- [Online Stopwatch with Laps — Free Timer](https://basr.me/tools/stopwatch-timer.html) — A precise stopwatch with lap times, plus a kitchen-style countdown timer with a sound alert, free.
+- [Pomodoro Timer Online Free — 25 Minute Focus](https://basr.me/tools/pomodoro-timer.html) — 25-minute focus blocks with short and long breaks — the classic study and work rhythm, free.
+- [Color Picker — HEX, RGB & HSL Converter Online](https://basr.me/tools/color-picker.html) — Pick any color and get its HEX, RGB and HSL values, plus a full shade and tint palette, free.
+- [JSON Formatter Online Free — Validate & Beautify](https://basr.me/tools/json-formatter.html) — Format, minify and validate JSON entirely in your browser — pasted tokens never leave your device.
+- [Base64 Encode & Decode Online Free](https://basr.me/tools/base64-encoder-decoder.html) — Encode text to Base64 or decode it back — Unicode-safe and fully on-device, free.
+- [Tip Calculator — Split Bill Between People](https://basr.me/tools/tip-calculator.html) — Bill, tip percentage and split between people — tip, total and each person's share, free.
+- [Date Calculator — Days Between Two Dates Online](https://basr.me/tools/date-calculator.html) — Days between two dates, or add / subtract days from any date — with the weekday of the result, free.
+- [Random Name Picker Online Free for Classroom](https://basr.me/tools/random-name-picker.html) — Pick a random name from your list, flip a coin or roll the dice — fair, instant, no sign-up.
+- [Countdown Timer Online to a Date — Free](https://basr.me/tools/countdown-timer.html) — Live countdown to any date and time — days, hours, minutes and seconds until the moment, free.
+- [AI Image Generator Free — No Sign Up, Text to Image](https://basr.me/tools/ai-image-generator.html) — Describe anything and a real AI model paints it — styles, sizes and up to 4 variations, free, no sign-up.
+- [Make Video from Photos Online Free — Slideshow Maker](https://basr.me/tools/video-maker-slideshow.html) — Turn your photos into a real downloadable video with captions, transitions and your own music, free.
