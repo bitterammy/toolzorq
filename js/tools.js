@@ -2426,4 +2426,611 @@
       $("vm-mode-img-btn").addEventListener("click", function () { vmSetMode(false); });
       $("vm-mode-text-btn").addEventListener("click", function () { vmSetMode(true); });
 
-    
+/* ============ 26. Sleep Calculator ============ */
+function slParseTime(v) {
+  var p = String(v || "").split(":");
+  if (p.length < 2) return null;
+  var h = parseInt(p[0], 10), m = parseInt(p[1], 10);
+  if (isNaN(h) || isNaN(m) || h < 0 || h > 23 || m < 0 || m > 59) return null;
+  return h * 60 + m;
+}
+function slFmt(min) {
+  min = ((min % 1440) + 1440) % 1440;
+  var h = Math.floor(min / 60), m = min % 60;
+  var h12 = h % 12 === 0 ? 12 : h % 12;
+  var ap = h < 12 ? "AM" : "PM";
+  return pad2(h) + ":" + pad2(m) + " (" + h12 + ":" + pad2(m) + " " + ap + ")";
+}
+function slCycleHours(c) { return c === 4 ? "6 hours" : c === 5 ? "7 hours 30 minutes" : "9 hours"; }
+function slCalcTimes(mode, mins) {
+  var out = [];
+  [6, 5, 4].forEach(function (c) {
+    var total = c * 90 + 15;
+    var t = mode === "bed" ? mins + total : mins - total;
+    out.push({ cycles: c, hours: slCycleHours(c), minutes: t });
+  });
+  return out;
+}
+function slCalc() {
+  var out = $("sl-out");
+  var mode = $("sl-mode").value;
+  var mins = slParseTime($("sl-time").value);
+  if (mins === null) { out.innerHTML = '<p style="margin:0;font-weight:700">Enter a valid time first.</p>'; return; }
+  var rows = slCalcTimes(mode, mins);
+  var html = '<div class="stat-row">';
+  rows.forEach(function (r) {
+    html += '<div class="stat"><b>' + slFmt(r.minutes) + "</b><span>" + r.cycles + " cycles · " + r.hours + "</span></div>";
+  });
+  html += "</div>";
+  html += '<p class="note" style="margin-bottom:0">' + (mode === "bed" ? "Wake times for a " + slFmt(mins) + " bedtime" : "Bedtimes for a " + slFmt(mins) + " wake-up") + " — each includes 15 minutes to fall asleep. Pick 5 or 6 cycles (7 hours 30 minutes or 9 hours) when you can; 4 cycles (6 hours) is the minimum shown.</p>";
+  out.innerHTML = html;
+}
+$("sl-go").addEventListener("click", slCalc);
+$("sl-mode").addEventListener("change", slCalc);
+$("sl-time").addEventListener("input", slCalc);
+slCalc();
+
+/* ============ 27. Text Cleaner ============ */
+function tcWordCount(t) {
+  var s = String(t || "").trim();
+  return s ? s.split(/\s+/).length : 0;
+}
+function tcCleanText(raw) {
+  var lines = String(raw == null ? "" : raw).replace(/\r\n?/g, "\n").split("\n");
+  var paras = [], cur = [];
+  lines.forEach(function (line) {
+    var t = line.replace(/[ \t]+/g, " ").trim();
+    if (!t) { if (cur.length) { paras.push(cur.join(" ")); cur = []; } }
+    else cur.push(t);
+  });
+  if (cur.length) paras.push(cur.join(" "));
+  return paras.join("\n\n");
+}
+function tcCalc() {
+  var raw = $("tc-in").value;
+  var cleaned = tcCleanText(raw);
+  $("tc-out").value = cleaned;
+  $("tc-count").textContent = "Words: " + tcWordCount(raw) + " → " + tcWordCount(cleaned) + " · Characters: " + raw.length + " → " + cleaned.length;
+}
+$("tc-go").addEventListener("click", tcCalc);
+$("tc-in").addEventListener("input", tcCalc);
+$("tc-copy").addEventListener("click", function () { copyText($("tc-out").value, "Cleaned text copied"); });
+$("tc-clear").addEventListener("click", function () {
+  $("tc-in").value = "";
+  $("tc-out").value = "";
+  tcCalc();
+  $("tc-in").focus();
+});
+tcCalc();
+
+/* ============ 28. Unit Price Calculator ============ */
+function upKind(unit) {
+  return unit === "kg" || unit === "g" ? "weight" : unit === "litre" || unit === "ml" ? "volume" : "item";
+}
+function upBaseAmount(amount, unit) {
+  return unit === "kg" || unit === "litre" ? amount * 1000 : amount;
+}
+function upUnitPrice(price, amount, unit) {
+  var base = upBaseAmount(amount, unit);
+  if (!(base > 0)) return null;
+  return price / base;
+}
+function upDisplayUnit(unit) {
+  var k = upKind(unit);
+  return k === "weight" ? "kg" : k === "volume" ? "litre" : "item";
+}
+function upDisplayPrice(perBase, unit) {
+  var k = upKind(unit);
+  return k === "item" ? perBase : perBase * 1000;
+}
+function upMoney2(n) {
+  return n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function upPct(n) {
+  var s = n.toFixed(1);
+  return s.replace(/\.0$/, "") + "%";
+}
+function upCompare(perA, perB) {
+  if (perA < perB) return { cheaper: "A", savingPct: parseFloat(((perB - perA) / perB * 100).toFixed(4)) };
+  if (perB < perA) return { cheaper: "B", savingPct: parseFloat(((perA - perB) / perA * 100).toFixed(4)) };
+  return { cheaper: "tie", savingPct: 0 };
+}
+function upCalc() {
+  var out = $("up-out");
+  var priceA = parseFloat($("up-a-price").value), amtA = parseFloat($("up-a-amount").value), unitA = $("up-a-unit").value;
+  var priceB = parseFloat($("up-b-price").value), amtB = parseFloat($("up-b-amount").value), unitB = $("up-b-unit").value;
+  if (isNaN(priceA) || isNaN(amtA) || isNaN(priceB) || isNaN(amtB) || priceA < 0 || priceB < 0 || amtA <= 0 || amtB <= 0) {
+    out.innerHTML = '<p style="margin:0;font-weight:700">Enter a price and a size above zero for both packs.</p>';
+    return;
+  }
+  if (upKind(unitA) !== upKind(unitB)) {
+    out.innerHTML = '<p style="margin:0;font-weight:700">Compare two weights, two volumes, or two per-item prices — a weight and a volume can’t be compared directly.</p>';
+    return;
+  }
+  var perA = upUnitPrice(priceA, amtA, unitA);
+  var perB = upUnitPrice(priceB, amtB, unitB);
+  var disp = upDisplayUnit(unitA);
+  var cmp = upCompare(perA, perB);
+  var verdict = cmp.cheaper === "tie"
+    ? "Both packs cost the same per " + disp + "."
+    : "Pack " + cmp.cheaper + " is cheaper by " + upPct(cmp.savingPct) + " per " + disp + ".";
+  out.innerHTML =
+    '<div class="stat-row">' +
+    '<div class="stat"><b>' + upMoney2(upDisplayPrice(perA, unitA)) + " per " + disp + '</b><span>Pack A unit price</span></div>' +
+    '<div class="stat"><b>' + upMoney2(upDisplayPrice(perB, unitB)) + " per " + disp + '</b><span>Pack B unit price</span></div>' +
+    '<div class="stat"><b>' + verdict + '</b><span>Cheaper pack</span></div>' +
+    "</div>" +
+    '<p class="note" style="margin-bottom:0">Pack A: ' + upMoney2(priceA) + " for " + amtA + " " + unitA + " · Pack B: " + upMoney2(priceB) + " for " + amtB + " " + unitB + ". Prices are shown as plain numbers — enter them in any currency.</p>";
+}
+$("up-go").addEventListener("click", upCalc);
+["up-a-price", "up-a-amount", "up-a-unit", "up-b-price", "up-b-amount", "up-b-unit"].forEach(function (id) {
+  $(id).addEventListener("input", upCalc);
+  $(id).addEventListener("change", upCalc);
+});
+upCalc();
+
+/* ============ 29. Time Calculator ============ */
+function timeCalcTotal(aH, aM, bH, bM, op) {
+  var a = aH * 60 + aM, b = bH * 60 + bM;
+  return op === "subtract" ? a - b : a + b;
+}
+function timeCalcFormat(totalMin) {
+  var sign = totalMin < 0 ? "-" : "";
+  var abs = Math.abs(totalMin);
+  var h = Math.floor(abs / 60), m = abs % 60;
+  var dec = parseFloat((totalMin / 60).toFixed(2));
+  return { sign: sign, hours: h, minutes: m, decimal: dec, text: sign + h + "h " + m + "m", decimalText: (totalMin < 0 ? "-" : "") + Math.abs(dec) + " hours" };
+}
+function timeCalcRun() {
+  var out = $("tm-out");
+  var aH = parseFloat($("tm-a-h").value), aM = parseFloat($("tm-a-m").value);
+  var bH = parseFloat($("tm-b-h").value), bM = parseFloat($("tm-b-m").value);
+  if (isNaN(aH)) aH = 0;
+  if (isNaN(aM)) aM = 0;
+  if (isNaN(bH)) bH = 0;
+  if (isNaN(bM)) bM = 0;
+  if (aH < 0 || aM < 0 || bH < 0 || bM < 0) {
+    out.innerHTML = '<p style="margin:0;font-weight:700">Hours and minutes can’t be negative — enter zero or more.</p>';
+    return;
+  }
+  var total = timeCalcTotal(aH, aM, bH, bM, $("tm-op").value);
+  var f = timeCalcFormat(total);
+  var opSym = $("tm-op").value === "subtract" ? "−" : "+";
+  out.innerHTML =
+    '<div class="stat-row">' +
+    '<div class="stat"><b>' + f.text + '</b><span>Total (hours and minutes)</span></div>' +
+    '<div class="stat"><b>' + f.decimalText + '</b><span>Decimal hours (payroll)</span></div>' +
+    '<div class="stat"><b>' + f.hours + "h " + f.minutes + 'm</b><span>' + aH + "h " + aM + "m " + opSym + " " + bH + "h " + bM + "m</span></div>" +
+    "</div>" +
+    '<p class="note" style="margin-bottom:0">Minutes carry at 60, not 100 — so 2h 45m + 1h 30m is 4h 15m (4.25 hours), not 3.75.</p>';
+}
+$("tm-go").addEventListener("click", timeCalcRun);
+["tm-a-h", "tm-a-m", "tm-b-h", "tm-b-m"].forEach(function (id) { $(id).addEventListener("input", timeCalcRun); });
+$("tm-op").addEventListener("change", timeCalcRun);
+timeCalcRun();
+
+      /* ============ 30. Hourly Wage to Salary Calculator ============ */
+      /* PURE-LOGIC-START */
+      function wageCalc(rate, hours, weeks) {
+        var annual = rate * hours * weeks;
+        return { annual: annual, monthly: annual / 12, weekly: annual / weeks, daily: annual / weeks / 5 };
+      }
+      /* PURE-LOGIC-END */
+      function wageFmt(n) { return (Math.round(n * 100) / 100).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+      function wageUpdate() {
+        var out = $("wg-out");
+        var rate = parseFloat($("wg-rate").value), hours = parseFloat($("wg-hours").value), weeks = parseFloat($("wg-weeks").value);
+        if (isNaN(rate) || isNaN(hours) || isNaN(weeks) || rate <= 0 || hours <= 0 || weeks <= 0 || weeks > 52) {
+          out.innerHTML = '<p style="margin:0;font-weight:700">Enter an hourly rate, hours per week and weeks per year (1–52) above zero.</p>';
+          return;
+        }
+        var r = wageCalc(rate, hours, weeks);
+        out.innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + wageFmt(r.annual) + '</b><span>Per year</span></div>' +
+          '<div class="stat"><b>' + wageFmt(r.monthly) + '</b><span>Per month</span></div>' +
+          '<div class="stat"><b>' + wageFmt(r.weekly) + '</b><span>Per week</span></div>' +
+          '<div class="stat"><b>' + wageFmt(r.daily) + '</b><span>Per day (5-day week)</span></div>' +
+          "</div>" +
+          '<p class="note" style="margin-bottom:0">Annual pay is rate × hours per week × weeks per year. Amounts are in whatever currency your hourly rate is in — enter the rate in your own currency.</p>';
+      }
+      $("wg-go").addEventListener("click", wageUpdate);
+      ["wg-rate", "wg-hours", "wg-weeks"].forEach(function (id) { $(id).addEventListener("input", wageUpdate); });
+      wageUpdate();
+
+      /* ============ 31. Compound Interest Calculator ============ */
+      /* PURE-LOGIC-START */
+      function compoundCalc(start, monthly, annualRatePct, years) {
+        var r = annualRatePct / 12 / 100;
+        var n = Math.round(years * 12);
+        var fv;
+        if (r === 0) { fv = start + monthly * n; }
+        else { fv = start * Math.pow(1 + r, n) + monthly * ((Math.pow(1 + r, n) - 1) / r); }
+        var contributed = start + monthly * n;
+        var yearly = [];
+        var bal = start;
+        for (var m = 1; m <= n; m++) {
+          bal = bal * (1 + r) + monthly;
+          if (m % 12 === 0) { yearly.push({ year: m / 12, balance: bal }); }
+        }
+        if (n % 12 !== 0) { yearly.push({ year: years, balance: bal }); }
+        return { fv: fv, contributed: contributed, interest: fv - contributed, yearly: yearly };
+      }
+      /* PURE-LOGIC-END */
+      function ciFmt(n) { return (Math.round(n * 100) / 100).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+      function compoundUpdate() {
+        var out = $("ci-out");
+        var start = parseFloat($("ci-start").value), monthly = parseFloat($("ci-monthly").value),
+            rate = parseFloat($("ci-rate").value), years = parseFloat($("ci-years").value);
+        if (isNaN(start) || isNaN(monthly) || isNaN(rate) || isNaN(years) || start < 0 || monthly < 0 || rate < 0 || years <= 0) {
+          out.innerHTML = '<p style="margin:0;font-weight:700">Enter a starting amount, monthly contribution and rate of 0 or more, and years above zero.</p>';
+          return;
+        }
+        var c = compoundCalc(start, monthly, rate, years);
+        var rows = c.yearly.map(function (y) {
+          return "<tr><td>Year " + y.year + "</td><td>" + ciFmt(y.balance) + "</td></tr>";
+        }).join("");
+        out.innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + ciFmt(c.fv) + '</b><span>Future value</span></div>' +
+          '<div class="stat"><b>' + ciFmt(c.contributed) + '</b><span>Total contributed</span></div>' +
+          '<div class="stat"><b>' + ciFmt(c.interest) + '</b><span>Interest earned</span></div>' +
+          "</div>" +
+          '<p style="margin:12px 0 2px"><b>Balance at the end of each year:</b></p><table class="mini-table">' + rows + "</table>" +
+          '<p class="note" style="margin-bottom:0">Projection at a fixed rate — not a guarantee. Contributions are added at the end of each month and interest is compounded monthly. Amounts are in whatever currency you entered.</p>';
+      }
+      $("ci-go").addEventListener("click", compoundUpdate);
+      ["ci-start", "ci-monthly", "ci-rate", "ci-years"].forEach(function (id) { $(id).addEventListener("input", compoundUpdate); });
+      compoundUpdate();
+
+      /* ============ 32. Calorie / BMR Calculator ============ */
+      /* PURE-LOGIC-START */
+      function bmrCalc(age, sex, cm, kg, activity) {
+        var bmr = 10 * kg + 6.25 * cm - 5 * age + (sex === "female" ? -161 : 5);
+        var maintain = bmr * activity;
+        return { bmr: bmr, maintain: maintain, lose: maintain - 500, gain: maintain + 500 };
+      }
+      /* PURE-LOGIC-END */
+      function bmrUpdate() {
+        var out = $("bm-out");
+        var age = parseFloat($("bm-age").value), cm = parseFloat($("bm-cm").value), kg = parseFloat($("bm-kg").value),
+            act = parseFloat($("bm-act").value), sex = $("bm-sex").value;
+        if (isNaN(age) || isNaN(cm) || isNaN(kg) || isNaN(act) || age <= 0 || age > 120 || cm <= 0 || kg <= 0 || act <= 0) {
+          out.innerHTML = '<p style="margin:0;font-weight:700">Enter your age (1–120), height and weight above zero, and pick your sex and activity level.</p>';
+          return;
+        }
+        var b = bmrCalc(age, sex, cm, kg, act);
+        out.innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + fmtNum(b.bmr) + '</b><span>BMR — calories at rest</span></div>' +
+          '<div class="stat"><b>' + fmtNum(b.maintain) + '</b><span>Maintain weight</span></div>' +
+          '<div class="stat"><b>' + fmtNum(b.lose) + '</b><span>Lose weight (−500)</span></div>' +
+          '<div class="stat"><b>' + fmtNum(b.gain) + '</b><span>Gain weight (+500)</span></div>' +
+          "</div>" +
+          '<p class="note" style="margin-bottom:0">BMR by the Mifflin-St Jeor equation, multiplied by your activity level. Lose and gain targets are the maintain figure minus or plus about 500 calories a day. This is a general guide, not medical advice — talk to a clinician before starting a diet.</p>';
+      }
+      $("bm-go").addEventListener("click", bmrUpdate);
+      ["bm-age", "bm-cm", "bm-kg"].forEach(function (id) { $(id).addEventListener("input", bmrUpdate); });
+      ["bm-sex", "bm-act"].forEach(function (id) { $(id).addEventListener("change", bmrUpdate); });
+      bmrUpdate();
+
+      /* ============ 33. Cups to Grams Converter ============ */
+      /* PURE-LOGIC-START */
+      var CUPS_UNIT = { cup: 1, tbsp: 1 / 16, tsp: 1 / 48 };
+      function cupsToGrams(amount, unit, density) {
+        return amount * CUPS_UNIT[unit] * density;
+      }
+      /* PURE-LOGIC-END */
+      function cupsUpdate() {
+        var out = $("cu-out");
+        var density = parseFloat($("cu-ing").value), amount = parseFloat($("cu-amount").value), unit = $("cu-unit").value;
+        if (isNaN(density) || isNaN(amount) || amount <= 0 || density <= 0 || !CUPS_UNIT[unit]) {
+          out.innerHTML = '<p style="margin:0;font-weight:700">Pick an ingredient and enter an amount above zero.</p>';
+          return;
+        }
+        var grams = cupsToGrams(amount, unit, density);
+        var unitWord = unit === "cup" ? "cup" : unit === "tbsp" ? "tablespoon" : "teaspoon";
+        var plural = amount === 1 ? "" : "s";
+        var ingName = $("cu-ing").options[$("cu-ing").selectedIndex].text.split(" — ")[0];
+        out.innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + grams.toFixed(1) + ' g</b><span>' + amount + " " + unitWord + plural + " of " + ingName + "</span></div>" +
+          '<div class="stat"><b>' + density.toFixed(0) + ' g</b><span>Per cup of ' + ingName + "</span></div>" +
+          "</div>" +
+          '<p class="note" style="margin-bottom:0">Weights are standard approximations (King Arthur / USDA density data). A cup is 16 tablespoons and 48 teaspoons.</p>';
+      }
+      $("cu-go").addEventListener("click", cupsUpdate);
+      ["cu-amount"].forEach(function (id) { $(id).addEventListener("input", cupsUpdate); });
+      ["cu-ing", "cu-unit"].forEach(function (id) { $(id).addEventListener("change", cupsUpdate); });
+      cupsUpdate();
+
+      /* ============ 34. Pakistan Land Area Converter ============ */
+      function laToSqFt(value, from, std) {
+        switch (from) {
+          case "marla": return value * std;
+          case "kanal": return value * 20 * std;
+          case "acre": return value * 43560;
+          case "sqft": return value;
+          case "sqyd": return value * 9;
+          case "sqm": return value / 0.092903;
+          default: return NaN;
+        }
+      }
+      function laCalc() {
+        var out = $("la-out");
+        var v = parseFloat($("la-value").value);
+        if (isNaN(v) || v < 0) { out.innerHTML = '<p style="margin:0;font-weight:700">Enter an area of zero or more.</p>'; return; }
+        var std = parseFloat($("la-std").value);
+        var from = $("la-from").value;
+        var sqft = laToSqFt(v, from, std);
+        var marla = sqft / std, kanal = marla / 20, acre = sqft / 43560, sqyd = sqft / 9, sqm = sqft * 0.092903;
+        var labels = { marla: "Marla", kanal: "Kanal", acre: "Acre", sqft: "Square feet", sqyd: "Square yards", sqm: "Square metres" };
+        var rows =
+          "<tr><td>Marla</td><td>" + fmtVal(marla) + "</td></tr>" +
+          "<tr><td>Kanal</td><td>" + fmtVal(kanal) + "</td></tr>" +
+          "<tr><td>Acre</td><td>" + fmtVal(acre) + "</td></tr>" +
+          "<tr><td>Square feet</td><td>" + fmtVal(sqft) + "</td></tr>" +
+          "<tr><td>Square yards</td><td>" + fmtVal(sqyd) + "</td></tr>" +
+          "<tr><td>Square metres</td><td>" + sqm.toFixed(2) + "</td></tr>";
+        out.innerHTML =
+          '<p style="margin:0 0 4px"><b>' + fmtVal(v) + " " + labels[from] + '</b> equals:</p><table class="mini-table">' + rows + "</table>" +
+          '<p class="note" style="margin-bottom:0">Marla standard: ' + std + ' sq ft (' + (std === 225 ? "housing societies — DHA / LDA" : "land records") + '). 1 kanal = 20 marla · 1 acre = 43,560 sq ft. The standard matters — 225 and 272.25 sq ft per marla differ by about 17%.</p>';
+      }
+      $("la-go").addEventListener("click", laCalc);
+      ["la-value"].forEach(function (id) { $(id).addEventListener("input", laCalc); });
+      ["la-from", "la-std"].forEach(function (id) { $(id).addEventListener("change", laCalc); });
+      laCalc();
+
+      /* ============ 35. Gold Value Calculator ============ */
+      function gdFmtPKR(n) { return (Math.round(n * 100) / 100).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+      function gdCalc() {
+        var out = $("gd-out");
+        var tola = parseFloat($("gd-tola").value) || 0;
+        var masha = parseFloat($("gd-masha").value) || 0;
+        var ratti = parseFloat($("gd-ratti").value) || 0;
+        var grams = parseFloat($("gd-grams").value) || 0;
+        var karat = parseFloat($("gd-karat").value) || 24;
+        var rate = parseFloat($("gd-rate").value);
+        if (tola < 0 || masha < 0 || ratti < 0 || grams < 0) { out.innerHTML = '<p style="margin:0;font-weight:700">Weights cannot be negative.</p>'; return; }
+        if (isNaN(rate) || rate <= 0) { out.innerHTML = '<p style="margin:0;font-weight:700">Enter today\u2019s rate per tola in PKR (above zero).</p>'; return; }
+        var usedGrams = grams > 0;
+        var tolaTotal = usedGrams ? grams / 11.6638 : tola + masha / 12 + ratti / 96;
+        if (tolaTotal <= 0) { out.innerHTML = '<p style="margin:0;font-weight:700">Enter a weight — tola, masha and ratti, or grams.</p>'; return; }
+        var purity = karat / 24;
+        var value = tolaTotal * rate * purity;
+        var perGram = rate / 11.6638 * purity;
+        var gramsTotal = tolaTotal * 11.6638;
+        out.innerHTML =
+          '<div class="stat-row">' +
+          '<div class="stat"><b>' + gdFmtPKR(value) + ' PKR</b><span>Estimated value</span></div>' +
+          '<div class="stat"><b>' + gdFmtPKR(perGram) + ' PKR</b><span>Per gram (' + karat + 'k)</span></div>' +
+          '<div class="stat"><b>' + gramsTotal.toFixed(1) + ' g</b><span>Total weight</span></div>' +
+          '<div class="stat"><b>' + tolaTotal.toFixed(2) + ' tola</b><span>Total weight</span></div>' +
+          "</div>" +
+          '<p class="note" style="margin-bottom:0">Estimate at the rate you entered — not a live quote. 1 tola = 12 masha = 96 ratti = 11.6638 g. ' + (usedGrams ? "Weight taken from grams; the tola / masha / ratti fields were ignored." : "Purity " + karat + "k = " + (purity * 100).toFixed(1) + "% of the 24k rate.") + "</p>";
+      }
+      $("gd-go").addEventListener("click", gdCalc);
+      ["gd-tola", "gd-masha", "gd-ratti", "gd-grams", "gd-rate"].forEach(function (id) { $(id).addEventListener("input", gdCalc); });
+      $("gd-karat").addEventListener("change", gdCalc);
+      gdCalc();
+
+      /* ============ 36. PDF Compressor ============ */
+      var pcFile = null, pcBlob = null, pcOrigSize = 0;
+      var PC_QUALITY = {
+        high: { scale: 1.5, jpeg: 0.85, label: "High" },
+        medium: { scale: 1.25, jpeg: 0.75, label: "Medium" },
+        low: { scale: 1.0, jpeg: 0.60, label: "Low" }
+      };
+      function pcFmtSize(bytes) {
+        if (bytes < 1024) return bytes + " B";
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+        return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+      }
+      function pcIsPdf(file) { return file && (/\.pdf$/i.test(file.name) || file.type === "application/pdf"); }
+      function pcSetFile(file) {
+        var out = $("pc-out");
+        if (!pcIsPdf(file)) { out.innerHTML = '<p style="margin:0;font-weight:700">That is not a PDF file — choose a file ending in .pdf.</p>'; return; }
+        pcFile = file; pcOrigSize = file.size; pcBlob = null;
+        $("pc-download").disabled = true;
+        out.innerHTML = '<p style="margin:0"><b>Ready:</b> ' + pcFmtSize(file.size) + ' PDF — pick a quality and press Compress PDF.</p>';
+      }
+      function pcRenderPage(pdf, num, scale, jpegQ) {
+        return pdf.getPage(num).then(function (page) {
+          var viewport = page.getViewport({ scale: scale });
+          var canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.floor(viewport.width));
+          canvas.height = Math.max(1, Math.floor(viewport.height));
+          var ctx = canvas.getContext("2d");
+          ctx.fillStyle = "#ffffff";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          return page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function () {
+            return new Promise(function (resolve, reject) {
+              canvas.toBlob(function (b) {
+                if (b) resolve({ blob: b, w: canvas.width, h: canvas.height });
+                else reject(new Error("Canvas export failed"));
+              }, "image/jpeg", jpegQ);
+            });
+          });
+        });
+      }
+      function pcCompress() {
+        var out = $("pc-out");
+        if (!pcFile) { out.innerHTML = '<p style="margin:0;font-weight:700">Choose a PDF file first.</p>'; return; }
+        if (typeof pdfjsLib === "undefined") { out.innerHTML = '<p style="margin:0;font-weight:700">PDF reader did not load — check your connection and try again.</p>'; return; }
+        if (typeof PDFLib === "undefined") { out.innerHTML = '<p style="margin:0;font-weight:700">PDF library did not load — check your connection and try again.</p>'; return; }
+        try {
+          if (pdfjsLib.GlobalWorkerOptions && !pdfjsLib.GlobalWorkerOptions.workerSrc && pdfjsLib.version) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/" + pdfjsLib.version + "/pdf.worker.min.js";
+          }
+        } catch (e) { /* worker setup is a bonus; getDocument will report a real failure */ }
+        var q = PC_QUALITY[$("pc-quality").value] || PC_QUALITY.medium;
+        out.innerHTML = '<p style="margin:0">Compressing — this can take a while for large PDFs. Your file never leaves your device.</p>';
+        $("pc-download").disabled = true;
+        pcBlob = null;
+        pcFile.arrayBuffer().then(function (buf) {
+          return pdfjsLib.getDocument({ data: buf }).promise;
+        }).then(function (pdf) {
+          var total = pdf.numPages;
+          return PDFLib.PDFDocument.create().then(function (outDoc) {
+            var chain = Promise.resolve();
+            for (var p = 1; p <= total; p++) {
+              (function (num) {
+                chain = chain.then(function () {
+                  return pcRenderPage(pdf, num, q.scale, q.jpeg).then(function (img) {
+                    return img.blob.arrayBuffer().then(function (jpgBytes) {
+                      return outDoc.embedJpg(jpgBytes).then(function (jpg) {
+                        var page = outDoc.addPage([img.w * 72 / 96, img.h * 72 / 96]);
+                        page.drawImage(jpg, { x: 0, y: 0, width: img.w * 72 / 96, height: img.h * 72 / 96 });
+                      });
+                    });
+                  });
+                });
+              })(p);
+            }
+            return chain.then(function () { return outDoc.save().then(function (bytes) { return { bytes: bytes, total: total }; }); });
+          });
+        }).then(function (res) {
+          pcBlob = new Blob([res.bytes], { type: "application/pdf" });
+          $("pc-download").disabled = false;
+          var saved = pcOrigSize > 0 ? Math.round((1 - pcBlob.size / pcOrigSize) * 100) : 0;
+          out.innerHTML =
+            '<div class="stat-row">' +
+            '<div class="stat"><b>' + pcFmtSize(pcOrigSize) + '</b><span>Original size</span></div>' +
+            '<div class="stat"><b>' + pcFmtSize(pcBlob.size) + '</b><span>Compressed size</span></div>' +
+            '<div class="stat"><b>' + saved + '%</b><span>Saved</span></div>' +
+            '<div class="stat"><b>' + res.total + '</b><span>Pages</span></div>' +
+            "</div>" +
+            '<p class="note" style="margin-bottom:0">Pages become images — text is no longer selectable or searchable. Keep your original if you need the text.</p>';
+        }).catch(function (err) {
+          out.innerHTML = '<p style="margin:0;font-weight:700">Compression failed — the file may be damaged or password-protected. Try another PDF.</p>';
+        });
+      }
+      $("pc-pick").addEventListener("click", function () { $("pc-file").click(); });
+      $("pc-file").addEventListener("change", function () { if (this.files && this.files[0]) pcSetFile(this.files[0]); this.value = ""; });
+      $("pc-drop").addEventListener("dragover", function (e) { e.preventDefault(); });
+      $("pc-drop").addEventListener("drop", function (e) {
+        e.preventDefault();
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) pcSetFile(e.dataTransfer.files[0]);
+      });
+      $("pc-go").addEventListener("click", pcCompress);
+      $("pc-download").addEventListener("click", function () {
+        if (pcBlob) downloadBlob(pcBlob, "compressed.pdf");
+      });
+
+      /* ============ 37. Merge PDF ============ */
+      var pmFiles = []; /* { name, size, pages, bytes } */
+      var pmMergedBlob = null;
+      function pmFmtSize(bytes) {
+        if (bytes < 1024) return bytes + " B";
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+        return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+      }
+      function pmIsPdf(file) { return file && (/\.pdf$/i.test(file.name) || file.type === "application/pdf"); }
+      function pmRenderList() {
+        var list = $("pm-list");
+        list.innerHTML = "";
+        if (!pmFiles.length) {
+          var empty = document.createElement("p");
+          empty.className = "note"; empty.style.margin = "0";
+          empty.textContent = "No PDFs added yet.";
+          list.appendChild(empty);
+          return;
+        }
+        pmFiles.forEach(function (f, i) {
+          var row = document.createElement("div");
+          row.className = "pm-row";
+          var label = document.createElement("span");
+          label.textContent = (i + 1) + ". " + f.name + " — " + f.pages + (f.pages === 1 ? " page" : " pages") + " (" + pmFmtSize(f.size) + ")";
+          row.appendChild(label);
+          [["up", "↑", "Move up"], ["down", "↓", "Move down"], ["remove", "✕", "Remove"]].forEach(function (def) {
+            var b = document.createElement("button");
+            b.className = "btn ghost small";
+            b.type = "button";
+            b.setAttribute("data-act", def[0]);
+            b.setAttribute("data-i", String(i));
+            b.setAttribute("aria-label", def[2]);
+            b.textContent = def[1];
+            if ((def[0] === "up" && i === 0) || (def[0] === "down" && i === pmFiles.length - 1)) b.disabled = true;
+            row.appendChild(b);
+          });
+          list.appendChild(row);
+        });
+      }
+      function pmResetMerged() { pmMergedBlob = null; $("pm-download").disabled = true; }
+      function pmAddFiles(fileList) {
+        var out = $("pm-out");
+        if (typeof PDFLib === "undefined") { out.innerHTML = '<p style="margin:0;font-weight:700">PDF library did not load — check your connection and try again.</p>'; return; }
+        var files = Array.prototype.slice.call(fileList || []);
+        var bad = files.filter(function (f) { return !pmIsPdf(f); });
+        if (bad.length) { out.innerHTML = '<p style="margin:0;font-weight:700">Only PDF files can be merged — a non-PDF file was skipped.</p>'; }
+        var good = files.filter(pmIsPdf);
+        if (!good.length) return;
+        var done = 0;
+        good.forEach(function (file) {
+          file.arrayBuffer().then(function (buf) {
+            return PDFLib.PDFDocument.load(buf).then(function (doc) {
+              pmFiles.push({ name: file.name, size: file.size, pages: doc.getPageCount(), bytes: buf });
+            });
+          }).catch(function () {
+            out.innerHTML = '<p style="margin:0;font-weight:700">One file could not be read — it may be damaged or password-protected.</p>';
+          }).then(function () {
+            done++;
+            if (done === good.length) { pmResetMerged(); pmRenderList(); }
+          });
+        });
+      }
+      function pmMerge() {
+        var out = $("pm-out");
+        if (typeof PDFLib === "undefined") { out.innerHTML = '<p style="margin:0;font-weight:700">PDF library did not load — check your connection and try again.</p>'; return; }
+        if (pmFiles.length < 2) { out.innerHTML = '<p style="margin:0;font-weight:700">Add at least two PDF files to merge.</p>'; return; }
+        out.innerHTML = '<p style="margin:0">Merging ' + pmFiles.length + ' PDFs — your files never leave your device.</p>';
+        PDFLib.PDFDocument.create().then(function (merged) {
+          var chain = Promise.resolve();
+          pmFiles.forEach(function (f) {
+            chain = chain.then(function () {
+              return PDFLib.PDFDocument.load(f.bytes).then(function (src) {
+                return merged.copyPages(src, src.getPageIndices()).then(function (pages) {
+                  pages.forEach(function (p) { merged.addPage(p); });
+                });
+              });
+            });
+          });
+          return chain.then(function () { return merged.save().then(function (bytes) { return { bytes: bytes, pages: merged.getPageCount() }; }); });
+        }).then(function (res) {
+          pmMergedBlob = new Blob([res.bytes], { type: "application/pdf" });
+          $("pm-download").disabled = false;
+          var total = 0;
+          pmFiles.forEach(function (f) { total += f.pages; });
+          out.innerHTML =
+            '<div class="stat-row">' +
+            '<div class="stat"><b>' + pmFiles.length + '</b><span>Files merged</span></div>' +
+            '<div class="stat"><b>' + total + '</b><span>Total pages</span></div>' +
+            '<div class="stat"><b>' + pmFmtSize(pmMergedBlob.size) + '</b><span>Merged file size</span></div>' +
+            "</div>" +
+            '<p class="note" style="margin-bottom:0">Merged in the order shown above. Press Download merged PDF to save it as merged.pdf.</p>';
+        }).catch(function () {
+          out.innerHTML = '<p style="margin:0;font-weight:700">Merging failed — one of the files may be damaged or password-protected. Try removing it and merging again.</p>';
+        });
+      }
+      $("pm-pick").addEventListener("click", function () { $("pm-file").click(); });
+      $("pm-file").addEventListener("change", function () { pmAddFiles(this.files); this.value = ""; });
+      $("pm-drop").addEventListener("dragover", function (e) { e.preventDefault(); });
+      $("pm-drop").addEventListener("drop", function (e) {
+        e.preventDefault();
+        if (e.dataTransfer && e.dataTransfer.files) pmAddFiles(e.dataTransfer.files);
+      });
+      $("pm-list").addEventListener("click", function (e) {
+        var b = e.target.closest ? e.target.closest("button[data-act]") : null;
+        if (!b) return;
+        var i = parseInt(b.getAttribute("data-i"), 10), act = b.getAttribute("data-act");
+        if (act === "up" && i > 0) { var t = pmFiles[i - 1]; pmFiles[i - 1] = pmFiles[i]; pmFiles[i] = t; }
+        else if (act === "down" && i < pmFiles.length - 1) { var u = pmFiles[i + 1]; pmFiles[i + 1] = pmFiles[i]; pmFiles[i] = u; }
+        else if (act === "remove") { pmFiles.splice(i, 1); }
+        else return;
+        pmResetMerged(); pmRenderList();
+      });
+      $("pm-go").addEventListener("click", pmMerge);
+      $("pm-download").addEventListener("click", function () {
+        if (pmMergedBlob) downloadBlob(pmMergedBlob, "merged.pdf");
+      });
+      pmRenderList();
