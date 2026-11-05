@@ -11,7 +11,7 @@
 
 ## Tools
 
-25 free in-browser tools, including: YouTube Thumbnail Downloader, YouTube Money Calculator, Title & Description Checker, Image Compressor, QR Code Generator, Password Generator, Word Counter, Case Converter, Age Calculator, Loan EMI Calculator, Percentage Calculator, BMI Calculator, Unit Converter, Currency Converter, Stopwatch & Timer, Pomodoro Timer, Color Picker, JSON Formatter, Base64 Encoder / Decoder, Tip Calculator, Date Calculator, Random Picker, Countdown Timer, AI Image Generator (real AI image via the free public Pollinations service, not AI moving video), and Video Maker (photo slideshow and animated text video made in your browser — not AI video generation).
+37 free in-browser tools, including: YouTube Thumbnail Downloader, YouTube Money Calculator, Title & Description Checker, Image Compressor, QR Code Generator, Password Generator, Word Counter, Case Converter, Age Calculator, Loan EMI Calculator, Percentage Calculator, BMI Calculator, Unit Converter, Currency Converter, Stopwatch & Timer, Pomodoro Timer, Color Picker, JSON Formatter, Base64 Encoder / Decoder, Tip Calculator, Date Calculator, Random Picker, Countdown Timer, AI Image Generator (real AI image via the free public Pollinations service, not AI moving video), Video Maker (photo slideshow and animated text video made in your browser — not AI video generation), Sleep Calculator, Text Cleaner (Remove Line Breaks), Unit Price Calculator, Time Calculator, Hourly Wage to Yearly Salary Calculator, Compound Interest Calculator, Calorie Calculator, Cups to Grams Converter, Marla to Square Feet Converter — Pakistan, Gold Value Calculator, Compress PDF Online Free, and Merge PDF Online Free.
 
 ## Tool pages
 
