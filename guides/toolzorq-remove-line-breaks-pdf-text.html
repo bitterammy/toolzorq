@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Remove Line Breaks from Text Copied from a PDF | TOOLZORQ Guides</title>
+<meta name="description" content="Remove line breaks from text copied from a PDF: paste the ragged text into TOOLZORQ's free Text Cleaner, press Clean text, and get flowing paragraphs back — single breaks joined, paragraph breaks kept, nothing uploaded.">
+<link rel="canonical" href="https://basr.me/guides/remove-line-breaks-pdf-text.html">
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 24px 20px 48px; }
+  h1 { line-height: 1.3; }
+  h2 { margin-top: 32px; }
+  h3 { margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
+  th { background: #f2f6fb; }
+  pre { background: #f4f4f4; border: 1px solid #ddd; border-radius: 8px; padding: 12px 16px; overflow-x: auto; font-size: 14px; line-height: 1.6; }
+  code { background: #f4f4f4; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+  pre code { background: none; padding: 0; }
+  .tip { background: #f2f6fb; border-left: 4px solid #3b7dd8; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  .answer { background: #f6fbf2; border-left: 4px solid #4a9e4d; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  footer { margin-top: 40px; font-size: 14px; color: #666; border-top: 1px solid #ddd; padding-top: 16px; }
+  a { color: #1a56a0; }
+</style>
+</head>
+<body>
+<p><a href="https://basr.me/">← All TOOLZORQ tools</a> · <a href="https://basr.me/guides/">More guides</a></p>
+
+<h1>How to Remove Line Breaks from Text Copied from a PDF</h1>
+
+<div class="answer">
+<p><strong>Short answer:</strong> paste the ragged text into a line-break remover and join the single line breaks into spaces, while keeping blank lines as paragraph breaks. TOOLZORQ's free Text Cleaner does exactly that in your browser: paste the text, press Clean text, and copy the result — your text is never uploaded anywhere.</p>
+</div>
+
+<p>You copy a paragraph from a PDF, paste it into your document, and instead of a paragraph you get a staircase: every line ends after a few words, the sentences are chopped in half, and the text will not reflow no matter how wide you make the window. The same thing happens with text copied from some emails, web pages, and chat apps. The words are all there, but the shape is wrong, and fixing it by hand — deleting one break at a time — is slow, boring work that invites mistakes. This guide explains why copied text arrives broken, how to fix it in seconds with TOOLZORQ's Text Cleaner, and how to do the same job in Word, Excel, Google Docs, and a text editor when that is more convenient.</p>
+
+<h2>Why text copied from a PDF arrives broken</h2>
+<p>A PDF does not store text the way a word processor does. A document stores paragraphs: a run of words that flows from line to line, with a paragraph mark only where one paragraph ends and the next begins. A PDF stores text by position on the page: each line is a set of words placed at a particular spot, because the PDF's job is to make the page look the same everywhere, not to remember how the sentences were written. When you copy text out of a PDF, the app that does the copying has to guess where the sentences are, and most of the time it simply inserts a line break at the end of every printed line — even when that line ends in the middle of a sentence.</p>
+<p>The result is a paragraph that has been sliced into short lines for no reason. Paste it into Word or an email and the slices stay, because the line breaks are real characters in the pasted text, not a display setting. Widening the window does nothing. Changing the font does nothing. The only fix is to remove the breaks that do not belong there, which means telling something — a tool, or a find-and-replace — which breaks are real paragraph breaks and which are just the edges of the printed page.</p>
+<p>Emails cause the same problem in a different way. Many email apps wrap long lines at a fixed width when they send a message, inserting a hard line break every seventy or eighty characters. The reader never notices, because their email app reflows the text. But copy that message into another app and the wrapping shows up as short lines, exactly like a PDF. Web pages can do it too, when text is copied out of a table cell, a sidebar, or a chat bubble that forced the words into a narrow column.</p>
+
+<h2>What a line break actually is</h2>
+<p>A line break is a hidden character that tells a program to start a new line. It carries no visible mark, which is why broken text is so confusing to look at: the text looks as if it should flow, but it does not, and the reason is invisible. There are two kinds worth knowing about. A hard line break is a real character in the file, inserted when you press Enter, or when an export writes one at the end of a printed line. A soft line break, or wrap, is not a character at all: it is the program deciding on the fly that the next word does not fit and moving it down. Soft breaks disappear when you widen the window; hard breaks do not.</p>
+<p>Computers have used more than one character for a hard break over the years, which is part of the mess. Windows uses two characters together, a carriage return followed by a line feed (CRLF). Mac and Linux use a line feed alone (LF). Older Macs used a carriage return alone. Most modern tools read all of them without complaint, but when you are fixing breaks yourself with find-and-replace, the difference matters: a search for one kind of break will miss the other, and a file that travelled between systems can contain both. A good cleaning tool handles all three without asking you to know which one you have.</p>
+<p>The other distinction that matters is between a line break and a paragraph break. In most documents, a paragraph break is a blank line — two line breaks in a row — while a single line break inside a paragraph is just a wrapped line. That difference is the key to cleaning text safely: join the single breaks into spaces, and leave the double breaks alone. A tool that joins every break, single and double, turns your whole document into one giant paragraph. A tool that only joins single breaks gives you flowing paragraphs with the paragraph structure intact.</p>
+
+<h2>How to remove line breaks with TOOLZORQ's Text Cleaner</h2>
+<p>TOOLZORQ's Text Cleaner is built for exactly this job. It joins the broken lines back into flowing paragraphs, in your browser, with nothing uploaded — your pasted text never leaves your device. It works in three steps, and the whole clean takes seconds.</p>
+<ol>
+<li><strong>Paste the ragged text into the box.</strong> Copy the text from your PDF, email, or web page and paste it into the Text Cleaner's input box. It does not matter how ragged it is — short lines, uneven spacing, blank lines between paragraphs — the cleaner sorts it out in the next step.</li>
+<li><strong>Press Clean text.</strong> Single line breaks are joined into spaces, blank lines stay as paragraph breaks, and extra spaces inside lines are collapsed to one. The result appears in the output box, with a word count so you can check that nothing was lost.</li>
+<li><strong>Copy the cleaned text, or clear and paste the next block.</strong> Copy the result and paste it into your document, email, or notes. When you have more text to clean, clear the boxes and paste the next block.</li>
+</ol>
+<p>Here is what the clean looks like on a real example. Text copied from a PDF often arrives like this:</p>
+<pre><code>The quick brown fox jumps
+over the lazy dog. The fox
+was in a hurry, and the dog
+was asleep in the sun.
+
+The next morning, the fox
+came back with a friend.</code></pre>
+<p>After cleaning, the same text reads as normal paragraphs:</p>
+<pre><code>The quick brown fox jumps over the lazy dog. The fox was in a hurry, and the dog was asleep in the sun.
+
+The next morning, the fox came back with a friend.</code></pre>
+<p>Notice what happened and what did not. The single breaks inside each paragraph became spaces, so the sentences flow. The blank line between the two paragraphs stayed, so the two paragraphs are still two paragraphs. The words themselves did not change, and no words were joined together without a space — "jumps" and "over" are still two words, because the break between them became a space, not nothing.</p>
+
+<div class="tip">
+<p><strong>Before you paste:</strong> check where the text is going. If you paste cleaned text into Word or Google Docs with normal paste, the formatting of the source can come along with it — font, size, colour. Paste with <strong>Ctrl + Shift + V</strong> (or <strong>Cmd + Shift + V</strong> on a Mac) to paste plain text only, so the words take on the formatting of your document instead of bringing the PDF's formatting with them.</p>
+</div>
+
+<h2>When the Text Cleaner is the right choice — and when it is not</h2>
+<p>The Text Cleaner is the right tool when the text is prose that should flow: paragraphs from a report, an article, a book, an email, or a set of notes. It is also right for text copied from a web page that arrived with stray breaks, and for text pasted out of a chat app where every line was sent as its own message. In all of these cases the breaks are accidents of layout, and joining them restores the text to what the writer intended.</p>
+<p>There are cases where you should not join the breaks, because the breaks are the content. A poem's line breaks are deliberate: joining them turns verse into prose. A list with one item per line should stay a list — joining it turns ten items into one long sentence. An address, a piece of code, a table copied as text, and a song lyric all rely on their line breaks to make sense. If the breaks carry meaning, leave them alone, or clean only the part of the text that is prose and leave the rest as it is.</p>
+<p>The other case to watch for is a PDF that was scanned from paper rather than made from a document. A scanned PDF has no text in it at all — it is a picture of a page — so copying from it gives you nothing to paste. The Text Cleaner cannot help there, because there is no text to clean. What you need first is OCR, software that reads the words out of the image, and only then can the line breaks be cleaned. If your PDF will not let you select any text at all, it is almost certainly a scan, and OCR is the missing step.</p>
+
+<table>
+<tr><th>Kind of text</th><th>Clean it?</th><th>Why</th></tr>
+<tr><td>Paragraphs from a PDF or report</td><td>Yes</td><td>The breaks are printed line edges, not real breaks.</td></tr>
+<tr><td>An email that arrived hard-wrapped</td><td>Yes</td><td>The breaks are the sender's line width, not yours.</td></tr>
+<tr><td>Text copied from a web page or chat</td><td>Yes</td><td>Stray breaks come from the column or bubble width.</td></tr>
+<tr><td>A poem or song lyric</td><td>No</td><td>The line breaks are part of the writing.</td></tr>
+<tr><td>A list, one item per line</td><td>No</td><td>Joining turns the list into one sentence.</td></tr>
+<tr><td>Code, an address, or a table</td><td>No</td><td>The breaks carry the structure.</td></tr>
+<tr><td>A scanned PDF (no selectable text)</td><td>Not yet</td><td>There is no text to clean — OCR comes first.</td></tr>
+</table>
+
+<h2>How to remove line breaks in Microsoft Word</h2>
+<p>If the text is already in Word, you can fix it there with Find and Replace — no extra tool needed. Word uses two special codes in its Find and Replace box: <code>^l</code> (a caret followed by a lowercase L) finds a manual line break, and <code>^p</code> finds a paragraph mark. The trick is to use them in the right order, because if you replace all the paragraph marks first, you lose the information about where the paragraphs were.</p>
+<p>The safe two-pass method is: first protect the real paragraph breaks, then join the single breaks, then restore the paragraphs. Press <strong>Ctrl + H</strong> to open Find and Replace. Replace every paragraph mark (<code>^p</code>) with a placeholder that does not appear in your text, such as <code>@@@</code>. Then replace every manual line break (<code>^l</code>) with a single space. Then replace the placeholder (<code>@@@</code>) back to a paragraph mark (<code>^p</code>). The paragraphs come back exactly where they were, and the wrapped lines are joined. Always work on a copy of the document first, because Replace All cannot be undone in stages if you pick the wrong placeholder.</p>
+<p>There is one more detail to check after the replace: double spaces. If a line in the original ended with a space and the next line began with one, joining them with a space of your own leaves two spaces in a row. A final pass replacing two spaces with one, repeated until Word reports no more replacements, tidies that up. Word's Find and Replace also has a "Use wildcards" mode that can do the whole job in fewer steps, but the two-pass method above works with wildcards off, which makes it easier to follow and harder to get wrong.</p>
+
+<h2>How to remove line breaks in Excel and Google Docs</h2>
+<p>In Excel, line breaks inside a cell are a different problem with a different fix. A cell can hold several lines, separated by line breaks that were typed with Alt + Enter or pasted in from elsewhere. To remove them, select the cells, press <strong>Ctrl + H</strong> to open Find and Replace, click into the "Find what" box, and press <strong>Ctrl + J</strong>. That inserts a line-feed character into the box — you will not see anything, but it is there. Leave "Replace with" as a single space, or empty if you want the lines joined with nothing between them, and click Replace All. The lines inside each cell join together, and the cells stay separate.</p>
+<p>Google Docs has no <code>^l</code> code, but its Find and Replace supports regular expressions. Press <strong>Ctrl + H</strong>, tick "Match using regular expressions", and search for <code>\n</code> to find line breaks. The same two-pass idea applies: protect the paragraph breaks first, join the single breaks, then restore the paragraphs. Docs is more limited than Word here, because its regular-expression replace treats each match on its own and cannot easily tell a single break from a double one in one pass. For a long document, pasting the text through the Text Cleaner first and then into Docs is usually faster than fighting with the regex box.</p>
+
+<h2>How to remove line breaks with a text editor</h2>
+<p>If you work with plain text, a code editor such as VS Code or Notepad++ does the job with regular expressions, and the same two-pass idea works there too. First, protect the paragraph breaks: replace two line breaks in a row with a placeholder. In regex terms, search for <code>\r?\n\r?\n</code> — which matches a blank line whether the file uses Windows or Unix line endings — and replace it with something like <code>@@@PARA@@@</code>. Then replace every remaining single line break, <code>\r?\n</code>, with a single space. Then replace the placeholder with a blank line again. Collapse any double spaces with a final pass.</p>
+<p>The placeholder step is what makes this safe. Without it, a single replace of every line break with a space destroys the paragraph structure along with the wrapped lines, and there is no way to get it back except by re-reading the text and re-inserting the breaks by hand. With it, the whole job is three replaces and takes under a minute. The same pattern works in any tool that supports regular expressions — a terminal, a script, or an online regex tester — and it is worth learning once, because ragged copied text is a problem that keeps coming back.</p>
+<p>One warning applies to every method on this page: make a copy before you replace. Find-and-replace across a whole document is fast, which is both its advantage and its danger. A wrong pattern applied to the original is hard to undo cleanly, while the same pattern applied to a copy costs nothing if it goes wrong. Copy first, replace second, check the result, and only then replace the original.</p>
+
+<h2>Common mistakes when removing line breaks</h2>
+<p><strong>Joining words without a space.</strong> The most common error is replacing a line break with nothing instead of a space, which glues the last word of one line to the first word of the next: "the foxwas in a hurry". Always replace with a single space, and check the result for glued words before you move on.</p>
+<p><strong>Collapsing the paragraphs.</strong> Replacing every break, single and double, turns the document into one unbroken block of text. Protect the paragraph breaks first, with a placeholder or with a tool that keeps blank lines, and the paragraphs survive.</p>
+<p><strong>Hyphenated words split across lines.</strong> PDFs often split a long word at the end of a line with a hyphen: "informa-" on one line and "tion" on the next. Joining the lines with a space leaves "informa- tion", with the hyphen still there and a space in the middle of the word. The clean fix is to remove the hyphen as well as the break when a line ends in a hyphen and the next line starts with a lowercase letter — but do it carefully, because a hyphen at the end of a line can also be a real hyphen in a compound word, and removing that one changes the meaning.</p>
+<p><strong>Trailing and double spaces.</strong> Lines copied from a PDF often end with a space, and joining them adds another. Collapse repeated spaces to one after the join, and trim the start and end of the cleaned text, so the result does not have a ragged edge of spaces.</p>
+<p><strong>Forgetting to check the result.</strong> Cleaning is a mechanical step, and mechanical steps make mechanical errors — a glued word here, a lost paragraph there. Read the cleaned text once, quickly, before you send it or publish it. The check takes a minute and catches the errors that the tool cannot see.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>How do I remove line breaks from text copied from a PDF?</h3>
+<p>Paste the text into the Text Cleaner and press Clean text. It joins single line breaks into spaces and keeps blank lines as paragraph breaks, so the text reads as normal paragraphs. Then copy the cleaned text and paste it into your document with Ctrl + Shift + V to paste plain text only.</p>
+<h3>Will it remove my paragraph breaks too?</h3>
+<p>No. Only single line breaks are joined. A blank line between paragraphs is kept, so your paragraphs stay separate. Extra spaces inside lines are also collapsed to one, so the cleaned text has no double spaces left over from the join.</p>
+<h3>Is my text uploaded anywhere?</h3>
+<p>No. The Text Cleaner runs entirely in your browser — your pasted text never leaves your device. That matters when the text is private: a report, a contract, or a personal email can be cleaned without sending it to a server.</p>
+<h3>Can I remove line breaks in Word without a separate tool?</h3>
+<p>Yes. Open Find and Replace with Ctrl + H, replace paragraph marks (^p) with a placeholder first, then replace manual line breaks (^l) with a space, then replace the placeholder back to a paragraph mark. Work on a copy of the document, and do a final pass to collapse double spaces.</p>
+<h3>What if the PDF text has hyphenated words split across lines?</h3>
+<p>Joining the lines leaves the hyphen in place, as in "informa- tion". Remove the hyphen together with the break when a line ends in a hyphen and the next line starts with a lowercase letter, but check each one: a hyphen can also be part of a compound word, and removing that changes the meaning.</p>
+<h3>What if I cannot select any text in the PDF at all?</h3>
+<p>The PDF is probably a scan — a picture of a page with no text layer. Copying gives you nothing to clean, so the Text Cleaner cannot help yet. Run OCR software on the PDF first to read the words out of the image, and then clean the line breaks in the recognised text.</p>
+
+<div class="tip">
+  <strong>Rule of thumb:</strong> join single breaks into spaces, keep blank lines as paragraph breaks, and always check the result once before you send it. Paste the text, press Clean text, copy the result — and paste it with Ctrl + Shift + V so it takes on your document's formatting.
+</div>
+
+<h2>Quick checklist</h2>
+<ul>
+  <li>Is the text prose that should flow — not a poem, a list, code, or a table?</li>
+  <li>Have you pasted the ragged text into the Text Cleaner and pressed Clean text?</li>
+  <li>Are the paragraphs still separate, with blank lines between them?</li>
+  <li>Are there any words glued together where a break became nothing instead of a space?</li>
+  <li>Have you checked for hyphens left over from words split across lines?</li>
+  <li>Have you collapsed any double spaces left by the join?</li>
+  <li>Did you paste the result with Ctrl + Shift + V, so it takes your document's formatting?</li>
+  <li>If you used Find and Replace instead, did you work on a copy first?</li>
+</ul>
+
+<footer>
+  <p>Try it now: the <a href="https://basr.me/tools/remove-line-breaks.html">Text Cleaner</a> on TOOLZORQ removes line breaks from text copied from a PDF in one click, free with no sign-up. Related tools: the <a href="https://basr.me/tools/word-counter.html">Word Counter</a> for checking the cleaned text's length and reading time. More practical guides at <a href="https://basr.me/guides/">TOOLZORQ Guides</a>.</p>
+</footer>
+</body>
+</html>
