@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Many Days Are There Between Two Dates? | TOOLZORQ Guides</title>
+<meta name="description" content="How many days are there between two dates? Subtract the start date from the end date — the start day is not counted. Worked examples, leap years, inclusive counting, business days, and TOOLZORQ's free Date Calculator.">
+<link rel="canonical" href="https://basr.me/guides/how-many-days-between-two-dates.html">
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 24px 20px 48px; }
+  h1 { line-height: 1.3; }
+  h2 { margin-top: 32px; }
+  h3 { margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
+  th { background: #f2f6fb; }
+  .tip { background: #f2f6fb; border-left: 4px solid #3b7dd8; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  .answer { background: #f6fbf2; border-left: 4px solid #4a9e4d; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  footer { margin-top: 40px; font-size: 14px; color: #666; border-top: 1px solid #ddd; padding-top: 16px; }
+  a { color: #1a56a0; }
+</style>
+</head>
+<body>
+<p><a href="https://basr.me/">← All TOOLZORQ tools</a> · <a href="https://basr.me/guides/">More guides</a></p>
+
+<h1>How Many Days Are There Between Two Dates?</h1>
+
+<div class="answer">
+<p><strong>Short answer:</strong> subtract the start date from the end date. From 10 November 2026 to 25 December 2026 is 45 days. The start day itself is not counted — you are measuring the gap between the two dates, not the number of dates you touch. If you want to count both end dates as well, for example the total days of a holiday, add 1 to the result.</p>
+</div>
+
+<p>It sounds like a question a child could answer, and for two dates in the same week it is. But stretch the gap across months and the counting gets awkward fast: months have 28, 29, 30 or 31 days, February changes length every four years, and it is easy to be off by one without ever noticing. A deadline that is really 45 days away feels like 46, a holiday that is 14 days long gets booked as 13, and a project plan quietly slips by a day. This guide explains the one rule that settles every case, works through real examples you can check, and shows how to get the answer in seconds with TOOLZORQ's Date Calculator, in a spreadsheet, or on a paper calendar.</p>
+
+<h2>The one rule: subtract, do not count on your fingers</h2>
+<p>The number of days between two dates is the end date minus the start date, counted in whole calendar days. That is the rule every calculator, spreadsheet and calendar app uses, and it is the rule behind every example in this guide. You do not count the start date; you count the days that pass after it until you reach the end date. Think of it like measuring the distance between two fence posts: the gap is what you measure, not the posts themselves.</p>
+<p>Take a small example first. From 1 January to 10 January is 9 days, not 10. Count forward from 1 January: 2 January is day 1, 3 January is day 2, and so on until 10 January, which is day 9. The start date, 1 January, is day zero. This is the single most common source of error, and it is worth fixing in your head before anything else: when someone asks "how many days between", they almost always mean this gap, and the answer excludes the start date.</p>
+<p>The same rule works across any distance. From 1 January 2026 to 1 January 2027 is 365 days, because 2026 is not a leap year. From 1 January 2024 to 1 January 2025 is 366 days, because 2024 is a leap year and 29 February 2024 falls inside the gap. From 10 November 2026 to 25 December 2026 is 45 days — six weeks and three days. And from 10 November 2026 to 1 January 2027 is 52 days. None of these needs a calendar once you know the rule; it only needs the subtraction, which is exactly what a calculator does for you.</p>
+<p>There is a second, equally useful way to think about it. The gap between two dates is the number of midnights you cross going from the first date to the second. From 1 January to 10 January you cross nine midnights. From 10 November to 25 December you cross forty-five. If you can picture the midnights, you can picture why the start date does not count: at the start date itself, no midnight has been crossed yet.</p>
+
+<h2>Worked examples you can check</h2>
+<p>Every example in this table was worked out on the Gregorian calendar, the civil calendar used in most of the world today. The "inclusive" column counts both end dates as well — the number you want when you are counting the days of a stay, a course, or a period of leave rather than the gap between two dates.</p>
+
+<table>
+<tr><th>From</th><th>To</th><th>Days between</th><th>Counting both dates</th><th>Notes</th></tr>
+<tr><td>1 Jan 2026</td><td>10 Jan 2026</td><td>9</td><td>10</td><td>Same month, the simplest case.</td></tr>
+<tr><td>10 Nov 2026</td><td>25 Dec 2026</td><td>45</td><td>46</td><td>6 weeks and 3 days.</td></tr>
+<tr><td>10 Nov 2026</td><td>31 Dec 2026</td><td>51</td><td>52</td><td>To the end of the year.</td></tr>
+<tr><td>10 Nov 2026</td><td>1 Jan 2027</td><td>52</td><td>53</td><td>Across the new year.</td></tr>
+<tr><td>1 Jan 2026</td><td>1 Jan 2027</td><td>365</td><td>366</td><td>2026 is not a leap year.</td></tr>
+<tr><td>1 Jan 2024</td><td>1 Jan 2025</td><td>366</td><td>367</td><td>2024 is a leap year.</td></tr>
+<tr><td>1 Mar 2027</td><td>1 Mar 2028</td><td>366</td><td>367</td><td>29 Feb 2028 falls inside.</td></tr>
+<tr><td>1 Jun 2026</td><td>1 Sep 2026</td><td>92</td><td>93</td><td>A three-month summer gap.</td></tr>
+</table>
+
+<p>Check one of these by hand to see the method. From 10 November to 25 December 2026: November has 30 days, so from 10 November to 30 November is 20 days, and then 1 December to 25 December is 25 more — 20 + 25 = 45. The month-by-month method works whenever you need to check a calculator's answer: count the days left in the first month, add every whole month in between, then add the days into the last month.</p>
+<p>The year-long examples show why you cannot just say "a year is 365 days". A year that contains 29 February is 366 days long. From 1 March 2027 to 1 March 2028 is 366 days, because 29 February 2028 sits between the two dates, even though neither date is in February. The leap day counts whenever it falls inside the gap, wherever the gap starts and ends.</p>
+
+<h2>When the answer is off by one: inclusive counting</h2>
+<p>Most "wrong" answers to this question are not wrong arithmetic — they are a different question. The gap between two dates and the number of dates in a range are two different numbers, and they differ by exactly one. The gap from 1 January to 10 January is 9 days. The number of dates from 1 January to 10 January inclusive — 1st, 2nd, 3rd, all the way to 10th — is 10. Both numbers are correct; they answer different questions.</p>
+<p>Which one you want depends on what you are counting. Use the gap, the plain subtraction, when you are measuring time passing: how many days until a deadline, how many days since an event, how long a project phase lasts. Use the inclusive count, the gap plus one, when you are counting days you will occupy or experience: the days of a holiday, the days of a course, the days of a rental, the days of a sick leave. A holiday from 10 November to 25 December is 45 days away at its start and lasts 46 days inclusive — and confusing the two is how a 14-night trip gets booked as 13 nights.</p>
+<p>The rule of thumb is simple. If the question has the word "between" or "until" in it, use the gap. If it has the word "from … to … inclusive", or you are counting days you will be somewhere, add one. And if someone else gives you a number, ask which one they meant: half of all date arguments are two people answering different questions with the same words.</p>
+
+<h2>Leap years and month lengths</h2>
+<p>Two facts about the calendar cause almost every hand-counting error. The first is that months are not all the same length: January, March, May, July, August, October and December have 31 days; April, June, September and November have 30; February has 28 in an ordinary year and 29 in a leap year. The old knuckle mnemonic still works — the raised knuckles are the 31-day months — but in practice, nobody should be counting month lengths by hand when a calculator exists.</p>
+<p>The second fact is the leap-year rule. A year is a leap year if it divides evenly by 4, except that years divisible by 100 are not leap years unless they are also divisible by 400. So 2024 and 2028 are leap years, 2026 is not, 1900 was not a leap year, and 2000 was. The rule exists because a year is not exactly 365 days long: the Earth takes about 365.25 days to orbit the Sun, and the extra quarter-day is corrected by adding a day every four years, with the century exceptions keeping the calendar aligned over the long term.</p>
+<p>For counting days between dates, only one question matters: does 29 February fall inside the gap? If it does, the gap is one day longer than the same dates in a non-leap year. From 1 March 2026 to 1 March 2027 is 365 days; from 1 March 2027 to 1 March 2028 is 366 days, because 29 February 2028 is inside the second gap. If both dates are before 29 February, or both after it, the leap day does not affect the count at all.</p>
+
+<h2>Calendar days are not business days</h2>
+<p>A second distinction that causes real mistakes is between calendar days and business days. A calendar day is every day on the calendar, weekends included. A business day is usually a Monday-to-Friday day, excluding weekends and public holidays. The same two dates can give very different answers depending on which one you mean.</p>
+<p>From 10 November 2026, a Tuesday, to 25 December 2026, a Friday, is 45 calendar days. Count only the Mondays to Fridays in that span, excluding the start date and including the end date, and the answer is 33 business days. The difference — twelve weekend days — is large enough to break a delivery promise or a project plan if the wrong count is used. Deadlines in contracts and notices usually mean calendar days unless they say "business days" or "working days", so read the wording before you count, and if the wording is unclear, ask. A deadline of "30 days" and a deadline of "30 business days" are about six weeks apart.</p>
+<p>Public holidays make business-day counting harder still, because they vary by country and by region, and a calculator that does not know your holidays will get the number wrong. TOOLZORQ's Date Calculator counts calendar days, which is the right count for most everyday questions — how long until a birthday, how many days since an event, what date is 90 days from now. For business-day counts, use the calendar-day answer as a starting point and subtract the weekends and holidays yourself, or use a dedicated business-day calculator that knows your country's holidays.</p>
+
+<h2>Counting forward or backwards from a date</h2>
+<p>The reverse question is just as common: what date is 90 days from today, or 30 days before a deadline? This is the same subtraction run in the other direction, and it is where hand-counting fails most often, because adding days across month boundaries means keeping track of how long each month is as you go.</p>
+<p>From Tuesday 10 November 2026, adding 90 days lands on Monday 8 February 2027. Adding 30 days lands on Thursday 10 December 2026. Going backwards, 30 days before 10 November 2026 is Sunday 11 October 2026, and 365 days after 10 November 2026 is Wednesday 10 November 2027. Check the 90-day example by hand: 20 days remain in November after the 10th, December adds 31, January adds 31, which brings the total to 82, and 8 more days into February reaches the 8th — 20 + 31 + 31 + 8 = 90. It works, but it is slow, and one wrong month length ruins the answer.</p>
+<p>This forward-and-backward counting is what the second half of TOOLZORQ's Date Calculator does. Pick a start date, enter the number of days, choose forward or backward, and it shows the resulting date and the weekday it falls on. The weekday matters more than people expect: a deadline that lands on a Sunday, or a start date that lands on a public holiday, changes what you can actually do on that day.</p>
+<p>Everyday uses for this are everywhere. A 90-day notice period, a 30-day return window, a subscription that renews in 60 days, a visa that allows a 180-day stay, a course that starts in 14 days, a warranty that expires a year from purchase. In each case the question is the same — a start date plus a number of days — and the answer is a date you can put in your calendar.</p>
+
+<h2>How to count days between dates with TOOLZORQ's Date Calculator</h2>
+<p>TOOLZORQ's Date Calculator answers both directions of the question in your browser, with nothing to install and no sign-up, and your dates never leave your device. It has two sections: days between two dates, and add or subtract days from a date.</p>
+<ol>
+<li><strong>To count the days between two dates:</strong> open the Date Calculator, pick the start date in the "From" box and the end date in the "To" box. The calculator counts the calendar days between them — the gap, with the start date not counted — and shows the result.</li>
+<li><strong>To find a date a number of days away:</strong> use the "Add or subtract days" section. Pick the start date, enter the number of days, and choose forward or backward. The calculator shows the resulting date and the weekday it falls on, so you can see at a glance whether it lands on a weekend.</li>
+<li><strong>Check the result against the examples above.</strong> Enter 10 November 2026 and 25 December 2026 and you should see 45 days. Enter 1 January 2024 and 1 January 2025 and you should see 366. If the numbers match, you are using the tool correctly.</li>
+</ol>
+<p>The calculator counts calendar days on the Gregorian calendar, including leap days, and it does not ask for a time of day or a time zone — dates are whole days, so daylight-saving changes cannot add or lose a day. That is also why the answer is exact: there is no rounding, no estimate, and no "about". Two dates have exactly one right answer, and the calculator gives it.</p>
+
+<div class="tip">
+<p><strong>Which count do you need?</strong> If you are measuring time until something or since something, use the gap the calculator shows. If you are counting the days of a stay, a course or a period of leave — days you will actually occupy — add 1 to the calculator's answer to count both end dates.</p>
+</div>
+
+<h2>How to count days in Excel and Google Sheets</h2>
+<p>If the dates already live in a spreadsheet, you do not need a separate tool at all: spreadsheets store dates as numbers, so subtracting two dates gives the days between them directly. Put the start date in cell A2 and the end date in cell B2, and in another cell type <strong>=B2-A2</strong>. The result is the gap in days, with the start date not counted — the same rule as everywhere else in this guide. Make sure both cells are formatted as dates, or the subtraction will produce a number that looks like a date and confuse you.</p>
+<p>Two dedicated functions say the same thing more explicitly. <strong>=DAYS(B2,A2)</strong> returns the end date minus the start date directly, and <strong>=DATEDIF(A2,B2,"d")</strong> returns the same gap in days. DATEDIF can also return the gap in months with "m" or years with "y", which is handy when you want "1 year, 1 month and 22 days" rather than a single number of days. Add 1 to any of these results to count both end dates.</p>
+<p>For adding days to a date in a spreadsheet, the arithmetic is just as simple: a date plus a number is a date that many days later, so <strong>=A2+90</strong> gives the date 90 days after the date in A2, and <strong>=A2-30</strong> gives the date 30 days before it. Format the result cell as a date, or you will see a serial number instead of a calendar date. In Google Sheets, the same formulas work identically.</p>
+
+<h2>Counting on a paper calendar or your phone</h2>
+<p>Sometimes there is no tool at hand, and the old methods still work. On a paper calendar, count the days left in the first month after the start date, add the whole months in between, then add the days into the last month — the same month-by-month method used in the worked examples above. Mark the start date and the end date with a pen first, so you can see the span, and count the marked start date as zero.</p>
+<p>On a phone, the calendar app can do the job without any maths. In most calendar apps, you can long-press a date to see its details, and some show the number of days between two selected dates. The simplest phone method is to create an event on the start date and another on the end date, then look at the gap — or just open the Date Calculator in the phone's browser, which works the same as on a computer and needs nothing installed.</p>
+<p>Whichever method you use, the check is the same: try it on a pair of dates you already know. If your method says 1 January to 10 January is 9 days, it is counting the gap correctly. If it says 10, it is counting both end dates, and you need to subtract one for a "days between" answer.</p>
+
+<h2>Common mistakes when counting days</h2>
+<p><strong>Counting the start date.</strong> The most common error, and the one behind most off-by-one answers. The start date is day zero, not day one. From 1 January to 10 January is 9 days.</p>
+<p><strong>Forgetting February.</strong> February has 28 days, or 29 in a leap year, and a gap that crosses February is one day shorter than a gap that crosses a 31-day month. A 30-day month crossed by mistake as 31 days adds a phantom day to the answer.</p>
+<p><strong>Forgetting the leap day.</strong> A gap that contains 29 February is one day longer than the same dates in a non-leap year. From 1 March 2027 to 1 March 2028 is 366 days, not 365.</p>
+<p><strong>Mixing up calendar days and business days.</strong> A "30-day" deadline is about six weeks in business days. Read whether the deadline means calendar days or business days before you count, and never assume.</p>
+<p><strong>Counting both end dates when you meant the gap.</strong> A holiday from 10 November to 25 December lasts 46 days inclusive, but it starts in 45 days. Know which number you need before you count.</p>
+<p><strong>Trusting a rough "a month is 30 days" estimate.</strong> A month is 28, 29, 30 or 31 days, and three months is 89, 90, 91 or 92 days depending on which months they are. Estimates are fine for planning; they are not fine for deadlines.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>How many days are there between two dates?</h3>
+<p>Subtract the start date from the end date. From 10 November 2026 to 25 December 2026 is 45 days. The start date is not counted — you are measuring the gap between the dates. Add 1 if you want to count both end dates as well.</p>
+<h3>How do I count the days between two dates in Excel?</h3>
+<p>Put the start date in A2 and the end date in B2, then use =B2-A2. The result is the gap in days. =DAYS(B2,A2) and =DATEDIF(A2,B2,"d") give the same answer. Add 1 to count both end dates.</p>
+<h3>Does the count include the start and end dates?</h3>
+<p>By default, no: the standard count is the gap, which excludes the start date and includes the end date. If you want to count both end dates — for a holiday, a course or a period of leave — add 1 to the result.</p>
+<h3>How many days are in a year?</h3>
+<p>An ordinary year has 365 days and a leap year has 366. A year is a leap year if it divides evenly by 4, except years divisible by 100, which are leap years only if also divisible by 400. So 2024 and 2028 are leap years, 2026 is not, and 2000 was.</p>
+<h3>What date is 90 days from 10 November 2026?</h3>
+<p>Monday 8 February 2027. Use the "Add or subtract days" section of the Date Calculator: pick 10 November 2026, enter 90 days, choose forward, and it shows the resulting date and weekday.</p>
+<h3>How many business days are between two dates?</h3>
+<p>Count only Monday-to-Friday days, excluding weekends and public holidays. From 10 November 2026 to 25 December 2026 is 45 calendar days but 33 business days. Business-day counts depend on which holidays apply in your country, so check those separately.</p>
+
+<div class="tip">
+  <strong>Rule of thumb:</strong> days between two dates = end date minus start date, start date not counted. Add 1 only when you are counting the days you will occupy, not the time passing. And when a deadline matters, check the number with a calculator rather than counting on your fingers.
+</div>
+
+<h2>Quick checklist</h2>
+<ul>
+  <li>Are you measuring the gap (start date not counted) or counting both end dates?</li>
+  <li>Does 29 February fall inside the gap? If so, the gap is one day longer.</li>
+  <li>Are you counting calendar days or business days — and does the deadline say which?</li>
+  <li>Have you checked the answer with the Date Calculator or a spreadsheet?</li>
+  <li>If you added days to a date, did you check which weekday the result falls on?</li>
+  <li>For a holiday or rental, did you add 1 to count both end dates?</li>
+  <li>For a deadline, did you confirm whether it means calendar days or business days?</li>
+</ul>
+
+<footer>
+  <p>Try it now: the <a href="https://basr.me/tools/date-calculator.html">Date Calculator</a> on TOOLZORQ counts the days between any two dates and adds or subtracts days from a date, free with no sign-up. Related tools: the <a href="https://basr.me/tools/age-calculator.html">Age Calculator</a> for your exact age on any date, and the <a href="https://basr.me/tools/countdown-timer.html">Countdown Timer</a> for counting down to a date. More practical guides at <a href="https://basr.me/guides/">TOOLZORQ Guides</a>.</p>
+</footer>
+</body>
+</html>
