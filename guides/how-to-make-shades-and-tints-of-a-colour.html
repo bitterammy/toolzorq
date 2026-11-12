@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Make Shades and Tints of a Colour — Build a Simple Palette from One Colour | TOOLZORQ Guides</title>
+<meta name="description" content="How to make shades and tints of a colour: mix white for a tint, black for a shade, with the exact maths and a worked example. Build a simple palette from one colour with TOOLZORQ's free Color Picker.">
+<link rel="canonical" href="https://basr.me/guides/how-to-make-shades-and-tints-of-a-colour.html">
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 24px 20px 48px; }
+  h1 { line-height: 1.3; }
+  h2 { margin-top: 32px; }
+  h3 { margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
+  th { background: #f2f6fb; }
+  .tip { background: #f2f6fb; border-left: 4px solid #3b7dd8; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  .answer { background: #f6fbf2; border-left: 4px solid #4a9e4d; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  footer { margin-top: 40px; font-size: 14px; color: #666; border-top: 1px solid #ddd; padding-top: 16px; }
+  a { color: #1a56a0; }
+  .swatch { display: inline-block; width: 18px; height: 18px; border: 1px solid #999; vertical-align: middle; margin-right: 6px; }
+</style>
+</head>
+<body>
+<p><a href="https://basr.me/">← All TOOLZORQ tools</a> · <a href="https://basr.me/guides/">More guides</a></p>
+
+<h1>How to Make Shades and Tints of a Colour — Build a Simple Palette from One Colour</h1>
+
+<div class="answer">
+<p><strong>Short answer:</strong> a tint is your colour mixed with white, a shade is your colour mixed with black, and a tone is your colour mixed with grey. To make a 20 percent tint, move each RGB channel 20 percent of the way toward 255; to make a 20 percent shade, multiply each channel by 0.8. TOOLZORQ's free Color Picker does the whole scale for you: pick a colour or type a HEX value and it shows the shades and tints as a palette you can copy from.</p>
+</div>
+
+<p>One colour is rarely enough. A website, a slide deck, a poster, or a social post needs a light background, a darker heading, a hover state for a button, and a border that is visible without shouting. The professional way to get all of those is not to pick five unrelated colours and hope they match. It is to start with one colour you like and make its shades and tints. Every step on that scale belongs to the same family, so the result looks deliberate even when you have never studied colour theory. This guide explains what shades, tints and tones are, the exact maths behind them, how to work them out by hand, and how to build a simple five-colour palette in a minute with TOOLZORQ's Color Picker.</p>
+
+<h2>What is a shade, a tint, and a tone?</h2>
+<p>The three words describe three different mixtures, and mixing them up is the most common mistake in this whole subject. A <strong>tint</strong> is a colour mixed with white. It gets lighter and softer. A pale blue wash behind a heading is a tint of the blue. A <strong>shade</strong> is a colour mixed with black. It gets darker and heavier. The deep navy of a footer is a shade of the blue. A <strong>tone</strong> is a colour mixed with grey. It gets duller and less saturated, without getting much lighter or darker. A muted, dusty blue is a tone of the blue.</p>
+<p>All three start from the same base colour, which designers call the <strong>base</strong> or <strong>pure</strong> colour. A base of #3B7DD8, a medium blue, can give you a whole family: tints up to almost white, shades down to almost black, and tones in between that look grey-blue. The family stays harmonious because every member contains the same base colour, just with more white, more black, or more grey added. That is the entire secret of a matching palette, and it is why a scale built from one colour almost always looks better than five colours picked separately.</p>
+<p>One more distinction matters in practice. A tint and a lighter colour are not the same thing. Picking a different, lighter blue from a colour chart gives you a new colour with its own hue. Making a tint of your blue keeps the hue and only changes the lightness. The same goes for shades. If your brand blue is #3B7DD8, its 20 percent tint is still recognisably that blue, only lighter. A random light blue from a chart may lean purple or green, and that small shift is what makes a design look slightly off.</p>
+
+<h2>The maths: how shades and tints are calculated</h2>
+<p>On a screen, a colour is three numbers: red, green and blue, each from 0 to 255. The HEX code is the same three numbers written in base 16. The blue #3B7DD8 is red 59, green 125, blue 216. To tint it, you move each number toward 255, which is white. To shade it, you move each number toward 0, which is black. The percentage you choose decides how far you move.</p>
+<p>The tint formula is: <strong>new value = current value + (255 − current value) × fraction</strong>. The shade formula is: <strong>new value = current value × (1 − fraction)</strong>. The fraction is the percentage as a decimal, so 20 percent is 0.2. Round each answer to the nearest whole number, because RGB channels are whole numbers.</p>
+<p>Work through a 20 percent tint of #3B7DD8 by hand. Red: 59 + (255 − 59) × 0.2 = 59 + 39.2 = 98. Green: 125 + (255 − 125) × 0.2 = 125 + 26 = 151. Blue: 216 + (255 − 216) × 0.2 = 216 + 7.8 = 224. So the 20 percent tint is rgb(98, 151, 224), which is #6297E0. Now the 20 percent shade: red 59 × 0.8 = 47, green 125 × 0.8 = 100, blue 216 × 0.8 = 173. So the 20 percent shade is rgb(47, 100, 173), which is #2F64AD.</p>
+<p>Notice what the formulas do. In a tint, the channels that are already high move very little, because they are already close to white, while the low channels move a lot. That is why a tint of a blue gets paler without turning grey. In a shade, every channel shrinks by the same proportion, so the hue stays put while the colour darkens evenly. Both formulas keep the three channels in the same relationship to each other, which is what keeps the colour recognisable at every step.</p>
+
+<h2>A full scale from one colour: worked example</h2>
+<p>The table below shows the full scale for #3B7DD8, a medium blue, in 10 percent steps from a 10 percent tint down to a 90 percent shade. Every value was calculated with the two formulas above, so you can check any row by hand. The middle row is the base colour itself. Read down the tint column and the colour gets lighter; read down the shade column and it gets darker.</p>
+
+<table>
+<tr><th>Step</th><th>Tint (toward white)</th><th>HEX</th><th>Shade (toward black)</th><th>HEX</th></tr>
+<tr><td>10%</td><td><span class="swatch" style="background:#4F8ADC"></span>rgb(79, 138, 220)</td><td>#4F8ADC</td><td><span class="swatch" style="background:#3570C2"></span>rgb(53, 112, 194)</td><td>#3570C2</td></tr>
+<tr><td>20%</td><td><span class="swatch" style="background:#6297E0"></span>rgb(98, 151, 224)</td><td>#6297E0</td><td><span class="swatch" style="background:#2F64AD"></span>rgb(47, 100, 173)</td><td>#2F64AD</td></tr>
+<tr><td>30%</td><td><span class="swatch" style="background:#76A4E4"></span>rgb(118, 164, 228)</td><td>#76A4E4</td><td><span class="swatch" style="background:#295897"></span>rgb(41, 88, 151)</td><td>#295897</td></tr>
+<tr><td>40%</td><td><span class="swatch" style="background:#89B1E8"></span>rgb(137, 177, 232)</td><td>#89B1E8</td><td><span class="swatch" style="background:#234B82"></span>rgb(35, 75, 130)</td><td>#234B82</td></tr>
+<tr><td>50%</td><td><span class="swatch" style="background:#9DBEEC"></span>rgb(157, 190, 236)</td><td>#9DBEEC</td><td><span class="swatch" style="background:#1E3E6C"></span>rgb(30, 62, 108)</td><td>#1E3E6C</td></tr>
+<tr><td>60%</td><td><span class="swatch" style="background:#B1CBEF"></span>rgb(177, 203, 239)</td><td>#B1CBEF</td><td><span class="swatch" style="background:#183256"></span>rgb(24, 50, 86)</td><td>#183256</td></tr>
+<tr><td>70%</td><td><span class="swatch" style="background:#C4D8F3"></span>rgb(196, 216, 243)</td><td>#C4D8F3</td><td><span class="swatch" style="background:#122641"></span>rgb(18, 38, 65)</td><td>#122641</td></tr>
+<tr><td>80%</td><td><span class="swatch" style="background:#D8E5F7"></span>rgb(216, 229, 247)</td><td>#D8E5F7</td><td><span class="swatch" style="background:#0C192B"></span>rgb(12, 25, 43)</td><td>#0C192B</td></tr>
+<tr><td>90%</td><td><span class="swatch" style="background:#EBF2FB"></span>rgb(235, 242, 251)</td><td>#EBF2FB</td><td><span class="swatch" style="background:#060C16"></span>rgb(6, 12, 22)</td><td>#060C16</td></tr>
+</table>
+
+<p>Two rows deserve a closer look. The 50 percent tint, #9DBEEC, is a soft sky blue that works as a card background or a highlighted section. The 50 percent shade, #1E3E6C, is a deep navy that works as heading text on a white page. Together with the base #3B7DD8, those three alone make a complete, professional-looking scheme: light background, medium accent, dark text. The 80 and 90 percent tints are nearly white and are best used as page backgrounds or subtle dividers, while the 80 and 90 percent shades are nearly black and are best used sparingly, for footers or for text where you want maximum contrast.</p>
+<p>The same method works for any base colour. Take a warm orange, #FF5733. Its 50 percent tint is rgb(255, 171, 153), or #FFAB99, a soft peach. Its 50 percent shade is rgb(128, 44, 26), or #802C1A, a deep brick red-brown. The formulas do not care which colour you start from; the steps are identical, and the family always matches because it is built from the same three numbers.</p>
+
+<h2>How to make shades and tints with TOOLZORQ's Color Picker</h2>
+<p>Doing the maths by hand is useful once, so you understand what is happening. Doing it for every colour in a project is slow. TOOLZORQ's <a href="https://basr.me/tools/color-picker.html">Color Picker</a> builds the whole scale for you, free, with no sign-up, and it runs entirely in your browser.</p>
+<ol>
+<li><strong>Pick a colour or type a HEX value.</strong> Use the colour picker to choose your base, or type the HEX code directly, for example #3B7DD8. The picker shows the HEX, RGB and HSL values instantly.</li>
+<li><strong>Read the shade and tint palette.</strong> Below the picker, the tool shows the colour's shades and tints as a palette, darkest to lightest. Shades are the colour darkened step by step; tints are the colour lightened.</li>
+<li><strong>Click any swatch to copy its HEX.</strong> Click the step you want and its HEX code is copied, ready to paste into your website, slides, or design tool. There is nothing to install and nothing is uploaded anywhere.</li>
+</ol>
+<p>That is the whole job. Pick the base once, and the palette is ready. If you are working from a brand colour, type its HEX code and the palette you get is exactly that brand's family, not a lookalike. If you are starting from scratch, pick any colour that feels right and let the palette do the matching for you.</p>
+
+<div class="tip">
+<p><strong>Start from the colour you already have.</strong> If your logo, your slides, or your website already use a colour, that colour is your base. Type its HEX into the Color Picker and build the palette from it. A palette built from your existing colour will always match your existing work; a new colour picked at random will not.</p>
+</div>
+
+<h2>Build a simple five-colour palette from one colour</h2>
+<p>A full nine-step scale is useful, but most small projects need only five colours. Here is a reliable way to pick them from the scale above, using the #3B7DD8 family as the example.</p>
+<ol>
+<li><strong>Background:</strong> the 80 percent tint, #D8E5F7. Very light, so text sits comfortably on it, but still visibly blue, so the page does not look plain white.</li>
+<li><strong>Surface or card:</strong> the 60 percent tint, #B1CBEF. Slightly stronger than the background, so cards and panels stand out from the page behind them.</li>
+<li><strong>Accent:</strong> the base colour itself, #3B7DD8. Use it for buttons, links, and the one element on the page that should draw the eye.</li>
+<li><strong>Hover or active state:</strong> the 20 percent shade, #2F64AD. A little darker than the base, so a button visibly darkens when the mouse hovers over it, without changing colour.</li>
+<li><strong>Text:</strong> the 50 percent shade, #1E3E6C. Dark enough to read easily on white and on the light tints, and still blue, so the text belongs to the same family.</li>
+</ol>
+<p>Five colours, one base, no guesswork. Use the light tints for large areas, the base for the few things that must stand out, and the dark shades for text and for states like hover and pressed. If you need a sixth colour, add the 40 percent tint as a border or divider, or the 70 percent shade for a footer. Resist the urge to use all nine steps on one page: a palette is a set of roles, not a collection, and each colour should have a job.</p>
+
+<h2>Where to use shades and tints on a website</h2>
+<p>Each step of the scale has a natural job, and putting a step in the wrong job is how designs go wrong. Light tints, from 70 to 90 percent, are for backgrounds and large areas: page backgrounds, section backgrounds, and the fill behind a highlighted box. They are light enough that dark text reads well on them, and they add colour without competing with the content.</p>
+<p>Mid tints, from 30 to 60 percent, are for surfaces that sit on top of the background: cards, panels, badges, and table rows. They are strong enough to be noticed and light enough to carry dark text. The base colour itself is for accents: buttons, links, icons, and the one or two elements that should draw attention first. Because it is the strongest step, it should also be the rarest on the page.</p>
+<p>Dark shades are for text and for emphasis. A 50 percent shade of a blue is dark enough to read as text on white and on light tints. Deeper shades, from 70 to 90 percent, are for footers, for text that must have maximum contrast, and for the pressed state of a button. A button that darkens by one or two shade steps when clicked feels responsive, and the change is visible without any new colour being introduced.</p>
+<p>Hover states deserve a special mention, because they are the most common place a palette earns its keep. A button in the base colour that darkens to the 20 percent shade on hover tells the user it is clickable, and it does so with the same hue. A button that changes to a different colour on hover looks like a mistake. The same rule applies to links: a link in the base colour that darkens a shade on hover is enough.</p>
+
+<h2>The contrast rule: not every step works as text</h2>
+<p>A palette that looks good can still be unreadable, and the reason is contrast: how far apart the text colour and the background colour are. The Web Content Accessibility Guidelines, known as WCAG, ask for a contrast ratio of at least 4.5 to 1 for normal-sized text, and at least 3 to 1 for large text. A ratio of 1 to 1 means the text and the background are identical; higher is better.</p>
+<p>The base blue #3B7DD8 against white has a contrast ratio of about 4.1 to 1. That passes the large-text bar of 3 to 1, but it fails the normal-text bar of 4.5 to 1, so it is fine for a big heading and not good enough for body text. Its 50 percent shade, #1E3E6C, against white is about 10.6 to 1, which passes comfortably for any size of text. That is why the darker shade, not the base colour, is the right choice for body text in the palette above.</p>
+<p>The rule runs the other way too. White text on the base blue is also about 4.1 to 1, so a button with white text on a #3B7DD8 background is borderline for small text. White text on the 20 percent shade #2F64AD is stronger, and white text on the 50 percent shade is stronger still. When in doubt, darken the background a step or two, or darken the text a step or two, until the contrast is clearly comfortable. The Color Picker gives you the steps; the contrast rule tells you which step to use for text.</p>
+
+<h2>Common mistakes when making shades and tints</h2>
+<p><strong>Mixing with grey by accident.</strong> A tone, mixed with grey, is duller than a tint or a shade of the same depth. If your light blue looks washed out and grey, you have probably made a tone, not a tint. Tints stay vivid because only white is added; tones lose saturation because grey is added. If you want a bright, clean light blue, use a tint. Save tones for muted, dusty looks where dullness is the point.</p>
+<p><strong>Using too many steps.</strong> A nine-step scale is a tool for choosing, not a palette. A page that uses seven different blues looks messy, because the eye cannot tell which blue means what. Pick five steps, give each one a job, and leave the rest unused. The unused steps are still useful: they are there when a new job appears, like a new section or a new state.</p>
+<p><strong>Putting text on a mid-tone.</strong> The middle of a scale, around the base colour, is the worst place for text. Body text needs a dark shade on a light background, or white on a dark shade. Text in the base colour on a white background is usually too light, and text in a mid tint on a mid shade is usually too close together. Check the contrast before you publish, not after someone complains they cannot read it.</p>
+<p><strong>Changing hue instead of lightness.</strong> If you make a "lighter blue" by picking a different blue from a chart, you may have changed the hue as well as the lightness. The result is a blue that leans purple or green next to your brand blue, and the mismatch is visible even if nobody can name it. A true tint changes only the lightness, which is why it always matches.</p>
+<p><strong>Forgetting the hover state.</strong> A button with no hover state feels dead, and a button whose hover state is a different colour feels broken. Build the hover state from the same scale, one or two shade steps darker, and the interaction feels intentional.</p>
+<p><strong>Using a tint as a border.</strong> A 90 percent tint is so close to white that it disappears as a border on a white page. Borders need a step with enough strength to be seen, usually a 20 to 40 percent tint or a light shade. If the border is invisible, it is not a border.</p>
+
+<h2>The HSL shortcut and CSS color-mix</h2>
+<p>There is a second way to think about shades and tints, using HSL instead of RGB. HSL describes a colour by hue, saturation and lightness. The base blue #3B7DD8 is hue 215 degrees, saturation 67 percent, lightness 54 percent. To make a tint in HSL, keep the hue and saturation and raise the lightness. To make a shade, keep the hue and saturation and lower the lightness. The Color Picker shows the HSL values alongside HEX and RGB, so you can use whichever system you prefer. The RGB formulas above and the HSL lightness change describe the same idea in two notations, and the results are close, though not always identical, because the two systems mix colour differently.</p>
+<p>Modern CSS also has a built-in way to make tints and shades: the <code>color-mix()</code> function. Writing <code>color-mix(in srgb, #3B7DD8 80%, white)</code> mixes 80 percent of the base with 20 percent white, which is a 20 percent tint. Writing <code>color-mix(in srgb, #3B7DD8 80%, black)</code> gives a 20 percent shade. It is supported in current versions of the major browsers, and it is handy when you want the browser to calculate the steps. For a palette you plan to reuse across a site, though, fixed HEX values copied from the Color Picker are simpler: they work everywhere, in every browser, and in every design tool, with no CSS function needed.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>What is the difference between a shade and a tint?</h3>
+<p>A tint is a colour mixed with white, so it gets lighter. A shade is a colour mixed with black, so it gets darker. A tone is a colour mixed with grey, so it gets duller. All three start from the same base colour, and all three keep the same hue.</p>
+<h3>How do I make a tint of a colour?</h3>
+<p>Move each RGB channel toward 255, which is white. For a 20 percent tint, use new value = current value + (255 − current value) × 0.2 for each channel, and round to the nearest whole number. Or type the colour into TOOLZORQ's <a href="https://basr.me/tools/color-picker.html">Color Picker</a> and click the tint swatch you want.</p>
+<h3>How do I make a shade of a colour?</h3>
+<p>Move each RGB channel toward 0, which is black. For a 20 percent shade, multiply each channel by 0.8. For a 50 percent shade, multiply each channel by 0.5. Or use the Color Picker, which shows the shades as a palette you can copy from.</p>
+<h3>How many shades and tints should a palette have?</h3>
+<p>Five is enough for most small projects: a light background tint, a surface tint, the base colour as the accent, a darker shade for hover states, and a dark shade for text. More steps are available when you need them, but each colour on the page should have a job.</p>
+<h3>Can I use a tint for text?</h3>
+<p>Usually not. Light tints have too little contrast against a white background to read comfortably. Text should use a dark shade of the colour, or white text on a dark shade. The WCAG guide is a contrast ratio of at least 4.5 to 1 for normal text.</p>
+<h3>What is the HEX code for a tint or shade?</h3>
+<p>There is no single HEX code for "a tint" — the HEX depends on the base colour and the percentage. A 20 percent tint of #3B7DD8 is #6297E0, and a 20 percent shade is #2F64AD. Use the Color Picker to get the HEX for your own base colour at any step.</p>
+
+<h2>Quick checklist</h2>
+<ul>
+<li>Have you picked one base colour, and typed its HEX into the <a href="https://basr.me/tools/color-picker.html">Color Picker</a>?</li>
+<li>Have you chosen five steps from its scale and given each one a job — background, surface, accent, hover, text?</li>
+<li>Is your body text a dark shade, with a contrast ratio of at least 4.5 to 1 against its background?</li>
+<li>Does your button darken by one or two shade steps on hover, instead of changing colour?</li>
+<li>Have you avoided tones where you wanted tints, so your light colours stay vivid?</li>
+<li>Are you using five colours, not nine, so each colour on the page has a clear purpose?</li>
+</ul>
+<p>A good palette is not a talent; it is a method. One colour, mixed with white for tints and black for shades, gives you every step you need, and every step matches because it came from the same base. Start with the colour you already have, build its scale with the <a href="https://basr.me/tools/color-picker.html">Color Picker</a>, pick five steps with five jobs, and check the contrast on your text. For more practical guides to TOOLZORQ's free tools, see the <a href="https://basr.me/guides/">guides index</a>, or try the <a href="https://basr.me/tools/image-compressor.html">Image Compressor</a> to shrink the images that carry your new palette.</p>
+<footer>
+  <p>More free tools at <a href="https://basr.me/">TOOLZORQ</a>.</p>
+</footer>
+</body>
+</html>
