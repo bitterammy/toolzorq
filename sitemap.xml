@@ -236,7 +236,7 @@
   </url>
   <url>
     <loc>https://basr.me/guides/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -357,6 +357,12 @@
   <url>
     <loc>https://basr.me/guides/change-text-to-uppercase-lowercase-title-case.html</loc>
     <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://basr.me/guides/how-much-do-youtubers-earn-per-1000-views.html</loc>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
