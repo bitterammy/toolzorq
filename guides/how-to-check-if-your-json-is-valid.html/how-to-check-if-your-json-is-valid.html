@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Check If Your JSON Is Valid — and Fix the 7 Errors That Break It | TOOLZORQ Guides</title>
+<meta name="description" content="How to check if JSON is valid: paste it into a free JSON validator, fix the error it reports, and re-check. Step-by-step guide plus the 7 errors that break JSON.">
+<link rel="canonical" href="https://basr.me/guides/how-to-check-if-your-json-is-valid.html">
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 24px 20px 48px; }
+  h1 { line-height: 1.3; }
+  h2 { margin-top: 32px; }
+  h3 { margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
+  th { background: #f2f6fb; }
+  .tip { background: #f2f6fb; border-left: 4px solid #3b7dd8; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  .answer { background: #f6fbf2; border-left: 4px solid #4a9e4d; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  footer { margin-top: 40px; font-size: 14px; color: #666; border-top: 1px solid #ddd; padding-top: 16px; }
+  a { color: #1a56a0; }
+</style>
+</head>
+<body>
+<p><a href="https://basr.me/">← All TOOLZORQ tools</a> · <a href="https://basr.me/guides/">More guides</a></p>
+
+<h1>How to Check If Your JSON Is Valid — and Fix the 7 Errors That Break It</h1>
+
+<div class="answer">
+<p><strong>Short answer:</strong> to check if your JSON is valid, paste it into a JSON validator such as TOOLZORQ's free <a href="https://basr.me/tools/json-formatter.html">JSON Formatter</a> and click Validate. If it is valid, the tool will accept it; if it is not, fix the reported error — usually a stray comma, single quotes, or an unquoted key — and check again.</p>
+</div>
+
+<p>JSON is the plain-text format that carries data between systems: from a server to a web page, from one app to another, from a configuration file into a program. It looks simple — curly braces, square brackets, a few colons and commas — and that is exactly why it is so easy to break. One comma in the wrong place, one quote mark facing the wrong way, and the whole document is rejected.</p>
+
+<p>This guide explains how to check if your JSON is valid, how to read the result, and how to fix the seven errors that cause almost every failure. It uses TOOLZORQ's free <a href="https://basr.me/tools/json-formatter.html">JSON Formatter</a> throughout, which runs entirely in your browser with no sign-up.</p>
+
+<h2>What is JSON, and what does "valid" mean?</h2>
+<p>JSON stands for JavaScript Object Notation. It is a text format for storing and exchanging structured data, built from a small set of pieces: objects (key-value pairs inside curly braces), arrays (ordered lists inside square brackets), strings (text inside double quotes), numbers, and three special values — true, false, and null. A small example shows all of them at once:</p>
+<pre><code>{
+  "name": "Aisha Khan",
+  "age": 34,
+  "subscribed": true,
+  "tags": ["reading", "cycling"],
+  "address": null
+}</code></pre>
+<p>The rules for JSON are written down in a standard called RFC 8259, published by the Internet Engineering Task Force. "Valid" simply means the text follows those rules exactly. A computer reading JSON cannot guess what you meant or work around a mistake: if the text breaks even one rule, the whole document is invalid, and the program that tried to read it will stop and report an error.</p>
+<p>Valid JSON is not the same as sensible JSON. A validator checks the shape of the text, not its meaning. This is valid JSON, even though a negative price and a stock status of "maybe" are plainly wrong as data:</p>
+<pre><code>{ "price": -50, "in_stock": "maybe" }</code></pre>
+<p>Checking validity is the first step: it tells you the document is readable. Whether the data inside it is correct is a separate question, and one only a person can answer.</p>
+
+<h2>How to check JSON with TOOLZORQ's JSON Formatter</h2>
+<p>The <a href="https://basr.me/tools/json-formatter.html">JSON Formatter</a> is a free tool that runs entirely in your browser. You paste your JSON in, and it can format it, shrink it, or check it. There is no sign-up, and nothing you paste is uploaded anywhere. Here is the whole process:</p>
+<ol>
+<li>Copy your JSON text from wherever it came from — an API response, a configuration file, a message from a colleague, a piece of code.</li>
+<li>Open the <a href="https://basr.me/tools/json-formatter.html">JSON Formatter</a> and paste the text into the input box.</li>
+<li>Click Validate. The tool checks the text against the JSON rules and tells you whether it is valid.</li>
+<li>If it is valid, you can click Format to beautify it — the tool rewrites it with clean indentation so it is easy to read — or Minify to shrink it to one compact line.</li>
+<li>If it is not valid, read the error, find the problem in your text, fix it, and click Validate again. Repeat until it passes.</li>
+</ol>
+<p>That loop — check, fix, check again — is the whole workflow, and the next section covers what to look for.</p>
+<div class="tip">
+<strong>A validator reports the first error it finds, not every error.</strong> Fix that one, then validate again — a second mistake may be hiding behind the first.
+</div>
+
+<h2>The 7 errors that break JSON</h2>
+<p>Almost every invalid JSON document fails for one of seven reasons. Learn to spot them and you will fix most broken JSON in seconds.</p>
+
+<h3>1. Trailing comma</h3>
+<p>The commonest error of all. A comma after the last item in an object or array looks natural — it is allowed in JavaScript and Python — but JSON forbids it. The rule is simple: commas separate items; they never follow the last one.</p>
+<pre><code>{
+  "name": "Aisha",
+  "age": 34,
+}</code></pre>
+<p><strong>The fix:</strong> delete the comma after the last item.</p>
+<pre><code>{
+  "name": "Aisha",
+  "age": 34
+}</code></pre>
+
+<h3>2. Single quotes instead of double quotes</h3>
+<p>JSON strings must use double quotes. Single quotes are valid in JavaScript and Python, so anyone writing JSON from memory reaches for them — and JSON rejects them.</p>
+<pre><code>{ 'name': 'Aisha', 'age': 34 }</code></pre>
+<p><strong>The fix:</strong> replace every single quote with a double quote.</p>
+<pre><code>{ "name": "Aisha", "age": 34 }</code></pre>
+<p>Be careful with text that contains an apostrophe, such as "O'Brien". Inside a double-quoted string the apostrophe is fine as it is: <code>"name": "O'Brien"</code> is valid JSON.</p>
+
+<h3>3. Unquoted keys</h3>
+<p>In JSON, every key in an object must be a string in double quotes. JavaScript allows unquoted keys in object literals, which is why this mistake is so easy to make when copying code into a JSON file.</p>
+<pre><code>{ name: "Aisha", age: 34 }</code></pre>
+<p><strong>The fix:</strong> put double quotes around every key.</p>
+<pre><code>{ "name": "Aisha", "age": 34 }</code></pre>
+<pre><code>{ "name": "Aisha", "age": 34 }</code></pre>
+<p>If you are copying a JavaScript object into a JSON file, this is the first thing to check. The values may be fine; the keys are where the error hides.</p>
+
+<h3>4. Comments in the JSON</h3>
+<p>JSON has no comments. The <code>//</code> and <code>/* */</code> comment styles from JavaScript and other languages are not part of the JSON standard, and a validator will reject any document that contains them.</p>
+<pre><code>{
+  "name": "Aisha", // user's full name
+  "age": 34
+}</code></pre>
+<p><strong>The fix:</strong> remove the comments entirely before checking or sending the JSON.</p>
+<pre><code>{
+  "name": "Aisha",
+  "age": 34
+}</code></pre>
+<p>If you need to leave a note, put it outside the JSON. Some configuration formats that look like JSON, such as JSONC or JSON5, do allow comments, but plain JSON does not.</p>
+
+<h3>5. Missing comma between items</h3>
+<p>Every item in an object or array must be separated from the next by a comma. Miss one, and the validator stops at the point where the comma should have been.</p>
+<pre><code>{
+  "name": "Aisha"
+  "age": 34
+}</code></pre>
+<p><strong>The fix:</strong> add the missing comma after each item except the last.</p>
+<pre><code>{
+  "name": "Aisha",
+  "age": 34
+}</code></pre>
+<p>This error often appears after editing: you add a new line to an object and forget the comma on the line above it.</p>
+
+<h3>6. Mismatched brackets and braces</h3>
+<p>Every opening brace <code>{</code> needs a closing brace <code>}</code>, and every opening bracket <code>[</code> needs a closing bracket <code>]</code>. They must also close in the right order: the last one opened is the first one closed, like nested boxes. A missing or misplaced closing character breaks the whole document.</p>
+<pre><code>{
+  "name": "Aisha",
+  "tags": ["reading", "cycling"
+}</code></pre>
+<p><strong>The fix:</strong> close each bracket and brace in the correct order.</p>
+<pre><code>{
+  "name": "Aisha",
+  "tags": ["reading", "cycling"]
+}</code></pre>
+<p>This is the hardest of the seven to spot by eye in a long document. Work through the structure from the outside in: count the opening braces and brackets, count the closing ones, and find the pair that does not match.</p>
+
+<h3>7. Wrong values: True, None, undefined, NaN, and Infinity</h3>
+<p>JSON has exactly three special values: <code>true</code>, <code>false</code>, and <code>null</code>, all written in lower case. Values from other languages look similar but are not JSON, and a validator rejects them all.</p>
+<pre><code>{ "active": True, "score": NaN, "note": undefined }</code></pre>
+<p><strong>The fix:</strong> use the JSON forms. Python's <code>True</code> and <code>False</code> become <code>true</code> and <code>false</code>; Python's <code>None</code> becomes <code>null</code>. <code>undefined</code> has no JSON equivalent — use <code>null</code> or leave the key out. <code>NaN</code> and <code>Infinity</code> are not allowed in JSON at all; use <code>null</code>, a number, or a string instead.</p>
+<pre><code>{ "active": true, "score": null, "note": null }</code></pre>
+<p>This error almost always comes from copying data out of another language. Python dictionaries use <code>True</code>, <code>False</code>, and <code>None</code>; JavaScript code uses <code>undefined</code>. None of those are JSON, even though the surrounding shape looks identical.</p>
+
+<h3>Summary table: the 7 errors at a glance</h3>
+<table>
+<tr><th>Error</th><th>What it looks like</th><th>The fix</th></tr>
+<tr><td>Trailing comma</td><td><code>"age": 34,</code> before <code>}</code></td><td>Delete the comma after the last item</td></tr>
+<tr><td>Single quotes</td><td><code>'name': 'Aisha'</code></td><td>Use double quotes for all strings</td></tr>
+<tr><td>Unquoted keys</td><td><code>{ name: "Aisha" }</code></td><td>Put double quotes around every key</td></tr>
+<tr><td>Comments</td><td><code>// note</code> inside the JSON</td><td>Remove comments entirely</td></tr>
+<tr><td>Missing comma</td><td>Two items with no comma between them</td><td>Add a comma after each item except the last</td></tr>
+<tr><td>Mismatched brackets</td><td><code>{</code> or <code>[</code> left unclosed</td><td>Close every bracket and brace in the right order</td></tr>
+<tr><td>Wrong values</td><td><code>True</code>, <code>None</code>, <code>undefined</code>, <code>NaN</code></td><td>Use <code>true</code>, <code>false</code>, and <code>null</code></td></tr>
+</table>
+
+<h2>Format vs Minify: when to use each</h2>
+<p>Once your JSON is valid, the <a href="https://basr.me/tools/json-formatter.html">JSON Formatter</a> gives you two ways to present it: Format and Minify. They change how the text looks, not what it means — both outputs describe exactly the same data.</p>
+<p><strong>Format</strong> beautifies the JSON: it adds line breaks and indentation so each key and value sits on its own line and nested structures are easy to follow. Use it when a person needs to read the JSON — when you are debugging, reviewing an API response, or checking a configuration file by eye.</p>
+<p><strong>Minify</strong> does the opposite: it removes every space, line break, and indentation that is not needed, compressing the whole document onto one line. The result is smaller and faster to send over a network, which is why minified JSON is what machines usually exchange. Use it when you need to paste JSON into a field with a size limit or send it in a request.</p>
+<p>When you format, you also choose the indent spacing — how many spaces each level of nesting is pushed in by. Two spaces is the commonest choice and keeps the document compact; four spaces is easier to read when the nesting runs deep. There is no right answer, only the one that reads best for you and your team. Pick one spacing and use it consistently. If you are contributing to an existing project, match the spacing that project already uses.</p>
+<p>One warning: formatting or minifying only works on valid JSON. If the document has an error, fix it first — the Format and Minify buttons cannot repair broken text. Validation comes first; presentation comes second.</p>
+
+<h2>Where JSON breaks in real life</h2>
+<p>JSON rarely breaks in a textbook. It breaks in the middle of real work, usually in one of four places.</p>
+<p><strong>API responses.</strong> A program asks a server for data and gets JSON back — or gets something that is almost JSON. The commonest failure is a server returning an error page written in HTML instead of the expected JSON. If your validator rejects a whole API response, look at the first few characters: if they are <code>&lt;!DOCTYPE</code> or <code>&lt;html&gt;</code>, the server sent an error page, and the problem is on the server side, not in your JSON.</p>
+<p><strong>Configuration files.</strong> Many programs read their settings from JSON files, and a single typing mistake can stop the program from starting at all. This is where trailing commas and comments cause the most trouble, because people edit config files by hand. After editing a config file, validate it before restarting the program — it takes ten seconds.</p>
+<p><strong>JavaScript object literals.</strong> JavaScript objects look like JSON but follow looser rules: single quotes, unquoted keys, trailing commas, comments, and <code>undefined</code> are all fine in a JavaScript object literal. That makes copying code into a JSON file a reliable way to produce invalid JSON. If your JSON came from JavaScript code, check it against the seven errors above before anything else, starting with the quotes and the keys.</p>
+<p><strong>Python dictionaries.</strong> The same trap exists in Python. A Python dictionary printed out looks almost identical to JSON, but it uses <code>True</code>, <code>False</code>, and <code>None</code> where JSON needs <code>true</code>, <code>false</code>, and <code>null</code>, and it allows single quotes and trailing commas. The correct way to turn a Python dictionary into JSON is to use Python's own JSON tools, which produce proper JSON; copying printed output by hand is not it.</p>
+<p>In all four cases the fix is the same: validate the exact text, find the first error, fix it, and validate again.</p>
+
+<h2>Your JSON is private: nothing leaves your browser</h2>
+<p>JSON often carries sensitive data — API keys, user records, private settings, tokens. TOOLZORQ's <a href="https://basr.me/tools/json-formatter.html">JSON Formatter</a> runs entirely in your browser: the text you paste never leaves your device, is never sent to a server, and is never stored. You can safely validate a configuration file containing a password or an API response containing a token, because no copy of it travels anywhere.</p>
+<p>If you are validating a document that contains a live secret — a real API key or password — replace it with a placeholder such as <code>REDACTED</code> before pasting, and put the real value back afterwards. The validator only checks the shape of the text, so a placeholder validates exactly the same way.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>How do I check if my JSON is valid?</h3>
+<p>Paste it into a JSON validator such as TOOLZORQ's free <a href="https://basr.me/tools/json-formatter.html">JSON Formatter</a> and click Validate. The tool checks the text against the JSON rules and reports whether it is valid. If it is not, fix the first error it reports and validate again until it passes.</p>
+<h3>What is the most common JSON error?</h3>
+<p>A trailing comma — a comma after the last item in an object or array. It is allowed in JavaScript and Python, so people type it without thinking, but JSON forbids it. If a validator points at a closing brace or bracket, check the character just before it for a stray comma.</p>
+<h3>Can JSON contain comments?</h3>
+<p>No. Plain JSON has no comments, and the <code>//</code> and <code>/* */</code> styles from other languages will make a document invalid. If you need to leave a note, put it outside the JSON. Formats such as JSONC and JSON5 do allow comments, but they are not plain JSON.</p>
+<h3>Why does JSON need double quotes?</h3>
+<p>Because the JSON standard, RFC 8259, says so: strings and keys must be written in double quotes. Single quotes are valid in JavaScript and Python, which is why people use them by habit, but a JSON parser will reject them.</p>
+<h3>What is the difference between Format and Minify?</h3>
+<p>Format adds line breaks and indentation so a person can read the JSON easily; Minify removes all unnecessary spaces and line breaks so the file is as small as possible. Both describe the same data. Neither can fix invalid JSON; validate first.</p>
+<h3>Is TOOLZORQ's JSON Formatter free, and does it upload my data?</h3>
+<p>Yes, it is free, with no sign-up, and it runs entirely in your browser. Nothing you paste is uploaded to a server or stored anywhere, so private data and tokens never leave your device.</p>
+
+<footer>
+<p>Related guides: <a href="https://basr.me/guides/script-word-count-reading-time.html">How to Check Your Script's Word Count and Reading Time Before You Record</a> · <a href="https://basr.me/guides/change-text-to-uppercase-lowercase-title-case.html">How to Change Text to Uppercase, Lowercase, or Title Case</a> · <a href="https://basr.me/guides/remove-line-breaks-pdf-text.html">How to Remove Line Breaks from PDF Text</a>. Related tools: <a href="https://basr.me/tools/json-formatter.html">JSON Formatter</a> · <a href="https://basr.me/tools/word-counter.html">Word Counter</a> · <a href="https://basr.me/tools/case-converter.html">Case Converter</a> · <a href="https://basr.me/tools/text-cleaner.html">Text Cleaner</a>.</p>
+<p>TOOLZORQ Guides — practical guides to the free tools at <a href="https://basr.me/">basr.me</a>. Every tool runs in your browser, with no sign-up.</p>
+</footer>
+</body>
+</html>
