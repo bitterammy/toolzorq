@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Calculate Compound Interest — Formula, Worked Examples and Monthly vs Yearly Compounding | TOOLZORQ Guides</title>
+<meta name="description" content="Learn how to calculate compound interest with the formula A = P(1 + r/n)^(nt), step-by-step worked examples, monthly contributions, and a comparison of yearly, quarterly, monthly and daily compounding.">
+<link rel="canonical" href="https://basr.me/guides/how-to-calculate-compound-interest.html">
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 24px 20px 48px; }
+  h1 { line-height: 1.3; }
+  h2 { margin-top: 32px; }
+  h3 { margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
+  th { background: #f2f6fb; }
+  .tip { background: #f2f6fb; border-left: 4px solid #3b7dd8; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  .answer { background: #f6fbf2; border-left: 4px solid #4a9e4d; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  footer { margin-top: 40px; font-size: 14px; color: #666; border-top: 1px solid #ddd; padding-top: 16px; }
+  a { color: #1a56a0; }
+</style>
+</head>
+<body>
+<p><a href="https://basr.me/">← All TOOLZORQ tools</a> · <a href="https://basr.me/guides/">More guides</a></p>
+
+<h1>How to Calculate Compound Interest — Formula, Worked Examples and Monthly vs Yearly Compounding</h1>
+
+<div class="answer">
+<p><strong>Short answer:</strong> to calculate compound interest, use A = P(1 + r/n)^(nt), where P is the starting amount, r is the yearly rate as a decimal, n is how many times a year interest compounds, and t is the number of years. A is the final balance; subtract P to get the interest earned. For monthly saving, add the future value of your regular contributions on top.</p>
+</div>
+
+<p>Compound interest is the reason small, regular saving turns into serious money over time — and the reason a loan left unpaid grows faster than people expect. The idea is simple: interest is paid not only on the money you started with, but also on the interest already earned. This guide shows you how to calculate compound interest step by step, with worked examples you can check, a comparison of yearly, quarterly, monthly and daily compounding, and the monthly-contribution maths behind TOOLZORQ's free <a href="https://basr.me/tools/compound-interest-calculator.html">Compound Interest Calculator</a>, which runs entirely in your browser with no sign-up.</p>
+
+<h2>What is compound interest?</h2>
+<p>Compound interest is interest calculated on the original amount plus all the interest that has already been added. When interest is added to your balance, it becomes part of the balance, so the next round of interest is calculated on a larger figure. That snowball effect is what separates compound interest from simple interest.</p>
+<p>Simple interest is calculated only on the original amount, every time. If you put $10,000 in an account paying 5% simple interest for 10 years, you earn $500 a year — $5,000 in total, and your balance ends at $15,000. With compound interest at the same 5%, compounded yearly, the same $10,000 grows to $16,288.95. The difference — $1,288.95 — is interest earned on interest. Over longer periods the gap grows much wider, which is why starting early matters more than saving large amounts late.</p>
+<p>The same maths works in reverse on debts: a loan balance that compounds unpaid grows the same way, which is why paying more than the minimum on a loan matters.</p>
+
+<h2>What is the compound interest formula?</h2>
+<p>The standard compound interest formula is:</p>
+<p><strong>A = P × (1 + r/n)^(n × t)</strong></p>
+<p>Each letter means:</p>
+<table>
+<tr><th>Symbol</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>A</td><td>The final amount, interest included</td><td>The balance after t years</td></tr>
+<tr><td>P</td><td>The principal — the money you start with</td><td>$10,000</td></tr>
+<tr><td>r</td><td>The yearly interest rate, written as a decimal</td><td>5% = 0.05</td></tr>
+<tr><td>n</td><td>How many times a year interest compounds</td><td>12 for monthly, 4 for quarterly, 1 for yearly</td></tr>
+<tr><td>t</td><td>The number of years the money is left to grow</td><td>10 years</td></tr>
+</table>
+<p>The interest earned is simply A − P: the final amount minus what you started with. The term (1 + r/n) is the growth factor for one compounding period, and the exponent (n × t) is the total number of periods: for monthly compounding over 10 years, that is 120 periods.</p>
+<p>The value of n depends on how often interest is added:</p>
+<table>
+<tr><th>Compounding</th><th>n</th><th>Periods in 10 years</th></tr>
+<tr><td>Yearly</td><td>1</td><td>10</td></tr>
+<tr><td>Half-yearly</td><td>2</td><td>20</td></tr>
+<tr><td>Quarterly</td><td>4</td><td>40</td></tr>
+<tr><td>Monthly</td><td>12</td><td>120</td></tr>
+<tr><td>Daily</td><td>365</td><td>3,650</td></tr>
+</table>
+<div class="tip">
+<strong>Convert the rate first.</strong> The most common mistake in this formula is using 5 instead of 0.05. Always divide the percentage by 100 before you put it in: 5% becomes 0.05, 7% becomes 0.07, and 3.5% becomes 0.035.
+</div>
+
+<h2>How to calculate compound interest step by step</h2>
+<p>Work through the formula in this order, and check each step before moving on:</p>
+<p><strong>Step 1: Write down P, r, n and t.</strong> Decide the starting amount, the yearly rate as a decimal, how many times a year interest compounds, and the number of years. For example: P = $10,000, r = 0.05, n = 12, t = 10.</p>
+<p><strong>Step 2: Work out the rate per period.</strong> Divide the yearly rate by n. For monthly compounding at 5%, that is 0.05 ÷ 12 = 0.0041667 per month.</p>
+<p><strong>Step 3: Work out the number of periods.</strong> Multiply n by t. For monthly compounding over 10 years, that is 12 × 10 = 120 periods.</p>
+<p><strong>Step 4: Raise the growth factor to the number of periods.</strong> Calculate (1 + r/n)^(n × t). For our example, (1.0041667)^120 = 1.647009.</p>
+<p><strong>Step 5: Multiply by the principal.</strong> A = $10,000 × 1.647009 = $16,470.09. The interest earned is $16,470.09 − $10,000 = $6,470.09.</p>
+<p>Use a calculator for step 4 — raising a number to the 120th power is not hand arithmetic. In a spreadsheet, the same calculation is =10000*(1+0.05/12)^(12*10).</p>
+
+<h2>Worked example 1: $10,000 at 5% for 10 years, compounded monthly</h2>
+<p>P = $10,000, r = 0.05, n = 12, t = 10. A = 10,000 × (1 + 0.05/12)^(12 × 10) = 10,000 × (1.0041667)^120 = $16,470.09. You earn $6,470.09 in interest. With simple interest you would earn only $5,000, so compounding adds $1,470.09 over the ten years — and the advantage keeps growing the longer the money stays invested.</p>
+<p>The same $10,000 at the same 5% for the same 10 years ends at a different figure depending on how often interest compounds:</p>
+<table>
+<tr><th>Compounding</th><th>Final balance</th><th>Interest earned</th></tr>
+<tr><td>Yearly (n = 1)</td><td>$16,288.95</td><td>$6,288.95</td></tr>
+<tr><td>Quarterly (n = 4)</td><td>$16,436.19</td><td>$6,436.19</td></tr>
+<tr><td>Monthly (n = 12)</td><td>$16,470.09</td><td>$6,470.09</td></tr>
+<tr><td>Daily (n = 365)</td><td>$16,486.65</td><td>$6,486.65</td></tr>
+</table>
+<p>More frequent compounding always pays a little more, but the difference is smaller than most people expect: daily compounding beats yearly compounding by only $197.70 on $10,000 over ten years. The rate and the time matter far more than the compounding frequency.</p>
+
+<h2>Worked example 2: $1,000 at 3% compounded monthly for one year</h2>
+<p>Small amounts show the month-by-month snowball clearly. P = $1,000, r = 0.03, n = 12, t = 1. The monthly rate is 0.03 ÷ 12 = 0.0025, or 0.25% a month. In the first month you earn $1,000 × 0.0025 = $2.50, and the balance becomes $1,002.50. In the second month you earn $2.51, and the balance becomes $1,005.01. By the twelfth month the balance is $1,030.42, so the year earns $30.42 of interest — slightly more than the $30.00 simple interest would pay, because each month's interest earns interest in the months after it.</p>
+<table>
+<tr><th>Month</th><th>Starting balance</th><th>Interest earned</th><th>Ending balance</th></tr>
+<tr><td>1</td><td>$1,000.00</td><td>$2.50</td><td>$1,002.50</td></tr>
+<tr><td>2</td><td>$1,002.50</td><td>$2.51</td><td>$1,005.01</td></tr>
+<tr><td>3</td><td>$1,005.01</td><td>$2.51</td><td>$1,007.52</td></tr>
+<tr><td>12</td><td>$1,027.85</td><td>$2.57</td><td>$1,030.42</td></tr>
+</table>
+<p>Notice that the interest earned creeps up each month — $2.50, then $2.51, then $2.57 by month 12 — because the balance it is calculated on keeps growing.</p>
+
+<h2>Worked example 3: $3,000 at 3% compounded quarterly for 10 years</h2>
+<p>Quarterly compounding suits savings accounts and certificates of deposit that pay interest four times a year. P = $3,000, r = 0.03, n = 4, t = 10. A = 3,000 × (1 + 0.03/4)^(4 × 10) = 3,000 × (1.0075)^40 = $4,045.05, earning $1,045.05 in interest. The same $3,000 compounded yearly at 3% would reach only $4,031.75, so quarterly compounding adds $13.30 — a small gain, but a real one.</p>
+
+<h2>Worked example 4: $5,000 at 4% compounded yearly for 5 years</h2>
+<p>Yearly compounding is the simplest case, because n = 1 and the formula shortens to A = P × (1 + r)^t. P = $5,000, r = 0.04, t = 5. A = 5,000 × (1.04)^5 = $6,083.26, earning $1,083.26 in interest. Year by year, the balance goes $5,200.00, $5,408.00, $5,624.32, $5,849.29, then $6,083.26 — each year's interest is 4% of a balance that is itself bigger than the year before.</p>
+
+<h2>How to calculate compound interest with monthly contributions</h2>
+<p>Most savers do not invest a lump sum once and walk away — they add money every month. Regular contributions need a second part in the formula, because each monthly payment compounds for a different length of time. The future value of equal monthly payments, each added at the end of the month, is:</p>
+<p><strong>FV = PMT × ((1 + i)^N − 1) ÷ i</strong></p>
+<p>Here PMT is the monthly payment, i is the monthly rate (the yearly rate divided by 12), and N is the total number of payments. If you also start with a lump sum, add the two parts together: the lump sum grown by the first formula, plus the contributions grown by this one. Take $200 a month at 7% a year — the monthly rate is 0.07 ÷ 12 = 0.0058333, and over 30 years there are 360 payments:</p>
+<table>
+<tr><th>After</th><th>You paid in</th><th>Balance</th><th>Interest earned</th></tr>
+<tr><td>1 year</td><td>$2,400</td><td>$2,478.52</td><td>$78.52</td></tr>
+<tr><td>5 years</td><td>$12,000</td><td>$14,318.58</td><td>$2,318.58</td></tr>
+<tr><td>10 years</td><td>$24,000</td><td>$34,616.96</td><td>$10,616.96</td></tr>
+<tr><td>20 years</td><td>$48,000</td><td>$104,185.33</td><td>$56,185.33</td></tr>
+<tr><td>30 years</td><td>$72,000</td><td>$243,994.20</td><td>$171,994.20</td></tr>
+</table>
+<p>The pattern is the whole point of compound interest. After 10 years, interest is less than half of what you paid in. After 30 years, interest is more than double what you paid in — $171,994.20 of growth on $72,000 of contributions. The last ten years add $139,808.87 to the balance, while the first ten years added only $34,616.96. Time does the heavy lifting, which is why the best moment to start is as early as possible.</p>
+<p>Two more combinations, worked the same way. <strong>$500 a month at 6% for 20 years:</strong> the monthly rate is 0.005, and there are 240 payments. FV = 500 × ((1.005)^240 − 1) ÷ 0.005 = $231,020.45. You pay in $120,000 and earn $111,020.45 of interest.</p>
+<p><strong>$10,000 to start, plus $200 a month, at 7% for 10 years:</strong> the lump sum grows to $10,000 × (1.0058333)^120 = $20,096.61, and the contributions grow to $34,616.96. Added together, the balance after ten years is $54,713.58.</p>
+<div class="tip">
+<strong>End of the month matters.</strong> The figures above assume each contribution is added at the end of the month, so it starts earning interest the following month. TOOLZORQ's Compound Interest Calculator uses the same convention, and says so on the tool page — that is why its $200-a-month, 7%, one-year example comes out at $2,478.52 rather than a slightly higher figure.
+</div>
+
+<h2>How much does compounding frequency really matter?</h2>
+<p>It matters, but less than the rate and the time. The table in the first worked example showed daily compounding beating yearly compounding by under $200 on $10,000 over ten years. Compare that with changing the rate: $10,000 at 7% compounded monthly for 10 years grows to $20,096.61 — over $3,600 more than at 5%. And compare changing the time: $10,000 at 5% compounded monthly for 20 years grows to $27,126.40, more than $10,000 above the ten-year figure.</p>
+<p>One place frequency does matter is the gap between the advertised rate and the effective annual rate. An account advertising 5% compounded monthly actually grows your money by 5.116% a year, because the monthly additions compound within the year. The effective annual rate is (1 + r/n)^n − 1. Comparing effective annual rates, rather than headline rates, is the honest way to compare two accounts with different compounding frequencies.</p>
+
+<h2>How long until my money doubles? The rule of 72</h2>
+<p>For a quick estimate, divide 72 by the yearly rate: that is roughly how many years it takes for money to double. At 7%, money doubles in about 72 ÷ 7 = 10.3 years. The exact figure for yearly compounding is ln(2) ÷ ln(1.07) = 10.24 years, so the rule is close. At 5%, doubling takes about 14.4 years; at 10%, about 7.2 years; at 3%, about 24 years.</p>
+<p>The rule of 72 also works in reverse: to double your money in 10 years, you need a rate of about 72 ÷ 10 = 7.2% a year. It is an estimate, not a promise — it assumes a fixed rate that never changes, and real returns vary.</p>
+
+<h2>How to use TOOLZORQ's Compound Interest Calculator</h2>
+<p>If you would rather not do the arithmetic by hand, TOOLZORQ's free <a href="https://basr.me/tools/compound-interest-calculator.html">Compound Interest Calculator</a> does the same calculation for you — free, with no sign-up, entirely in your browser.</p>
+<ol>
+<li>Open the <a href="https://basr.me/tools/compound-interest-calculator.html">Compound Interest Calculator</a>.</li>
+<li>Enter the starting amount — put 0 if you are starting from nothing.</li>
+<li>Enter the monthly contribution, the annual interest rate and the number of years.</li>
+<li>Press Calculate — the future value, total contributed and interest earned appear, with a year-by-year table showing the balance at the end of each year.</li>
+</ol>
+<p>The calculator compounds monthly at the annual rate divided by 12, and adds each monthly contribution at the end of the month — the same conventions used in the worked examples above, so you can check its results against this guide. Try the example from the tool page: $200 a month at 7% for 1 year gives $2,478.52, with $2,400 contributed and $78.52 of interest. The result is a projection at the fixed rate you enter — not a guarantee. Real rates change, so treat the figure as a plan, not a promise. Your numbers stay in your browser and are never uploaded anywhere.</p>
+
+<h2>Common mistakes when calculating compound interest</h2>
+<p><strong>Using the percentage instead of the decimal.</strong> Putting 5 into the formula instead of 0.05 gives a nonsense answer. Divide by 100 first, every time.</p>
+<p><strong>Forgetting the contributions.</strong> The basic formula only grows a lump sum. If you save monthly, you must add the future value of the contributions, or your answer will be far too low — $10,000 at 7% for 10 years is $20,096.61, but adding $200 a month takes it to $54,713.58.</p>
+<p><strong>Assuming the rate is fixed forever.</strong> The formula assumes one unchanging rate. Savings rates move and investment returns vary, so re-run the calculation when your rate changes.</p>
+<p><strong>Ignoring tax and fees.</strong> Interest is often taxed, and accounts charge fees. The formula shows growth before those deductions, so the amount you actually keep will be lower.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>How do I calculate compound interest?</h3>
+<p>Use A = P(1 + r/n)^(nt): divide the yearly rate by the number of compounding periods per year, add 1, raise to the total number of periods, and multiply by the starting amount. For monthly saving, add the future value of the contributions as well.</p>
+<h3>What is the compound interest formula with monthly contributions?</h3>
+<p>Combine two parts: the lump sum grown by A = P(1 + r/12)^(12 × t), plus the contributions grown by PMT × ((1 + r/12)^(12 × t) − 1) ÷ (r/12). TOOLZORQ's free <a href="https://basr.me/tools/compound-interest-calculator.html">Compound Interest Calculator</a> does both parts at once.</p>
+<h3>How much will $10,000 be worth at 5% compounded monthly for 10 years?</h3>
+<p>$16,470.09, earning $6,470.09 in interest. Compounded yearly instead it would be $16,288.95, and with simple interest only $15,000.</p>
+<h3>How much is $200 a month at 7% worth after 30 years?</h3>
+<p>$243,994.20. You pay in $72,000 and earn $171,994.20 of interest, because the contributions compound monthly for 360 months.</p>
+<h3>What is the rule of 72?</h3>
+<p>Divide 72 by the yearly interest rate to estimate how many years it takes for money to double. At 7%, money doubles in about 10.3 years; at 5%, in about 14.4 years.</p>
+
+<footer>
+<p>Related guides: <a href="https://basr.me/guides/loan-emi-calculator-guide.html">How to Work Out Your Loan EMI Before You Borrow</a> · <a href="https://basr.me/guides/how-to-work-out-a-percentage-increase-or-decrease.html">How to Work Out a Percentage Increase or Decrease — Step by Step with Worked Examples</a> · <a href="https://basr.me/guides/how-to-work-out-hourly-wage-as-yearly-salary.html">How to Work Out Your Hourly Wage as a Yearly Salary</a> · <a href="https://basr.me/guides/how-to-calculate-the-value-of-your-gold.html">How to Calculate the Value of Your Gold: Karat, Weight, Tola and the Melt-Value Formula</a>. Related tools: <a href="https://basr.me/tools/compound-interest-calculator.html">Compound Interest Calculator</a> · <a href="https://basr.me/tools/loan-emi-calculator.html">Loan EMI Calculator</a> · <a href="https://basr.me/tools/percentage-calculator.html">Percentage Calculator</a>.</p>
+<p>TOOLZORQ Guides — practical guides to the free tools at <a href="https://basr.me/">basr.me</a>. Every tool runs in your browser, with no sign-up.</p>
+</footer>
+</body>
+</html>
